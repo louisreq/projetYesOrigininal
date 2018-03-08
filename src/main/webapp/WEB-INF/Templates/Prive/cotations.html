@@ -44,7 +44,7 @@
 				</tr>
 				<tr th:each="cotation:${list}">
 					<td th:text="${cotation.cotationNom}">Alten</td>
-					<td th:text="${cotation.varjour+'&euro'}">+0.87</td>
+					<td th:text="${cotation.varjour+'&euro;'}">+0.87</td>
 					<td><a th:href="${'acheterCotation?id='+cotation.idCotation}">Acheter</a></td>
 					<td><a th:href="${'vendreCotation?id='+cotation.idCotation}">Vendre</a></td>
 					<td th:text="${cotation.bas+'€'}">823.43</td>
