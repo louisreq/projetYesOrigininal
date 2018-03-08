@@ -3,7 +3,6 @@ package hei.devweb.traderz.servlets;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import sun.net.httpserver.HttpServerImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
