@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Traderz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../Css/general.css" >
+    <link rel="stylesheet" type="text/css" href="../../../Css/pageEntree.css" >
+</head>
+<body>
+<div class="page">
+    <section th:replace="~{fragments ::navBar}">
+    </section>
+
+    <div class="infoAccueil" th:each="user:${useronline}">
+        <h2>Bienvenue <span th:text="${user.identifiant}"></span> </h2>
+        <p>Informations complémentaires utiles à la prise en main du site</p>
+    </div>
+</div>
+</body>
+</html>

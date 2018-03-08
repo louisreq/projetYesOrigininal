@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Menu</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../../Css/general.css">
+	<link rel="stylesheet" type="text/css" href="../../../Css/profil.css">
+</head>
+<body>
+<div class="page">
+	<section th:replace="~{fragments ::navBar}">
+	</section>
+	<div class="profil">
+		<div class="historique">
+			<h2>Historique des transactions</h2>
+			<p>description de l'historique</p>
+
+		</div>
+		<div class="graph">
+			<h2>Graphique d'évolution</h2> 	
+			<p>Graphique d'evolution du portefeuille</p>		
+		</div>
+		<div class="options">
+			<h3><a href="modifications">Modifier les informations personnelles</a></h3>
+			<h3><a href="supprimerUser">Supprimer le compte</a></h3>
+		</div>
+	</div>
+</div>
+</body>
+</html>

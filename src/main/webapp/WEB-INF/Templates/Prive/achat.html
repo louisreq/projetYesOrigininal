@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Traderz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../../Css/general.css" >
+    <link rel="stylesheet" type="text/css" href="../../../Css/achatVente.css" >
+</head>
+<body>
+<div class="page">
+    <section th:replace="~{fragments ::navBar}">
+    </section>
+    <div class ="modif">
+        <h2>Achat de l'action:</h2>
+        <form class="new" method="post">
+            <div class="changement">
+                <p>Prix de l'action :</p>
+                <p th:text="${cotation.prix}">Valeur</p>
+                <p>Volume disponible :</p>
+                <p th:text="${cotation.volume}">Vol dispo</p>
+                <p>Volume souhaité :</p>
+                <input type="number" id="nbAction" name="nbAction" required="required" placeholder="Entrer le volume souhaité"/>
+                <input type="submit" name="volumeAction" value="Valider l'achat">
+            </div>
+        </form>
+    </div>
+    <a href="cotations">retour page Cotation</a>
+</div>
+</body>
+</html>

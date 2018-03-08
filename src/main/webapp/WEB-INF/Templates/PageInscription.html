@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+	<title>Bienvenue sur Traderz</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../Css/general.css">
+	<link rel="stylesheet" type="text/css" href="../../Css/pageInscription.css">
+</head>
+<body>
+	<div class ="page">
+
+		<header>
+			<h1>Bienvenue sur Trader - Premiere plateforme de trading social</h1>
+		</header>
+		<div class ="contenuInscription">
+				<h2>Créer un compte </h2>
+			<div class="inscription">
+			<form class="connexion" method="post" action ="pageInscription">
+				<article  id ="inscription1">
+					<h3>Informations personnelles</h3>
+						<div class ="prenom">
+							<input type="text" id="prenom" name="prenom" required="required" placeholder="Prenom" />
+						</div>
+						<div class ="nom">
+							<input type="text" id="nom" name="nom" required="required" placeholder="Nom" />
+						</div>
+						<div class ="mail">
+							<input type="email" id="mail" name="mail" required="required" placeholder="mail" />
+						</div>
+						<div class ="confirmationmail">
+							<input type="email" id="confirmMail" name="confirmMail" required="required" placeholder="Confirmer le mail" />
+						</div>
+						<div class ="dateNaissance">
+							<label>Date de Naissance :</label>
+							<input type="date" id="dateNaissance" name="dateNaissance" required="required"  />
+						</div>
+						<div class="sexe">
+							<label>Sexe :</label>
+							<input type="radio" name="sexe" value="Masculin" id="Masculin"/>
+							<label for="Masculin">Masculin</label>
+							<input type="radio" name="sexe" value ="Feminin" id="Feminin" />
+							<label for="Feminin">Feminin</label>
+						</div>
+							
+				</article>
+				<article id ="inscription2">
+					<h3>Données de jeu</h3>
+						<div class ="identifiant">
+							<input type="text" id="identifiant" name="identifiant" required="required" placeholder="Identifiant" />
+						</div>
+						<div class ="mdp">
+							<input type="password" id="mdp" name="mdp" required="required" placeholder="Mot de Passe">
+						</div>
+						<div class ="confirmationmdp">
+							<input type="password" id="confirmationMdp" name="confirmationMdp" required="required" placeholder="confimer le Mot de Passe">
+						</div>
+						<div class="bouton">
+							<input type="submit" name="Valider inscription" value="Valider inscription"/>
+						</div>
+						<div class="accueil">
+							<a href="pageAccueil">Deja membre ?</a>
+						</div>
+				</article>
+			</form>
+			</div>	
+		</div>
+	</div>
+</body>
+</html>
+</html>

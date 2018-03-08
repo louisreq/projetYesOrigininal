@@ -1,0 +1,55 @@
+.contenuInscription{
+	margin-top: 50px;
+	border : solid #3F4045;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+#inscription1{
+	float: left;
+	width: 40%;
+	margin-left: 10%;
+}
+
+#inscription2{
+	float: left;
+	width: 40%;
+}
+
+form{
+	
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}	
+
+h2 {
+	text-align: center;
+	font-size:25px;
+}
+
+h3 {
+	margin-bottom: 50px;
+}
+
+.prenom, .nom , .mail , .confirmationmail ,.identifiant, .mdp , .confirmationmdp, .bouton , .accueil{
+	margin: 20px; /*a modifier*/
+}
+
+.dateNaissance, .sexe{
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom: 10px;
+	margin-left:-15px; 
+}
+
+
+#inscription1 , #inscription2 {
+	font-size:20px;
+}
+
+.bouton input{
+	width: 180px;
+	font-size: 17px;
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Menu</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../../Css/general.css">
+	<link rel="stylesheet" type="text/css" href="../../../Css/portefeuille.css">
+</head>
+<body>
+<div class="page">
+	<section th:replace="~{fragments ::navBar}">
+	</section>
+	<div class="portefeuille">
+		<div class="contenu">
+			<table>
+				<tr>
+					<th>Action</th>
+					<th>Entreprise</th>
+					<th>Variation du jour</th>
+					<th>Valeur</th>
+					<th>Quantite</th>
+					<th>Revient</th>
+					<th>Cours</th>
+					<th>Gain(%)</th>
+					<th>Gain(€)</th>
+					<th>Type</th>
+				</tr>
+				<tr th:each="transaction:${transactions}">
+					<td>
+						<form method="post">
+							<input type="hidden" id="collectTransac" name="collectTransac" th:value="${transaction.idTransac}">
+							<input type="submit" name="revente" value="Vendre">
+						</form>
+					</td>
+					<td th:text="${transaction.transacCotationNom}">Entreprise A</td>
+					<td>-0.8%</td>
+					<td th:text="${transaction.transacPrix*transaction.transacVolume}">823.43</td>
+					<td th:text="${transaction.transacVolume}">150</td>
+					<td>prix</td>
+					<td th:text="${transaction.transacPrix}">prix</td>
+					<td>-0.8%</td>
+					<td>-20</td>
+					<td th:text="${transaction.transacSens}">Achat</td>
+					
+				</tr>
+
+			</table>
+		</div>
+		<div class="statsContenu">
+			<table th:each="user:${useronline}">
+				<tr>
+					<th>Valeur Portefeuille (€)</th>
+					<td th:text="${user.liquidites}">Valeur</td>
+				</tr>
+				<tr>
+					<th>Liquidité (€)</th>
+					<td th:text="${user.liquidites}">Valeur</td>
+				</tr>
+			</table>
+	</div>
+</div>
+</body>
+</html>
