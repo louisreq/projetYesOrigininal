@@ -1,8 +1,10 @@
 package hei.devweb.traderz.servlets;
 
 import hei.devweb.traderz.dao.impl.TransactionDaoImpl;
+import hei.devweb.traderz.dao.impl.UserDaoImpl;
 import hei.devweb.traderz.entities.Transaction;
 import hei.devweb.traderz.entities.User;
+import hei.devweb.traderz.managers.TransactionManager;
 import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -28,6 +30,38 @@ public class PortefeuilleServlet extends PrivateServlet {
         context.setVariable("useronline", user );
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
 
+        templateEngine.process("portefeuille", context, resp.getWriter());
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idTransac = req.getParameter("collectTransac");
+
+        Integer idtransaction = Integer.parseInt(idTransac);
+
+        TransactionDaoImpl transactionDao = new TransactionDaoImpl();
+        Transaction transaction = TransactionManager.getInstance().CreateTransacFromId(idtransaction);
+        String userconnected = (String) req.getSession().getAttribute("user");
+        Double liquidite = new UserDaoImpl().CreateLiquidite(userconnected);
+        Double gain = transaction.getGain();
+        Double valeurachat = transaction.getTransacPrix();
+
+        String errorMessage = null;
+
+        try {
+                transactionDao.Revendre(transaction);
+                new UserDaoImpl().Crediter(liquidite, gain, valeurachat, userconnected);
+                resp.sendRedirect("/Prive/portefeuille");
+
+        }catch (Exception e ) {
+            errorMessage = e.getMessage();
+        }
+
+        WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("transaction", transaction);
+
+        context.setVariable("errorMessage", errorMessage);
+        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("portefeuille", context, resp.getWriter());
     }
 }

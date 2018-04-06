@@ -41,6 +41,24 @@ public class CotationDaoImpl implements CotationDao {
         }
         return null;
     }
+    public Double GetCotationPrixById (Integer id){
+
+        String query = "SELECT cotation_prix FROM cotations WHERE cotation_id = ?";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()){
+
+                    return new Double(
+                            resultSet.getDouble("cotation_prix"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public List<Cotation> listCotationAD(){
         List<Cotation> cotations = new ArrayList<>();

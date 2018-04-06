@@ -30,7 +30,8 @@ public class CotationManager {
     public List<Cotation> listCotationMP(){  return cotationDao.listCotationMP();  }
     public List<Cotation> listCotationQT(){  return cotationDao.listCotationQT();  }
     public List<Cotation> listCotationUZ(){  return cotationDao.listCotationUZ();  }
-    public Cotation CreateCotationFromId(Integer id){return cotationDao.CreateCotationFromId(id);}
+    public Cotation CreateCotationFromId(Integer id){return cotationDao.CreateCotationFromId(id); }
+
 
 
 

@@ -22,6 +22,7 @@
                 <p th:text="${cotation.volume}">Vol dispo</p>
                 <p>Volume souhaité :</p>
                 <input type="number" id="nbAction" name="nbAction" required="required" placeholder="Entrer le volume souhaité"/>
+                <input type="hidden" id="volumedispo" name="volumedispo" th:value="${cotation.volume}">
                 <input type="submit" name="volumeAction" value="Valider la vente">
             </div>
         </form>

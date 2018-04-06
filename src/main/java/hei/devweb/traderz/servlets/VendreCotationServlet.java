@@ -14,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/Prive/vendreCotation")
 public class VendreCotationServlet extends PrivateServlet{
@@ -45,7 +44,7 @@ public class VendreCotationServlet extends PrivateServlet{
 
         String errorMessage = null;
         try{
-            if (volumeAction!=0){
+            if (volumeAction>0){
                 transactionDao.Vendre(user, cotation, volumeAction);
                 new UserDaoImpl().Debiter(liquidite, valeur, valeurTransac, userconnected);
                 resp.sendRedirect("/Prive/cotations");
@@ -54,9 +53,8 @@ public class VendreCotationServlet extends PrivateServlet{
             errorMessage = e.getMessage();
         }
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("cotation", cotation);
 
-        List<User> userList = UserManager.getInstance().listuserconnecte(userconnected);
-        context.setVariable("useronline", userList );
         context.setVariable("errorMessage", errorMessage);
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("vente", context, resp.getWriter());

@@ -2,6 +2,7 @@ package hei.devweb.traderz.dao.impl;
 
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.dao.UserDao;
+import hei.devweb.traderz.entities.Transaction;
 import hei.devweb.traderz.entities.User;
 
 
@@ -164,12 +165,23 @@ public class UserDaoImpl implements UserDao{
     }
     public void Debiter (Double liquidite, Double valeur, Double valeurtransac, String pseudo){
 
-        String query = "UPDATE utilisateurs SET user_liquidites = ?, user_valeur = ? WHERE user_pseudo = ?";
+        String query = "UPDATE utilisateurs SET user_liquidites = ? WHERE user_pseudo = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query) ){
             statement.setDouble(1, liquidite-valeurtransac);
-            statement.setDouble(2, valeur+valeurtransac);
-            statement.setString(3, pseudo);
+            statement.setString(2, pseudo);
+            statement.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void Crediter (Double liquidite, Double gain, Double valeurachat, String pseudo){
+
+        String query = "UPDATE utilisateurs SET user_liquidites = ? WHERE user_pseudo = ?";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query) ){
+            statement.setDouble(1, liquidite+gain+valeurachat);
+            statement.setString(2, pseudo);
             statement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
