@@ -4,6 +4,7 @@ import hei.devweb.traderz.dao.CotationDao;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.dao.impl.CotationDaoImpl;
 import hei.devweb.traderz.entities.Cotation;
+import yahoofinance.Stock;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,6 +32,7 @@ public class CotationManager {
     public List<Cotation> listCotationQT(){  return cotationDao.listCotationQT();  }
     public List<Cotation> listCotationUZ(){  return cotationDao.listCotationUZ();  }
     public Cotation CreateCotationFromId(Integer id){return cotationDao.CreateCotationFromId(id); }
+    public void InitCotation(Stock stock){};
 
 
 

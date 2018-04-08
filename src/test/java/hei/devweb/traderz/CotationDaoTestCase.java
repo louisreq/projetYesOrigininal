@@ -7,8 +7,11 @@ import hei.devweb.traderz.entities.Cotation;
 import hei.devweb.traderz.managers.CotationManager;
 import org.junit.Before;
 import org.junit.Test;
+import yahoofinance.YahooFinance;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
@@ -42,5 +45,20 @@ public class CotationDaoTestCase {
         List<Cotation> listCotationAD = cotationDao.listCotationAD();
         assertThat(listCotationAD).hasSize(5);
 
+    }
+
+    @Test
+    public final void shouldInitCotations() throws Exception{
+        cotationDao.InitCotation(YahooFinance.get("FR.PA"));
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()){
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM cotations WHERE cotation_nom ='FR.PA'")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getString("cotation_categorie")).isEqualTo("EUR");
+                assertThat(rs.next()).isFalse();
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

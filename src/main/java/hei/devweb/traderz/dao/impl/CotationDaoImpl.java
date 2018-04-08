@@ -3,11 +3,9 @@ package hei.devweb.traderz.dao.impl;
 import hei.devweb.traderz.dao.CotationDao;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.entities.Cotation;
+import yahoofinance.Stock;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -167,7 +165,7 @@ public class CotationDaoImpl implements CotationDao {
 
     public List<Cotation> listCotationQT(){
         List<Cotation> cotations = new ArrayList<>();
-        String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'Q%' OR cotation_nom LIKE 'R%'OR cotation_nom LIKE'S%' OR cotation_nom LIKE'T'";
+        String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'Q%' OR cotation_nom LIKE 'R%'OR cotation_nom LIKE'S%' OR cotation_nom LIKE'T%'";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             try(ResultSet resultSet = statement.executeQuery()) {
@@ -215,5 +213,54 @@ public class CotationDaoImpl implements CotationDao {
             e.printStackTrace();
         }
         return cotations;
+    }
+
+    /**
+     * Rentre les details d'une action provenant de l'API Yahoo Finance dans la table cotation
+     * @param stock  objet retourné par l'API contenant toutes les informations sur l'action
+     */
+    public void InitCotation (Stock stock){
+        String query = "INSERT INTO `cotations` (`cotation_categorie`,`cotation_nom`,`cotation_prix`,`cotation_haut`,`cotation_bas`,`cotation_varjour`,`cotation_veille`,`cotation_ouverture`,`cotation_volume`)\n" +
+                "VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            statement.setString(1,stock.getCurrency());
+            statement.setString(2,stock.getName());
+            statement.setDouble(3,(stock.getQuote().getPrice()).doubleValue());
+            statement.setDouble(4,(stock.getQuote().getDayHigh()).doubleValue());
+            statement.setDouble(5,(stock.getQuote().getDayLow()).doubleValue());
+            statement.setDouble(6,(stock.getQuote().getChangeInPercent()).doubleValue());
+            statement.setDouble(7,(stock.getQuote().getPreviousClose()).doubleValue());
+            statement.setDouble(8,(stock.getQuote().getOpen()).doubleValue());
+            statement.setInt(9,(stock.getQuote().getVolume().intValue()));
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("Error when getting cotations stats");
+        }
+    }
+
+   /* public void AllCotationsCAC40(){
+        String[] listeCotations = new String[]{"BN.PA","SAN.PA","ORA.PA","ML.PA","OR.PA","CAP.PA","FP.PA","EI.PA","GLE.PA","KER.PA","SGO.PA","EN.PA","LHN.PA","ENGI.PA","FR.PA","SW.PA","ATO.PA","UG.PA","AIR.PA","DG.PA","SU.PA","MC.PA","VIV.PA","AI.PA","BNP.PA","VIE.PA","ACA.PA","CA.PA","AC.PA","LR.PA"};
+        Map<String, Stock> stocks = YahooFinance.get(listeCotations);
+        String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
+        Map<String, Stock> stocks = YahooFinance.get(symbols);
+        for (int i = 0; i < listeCotations.length; i++) { // Boucle qui va récupérer les noms des cotations du tableaux de string symbols
+            String cotation = listeCotations[i];
+            InitCotation(YahooFinance.get("BN.PA"));
+        }
+    }*/
+
+    /**
+     * Supprime les valeurs contenues dans la table cotation
+     */
+    public void CleanCotations (){
+        String query = "DELETE FROM `cotations`";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("Error when deleting table ",e);
+        }
+
     }
 }
