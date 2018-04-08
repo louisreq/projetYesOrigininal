@@ -37,9 +37,9 @@
 					<td th:text="${transaction.transacVolume}">150</td>
 					<td th:text="${transaction.transacPrix}">prix</td>
 					<td th:text="${(transaction.gain/transaction.transacPrix)*100}"></td>
-					<td th:text="${transaction.gain}"></td>
+					<td th:text="${transaction.gain*transaction.transacVolume}"></td>
 					<td th:text="${transaction.transacSens}">Achat</td>
-					
+
 				</tr>
 
 			</table>
