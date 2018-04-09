@@ -163,25 +163,27 @@ public class UserDaoImpl implements UserDao{
         }
         return null;
     }
-    public void Debiter (Double liquidite, Double valeur, Double valeurtransac, String pseudo){
+    public void Debiter (Double liquidite, Double valeurportef, Double valeurtransac, String pseudo){
 
-        String query = "UPDATE utilisateurs SET user_liquidites = ? WHERE user_pseudo = ?";
+        String query = "UPDATE utilisateurs SET user_liquidites = ?, user_valeur = ? WHERE user_pseudo = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query) ){
             statement.setDouble(1, liquidite-valeurtransac);
-            statement.setString(2, pseudo);
+            statement.setDouble(2, valeurportef+valeurtransac);
+            statement.setString(3, pseudo);
             statement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
         }
     }
-    public void Crediter (Double liquidite, Double gain, Double valeurachat, String pseudo){
+    public void Crediter (Double liquidite,Double valeurportef, Double gain, Double valeurachat, String pseudo){
 
-        String query = "UPDATE utilisateurs SET user_liquidites = ? WHERE user_pseudo = ?";
+        String query = "UPDATE utilisateurs SET user_liquidites = ?, user_valeur=? WHERE user_pseudo = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query) ){
             statement.setDouble(1, liquidite+gain+valeurachat);
-            statement.setString(2, pseudo);
+            statement.setDouble(2,valeurportef-gain-valeurachat );
+            statement.setString(3, pseudo);
             statement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();

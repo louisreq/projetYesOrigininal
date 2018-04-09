@@ -44,6 +44,7 @@ public class PortefeuilleServlet extends PrivateServlet {
         Transaction transaction = TransactionManager.getInstance().CreateTransacFromId(idtransaction);
         String userconnected = (String) req.getSession().getAttribute("user");
         Double liquidite = new UserDaoImpl().CreateLiquidite(userconnected);
+        Double valeurportef = new UserDaoImpl().CreateValeur(userconnected);
         Double gain = transaction.getGain();
         Double valeurachat = transaction.getTransacPrix();
 
@@ -53,8 +54,13 @@ public class PortefeuilleServlet extends PrivateServlet {
             if(check2>0) {
 
                 transactionDao.DeleteTransac(idtransaction);
-                transactionDao.Revendre(transaction);
-                new UserDaoImpl().Crediter(liquidite, gain, valeurachat, userconnected);
+                if (transaction.getTransacSens()==false){
+                    transactionDao.Revendre(transaction);
+                }else{
+                    transactionDao.Racheter(transaction);
+                }
+
+                new UserDaoImpl().Crediter(liquidite,valeurportef, gain, valeurachat, userconnected);
                 resp.sendRedirect("/Prive/portefeuille");
             }}catch (Exception e ) {
             errorMessage = e.getMessage();

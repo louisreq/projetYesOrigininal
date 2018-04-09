@@ -13,13 +13,27 @@
 	<div class="profil">
 		<div class="historique">
 			<h2>Historique des transactions</h2>
+			<table>
+				<tr>
+					<th>Entreprise</th>
+					<th>Valeur</th>
+					<th>Gain(%)</th>
+					<th>Gain(€)</th>
+					<th>Type</th>
+				</tr>
+			<tr th:each="transaction:${transactions}">
+
+				<td th:text="${transaction.transacCotationNom}">Entreprise A</td>
+				<td th:text="${transaction.transacPrix*transaction.transacVolume}">823.43</td>
+				<td th:text="${((transaction.gain)/transaction.transacPrix*transaction.transacVolume)*100}"></td>
+				<td th:text="${transaction.gain}"></td>
+				<td th:class="${transaction.transacSens==true} ? 'vente' : 'achat'" th:text="${transaction.transacSens==true} ? 'Vente' : 'Achat'">Achat</td>
+
+			</tr></table>
 			<p>description de l'historique</p>
 
 		</div>
-		<div class="graph">
-			<h2>Graphique d'évolution</h2> 	
-			<p>Graphique d'evolution du portefeuille</p>		
-		</div>
+
 		<div class="options">
 			<h3><a href="modifications">Modifier les informations personnelles</a></h3>
 			<h3><a href="supprimerUser">Supprimer le compte</a></h3>

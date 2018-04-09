@@ -32,11 +32,13 @@ public class TransactionDaoImpl implements TransactionDao {
         }
     }
 
-    public void AcheterHisto (User user, Cotation cotation, Double volume){
-        String query2 = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
-                "VALUE (?, ?, ?, ?, ?, ?, false)";
+    // Ajoute à la BDD une nouvelle transaction dont le sens vaut 1 --> VENDRE
+
+    public void VendreTransac (User user, Cotation cotation, Double volume){
+        String query1 = "INSERT INTO `transactions` (`transac_user_pseudo`,`transac_volume`,`transac_cotation_categorie`,`transac_cotation_id`,`transac_cotation_prix`,`transac_cotation_nom`,`transac_sens`)\n" +
+                "VALUE (?, ?, ?, ?, ?, ?, true)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query2, Statement.RETURN_GENERATED_KEYS)){
+             PreparedStatement statement = connection.prepareStatement(query1, Statement.RETURN_GENERATED_KEYS)){
             statement.setString(1,user.getIdentifiant());
             statement.setDouble(2,volume);
             statement.setString(3,cotation.getCategorie());
@@ -49,9 +51,33 @@ public class TransactionDaoImpl implements TransactionDao {
         }
     }
 
+    /*
+     * Void AcheterHisto: permet de rajouter une transaction dans la table historique
+      *
+      * @param user: utilisateur connecté
+      * @param cotation: Cotation que l'on veut acheter
+      * @param volule : le nombre de cotation acheté
+      * */
+
 
     @Override
     public void Revendre(Transaction transaction) {
+        String query = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
+                "VALUE (?, ?, ?, ?, ?, ?, false)";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            statement.setString(1,transaction.getTransacUserPseudo());
+            statement.setDouble(2,transaction.getTransacVolume());
+            statement.setString(3,transaction.getTransacCotationCategorie());
+            statement.setInt(4,transaction.getTransacCotationId());
+            statement.setDouble(5,transaction.getTransacPrix());
+            statement.setString(6,transaction.getTransacCotationNom());
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("Error when getting user",e);
+        }
+    }
+    public void Racheter(Transaction transaction) {
         String query = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
                 "VALUE (?, ?, ?, ?, ?, ?, true)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
@@ -87,41 +113,8 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
 
-    // Ajoute à la BDD une nouvelle transaction dont le sens vaut 1 --> VENDRE
 
-    public void VendreTransac (User user, Cotation cotation, Double volume){
-        String query1 = "INSERT INTO `transactions` (`transac_user_pseudo`,`transac_volume`,`transac_cotation_categorie`,`transac_cotation_id`,`transac_cotation_prix`,`transac_cotation_nom`,`transac_sens`)\n" +
-                "VALUE (?, ?, ?, ?, ?, ?, true)";
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query1, Statement.RETURN_GENERATED_KEYS)){
-            statement.setString(1,user.getIdentifiant());
-            statement.setDouble(2,volume);
-            statement.setString(3,cotation.getCategorie());
-            statement.setInt(4,cotation.getIdCotation());
-            statement.setDouble(5,cotation.getPrix());
-            statement.setString(6,cotation.getCotationNom());
-            statement.executeUpdate();
-        }catch (SQLException e){
-            throw  new RuntimeException("Error when getting user",e);
-        }
-    }
 
-    public void VendreHisto (User user, Cotation cotation, Double volume){
-        String query2 = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
-                "VALUE (?, ?, ?, ?, ?, ?, true)";
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query2, Statement.RETURN_GENERATED_KEYS)){
-            statement.setString(1,user.getIdentifiant());
-            statement.setDouble(2,volume);
-            statement.setString(3,cotation.getCategorie());
-            statement.setInt(4,cotation.getIdCotation());
-            statement.setDouble(5,cotation.getPrix());
-            statement.setString(6,cotation.getCotationNom());
-            statement.executeUpdate();
-        }catch (SQLException e){
-            throw  new RuntimeException("Error when getting user",e);
-        }
-    }
 
     public List<Transaction> listTransacByUser (String username){
         List<Transaction> transactions= new ArrayList<>();
@@ -175,5 +168,34 @@ public class TransactionDaoImpl implements TransactionDao {
         }
         return null;
     }
+
+
+    public List<Transaction> HistoriqueTransacByUser (String username){
+        List<Transaction> transactions= new ArrayList<>();
+        String query = "SELECT * FROM historiques INNER JOIN cotations ON historiques.histo_cotation_nom=cotations.cotation_nom WHERE histo_user_pseudo = ?";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    transactions.add(new Transaction(
+                            resultSet.getInt("histo_id"),
+                            resultSet.getString("histo_user_pseudo"),
+                            resultSet.getString("histo_cotation_categorie"),
+                            resultSet.getString("histo_cotation_nom"),
+                            resultSet.getInt("histo_cotation_id"),
+                            resultSet.getDouble("histo_cotation_prix"),
+                            resultSet.getDouble("histo_volume"),
+                            resultSet.getBoolean("histo_sens"),
+                            (resultSet.getDouble("cotation_prix")-resultSet.getDouble("histo_cotation_prix"))*resultSet.getDouble("histo_volume")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return transactions;
+    }
+
+
 }
 

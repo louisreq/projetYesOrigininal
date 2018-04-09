@@ -31,7 +31,7 @@ public class AcheterCotationServlet extends PrivateServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        java.text.DecimalFormat df = new java.text.DecimalFormat("0.##"); // Utilisé pour donner un double avec seulement 2 chiffres
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.###"); // Utilisé pour donner un double avec seulement 2 chiffres
         String volume = req.getParameter("nbAction");
         Double volumeAction = Double.parseDouble(volume);
         String userconnected = (String) req.getSession().getAttribute("user");
@@ -50,7 +50,6 @@ public class AcheterCotationServlet extends PrivateServlet{
         try{
              if(volumeAction>0){
                 transactionDao.AcheterTransac(user, cotation, volumeAction);
-                transactionDao.AcheterHisto(user, cotation, volumeAction);
                 new UserDaoImpl().Debiter(liquidite, valeur, valeurTransac, userconnected);
                 resp.sendRedirect("/Prive/cotations");
             }

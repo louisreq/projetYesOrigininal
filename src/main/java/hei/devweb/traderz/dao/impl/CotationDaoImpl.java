@@ -13,6 +13,7 @@ public class CotationDaoImpl implements CotationDao {
 
     //Retourne un objet Cotation à partir de su identifiant
     public Cotation CreateCotationFromId (Integer id){
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.###"); // Utilisé pour donner un double avec seulement 2 chiffres
 
         String query = "SELECT * FROM cotations WHERE cotation_id = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();

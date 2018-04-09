@@ -30,7 +30,7 @@ public class VendreCotationServlet extends PrivateServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        java.text.DecimalFormat df = new java.text.DecimalFormat("0.##"); // Utilisé pour donner un double avec seulement 2 chiffres
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.###"); // Utilisé pour donner un double avec seulement 2 chiffres
         String volume = req.getParameter("nbAction");
         Double volumeAction = Double.parseDouble(volume);
         String userconnected = (String) req.getSession().getAttribute("user");
@@ -41,7 +41,7 @@ public class VendreCotationServlet extends PrivateServlet{
 
         String valeurTransacString = df.format((cotation.getPrix()).doubleValue()*volumeAction); // passe en Double et permet de retourner le prix avec 2 chiffres après la virgule
         String valeurTransacStringValide = valeurTransacString.replaceAll(",","."); // change la virgule en point
-        Double valeur = new UserDaoImpl().CreateValeur(userconnected);
+        Double valeurportef = new UserDaoImpl().CreateValeur(userconnected);
         Double liquidite = new UserDaoImpl().CreateLiquidite(userconnected);
         Double valeurTransac = Double.parseDouble(valeurTransacStringValide);
 
@@ -49,8 +49,7 @@ public class VendreCotationServlet extends PrivateServlet{
         try{
             if (volumeAction>0){
                 transactionDao.VendreTransac(user, cotation, volumeAction);
-                transactionDao.VendreHisto(user, cotation, volumeAction);
-                new UserDaoImpl().Debiter(liquidite, valeur, valeurTransac, userconnected);
+                new UserDaoImpl().Debiter(liquidite, valeurportef, valeurTransac, userconnected);
                 resp.sendRedirect("/Prive/cotations");
             }
         }catch (Exception e ) {

@@ -2,8 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-
 }
 
 .portefeuille .contenu{
@@ -41,4 +39,18 @@
 
 .statsContenu{
 	padding: 20px;
+}
+.vendre{
+	cursor: pointer;
+	color: tomato;<!-- -->
+}
+.racheter{
+	cursor: pointer;
+	color: limegreen;<!-- -->
+}
+.vente{
+	background-color: tomato;
+}
+.achat{
+	background-color: limegreen;
 }
