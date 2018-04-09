@@ -29,6 +29,17 @@ CREATE TABLE `transactions`(
 	`transac_sens` BOOLEAN,
 	PRIMARY KEY (`transac_id`)
 );
+CREATE TABLE `historiques`(
+	`histo_id` int(20) NOT NULL AUTO_INCREMENT,
+	`histo_user_pseudo` VARCHAR(30) NOT NULL ,
+	`histo_volume` DOUBLE NOT NULL ,
+	`histo_cotation_categorie` VARCHAR(30) NOT NULL ,
+	`histo_cotation_id`int(20)NOT NULL ,
+	`histo_cotation_prix` DOUBLE NOT NULL ,
+	`histo_cotation_nom` VARCHAR(30) NOT NULL ,
+	`histo_sens` BOOLEAN,
+	PRIMARY KEY (`histo_id`)
+);
 
 CREATE TABLE `cotations`(
 	`cotation_id`int(20) NOT NULL AUTO_INCREMENT,
@@ -43,6 +54,7 @@ CREATE TABLE `cotations`(
 	`cotation_volume` int(20) NOT NULL,
 	PRIMARY KEY (`cotation_id`)
 );
+
 
 INSERT INTO `utilisateurs` (`user_id`,`user_prenom`,`user_nom`,`user_pseudo`,`user_password`,`user_mail`,`user_date_birth`,`user_sex`,`user_liquidites`,`user_valeur`)
 	VALUE (1,'Tom','Test','TomCat','root' ,'tom@hei.yncrea.fr',20181212,'M',55001,815243228);

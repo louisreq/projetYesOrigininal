@@ -36,7 +36,8 @@ public class PortefeuilleServlet extends PrivateServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idTransac = req.getParameter("collectTransac");
-
+        String check1 = req.getParameter("check");
+        Integer check2 = Integer.parseInt(check1);
         Integer idtransaction = Integer.parseInt(idTransac);
 
         TransactionDaoImpl transactionDao = new TransactionDaoImpl();
@@ -49,11 +50,13 @@ public class PortefeuilleServlet extends PrivateServlet {
         String errorMessage = null;
 
         try {
+            if(check2>0) {
+
+                transactionDao.DeleteTransac(idtransaction);
                 transactionDao.Revendre(transaction);
                 new UserDaoImpl().Crediter(liquidite, gain, valeurachat, userconnected);
                 resp.sendRedirect("/Prive/portefeuille");
-
-        }catch (Exception e ) {
+            }}catch (Exception e ) {
             errorMessage = e.getMessage();
         }
 

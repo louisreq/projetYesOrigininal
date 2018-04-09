@@ -48,7 +48,8 @@ public class VendreCotationServlet extends PrivateServlet{
         String errorMessage = null;
         try{
             if (volumeAction>0){
-                transactionDao.Vendre(user, cotation, volumeAction);
+                transactionDao.VendreTransac(user, cotation, volumeAction);
+                transactionDao.VendreHisto(user, cotation, volumeAction);
                 new UserDaoImpl().Debiter(liquidite, valeur, valeurTransac, userconnected);
                 resp.sendRedirect("/Prive/cotations");
             }

@@ -28,18 +28,19 @@
 					<td>
 						<form method="post">
 							<input type="hidden" id="collectTransac" name="collectTransac" th:value="${transaction.idTransac}">
+							<input type="hidden" id="check" name="check" value="2">
 							<input type="submit" name="revente" value="Vendre">
 						</form>
 					</td>
 					<td th:text="${transaction.transacCotationNom}">Entreprise A</td>
-					<td>-0.8%</td>
+					<td th:text="${transaction.idTransac}"></td>
 					<td th:text="${transaction.transacPrix*transaction.transacVolume}">823.43</td>
 					<td th:text="${transaction.transacVolume}">150</td>
 					<td th:text="${transaction.transacPrix}">prix</td>
 					<td th:text="${(transaction.gain/transaction.transacPrix)*100}"></td>
-					<td th:text="${transaction.gain*transaction.transacVolume}"></td>
+					<td th:text="${transaction.gain}"></td>
 					<td th:text="${transaction.transacSens}">Achat</td>
-
+					
 				</tr>
 
 			</table>
@@ -48,7 +49,7 @@
 			<table th:each="user:${useronline}">
 				<tr>
 					<th>Valeur Portefeuille (€)</th>
-					<td th:text="${user.liquidites}">Valeur</td>
+					<td th:text="${user.valeur}">Valeur</td>
 				</tr>
 				<tr>
 					<th>Liquidité (€)</th>
