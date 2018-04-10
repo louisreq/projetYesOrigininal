@@ -27,8 +27,12 @@
 						<input type="text" id="identifiant" name="identifiant" required="true" />
 						<label for ="mdp" class="formulaire">Mot de passe</label>
 						<input type="password" id="mdp" name="mdp" required="true" >
-					<input type="radio"  name="hyerarchie" value="Administrateur">
-					<input type="radio"  name="hyerarchie" value="Utilisateur">
+					<div class="hiera">
+						<input type="radio"  id="Administrateur" name="hierarchie" value="Administrateur" required="required">
+						<label for="Administrateur">Administrateur</label>
+						<input type="radio" id="User" name="hierarchie" value="Utilisateur">
+						<label for="User">Utilisateur</label>
+					</div>
 					<input type="submit" name="Connexion" value="Connexion"/>
 
 						<div class="inscription">

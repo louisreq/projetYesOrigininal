@@ -15,7 +15,7 @@ CREATE TABLE `utilisateurs`(
 CREATE TABLE `administrateurs`(
 	`admin_id` int(20) NOT NULL AUTO_INCREMENT,
 	`admin_nom` varchar(30) NOT NULL,
-	admin_password varchar(30) NOT NULL ,
+	`admin_password` varchar(30) NOT NULL ,
 	PRIMARY KEY (`admin_id`)
 );
 
@@ -55,14 +55,9 @@ CREATE TABLE `cotations`(
 	`cotation_volume` int(20) NOT NULL,
 	PRIMARY KEY (`cotation_id`)
 );
-CREATE TABLE `administrateurs`(
-	`admin_id` int(20) NOT NULL AUTO_INCREMENT,
-	`admin_nom` varchar(30) NOT NULL,
-	admin_password varchar(30) NOT NULL ,
-	PRIMARY KEY (`admin_id`)
-);
 
-INSERT INTO administrateurs (admin_id, admin_nom, admin_password) VALUE (1, 'Le King', 'theking*');
+
+INSERT INTO `administrateurs` (`admin_id`,`admin_nom`, `admin_password`) VALUE (1, 'Root', 'root');
 
 INSERT INTO `utilisateurs` (`user_id`,`user_prenom`,`user_nom`,`user_pseudo`,`user_password`,`user_mail`,`user_date_birth`,`user_sex`,`user_liquidites`,`user_valeur`)
 	VALUE (1,'Tom','Test','TomCat','root' ,'tom@hei.yncrea.fr',20181212,'M',55001,815243228);

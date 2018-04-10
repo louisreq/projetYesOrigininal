@@ -41,7 +41,7 @@ public class TransactionDaoTestCase {
         }
     }
 
-    @Test
+   /* @Test
     public void shouldcreatacheter () throws Exception{
         //WHEN
         User user = userDao.CreateUserFromPseudo("calimero");
@@ -62,7 +62,7 @@ public class TransactionDaoTestCase {
         }
 
 
-    }
+    }*/
 
 }
 

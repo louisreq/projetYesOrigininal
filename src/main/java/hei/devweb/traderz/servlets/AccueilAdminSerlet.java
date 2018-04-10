@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/Admin/accueilAdmin")
-public class AccueilAdminSerlet extends GenericServlet {
+public class AccueilAdminSerlet extends AdminPrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,6 +25,6 @@ public class AccueilAdminSerlet extends GenericServlet {
         context.setVariable("useronline  ", admin );
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("/Admin/accueilAdmin", context, resp.getWriter());
+        templateEngine.process("accueilAdmin", context, resp.getWriter());
     }
 }

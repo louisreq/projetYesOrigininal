@@ -19,7 +19,7 @@ public class PageAccueilServlet extends GenericServlet {
 
 
         String userconnected = (String) req.getSession().getAttribute("user");
-        String hyerarchie = (String) req.getSession().getAttribute("hyerarchie");
+        String hyerarchie = (String) req.getSession().getAttribute("hierarchie");
 
         if (userconnected == null) { // l'utilisateur n'est pas connecté
             WebContext context = new WebContext(req, resp, req.getServletContext());
@@ -36,7 +36,7 @@ public class PageAccueilServlet extends GenericServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("identifiant");
         String password = req.getParameter("mdp");
-        String hyerarchie = req.getParameter("hyerarchie");
+        String hyerarchie = req.getParameter("hierarchie");
         String errorMessage = null;
         try {if(hyerarchie=="Utilisateur"){
             if (new UserManager().confirmPassword(username, password)){
