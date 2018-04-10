@@ -48,41 +48,6 @@ public class UserManager {
         return newPassword.equals(confirmNewPassword);
     }
 
-//Méthode permettant de verifier qu'un utilisateur a bien été crée
-
-    public  User addUser(User newUser) {
-        if (newUser == null) {
-            throw new IllegalArgumentException("An user must be provided.");
-        }
-        if (newUser.getPrenom() == null || "".equals(newUser.getPrenom())) {
-            throw new IllegalArgumentException("An user must have a firstname.");
-        }
-        if (newUser.getNom() == null || "".equals(newUser.getNom())) {
-            throw new IllegalArgumentException("An user must have a lastname.");
-        }
-        if (newUser.getIdentifiant() == null || "".equals(newUser.getIdentifiant())) {
-            throw new IllegalArgumentException("An user must have a pseudo.");
-        }
-        if (newUser.getMdp() == null || "".equals(newUser.getMdp())) {
-            throw new IllegalArgumentException("An user must have a password.");
-        }
-        if (newUser.getMail() == null || "".equals(newUser.getMail())) {
-            throw new IllegalArgumentException("A user must have a mail.");
-        }
-        if (newUser.getDateNaissance() == null || "".equals(newUser.getDateNaissance())) {
-            throw new IllegalArgumentException("A user must have a date of birth.");
-        }
-        if (newUser.getSexe() == null || "".equals(newUser.getSexe())) {
-            throw new IllegalArgumentException("A user must have a sex.");
-        }
-
-        return userDao.addUser(newUser);
-    }
-
-    public List<User> listuserconnecte(String pseudo) {
-        return userDao.listuserconnecte(pseudo);
-    }
-
     public void supprimerUser(String pseudo) {         userDao.supprimerUser(pseudo);   }
 
     public User CreateUserFromPseudo (String pseudo ){return userDao.CreateUserFromPseudo(pseudo);}

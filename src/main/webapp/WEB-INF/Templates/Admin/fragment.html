@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+</head>
+<body>
+
+<section th:fragment="navBar">
+
+    <header>
+        <h1>Bienvenue sur Trader - Premiere plateforme de trading social</h1>
+        <div class="citation">
+            <p>Richard Nixon</p>
+            <p>"As Moïs, I've opened a WaterGate"</p>
+        </div>
+        <a href="accueil"><img src="../../../IMG/logo.png"></a>
+    </header>
+    <section class="menu">
+        <ul class="liste">
+            <li class="sous-liste"> <a href="accueil"> Accueil </a></li>
+            <li class="sous-liste"> <a href="cotations"> Cotations </a></li>
+            <li class="sous-liste"> <a href="portefeuille"> Portefeuille </a></li>
+            <li class="sous-liste"> <a href="profil"> Profil </a></li>
+            <li class="sous-liste2"> <a href="deconnexion"> Se Déconnecter </a></li>
+        </ul>
+    </section>
+
+</section>
+
+
+
+</body>
+</html>
