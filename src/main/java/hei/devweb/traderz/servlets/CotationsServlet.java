@@ -9,7 +9,6 @@ import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import sun.net.httpserver.HttpServerImpl;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
