@@ -1,5 +1,7 @@
 package hei.devweb.traderz.servlets;
 
+import hei.devweb.traderz.entities.Admin;
+import hei.devweb.traderz.managers.AdminManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -11,19 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/gestionU")
-public class GestionUServlet extends HttpServlet {
+@WebServlet("/Admin/gestionU")
+public class GestionUServlet extends AdminPrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(req.getServletContext());
-        templateResolver.setPrefix("/WEB-INF/Templates/");
-        templateResolver.setSuffix(".html");
+        String userconnected = (String) req.getSession().getAttribute("user");
 
-        WebContext context = new WebContext (req, resp, req.getServletContext());
+        WebContext context = new WebContext(req, resp, req.getServletContext());
 
-        TemplateEngine templateEngine = new TemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver);
+        Admin admin = AdminManager.getInstance().CreateAdminFromName(userconnected);
+        context.setVariable("useronline  ", admin );
+
+        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
 
         templateEngine.process("gestionU", context, resp.getWriter());
     }

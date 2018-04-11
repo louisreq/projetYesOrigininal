@@ -1,6 +1,5 @@
 package hei.devweb.traderz.servlets;
 
-
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;

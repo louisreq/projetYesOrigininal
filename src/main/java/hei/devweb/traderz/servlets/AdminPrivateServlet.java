@@ -7,6 +7,8 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 
+// Servlet permettant la création des pages Admin du site accessible uniquement par un admin connecté
+
 public abstract class AdminPrivateServlet extends HttpServlet{
     protected TemplateEngine createTemplateEngine(ServletContext servletContext){
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);

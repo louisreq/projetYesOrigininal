@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/Admin/accueilAdmin")
-public class AccueilAdminSerlet extends AdminPrivateServlet {
+public class AccueilAdminServlet extends AdminPrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

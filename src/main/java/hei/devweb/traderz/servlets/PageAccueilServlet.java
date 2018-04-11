@@ -26,7 +26,7 @@ public class PageAccueilServlet extends GenericServlet {
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("PageAccueil", context, resp.getWriter());
         }else if (hierarchie.equals("Administrateur")) {
-                resp.sendRedirect("/Admin/accueilAdmin");
+                resp.sendRedirect("/Admin/accueilAdmin"); // l'administrateur est connecté
         } else if (hierarchie.equals("Utilisateur")){
             resp.sendRedirect("/Prive/accueil"); // l'utilisateur est connecté
         }
@@ -54,8 +54,8 @@ public class PageAccueilServlet extends GenericServlet {
                 resp.sendRedirect("/Admin/accueilAdmin");
             }else {
                 errorMessage = "Wrong password!";
+             }
             }
-        }
 
         } catch (Exception e ) {
             errorMessage = e.getMessage();
