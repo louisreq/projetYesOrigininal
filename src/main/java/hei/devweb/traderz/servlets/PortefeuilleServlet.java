@@ -35,6 +35,7 @@ public class PortefeuilleServlet extends PrivateServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.###"); // Utilisé pour donner un double avec seulement 2 chiffres
         String idTransac = req.getParameter("collectTransac");
         String check1 = req.getParameter("check");
         Integer check2 = Integer.parseInt(check1);
@@ -47,6 +48,10 @@ public class PortefeuilleServlet extends PrivateServlet {
         Double valeurportef = new UserDaoImpl().CreateValeur(userconnected);
         Double gain = transaction.getGain();
         Double valeurachat = transaction.getTransacPrix();
+        Double volume = transaction.getTransacVolume();
+        String valeurTransacString = df.format((transaction.getTransacPrix()).doubleValue()*volume); // passe en Double et permet de retourner le prix avec 2 chiffres après la virgule
+        String valeurTransacStringValide = valeurTransacString.replaceAll(",","."); // change la virgule en point
+        Double valeurTransac = Double.parseDouble(valeurTransacStringValide);
 
         String errorMessage = null;
 
@@ -60,7 +65,7 @@ public class PortefeuilleServlet extends PrivateServlet {
                     transactionDao.Racheter(transaction);
                 }
 
-                new UserDaoImpl().Crediter(liquidite,valeurportef, gain, valeurachat, userconnected);
+                new UserDaoImpl().Crediter(liquidite,valeurportef, gain, valeurTransac, userconnected);
                 resp.sendRedirect("/Prive/portefeuille");
             }}catch (Exception e ) {
             errorMessage = e.getMessage();

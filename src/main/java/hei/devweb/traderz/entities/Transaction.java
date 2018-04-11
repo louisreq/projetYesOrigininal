@@ -11,16 +11,6 @@ public class Transaction {
     private Boolean transacSens;
     private Double gain;
 
-    public Transaction(Integer idTransac, String transacUserPseudo, String transacCotationCategorie, String transacCotationNom, Integer transacCotationId, Double transacPrix, Double transacVolume, Boolean transacSens) {
-        this.idTransac = idTransac;
-        this.transacUserPseudo = transacUserPseudo;
-        this.transacCotationCategorie = transacCotationCategorie;
-        this.transacCotationNom = transacCotationNom;
-        this.transacCotationId = transacCotationId;
-        this.transacPrix = transacPrix;
-        this.transacVolume = transacVolume;
-        this.transacSens = transacSens;
-    }
 
     public Transaction(Integer idTransac, String transacUserPseudo, String transacCotationCategorie, String transacCotationNom, Integer transacCotationId, Double transacPrix, Double transacVolume, Boolean transacSens, Double gain) {
         this.idTransac = idTransac;
@@ -32,6 +22,7 @@ public class Transaction {
         this.transacVolume = transacVolume;
         this.transacSens = transacSens;
         this.gain = gain;
+
     }
 
     public Double getGain() {
