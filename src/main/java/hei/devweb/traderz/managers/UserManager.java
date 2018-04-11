@@ -36,6 +36,13 @@ public class UserManager {
         return userDao.getStoredPassword(username).equals(password);
     }
 
+    public boolean userValid (String nomUser){
+        /*if (userDao.UserDontExist(nomUser)){
+            throw new IllegalArgumentException("This username already exist !");
+        }*/
+        return userDao.UserDontExist(nomUser);
+    }
+
 // Methode permettant de verifier que 2 champs sont bien egaux
 
     public boolean verifyNewPassword (String newPassword, String confirmNewPassword){

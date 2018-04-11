@@ -34,6 +34,34 @@ public class UserDaoImpl implements UserDao{
         return password;
     }
 
+    /**Methode qui teste si le pseudo choisit par l'utilisateur existe deja
+     *
+     * @param username ,pseudo entré dans le formulaire
+     * @return booleen  vrai si pseudo existe dans la BDD, faux sinon
+     */
+    public boolean UserDontExist (String username) {
+        boolean test = false;
+        String query = "SELECT COUNT(*) FROM utilisateurs WHERE user_pseudo =?";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                resultSet.next();
+                if (resultSet.getDouble(1)!= 0) {  // retourne le resultat de la valeur en double de la requête et le compare avec 0
+                    {
+                        test = true;
+                    }
+                }
+                statement.close();
+                connection.close();
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return test;
+    }
+
 // Methode permettant de créer un nouvel utilisateur
 
     public User addUser(User newUser){

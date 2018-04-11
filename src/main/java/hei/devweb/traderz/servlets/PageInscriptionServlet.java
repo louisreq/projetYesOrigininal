@@ -44,6 +44,7 @@ public class PageInscriptionServlet extends GenericServlet {
         LocalDate dateNaissance = null;
         double liquidites = 200000;
         double valeur = 0;
+        boolean verifPseudo = false;
 
         try {
             prenom = req.getParameter("prenom");
@@ -57,7 +58,7 @@ public class PageInscriptionServlet extends GenericServlet {
             username = req.getParameter("identifiant");
             password = req.getParameter("mdp");
             confirmPassword = req.getParameter("confirmationMdp");
-
+            verifPseudo = UserManager.getInstance().userValid(username);
 
         } catch (NumberFormatException | DateTimeParseException ignored) {
         }
@@ -66,13 +67,14 @@ public class PageInscriptionServlet extends GenericServlet {
         String errorMessage=null;
         User newUser = new User(idUser,prenom,nom,username,password,mail,dateNaissance,sexe,liquidites,valeur);
         try{
-            if (UserManager.getInstance().verifyNewPassword(password,confirmPassword) & UserManager.getInstance().verifyNewPassword(mail,mailBis)){
-
-                User createdUser= userDao.addUser(newUser);
-                resp.sendRedirect("pageAccueil");
-        } else {
-               errorMessage = "Wrong characters";
-               resp.sendRedirect("pageInscription");
+            if (UserManager.getInstance().verifyNewPassword(password,confirmPassword) & UserManager.getInstance().verifyNewPassword(mail,mailBis) ) {
+                if (verifPseudo == false) {
+                    User createdUser = userDao.addUser(newUser);
+                    resp.sendRedirect("pageAccueil");
+                } else {
+                    errorMessage = "Wrong characters";
+                    resp.sendRedirect("pageInscription");
+                }
             }
         }catch (Exception e ) {
             errorMessage = e.getMessage();
