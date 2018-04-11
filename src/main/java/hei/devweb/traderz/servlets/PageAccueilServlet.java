@@ -19,26 +19,29 @@ public class PageAccueilServlet extends GenericServlet {
 
 
         String userconnected = (String) req.getSession().getAttribute("user");
-        String hyerarchie = (String) req.getSession().getAttribute("hierarchie");
+        String hierarchie = (String) req.getSession().getAttribute("hierarchie");
 
         if (userconnected == null) { // l'utilisateur n'est pas connecté
             WebContext context = new WebContext(req, resp, req.getServletContext());
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("PageAccueil", context, resp.getWriter());
-        }else if(hyerarchie=="Administrateur") {
-            resp.sendRedirect("/Admin/accueilAdmin");
-        }else {
+        }else if (hierarchie.equals("Administrateur")) {
+                resp.sendRedirect("/Admin/accueilAdmin");
+        } else if (hierarchie.equals("Utilisateur")){
             resp.sendRedirect("/Prive/accueil"); // l'utilisateur est connecté
         }
+
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("identifiant");
         String password = req.getParameter("mdp");
-        String hyerarchie = req.getParameter("hierarchie");
+        String hierarchie = req.getParameter("hierarchie");
         String errorMessage = null;
-        try {if(hyerarchie=="Utilisateur"){
+        try {
+            if(hierarchie.equals("Utilisateur")){
             if (new UserManager().confirmPassword(username, password)){
                 req.getSession().setAttribute("user", username);
                 resp.sendRedirect("/Prive/accueil");
