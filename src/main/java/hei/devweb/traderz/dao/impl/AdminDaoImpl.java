@@ -39,7 +39,7 @@ public class AdminDaoImpl implements AdminDao {
 
 
     /**
-     * Création d'un objet admin à partir des information d'un administrateur dans la table administrateurs
+     * Création d'un objet admin à partir des informations d'un administrateur dans la table administrateurs
      * @param name  String contenant le nom de l'admin à créer
      * @return
      */

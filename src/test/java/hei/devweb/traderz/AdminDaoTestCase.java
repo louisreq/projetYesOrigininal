@@ -28,7 +28,7 @@ public class AdminDaoTestCase {
     }
 
     @Test
-    public void shouldGetStoredPassword(){
+    public final void shouldGetStoredPassword(){
 
         String passwordTest = adminDao.getStoredPassword("TestAdmin");
         assertThat(passwordTest).isNotNull();

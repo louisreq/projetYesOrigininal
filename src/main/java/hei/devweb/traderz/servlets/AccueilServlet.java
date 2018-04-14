@@ -23,7 +23,9 @@ public class AccueilServlet extends PrivateServlet {
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
-        User user = UserManager.getInstance().CreateUserFromPseudo(userconnected);
+
+
+        User user = UserManager.getInstance().CreateUserFromPseudo(userconnected); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
         context.setVariable("useronline", user );
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());

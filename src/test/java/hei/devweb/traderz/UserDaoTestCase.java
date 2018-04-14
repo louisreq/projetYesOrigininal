@@ -37,6 +37,27 @@ public class UserDaoTestCase {
  }
 
 
+
+    @Test
+    public final void shouldGetStoredPassword(){
+
+        String passwordTest = userDao.getStoredPassword("test");
+        assertThat(passwordTest).isNotNull();
+        assertThat(passwordTest).isEqualTo("test");
+        //THEN
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getString("user_password")).isEqualTo("test");
+                assertThat(rs.next()).isFalse();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
  @Test
     public final void shouldAddUser() throws Exception{
      //GIVEN
@@ -119,8 +140,10 @@ public class UserDaoTestCase {
          Assertions.assertThat(resultSet.next()).isFalse();
      }
  }
+
+
     @Test
-    public void shouldDebiter() throws Exception{
+    public final void shouldDebiter() throws Exception{
         //GIVEN
         Double valeurtransac = 100.;
         //WHEN
@@ -141,6 +164,23 @@ public class UserDaoTestCase {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public final void shouldUserDontExist(){
+     boolean test = userDao.UserDontExist("jeNexistePas");
+     assertThat(test).isFalse();
+     boolean test2 = userDao.UserDontExist("test");
+     assertThat(test2).isTrue();
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getString("user_pseudo")).isEqualTo("test");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
