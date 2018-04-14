@@ -11,7 +11,13 @@ import java.sql.SQLException;
 
 public class AdminDaoImpl implements AdminDao {
 
-    // Méthode permettant de récupperer le mot de passe corespondant associer à un pseudo
+
+    /**
+     * Méthode permettant de récupperer le mot de passe corespondant associer à un pseudo
+     * @param username , string contenant le pseudo de l'administrateur
+     * @return retourne une string contenant le mot de passe associé à l'admin
+     */
+
     public String getStoredPassword(String username) {
         String password = null;
         String query = "SELECT admin_password FROM administrateurs WHERE admin_nom = ?";
@@ -31,9 +37,15 @@ public class AdminDaoImpl implements AdminDao {
         return password;
     }
 
+
+    /**
+     * Création d'un objet admin à partir des information d'un administrateur dans la table administrateurs
+     * @param name  String contenant le nom de l'admin à créer
+     * @return
+     */
     public Admin CreateAdminFromName (String name ){
 
-        String query = "SELECT * FROM utilisateurs WHERE user_pseudo = ?";
+        String query = "SELECT * FROM administrateurs WHERE admin_nom = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, name);

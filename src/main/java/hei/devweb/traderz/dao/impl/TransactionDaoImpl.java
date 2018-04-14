@@ -114,8 +114,6 @@ public class TransactionDaoImpl implements TransactionDao {
 
 
 
-
-
     public List<Transaction> listTransacByUser (String username){
         List<Transaction> transactions= new ArrayList<>();
         String query = "SELECT * FROM transactions INNER JOIN cotations ON transactions.transac_cotation_nom=cotations.cotation_nom WHERE transac_user_pseudo = ?";
