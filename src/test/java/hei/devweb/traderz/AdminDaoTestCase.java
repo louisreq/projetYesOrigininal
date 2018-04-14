@@ -29,14 +29,16 @@ public class AdminDaoTestCase {
 
     @Test
     public void shouldGetStoredPassword(){
-        String pseudoTest = "TestAdmin";
-        adminDao.getStoredPassword(pseudoTest);
+
+        String passwordTest = adminDao.getStoredPassword("TestAdmin");
+        assertThat(passwordTest).isNotNull();
+        assertThat(passwordTest).isEqualTo("root");
         //THEN
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM administrateurs WHERE admin_pseudo='TestAdmin' ")) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM administrateurs WHERE admin_nom='TestAdmin' ")) {
                 assertThat(rs.next()).isTrue();
-                assertThat(rs.getDouble("admin_password")).isEqualTo(adminDao.getStoredPassword(pseudoTest));
+                assertThat(rs.getString("admin_password")).isEqualTo("root");
                 assertThat(rs.next()).isFalse();
             }
         } catch (SQLException e) {
