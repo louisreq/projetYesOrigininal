@@ -167,6 +167,65 @@ public class UserDaoTestCase {
     }
 
     @Test
+    public final void shouldCrediter() throws Exception{
+        //GIVEN
+        Double valeurAchat = 100.;
+        Double gain = 32000.;
+        //WHEN
+        Double valeurPortefeuille = userDao.CreateValeur("test");
+        Double liquidite = userDao.CreateLiquidite("test");
+        userDao.Crediter(liquidite, valeurPortefeuille,gain, valeurAchat, "test");
+
+        //THEN
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getDouble("user_valeur")).isEqualTo(userDao.CreateValeur("test"));
+                assertThat(rs.getDouble("user_liquidites")).isEqualTo(userDao.CreateLiquidite("test"));
+                assertThat(rs.next()).isFalse();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public final void shouldCreateLiquidites(){
+
+   Double liquidites = userDao.CreateLiquidite("test");
+     assertThat(liquidites).isNotNull();
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getDouble("user_liquidites")).isEqualTo(liquidites);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public final void shouldCreateValeur(){
+
+        Double valeur = userDao.CreateValeur("test");
+        assertThat(valeur).isNotNull();
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+                assertThat(rs.next()).isTrue();
+                assertThat(rs.getDouble("user_valeur")).isEqualTo(valeur);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
     public final void shouldUserDontExist(){
      boolean test = userDao.UserDontExist("jeNexistePas");
      assertThat(test).isFalse();
