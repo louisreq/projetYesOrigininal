@@ -10,18 +10,21 @@ public class Transaction {
     private Double transacVolume;
     private Boolean transacSens;
     private Double gain;
+    private Double variation;
 
-    /**
-     *  Constructeur de l'objet transaction
-     * @param idTransac id de la transaction
-     * @param transacUserPseudo pseudo du user effectuant la transaction
-     * @param transacCotationCategorie categorie de la cotation concernée par la transaction
-     * @param transacCotationNom nom de la cotation
-     * @param transacCotationId id de la cotation
-     * @param transacPrix prix de la cotation
-     * @param transacVolume volume de la cotation
-     * @param transacSens  sens de la transaction (achat ou vente )
-     */
+    public Transaction(Integer idTransac, String transacUserPseudo, String transacCotationCategorie, String transacCotationNom, Integer transacCotationId, Double transacPrix, Double transacVolume, Boolean transacSens, Double gain, Double variation) {
+        this.idTransac = idTransac;
+        this.transacUserPseudo = transacUserPseudo;
+        this.transacCotationCategorie = transacCotationCategorie;
+        this.transacCotationNom = transacCotationNom;
+        this.transacCotationId = transacCotationId;
+        this.transacPrix = transacPrix;
+        this.transacVolume = transacVolume;
+        this.transacSens = transacSens;
+        this.gain = gain;
+        this.variation = variation;
+    }
+
     public Transaction(Integer idTransac, String transacUserPseudo, String transacCotationCategorie, String transacCotationNom, Integer transacCotationId, Double transacPrix, Double transacVolume, Boolean transacSens) {
         this.idTransac = idTransac;
         this.transacUserPseudo = transacUserPseudo;
@@ -116,6 +119,14 @@ public class Transaction {
 
     public void setTransacSens(Boolean transacSens) {
         this.transacSens = transacSens;
+    }
+
+    public Double getVariation() {
+        return variation;
+    }
+
+    public void setVariation(Double variation) {
+        this.variation = variation;
     }
 }
 

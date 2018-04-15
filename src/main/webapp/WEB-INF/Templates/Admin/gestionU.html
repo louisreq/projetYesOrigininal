@@ -15,6 +15,7 @@
 			<h2>Gestion des utilisateurs</h2>
 			<form>
 				<input class="champ" type="text" name="champ" placeholder="Pseudo utilisateur">
+				<input type="hidden" id="check"  name="check" value="1">
 				<button>Rechercher</button>
 			</form>
 		</div>
@@ -25,16 +26,22 @@
 					<th>Nom</th>
 					<th>Prenom</th>
 					<th>Mail</th>
-					<th>Date d'inscription</th>
-					<th>Action</th>
+					<th>Total d'argent</th>
+					<th>Supprimer</th>
 				</tr>
-				<tr>
-					<td>Ben-Drog</td>
-					<td>Drogou</td>
-					<td>Benoit</td>
-					<td>benoit.drogou@hei.yncrea.fr</td>
-					<td>07/01/2018</td>
-					<td><a href="">Supprimer</a></td>
+				<tr th:each="user:${users}">
+					<td th:text="${user.identifiant}">Ben-Drog</td>
+					<td th:text="${user.nom}">Drogou</td>
+					<td th:text="${user.prenom}">Benoit</td>
+					<td th:text="${user.mail}">benoit.drogou@hei.yncrea.fr</td>
+					<td th:text="${#numbers.formatDecimal(user.liquidites+user.valeur,0,2)}"> 10000€</td>
+					<td> <!-- Formulaire pour supprimer un utilisateur-->
+						<form method="post">
+						<input type="hidden" id="userId" name="userId" th:value="${user.idUser}">
+						<input type="hidden" id="try" name="try" value="2">
+						<input type="submit" name="supprimer" value="supprimer">
+						</form>
+					</td>
 					
 				</tr>
 			</table>

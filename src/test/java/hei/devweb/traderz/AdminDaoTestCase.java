@@ -28,6 +28,25 @@ public class AdminDaoTestCase {
     }
 
     @Test
+    public final void shouldDeleteUser(){
+
+        Integer id = 11;
+
+        //THEN
+
+        adminDao.DeleteUser(id);
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             Statement stmt = connection.createStatement()) {
+            try (ResultSet rs = stmt.executeQuery("SELECT user_pseudo FROM utilisateurs WHERE user_id=11")) {
+                assertThat(rs.next()).isFalse();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public final void shouldGetStoredPassword(){
 
         String passwordTest = adminDao.getStoredPassword("TestAdmin");
