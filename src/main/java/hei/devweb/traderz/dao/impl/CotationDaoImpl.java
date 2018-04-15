@@ -11,7 +11,13 @@ import java.util.List;
 
 public class CotationDaoImpl implements CotationDao {
 
-    //Retourne un objet Cotation à partir de su identifiant
+
+
+    /**
+     * Methode retounant un objet cotation à partir de son identifiant
+     * @param id identifiant corespondant dans les tables à un objet cotation
+     * @return etounant un objet cotation
+     */
     public Cotation CreateCotationFromId (Integer id){
         java.text.DecimalFormat df = new java.text.DecimalFormat("0.###"); // Utilisé pour donner un double avec seulement 2 chiffres
 
@@ -40,7 +46,7 @@ public class CotationDaoImpl implements CotationDao {
         }
         return null;
     }
-    public Double GetCotationPrixById (Integer id){
+   /*public Double GetCotationPrixById (Integer id){
 
         String query = "SELECT cotation_prix FROM cotations WHERE cotation_id = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
@@ -58,7 +64,12 @@ public class CotationDaoImpl implements CotationDao {
         }
         return null;
     }
+    */
 
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre A à D
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationAD(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'A%' OR cotation_nom LIKE 'B%' OR cotation_nom LIKE 'C%' OR cotation_nom LIKE 'D%'";
@@ -84,7 +95,10 @@ public class CotationDaoImpl implements CotationDao {
         }
         return cotations;
     }
-
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre E à G
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationEG(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'E%' OR cotation_nom LIKE 'F%' OR  cotation_nom LIKE 'G%'";
@@ -111,7 +125,10 @@ public class CotationDaoImpl implements CotationDao {
         return cotations;
     }
 
-
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre H à L
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationHL(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'H%' OR cotation_nom LIKE 'I%'OR cotation_nom LIKE 'J%' OR cotation_nom LIKE 'K%' OR cotation_nom LIKE 'L%'";
@@ -138,6 +155,10 @@ public class CotationDaoImpl implements CotationDao {
         return cotations;
     }
 
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre M à P
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationMP(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'M%' OR cotation_nom LIKE 'N%'OR cotation_nom LIKE 'O%' OR cotation_nom LIKE 'P%'";
@@ -164,6 +185,10 @@ public class CotationDaoImpl implements CotationDao {
         return cotations;
     }
 
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre Q à T
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationQT(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'Q%' OR cotation_nom LIKE 'R%'OR cotation_nom LIKE'S%' OR cotation_nom LIKE'T%'";
@@ -190,6 +215,10 @@ public class CotationDaoImpl implements CotationDao {
         return cotations;
     }
 
+    /**
+     * Methode listant l'ensemble des cotations dont les noms sont compris entre U à Z
+     * @return une liste d'objet cotation
+     */
     public List<Cotation> listCotationUZ(){
         List<Cotation> cotations = new ArrayList<>();
         String query = "SELECT * FROM cotations WHERE cotation_nom LIKE 'U%' OR cotation_nom LIKE 'V%' OR cotation_nom LIKE 'W%' OR cotation_nom LIKE 'X%' OR cotation_nom LIKE 'Y%' OR cotation_nom LIKE'Z%'";
@@ -240,16 +269,7 @@ public class CotationDaoImpl implements CotationDao {
         }
     }
 
-   /* public void AllCotationsCAC40(){
-        String[] listeCotations = new String[]{"BN.PA","SAN.PA","ORA.PA","ML.PA","OR.PA","CAP.PA","FP.PA","EI.PA","GLE.PA","KER.PA","SGO.PA","EN.PA","LHN.PA","ENGI.PA","FR.PA","SW.PA","ATO.PA","UG.PA","AIR.PA","DG.PA","SU.PA","MC.PA","VIV.PA","AI.PA","BNP.PA","VIE.PA","ACA.PA","CA.PA","AC.PA","LR.PA"};
-        Map<String, Stock> stocks = YahooFinance.get(listeCotations);
-        String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
-        Map<String, Stock> stocks = YahooFinance.get(symbols);
-        for (int i = 0; i < listeCotations.length; i++) { // Boucle qui va récupérer les noms des cotations du tableaux de string symbols
-            String cotation = listeCotations[i];
-            InitCotation(YahooFinance.get("BN.PA"));
-        }
-    }*/
+
 
     /**
      * Supprime les valeurs contenues dans la table cotation

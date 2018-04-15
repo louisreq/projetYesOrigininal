@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 // Filtre de d'authentification d'utilisateurs
-// Un utilisateurs peut ouvrir les pages concernées par le filtre que s'il est connecté
+// Un utilisateur peut ouvrir les pages concernées par le filtre que s'il est connecté
 // Autrement il sera redirigé vers la page d'accueil
+
+
 
 @WebFilter(filterName = "AuthentificationFiltre")
 public class AuthentificationFiltre implements Filter {

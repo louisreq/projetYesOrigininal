@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// Mise en pace du filtre administrateur
+// Un administrateur peut ouvrir les pages concernées par le filtre que s'il est connecté
+// Autrement il sera redirigé vers la page d'accueil
 @WebFilter(filterName = "AdminFiltre")
 
 public class AdminFiltre implements Filter {
@@ -25,7 +28,7 @@ public class AdminFiltre implements Filter {
         String identifiant = (String) httpRequest.getSession().getAttribute("user");
         if (identifiant == null || "".equals(identifiant)){
             HttpServletResponse httpResponse = (HttpServletResponse) resp;
-            httpResponse.sendRedirect("../accueilAdmin ");
+            httpResponse.sendRedirect("../pageAccueil ");
             return;
         }
         chain.doFilter(req, resp);

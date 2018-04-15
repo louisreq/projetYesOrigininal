@@ -133,7 +133,11 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
 
-
+    /**
+     * Methode creant une liste d'objets transaction en fonction du pseudo d'un utilisateur
+     * @param username String contenant le pseudo d'un utilisateur
+     * @return retourne la liste d'objets transaction
+     */
     public List<Transaction> listTransacByUser (String username){
         List<Transaction> transactions= new ArrayList<>();
         String query = "SELECT * FROM transactions INNER JOIN cotations ON transactions.transac_cotation_nom=cotations.cotation_nom WHERE transac_user_pseudo = ?";
@@ -160,7 +164,11 @@ public class TransactionDaoImpl implements TransactionDao {
         return transactions;
     }
 
-
+    /**
+     * Metgode recuperant les informations liées à une transaction dans la table transactions grâce à son id
+     * @param id Integer contenant l'identifiant de la transaction que l'on souhaite obtenir
+     * @return retourne un objet Transaction
+     */
     public Transaction CreateTransacFromId (Integer id) {
         String query = "SELECT * FROM transactions INNER JOIN cotations ON transactions.transac_cotation_nom=cotations.cotation_nom WHERE transac_id = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
@@ -187,7 +195,11 @@ public class TransactionDaoImpl implements TransactionDao {
         return null;
     }
 
-
+    /**
+     * Retourne une liste d'objets transaction contenant les informations des transactions cloturées
+     * @param username String contenant le pseudo de l'utilisateur
+     * @return retourne une liste d'objets transaction
+     */
     public List<Transaction> HistoriqueTransacByUser (String username){
         List<Transaction> transactions= new ArrayList<>();
         String query = "SELECT * FROM historiques INNER JOIN cotations ON historiques.histo_cotation_nom=cotations.cotation_nom WHERE histo_user_pseudo = ?";

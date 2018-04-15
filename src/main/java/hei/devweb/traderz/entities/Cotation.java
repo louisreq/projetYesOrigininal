@@ -12,6 +12,19 @@ public class Cotation {
     private Double ouverture;
     private int volume;
 
+    /**
+     * Constructeur de l'objet cotation
+     * @param idCotation id de la cotation
+     * @param cotationNom nom de la cotation
+     * @param categorie categorie de la cotation
+     * @param prix prix de la cotation
+     * @param haut de la cotation
+     * @param bas de la cotation
+     * @param varjour de la cotation
+     * @param veille de la cotation
+     * @param ouverture de la cotation
+     * @param volume de la cotation
+     */
     public Cotation(Integer idCotation, String cotationNom, String categorie, Double prix, Double haut, Double bas, Double varjour, Double veille, Double ouverture, int volume) {
         this.idCotation = idCotation;
         this.cotationNom = cotationNom;

@@ -17,6 +17,19 @@ public class User {
 
 //  Constructeur de l'objet User
 
+    /**
+     * Constructeur de l'ojet User
+     * @param idUser id du user
+     * @param prenom du user
+     * @param nom du user
+     * @param identifiant du user
+     * @param mdp du user
+     * @param mail du user
+     * @param dateNaissance du user
+     * @param sexe du user
+     * @param liquidites du user
+     * @param valeur du user
+     */
     public User(Integer idUser, String prenom, String nom, String identifiant, String mdp,String mail, LocalDate dateNaissance, String sexe,double liquidites, double valeur){
         this.idUser=idUser;
         this.prenom=prenom;

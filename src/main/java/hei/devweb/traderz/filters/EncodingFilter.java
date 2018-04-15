@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-
+//Filtre d'encodage
 @WebFilter(filterName = "EncodingFilter")
 public class EncodingFilter implements Filter {
     public void destroy() {

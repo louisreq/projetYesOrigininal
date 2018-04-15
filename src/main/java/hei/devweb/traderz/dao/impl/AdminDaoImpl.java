@@ -1,6 +1,5 @@
 package hei.devweb.traderz.dao.impl;
 
-import hei.devweb.traderz.dao.AdminDao;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.entities.Admin;
 
@@ -9,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminDaoImpl implements AdminDao {
+public class AdminDaoImpl {
 
 
     /**

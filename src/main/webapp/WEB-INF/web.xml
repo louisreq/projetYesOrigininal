@@ -18,6 +18,18 @@
         <url-pattern>/Prive/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>AdminFiltre</filter-name>
+        <filter-class>hei.devweb.traderz.filters.AdminFiltre</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>AdminFiltre</filter-name>
+        <url-pattern>/Admin/*</url-pattern>
+    </filter-mapping>
+
+
 
     <filter>
         <filter-name>EncodingFilter</filter-name>

@@ -127,7 +127,7 @@ public class TransactionDaoTestCase {
         Cotation cotation = cotationDao.CreateCotationFromId(1);
         Double volume = 3000.;
         transactionDao.AcheterTransac(user,cotation,volume);
-        transactionDao.DeleteTransac(20); // depend de l'indice crée dans la BDD (due à l'auto incrémentation , regarde le numero de l'indice dans la bdd et rentre l'indice+1  avant de lancer la testcase
+        transactionDao.DeleteTransac(21); // depend de l'indice crée dans la BDD (due à l'auto incrémentation , regarde le numero de l'indice dans la bdd et rentre l'indice+1  avant de lancer la testcase
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              Statement stmt = connection.createStatement()) {
             try (ResultSet rs = stmt.executeQuery("SELECT * FROM transactions WHERE transac_user_pseudo='calimero' ")) {

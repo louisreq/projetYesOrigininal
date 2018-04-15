@@ -30,7 +30,7 @@ public class CotationsServlet extends PrivateServlet {
         CotationDaoImpl cotationDao = new CotationDaoImpl();
         cotationDao.CleanCotations();
         String symbols[] = new String[]{"BN.PA","SAN.PA","ORA.PA","OR.PA","CAP.PA","FP.PA","KER.PA","SGO.PA","EN.PA","LHN.PA","ENGI.PA","FR.PA","SW.PA","ATO.PA","UG.PA","AIR.PA","DG.PA","SU.PA","VIV.PA","AI.PA","BNP.PA","VIE.PA","ACA.PA","CA.PA","AC.PA","LR.PA"};
-// ML.PA  "GLE.PA" "EI.PA" MC.PA"}
+// ML.PA  "GLE.PA" "EI.PA" MC.PA"} cotations de Yahoo finance ayant des problèmes lors du traitement (problèmes non résolu pour l'instant)
         for (int i = 0; i < symbols.length; i++) { // Boucle qui va récupérer les noms des cotations du tableaux de string symbols
             cotationDao.InitCotation(YahooFinance.get(symbols[i]));
         }
