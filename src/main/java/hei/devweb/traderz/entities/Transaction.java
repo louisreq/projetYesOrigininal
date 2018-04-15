@@ -24,7 +24,17 @@ public class Transaction {
         this.gain = gain;
         this.variation = variation;
     }
-
+/**
+     *  Constructeur de l'objet transaction
+     * @param idTransac id de la transaction
+     * @param transacUserPseudo pseudo du user effectuant la transaction
+     * @param transacCotationCategorie categorie de la cotation concernée par la transaction
+     * @param transacCotationNom nom de la cotation
+     * @param transacCotationId id de la cotation
+     * @param transacPrix prix de la cotation
+     * @param transacVolume volume de la cotation
+     * @param transacSens  sens de la transaction (achat ou vente )
+     */
     public Transaction(Integer idTransac, String transacUserPseudo, String transacCotationCategorie, String transacCotationNom, Integer transacCotationId, Double transacPrix, Double transacVolume, Boolean transacSens) {
         this.idTransac = idTransac;
         this.transacUserPseudo = transacUserPseudo;
