@@ -36,37 +36,5 @@ public class GestionUServlet extends AdminPrivateServlet {
         templateEngine.process("gestionU", context, resp.getWriter());
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userid = req.getParameter("userId");
-        Integer IdUser = Integer.parseInt(userid);
-        String userletters = req.getParameter("champ");
-
-        String check1 =  req.getParameter("check");
-        Integer check2 = Integer.parseInt(check1);
-
-        String try1 = req.getParameter("try");
-        Integer try2 = Integer.parseInt(try1);
-        String errorMessage = null;
-
-        AdminDaoImpl admindao = new AdminDaoImpl();
-        try {
-            if(try2>0) {
-                    admindao.DeleteUser(IdUser);
-                    resp.sendRedirect("/Admin/gestionU");
-            }
-            if (check2>0){
-                    WebContext context = new WebContext(req, resp, req.getServletContext());
-                    context.setVariable("usersByLetters", userletters);
-                    resp.sendRedirect("/Admin/gestionU");
-            }
-        }catch (Exception e ) {
-            errorMessage = e.getMessage();
-        }
-        WebContext context = new WebContext(req, resp, req.getServletContext());
-        context.setVariable("errorMessage", errorMessage);
-        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("gestionU", context, resp.getWriter());
-    }
 }
 
