@@ -13,7 +13,12 @@ import java.util.List;
 
 public class TransactionDaoImpl implements TransactionDao {
 
-
+    /**
+     * Ajoute à la BDD une nouvelle transaction dont le sens vaut 0 --> ACHETER
+     * @param user objet utilisateur qui contient les infos de l'utilisateur qui réalise l'achat
+     * @param cotation objet cotation contenant les informations relative à la cotation
+     * @param volume double contenant le volume de cotation voulus
+     */
     // Ajoute à la BDD une nouvelle transaction dont le sens vaut 0 --> ACHETER
     public void AcheterTransac (User user, Cotation cotation, Double volume){
         String query1 = "INSERT INTO `transactions` (`transac_user_pseudo`,`transac_volume`,`transac_cotation_categorie`,`transac_cotation_id`,`transac_cotation_prix`,`transac_cotation_nom`,`transac_sens`)\n" +
@@ -32,8 +37,14 @@ public class TransactionDaoImpl implements TransactionDao {
         }
     }
 
-    // Ajoute à la BDD une nouvelle transaction dont le sens vaut 1 --> VENDRE
 
+
+    /**
+     * Ajoute à la BDD une nouvelle transaction dont le sens vaut 1 --> VENDRE
+     * @param user objet utilisateur qui contient les infos de l'utilisateur qui réalise la vente
+     * @param cotation objet cotation contenant les informations relative à la cotation
+     * @param volume double contenant le volume de cotation voulus
+     */
     public void VendreTransac (User user, Cotation cotation, Double volume){
         String query1 = "INSERT INTO `transactions` (`transac_user_pseudo`,`transac_volume`,`transac_cotation_categorie`,`transac_cotation_id`,`transac_cotation_prix`,`transac_cotation_nom`,`transac_sens`)\n" +
                 "VALUE (?, ?, ?, ?, ?, ?, true)";
@@ -57,9 +68,14 @@ public class TransactionDaoImpl implements TransactionDao {
       * @param user: utilisateur connecté
       * @param cotation: Cotation que l'on veut acheter
       * @param volule : le nombre de cotation acheté
-      * */
+      *
+     */
 
 
+    /**
+     * Ajout d'une transaction dans la table historique lorsque cette dernière est cloturée
+     * @param transaction objet transaction contenant les informations de la transaction cloturée
+     */
     @Override
     public void Revendre(Transaction transaction) {
         String query = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
@@ -77,6 +93,11 @@ public class TransactionDaoImpl implements TransactionDao {
             throw  new RuntimeException("Error when getting user",e);
         }
     }
+
+    /**
+     * Ajout d'une transaction dans la table historique lorsque cette dernière est cloturée
+     * @param transaction objet transaction contenant les informations de la transaction cloturée
+     */
     public void Racheter(Transaction transaction) {
         String query = "INSERT INTO `historiques` (`histo_user_pseudo`,`histo_volume`,`histo_cotation_categorie`,`histo_cotation_id`,`histo_cotation_prix`,`histo_cotation_nom`,`histo_sens`)\n" +
                 "VALUE (?, ?, ?, ?, ?, ?, true)";
@@ -95,12 +116,11 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     /*
-   *Delete Trasac, Fonction qui permet de retirer une transaction de la table 'transactions' qand on renseigne son id
+   *Methode qui permet de retirer une transaction de la table 'transactions' qand on renseigne son id
    *
    * @param idTransac : Identifiant de la transaction à supprimer (il est récuperer grâce à un formulaire hidden)
    *
      */
-
     public void DeleteTransac (Integer idTransac){
         String query = "DELETE FROM transactions WHERE transac_id = ?";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
