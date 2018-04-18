@@ -156,7 +156,7 @@ public class TransactionDaoImpl implements TransactionDao {
                             resultSet.getDouble("transac_volume"),
                             resultSet.getBoolean("transac_sens"),
                             (resultSet.getDouble("cotation_prix")-resultSet.getDouble("transac_cotation_prix"))*resultSet.getDouble("transac_volume"),
-                            resultset.getDouble("cotation-varjour")));
+                            resultSet.getDouble("cotation_varjour")));
                 }
             }
         } catch (SQLException e) {

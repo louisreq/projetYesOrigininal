@@ -103,7 +103,7 @@ public class AdminDaoImpl implements AdminDao {
         }catch (SQLException e){
             throw  new RuntimeException("Error when getting user",e);
         }
-}
+    }
 
     public List<User> ListOfUserByName (String lettres){
         List<User> users= new ArrayList<>();
