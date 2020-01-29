@@ -30,26 +30,26 @@ public class UserDaoTestCase {
  public void initDb() throws Exception {
      try (Connection connection = DataSourceProvider.getDataSource().getConnection();
           Statement stmt = connection.createStatement()) {
-            stmt.executeUpdate("DELETE FROM utilisateurs");
-            stmt.executeUpdate("INSERT INTO `utilisateurs` (`user_id`,`user_prenom`,`user_nom`,`user_pseudo`,`user_password`,`user_mail`,`user_date_birth`,`user_sex`,`user_liquidites`,`user_valeur`)"+
-                    "VALUES (1,'test','test','test','test','test@test.fr','1994-10-28','Masculin',200000,0)");
+            stmt.executeUpdate("DELETE FROM personne");
+            stmt.executeUpdate("INSERT INTO `personne` (`id`,`nom_personne`,`prenom_personne`,`email`,`sexe`,`mot_passe`,`role`)"+
+                    "VALUES (1, 'Hassam', 'Kahina', 'kahina@gmail.com', 'Féminin', 'test', 'admin')," +
+                    "(2, 'Younsi', 'Zohir', 'zohir@indeed.fr', 'masculin', 'mdp', 'admin')");
      }
  }
-
 
 
     @Test
     public final void shouldGetStoredPassword(){
 
-        String passwordTest = userDao.getStoredPassword("test");
+        String passwordTest = userDao.getStoredPassword("kahina@gmail.com");
         assertThat(passwordTest).isNotNull();
         assertThat(passwordTest).isEqualTo("test");
         //THEN
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM personne WHERE email='kahina@gmail.com' ")) {
                 assertThat(rs.next()).isTrue();
-                assertThat(rs.getString("user_password")).isEqualTo("test");
+                assertThat(rs.getString("mot_passe")).isEqualTo("test");
                 assertThat(rs.next()).isFalse();
             }
         } catch (SQLException e) {
@@ -61,186 +61,38 @@ public class UserDaoTestCase {
  @Test
     public final void shouldAddUser() throws Exception{
      //GIVEN
-     User user = new User(null,"test1","test2","test3","test4","test@test.fr", LocalDate.of(1994,10,28),"Masculin",200000,0);
+     User user = new User(null,"Réquiqui","Louis","req@gmail.com","Masculin","root", "Etudiant");
      //WHEN
      User createdUser = userDao.addUser(user);
      //THEN
      assertThat(createdUser).isNotNull();
      assertThat(createdUser.getIdUser()).isNotNull();
      assertThat(createdUser.getIdUser()).isGreaterThan(0);
-     assertThat(createdUser.getPrenom()).isEqualTo("test1");
-     assertThat(createdUser.getNom()).isEqualTo("test2");
-     assertThat(createdUser.getIdentifiant()).isEqualTo("test3");
-     assertThat(createdUser.getMdp()).isEqualTo("test4");
-     assertThat(createdUser.getMail()).isEqualTo("test@test.fr");
-     assertThat(createdUser.getDateNaissance()).isEqualTo(LocalDate.of(1994,10,28));
+     assertThat(createdUser.getNom()).isEqualTo("Réquiqui");
+     assertThat(createdUser.getPrenom()).isEqualTo("Louis");
+     assertThat(createdUser.getMail()).isEqualTo("req@gmail.com");
      assertThat(createdUser.getSexe()).isEqualTo("Masculin");
-     assertThat(createdUser.getLiquidites()).isEqualTo(200000);
-     assertThat(createdUser.getValeur()).isEqualTo(0);
+     assertThat(createdUser.getMdp()).isEqualTo("root");
+     assertThat(createdUser.getRole()).isEqualTo("Etudiant");
+
+
      try (Connection connection = DataSourceProvider.getDataSource().getConnection();
           Statement stmt = connection.createStatement()) {
-         try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo = 'test3'")) {
+         try (ResultSet rs = stmt.executeQuery("SELECT * FROM personne WHERE email = 'req@gmail.com'")) {
              assertThat(rs.next()).isTrue();
-             assertThat(rs.getInt("user_id")).isEqualTo(createdUser.getIdUser());
-             assertThat(rs.getString("user_prenom")).isEqualTo("test1");
-             assertThat(rs.getString("user_nom")).isEqualTo("test2");
-             assertThat(rs.getString("user_pseudo")).isEqualTo("test3");
-             assertThat(rs.getString("user_password")).isEqualTo("test4");
-             assertThat(rs.getString("user_mail")).isEqualTo("test@test.fr");
-             assertThat(rs.getDate("user_date_birth").toLocalDate()).isEqualTo(LocalDate.of(1994,10,28));
-             assertThat(rs.getString("user_sex")).isEqualTo("Masculin");
-             assertThat(rs.getInt("user_liquidites")).isEqualTo(200000);
-             assertThat(rs.getInt("user_valeur")).isEqualTo(0);
+             assertThat(rs.getInt("id")).isEqualTo(createdUser.getIdUser());
+             assertThat(rs.getString("nom_personne")).isEqualTo("Réquiqui");
+             assertThat(rs.getString("prenom_personne")).isEqualTo("Louis");
+             assertThat(rs.getString("email")).isEqualTo("req@gmail.com");
+             assertThat(rs.getString("sexe")).isEqualTo("Masculin");
+             assertThat(rs.getString("mot_passe")).isEqualTo("root");
+             assertThat(rs.getString("role")).isEqualTo("Etudiant");
              assertThat(rs.next()).isFalse();
          }
      }
  }
 
-    @Test
-    public final void shouldListUserConnecte() throws Exception{
-        String userPseudo = "test";
-        List<User> listOfUser = userDao.listuserconnecte(userPseudo);
-        assertThat(listOfUser).hasSize(1);
-        assertThat(listOfUser).extracting("idUser","prenom","nom","identifiant","mdp","mail","dateNaissance","sexe","liquidites","valeur").containsOnly(
-                tuple(1,"test","test","test","test","test@test.fr",LocalDate.of(1994,10,28),"Masculin",200000.0,0.0)
-        );
-    }
 
-    @Test
-    public final void shouldModifyPassword() throws Exception {
-        userDao.modifyPassword("mdp", "test");
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement statement = connection.createStatement() ){
-            try (ResultSet rs = statement.executeQuery("SELECT* FROM utilisateurs WHERE user_pseudo='test';")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getString("user_password")).isEqualTo("mdp");
-            }
-        }
-    }
-
-    @Test
-    public final void shouldModifyMail() throws Exception {
-        userDao.modifyMail("success@test.fr", "test");
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement statement = connection.createStatement() ){
-            try (ResultSet rs = statement.executeQuery("SELECT* FROM utilisateurs WHERE user_pseudo='test';")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getString("user_mail")).isEqualTo("success@test.fr");
-            }
-        }
-    }
-
- @Test
-    public final void shouldSupprimerUser() throws Exception{
-
-     userDao.supprimerUser("test");
-     try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-          Statement statement = connection.createStatement();
-          ResultSet resultSet = statement.executeQuery("SELECT* FROM utilisateurs WHERE user_pseudo='test';")) {
-         Assertions.assertThat(resultSet.next()).isFalse();
-     }
- }
-
-
-    @Test
-    public final void shouldDebiter() throws Exception{
-        //GIVEN
-        Double valeurtransac = 100.;
-        //WHEN
-        Double valeur = userDao.CreateValeur("test");
-        Double liquidite = userDao.CreateLiquidite("test");
-        userDao.Debiter(liquidite, valeur, valeurtransac, "test");
-
-        //THEN
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getDouble("user_valeur")).isEqualTo(100.);
-                assertThat(rs.getDouble("user_liquidites")).isEqualTo(199900);
-                assertThat(rs.next()).isFalse();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
-    public final void shouldCrediter() throws Exception{
-        //GIVEN
-        Double valeurAchat = 100.;
-        Double gain = 32000.;
-        //WHEN
-        Double valeurPortefeuille = userDao.CreateValeur("test");
-        Double liquidite = userDao.CreateLiquidite("test");
-        userDao.Crediter(liquidite, valeurPortefeuille,gain, valeurAchat, "test");
-
-        //THEN
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getDouble("user_valeur")).isEqualTo(userDao.CreateValeur("test"));
-                assertThat(rs.getDouble("user_liquidites")).isEqualTo(userDao.CreateLiquidite("test"));
-                assertThat(rs.next()).isFalse();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
-    public final void shouldCreateLiquidites(){
-
-   Double liquidites = userDao.CreateLiquidite("test");
-     assertThat(liquidites).isNotNull();
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getDouble("user_liquidites")).isEqualTo(liquidites);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
-    public final void shouldCreateValeur(){
-
-        Double valeur = userDao.CreateValeur("test");
-        assertThat(valeur).isNotNull();
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getDouble("user_valeur")).isEqualTo(valeur);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Test
-    public final void shouldUserDontExist(){
-     boolean test = userDao.UserDontExist("jeNexistePas");
-     assertThat(test).isFalse();
-     boolean test2 = userDao.UserDontExist("test");
-     assertThat(test2).isTrue();
-        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-             Statement stmt = connection.createStatement()) {
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM utilisateurs WHERE user_pseudo='test' ")) {
-                assertThat(rs.next()).isTrue();
-                assertThat(rs.getString("user_pseudo")).isEqualTo("test");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 } 

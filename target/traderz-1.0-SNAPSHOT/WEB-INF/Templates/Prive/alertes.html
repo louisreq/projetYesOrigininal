@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css_for_all.css">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../../../IMG/logo3.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Salle">A propos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Alertes">Alertes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Favoris">Favoris</a>
+                    </li>
+                    <a href="Deconnexion"> <li> <button type="button" class="btn btn-danger btn-block">Se déconnecter</button> </li> </a>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <title>YIAQ</title>
+</head>
+<body>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <section class="col-md-10 col-md-offset-3">
+            <h1 class="mt-4">Yncréa Intelligence Indoor Air Quality</h1>
+            <p></p>
+            <h2 class="mt-4"> Alertes </h2>
+            <blockquote class="blockquote">
+                <p>
+                    Vous pouvez nous envoyer une alerte si vous le desirez grace au formulaire ci-dessous: Si vous rencontrez un problème quant à la qualité de l'air, la temperature ou autre.
+                </p>
+
+            </blockquote>
+        </section>
+
+
+    </div>
+
+    <!-- remplissez le formulaire -->
+
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Créer une alerte</legend>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <div class="col-md-4">
+
+                        <p> Salle de classe </p>
+                        <select id="selectbasic" name="selectbasic" class="form-control">
+                            <option value="1">HEI-T101</option>
+                            <option value="2">HEI-T102</option>
+                            <option value="3">HEI-T103</option>
+                            <option value="4">ISA-T103</option>
+                            <option value="5">ISA-T103</option>
+                            <option value="6">ISEN-T103</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Objet de l'alerte">Objet de l'alerte</label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" id="Objet de l'alerte" name="Objet de l'alerte">Commentaire</textarea>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for=""></label>
+                    <div class="col-md-4">
+                        <button id="" name="" class="btn btn-primary">Envoyer</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+</div>
+</body>
+</html>

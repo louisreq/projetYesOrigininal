@@ -16,7 +16,7 @@ import java.io.IOException;
 
 
 
-@WebFilter(filterName = "AuthentificationFiltre")
+@WebFilter(filterName = "AuthentificationFiltre", urlPatterns="/Prive/*")
 public class AuthentificationFiltre implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -26,12 +26,13 @@ public class AuthentificationFiltre implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) req;
-        String identifiant = (String) httpRequest.getSession().getAttribute("user");
-        if (identifiant == null || "".equals(identifiant)){
+        String user_connected_email = (String) httpRequest.getSession().getAttribute("user_connected_email");
+        if (user_connected_email == null || "".equals(user_connected_email)){
             HttpServletResponse httpResponse = (HttpServletResponse) resp;
-            httpResponse.sendRedirect("../pageAccueil");
+            httpResponse.sendRedirect("/PageConnexion");
             return;
         }
+        System.out.println("I have been authentificated");
         chain.doFilter(req, resp);
     }
 

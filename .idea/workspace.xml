@@ -1,234 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="traderz:war" />
+      <artifact name="traderz:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f9f279b-9e75-4cb8-9037-15c437c6c4f7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/traderz_war.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/traderz_war_exploded.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_yahoofinance_api_YahooFinanceAPI_3_12_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_12.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ognl_ognl_3_1_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_8_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_0_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_21.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_0_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_1_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_3_RELEASE.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/traderz.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CotationDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CotationDaoImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AcheterCotationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AcheterCotationServlet.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/VendreCotationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/VendreCotationServlet.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java" afterPath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java" />
+    <list default="true" id="0e4e83fb-0a6d-408b-89fc-a7a7684fb6b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/CampusDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/SalleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CampusDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/SalleDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Campus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Salle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CampusManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/SalleManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/FavoriServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageConnexionServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/SalleServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/sql/populate_personne.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/sql/queries.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Css/connexion_page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Css/test.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageConnexion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/alertes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/favoris.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/salle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/test.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/traderz_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/traderz_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_yahoofinance_api_YahooFinanceAPI_3_12_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ognl_ognl_3_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_0_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_0_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_1_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_3_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/AdminDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/CotationDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/DataSourceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/DataSourceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/TransactionDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/AdminDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CotationDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/TransactionDaoImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Cotation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/filters/AdminFiltre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/filters/AuthentificationFiltre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/filters/AuthentificationFiltre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/AdminManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/TransactionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AccueilAdminServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AccueilServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AcheterCotationServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AdminPrivateServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsEGServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsHLServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsMPServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsQTServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CotationsUZServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/DeconnexionAdminServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/DeconnexionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/DeconnexionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/FragmentsServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/GestionUServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/ModifMailServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/ModifPasswordServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/ModificationServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageAccueilServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageInscriptionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageInscriptionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PortefeuilleServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/ProfilServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/SupprimerUserServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/VendreCotationServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/creationTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/creationTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/accueilAdmin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/achatVente.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/cotations.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/general.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/gestionU.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/modif.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/modifications.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/pageAccueil.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/pageEntree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/pageInscription.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/portefeuille.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Css/profil.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/IMG/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/IMG/visage_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/accueilAdmin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/fragment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/gestionU.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageAccueil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageInscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageInscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Accueil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/achat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/cotations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/modifications.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/modifmail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/modifpassword.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/portefeuille.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/profil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/vente.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/AdminDaoTestCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/TransactionDaoTestCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/UserDaoTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/UserDaoTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traderz.iml" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CotationDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/CotationDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CotationManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CotationDaoTestCase.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1322">
-              <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-              <folding>
-                <marker date="1523195457165" expanded="true" signature="890:911" ph="DELETE FROM cotations... " />
-                <marker date="1523195457165" expanded="true" signature="947:1246" ph="INSERT INTO `cotations`... " />
-                <marker date="1523195457165" expanded="true" signature="1282:1581" ph="INSERT INTO `cotations`... " />
-                <marker date="1523195457165" expanded="true" signature="1617:1916" ph="INSERT INTO `cotations`... " />
-                <marker date="1523195457165" expanded="true" signature="1952:2251" ph="INSERT INTO `cotations`... " />
-                <marker date="1523195457165" expanded="true" signature="2287:2587" ph="INSERT INTO `cotations`... " />
-                <marker date="1523195457165" expanded="true" signature="3141:3192" ph="SELECT * FRO... cotations" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CotationDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AcheterCotationServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/VendreCotationServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java" />
-        <option value="$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java" />
-      </list>
-    </option>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="762" />
-    <option name="width" value="604" />
-    <option name="height" value="728" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traderz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="servlets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traderz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Traderz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traderz" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1Wpu4ChhGSPPO661NSRMsfkc7r4" />
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/IMG" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -242,258 +218,195 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
+  <component name="RunManager" selected="Tomcat Server.YES_sandbox">
+    <configuration name="UserDaoTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="traderz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hei.devweb.traderz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hei.devweb.traderz" />
+      <option name="MAIN_CLASS_NAME" value="hei.devweb.traderz.UserDaoTestCase" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration name="UserDaoTestCase.shouldAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="traderz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hei.devweb.traderz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hei.devweb.traderz" />
+      <option name="MAIN_CLASS_NAME" value="hei.devweb.traderz.UserDaoTestCase" />
+      <option name="METHOD_NAME" value="shouldAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
+    <configuration name="UserDaoTestCase.shouldGetStoredPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="traderz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hei.devweb.traderz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hei.devweb.traderz" />
+      <option name="MAIN_CLASS_NAME" value="hei.devweb.traderz.UserDaoTestCase" />
+      <option name="METHOD_NAME" value="shouldGetStoredPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+    <configuration name="YES_sandbox" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.45" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/PageConnexion" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="traderz:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_YES_Sandbox" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55815" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="traderz:war exploded" />
+          <artifact name="traderz:war" />
+        </option>
+      </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.UserDaoTestCase" />
+      <item itemvalue="JUnit.UserDaoTestCase.shouldGetStoredPassword" />
+      <item itemvalue="JUnit.UserDaoTestCase.shouldAddUser" />
+      <item itemvalue="Tomcat Server.YES_sandbox" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserDaoTestCase" />
+        <item itemvalue="JUnit.UserDaoTestCase.shouldAddUser" />
+        <item itemvalue="JUnit.UserDaoTestCase.shouldGetStoredPassword" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../Scala_Programming/evaluation" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Scala_Programming/scala-training" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4dc04bc8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0f9f279b-9e75-4cb8-9037-15c437c6c4f7" name="Default" comment="" />
-      <created>1523194514694</created>
+      <changelist id="0e4e83fb-0a6d-408b-89fc-a7a7684fb6b4" name="Default Changelist" comment="" />
+      <created>1579858663142</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1523194514694</updated>
-      <workItem from="1523194517600" duration="976000" />
+      <updated>1579858663142</updated>
+      <workItem from="1579858666484" duration="13867000" />
+      <workItem from="1579881919549" duration="5854000" />
+      <workItem from="1580118329779" duration="58611000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="976000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="7" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1277">
-          <caret line="67" column="21" lean-forward="false" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CotationDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2642">
-          <caret line="221" column="34" lean-forward="false" selection-start-line="221" selection-start-column="34" selection-end-line="221" selection-end-column="34" />
-          <folding>
-            <marker date="1523194869663" expanded="true" signature="470:515" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="1754:1811" ph="SELECT cotat... cotations" />
-            <marker date="1523194869663" expanded="true" signature="2493:2623" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="3887:3992" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="5257:5412" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="6676:6805" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="8069:8196" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="9460:9641" ph="SELECT * FRO... cotations" />
-            <marker date="1523194869663" expanded="true" signature="11055:11295" ph="INSERT INTO `cotations`... " />
-            <marker date="1523194869663" expanded="true" signature="13306:13329" ph="DELETE FROM `cotations`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/VendreCotationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="45" column="77" lean-forward="true" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AcheterCotationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/TransactionDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1523032675256" expanded="true" signature="629:863" ph="INSERT INTO `transactions`... " />
-            <marker date="1523032675256" expanded="true" signature="1620:1853" ph="INSERT INTO `transactions`... " />
-            <marker date="1523032675256" expanded="true" signature="2814:3047" ph="INSERT INTO `transactions`... " />
-            <marker date="1523032675256" expanded="true" signature="3896:4031" ph="SELECT * FRO... transactions" />
-            <marker date="1523032675256" expanded="true" signature="5316:5442" ph="SELECT * FRO... transactions" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/CotationDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/CotationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/hei/devweb/traderz/CotationDaoTestCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1322">
-          <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-          <folding>
-            <marker date="1523195457165" expanded="true" signature="890:911" ph="DELETE FROM cotations... " />
-            <marker date="1523195457165" expanded="true" signature="947:1246" ph="INSERT INTO `cotations`... " />
-            <marker date="1523195457165" expanded="true" signature="1282:1581" ph="INSERT INTO `cotations`... " />
-            <marker date="1523195457165" expanded="true" signature="1617:1916" ph="INSERT INTO `cotations`... " />
-            <marker date="1523195457165" expanded="true" signature="1952:2251" ph="INSERT INTO `cotations`... " />
-            <marker date="1523195457165" expanded="true" signature="2287:2587" ph="INSERT INTO `cotations`... " />
-            <marker date="1523195457165" expanded="true" signature="3141:3192" ph="SELECT * FRO... cotations" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

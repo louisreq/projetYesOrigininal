@@ -1,0 +1,71 @@
+html{
+	background-color: #EDEDED;
+}
+.page{
+
+	margin: auto;
+	font-family: Arial,sans-serif;
+	
+}
+header h1{
+	font-size: 20px;
+	text-align:center;
+	color:#fff;
+	margin-top:30px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-bottom: 30px;
+}
+header {
+	color:#fff;
+	display: flex;
+	background-color:#3F4045;
+	justify-content: space-around;
+}
+
+header img{
+	margin-top: 50px;
+	width: 55px;
+	height: 71px;
+}
+.citation {
+	margin-top:2%;
+	text-align: center;
+	font-size:13px;	
+
+}
+.menu{
+	margin-top: none;
+	display: flex;
+	background-color: darkblue;
+	width: 100%;
+
+}
+.menu ul{	/*  */
+	margin-top:0.5%;
+	margin-bottom: 0.5%;
+	 list-style : none;
+	 text-align : center;
+	 display: flex;
+	 width: 100%;
+}
+
+.sous-liste, .sous-liste2 ,.sous-liste a , .sous-liste2 a { /* couleur & disposition des éléments de la barre menu*/
+	width: 21%;
+	text-decoration: none ;
+	font-size: 17px;
+	color: #fff;
+	border-radius: 20px;
+	
+}
+
+.sous-liste2{
+	margin-left: 45%;
+}
+
+.menu li:hover, .menu li a:hover{	/* change de couleur les éléments de la barre menu quand la souris les survoles*/
+	background-color: lightgrey;
+	color: darkblue;
+}
+
+

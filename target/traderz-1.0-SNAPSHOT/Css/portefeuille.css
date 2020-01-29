@@ -1,0 +1,56 @@
+.portefeuille{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.portefeuille .contenu{
+	margin-top: 4%;
+	margin-bottom: 2%;
+	border:solid 2px;
+	width: 75%;
+}
+
+.portefeuille .contenu table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.portefeuille .contenu table th , .statsContenu table th{
+	border: thin solid #3F4045;
+	background-color: #9A9E9D;
+}
+.portefeuille .contenu table td , .statsContenu table td {
+	border: thin solid #3F4045;
+	text-align: center;
+}
+.portefeuille .statsContenu{
+	width: 75%;
+	border: 2px solid #3F4045;
+	border-radius: 15px;
+	margin-bottom: 4%;
+	text-align: center;
+}
+
+.statsContenu table{
+	border-collapse: collapse;
+	width : 30%;
+}
+
+.statsContenu{
+	padding: 20px;
+}
+.vendre{
+	cursor: pointer;
+	color: tomato;<!-- -->
+}
+.racheter{
+	cursor: pointer;
+	color: limegreen;<!-- -->
+}
+.vente{
+	background-color: tomato;
+}
+.achat{
+	background-color: limegreen;
+}

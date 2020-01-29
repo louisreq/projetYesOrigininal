@@ -22,26 +22,26 @@ public class UserManager {
 
 // Methode permettant de verifier que le mot de passe correspond bien à l'utilisateur entré
 
-    public boolean confirmPassword(String username, String password) throws Exception{
-        if (username == null || username.equals("")){
-            throw new IllegalArgumentException("Username must be filled!");
+    public boolean confirmPassword(String email, String password) throws Exception{
+        if (email == null || email.equals("")){
+            throw new IllegalArgumentException("Email must be filled!");
         }
         if (password == null || password.equals("")){
             throw new IllegalArgumentException("Password must be filled!");
         }
-        String storedPassword = new UserDaoImpl().getStoredPassword(username);
+        String storedPassword = new UserDaoImpl().getStoredPassword(email);
         if (storedPassword == null){
-            throw new IllegalArgumentException("Unknown username!");
+            throw new IllegalArgumentException("Unknown email!");
         }
-        return userDao.getStoredPassword(username).equals(password);
+        return userDao.getStoredPassword(email).equals(password);
     }
 
-    public boolean userValid (String nomUser){
-        /*if (userDao.UserDontExist(nomUser)){
-            throw new IllegalArgumentException("This username already exist !");
-        }*/
-        return userDao.UserDontExist(nomUser);
-    }
+//    public boolean userValid (String nomUser){
+//        /*if (userDao.UserDontExist(nomUser)){
+//            throw new IllegalArgumentException("This username already exist !");
+//        }*/
+//        return userDao.UserDontExist(nomUser);
+//    }
 
 // Methode permettant de verifier que 2 champs sont bien egaux
 
@@ -57,7 +57,7 @@ public class UserManager {
 
     public void supprimerUser(String pseudo) {         userDao.supprimerUser(pseudo);   }
 
-    public User CreateUserFromPseudo (String pseudo ){return userDao.CreateUserFromPseudo(pseudo);}
+    public User CreateUserFromEmail (String email ){return userDao.CreateUserFromEmail(email);}
 
 
 }

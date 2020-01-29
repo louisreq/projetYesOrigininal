@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/CampusDaoImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/SalleDaoImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/sql/creationTable.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/test/java/hei/devweb/traderz/UserDaoTestCase.java" dialect="GenericSQL" />
+  </component>
+</project>

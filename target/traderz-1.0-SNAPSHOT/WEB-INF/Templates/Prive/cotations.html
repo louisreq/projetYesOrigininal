@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Menu</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../../Css/general.css">
+	<link rel="stylesheet" type="text/css" href="../../../Css/cotations.css">
+</head>
+<body>
+<div class="page">
+	<section th:replace="~{fragments ::navBar}">
+	</section>
+
+	<div class="titre">
+		<h2>Selectionner les actions souhaitées :</h2>
+	</div>
+	<section class="operations">
+		<!--<div class="portefeuille">
+			<h3>Portefeuille</h3>
+		</div>-->
+		<div class="selectLettre">
+			<form>
+				<button><a href="cotations" >A-D</a></button>
+				<button><a href="cotationsEG" >E-G</a></button>
+				<button><a href="cotationsHL" >H-L</a></button>
+				<button><a href="cotationsMP" >M-P</a></button>
+				<button><a href="cotationsQT" >Q-T</a></button>
+				<button><a href="cotationsUZ" >T-Z</a></button>
+			</form>
+		</div>
+		<div class="tableActions">
+			<table>
+				<tr>
+					<th>Entreprise</th>
+					<th>Variation du jour</th>
+					<th>Acheter</th>
+					<th>Vendre</th>
+					<th>Bas</th>
+					<th>Haut</th>
+					<th>Veille</th>
+					<th>Ouverture</th>
+					<th>Actuel</th>
+					<th>Volume</th>
+				</tr>
+				<tr th:each="cotation:${list}">
+					<td th:text="${cotation.cotationNom}">Alten</td>
+					<td th:text="${cotation.varjour+'%'}">+0.87</td>
+					<td><a th:href="${'acheterCotation?id='+cotation.idCotation}">Acheter</a></td>
+					<td><a th:href="${'vendreCotation?id='+cotation.idCotation}">Vendre</a></td>
+					<td th:text="${cotation.bas+'€'}">823.43</td>
+					<td th:text="${cotation.haut+'€'}">826.32</td>
+					<td th:text="${cotation.veille+'€'}">prix</td>
+					<td th:text="${cotation.ouverture+'€'}">prix</td>
+					<td th:text="${cotation.prix+'€'}">Nombre</td>
+					<td th:text="${cotation.volume}">10000000</td>
+				</tr>
+
+
+			</table>
+		</div>
+	</section>
+</div>
+</body>
+</html>

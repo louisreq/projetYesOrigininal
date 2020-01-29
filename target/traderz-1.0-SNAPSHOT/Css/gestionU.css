@@ -1,0 +1,29 @@
+
+.recherche {
+	margin-top: 3%;
+
+}
+.recherche form{
+	float : right;
+	margin-right: 15%;
+}
+
+.affichage{
+	border: 2px solid #3F4045;
+	margin-top: 5%;
+}
+
+.affichage table{
+	height: 100%;
+	border: 2px solid #3F4045;
+	border-collapse: collapse;
+}
+.affichage table td{
+	border: thin solid #3F4045;
+	text-align: center;
+}
+.affichage table th{
+	border: thin solid #3F4045;
+	background-color: #9A9E9D;
+	width: 10%;
+}

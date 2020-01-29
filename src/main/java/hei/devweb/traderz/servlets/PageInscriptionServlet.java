@@ -45,27 +45,29 @@ public class PageInscriptionServlet extends GenericServlet {
         double liquidites = 200000;
         double valeur = 0;
         boolean verifPseudo = false;
+        String role = null;
 
         try {
             prenom = req.getParameter("prenom");
             nom = req.getParameter("nom");
             mail = req.getParameter("mail");
-            mailBis = req.getParameter("confirmMail");
-            String releaseDateAsString = req.getParameter("dateNaissance");
-            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            dateNaissance = LocalDate.parse(releaseDateAsString, dateFormat);
+//            mailBis = req.getParameter("confirmMail");
+//            String releaseDateAsString = req.getParameter("dateNaissance");
+//            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//            dateNaissance = LocalDate.parse(releaseDateAsString, dateFormat);
             sexe = req.getParameter("sexe");
-            username = req.getParameter("identifiant");
+//            username = req.getParameter("identifiant");
             password = req.getParameter("mdp");
-            confirmPassword = req.getParameter("confirmationMdp");
-            verifPseudo = UserManager.getInstance().userValid(username);
+            role = req.getParameter("role");
+//            confirmPassword = req.getParameter("confirmationMdp");
+//            verifPseudo = UserManager.getInstance().userValid(username);
 
         } catch (NumberFormatException | DateTimeParseException ignored) {
         }
 
         Integer idUser = null;
         String errorMessage=null;
-        User newUser = new User(idUser,prenom,nom,username,password,mail,dateNaissance,sexe,liquidites,valeur);
+        User newUser = new User(idUser,nom,prenom,mail,sexe,password,role);
         try{
             if (UserManager.getInstance().verifyNewPassword(password,confirmPassword) & UserManager.getInstance().verifyNewPassword(mail,mailBis) ) {
                 if (verifPseudo == false) {
