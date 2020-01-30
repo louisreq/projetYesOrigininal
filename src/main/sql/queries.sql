@@ -71,3 +71,32 @@ SELECT
 FROM campus
 GROUP BY campus.id
 
+
+
+
+
+SELECT
+salle.id as id_salle,
+salle.nom_salle as nom_salle,
+etage.id as id_etage,
+etage.nom_etage as nom_etage,
+batiment.id as id_batiment,
+batiment.nom_batiment as nom_batiment,
+campus.id as id_campus
+
+
+FROM campus
+INNER JOIN batiment ON (campus.id = batiment.campus_id)
+INNER JOIN etage ON (batiment.id = etage.batiment_id)
+INNER JOIN salle ON (etage.id = salle.etage_id)
+WHERE campus.id = 4
+AND (
+ batiment.nom_batiment LIKE '%Toul%'
+ OR etage.nom_etage LIKE '%Toul%'
+ OR salle.nom_salle LIKE '%Toul%'
+ )
+ AND(
+ batiment.nom_batiment LIKE '%T035%'
+ OR etage.nom_etage LIKE '%T035%'
+ OR salle.nom_salle LIKE '%T035%'
+    )

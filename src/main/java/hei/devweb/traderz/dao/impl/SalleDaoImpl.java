@@ -21,12 +21,12 @@ public class SalleDaoImpl implements SalleDao {
     }
 
     public String GetQueryLikeStatementFromUserInput(List<String> splitted_input){
-        String queryLikeStatement = " 1=0 \n";
+        String queryLikeStatement = "";
         for(String word_input : splitted_input){
             word_input = word_input.replace(" ", "");
-            queryLikeStatement += " OR batiment.nom_batiment LIKE " + "'%" + word_input + "%'\n";
+            queryLikeStatement += "  AND ( \n batiment.nom_batiment LIKE " + "'%" + word_input + "%'\n";
             queryLikeStatement += " OR etage.nom_etage LIKE " + "'%" + word_input + "%'\n";
-            queryLikeStatement += " OR salle.nom_salle LIKE " + "'%" + word_input + "%'\n";
+            queryLikeStatement += " OR salle.nom_salle LIKE " + "'%" + word_input + "%'\n)";
         }
 
         return queryLikeStatement;
@@ -55,20 +55,11 @@ public class SalleDaoImpl implements SalleDao {
                 "INNER JOIN etage ON (batiment.id = etage.batiment_id)\n" +
                 "INNER JOIN salle ON (etage.id = salle.etage_id)\n" +
                 "WHERE campus.id = " + id_campus + "\n" +
-                "AND (\n" +
-                QueryLikeStatement +
-//                "    batiment.nom_batiment LIKE " + user_input_sql + " \n" +
-//                "    OR etage.nom_etage LIKE " + user_input_sql + " \n" +
-//                "    OR salle.nom_salle LIKE " + user_input_sql + " \n" +
-                "    )";
+                QueryLikeStatement;
+        System.out.println(query);
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
-//            statement.setInt(1, id_campus);
-//            statement.setString(2, user_input_sql);
-//            statement.setString(3, user_input_sql);
-//            statement.setString(4, user_input_sql);
-//            statement = statement.replace("", "");
-            System.out.println(statement);
+
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
 
