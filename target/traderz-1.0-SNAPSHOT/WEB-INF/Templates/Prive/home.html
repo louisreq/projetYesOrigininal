@@ -65,7 +65,7 @@
         <!-- Search form -->
         <div class="active-cyan-10 mb-10 col-md-10">
             <form action="" method="get">
-                <input class="form-control" id="text_searched" name="text_searched" type="text" placeholder="Tapez ici votre recherche ( Campus, bâtiment, étage, salle etc...)" aria-label="Search"/>
+                <input th:value="${text_searched}" class="form-control" id="text_searched" name="text_searched" type="text" placeholder="Tapez ici votre recherche ( Campus, bâtiment, étage, salle etc...)" aria-label="Search"/>
             </form>
         </div>
     </div>
@@ -124,7 +124,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $(document.body).on("click", "tr[href]", function() {
+        $(document.body).on("click", "tr[thhref]", function() {
             // window.location.href = this.dataset.href;
             console.log(this.dataset.href);
         });

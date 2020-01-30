@@ -62,6 +62,7 @@ public class HomeServlet extends PrivateServlet {
 
 
         context.setVariable("liste_campus", liste_campus);
+        context.setVariable("text_searched", text_searched);
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
 
 

@@ -65,7 +65,7 @@
         <!-- Search form -->
         <div class="active-cyan-10 mb-10 col-md-10">
             <form action="" method="get">
-                <input class="form-control" id="text_searched" name="text_searched" type="text" placeholder="Tapez ici votre recherche ( Campus, bâtiment, étage, salle etc...)" aria-label="Search"/>
+                <input th:value="${text_searched}" class="form-control" id="text_searched" name="text_searched" type="text" placeholder="Tapez ici votre recherche ( Campus, bâtiment, étage, salle etc...)" aria-label="Search"/>
             </form>
         </div>
     </div>
