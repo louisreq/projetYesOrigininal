@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 
     <meta charset="utf-8" />
@@ -58,7 +58,7 @@
                     Bienvenu sur la plateforme Yncréa Indoor Air Quality. Vous pourrez ici trouver des infomrations sur la qualité de l'air dans les salles selon différents critères. Le taux d'humidité, concentration en carbon etc...
                     La recherche de la salle peut se faire directement sur la barre de recherche, ou bien en cliquant sur les logo de ton campus
                 </p>
-                <footer class="blockquote-footer">Thierry OCCRE</footer>
+                <footer class="blockquote-footer" th:text="${id_selected_salle}" >Thierry OCCRE</footer>
             </blockquote>
         </section>
 

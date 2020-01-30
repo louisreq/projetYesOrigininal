@@ -9,10 +9,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4e83fb-0a6d-408b-89fc-a7a7684fb6b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/SalleServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/SalleServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/SalleServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/SalleServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/SalleServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/SalleServlet.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +262,7 @@
       <updated>1579858663142</updated>
       <workItem from="1579858666484" duration="13867000" />
       <workItem from="1579881919549" duration="5854000" />
-      <workItem from="1580118329779" duration="77101000" />
+      <workItem from="1580118329779" duration="83113000" />
     </task>
     <servers />
   </component>

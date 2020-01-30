@@ -18,12 +18,14 @@ public class SalleServlet extends PrivateServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
+        String id_selected_salle = req.getParameter("id_selected_salle");
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
-
+//        id_selected_salle
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
         context.setVariable("useronline", user );
+        context.setVariable("id_selected_salle", id_selected_salle );
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("salle", context, resp.getWriter());

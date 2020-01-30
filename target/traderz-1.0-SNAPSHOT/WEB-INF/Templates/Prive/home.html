@@ -84,26 +84,24 @@
             </tr>
             </thead>
             <tbody>
-<!--            (id=${salle.getId()})-->
-<!--th:href="@{'Salle?id=' + ${salle.getId()}}"-->
-            <tr th:each="salle:${campus.getList_salles()}  " th:id="${salle.getId()}" th:href="@{'Salle?id=' + ${salle.getId()}}" >
-<!--                <script type="text/javascript" th:inline="javascript">-->
-<!--                    /*<![CDATA[*/-->
 
-<!--                    $(document).ready(function() {-->
-<!--                        var id_tr_clicked = /*[[${salle.getId()}]]*/ "id clicked";-->
-<!--                        console.log(id_tr_clicked);-->
-<!--                        console.log($(this).closest("tr[id=id_tr_clicked]").innerHTML);-->
-<!--                        $(document.body).on("click", $(this).closest("tr[id=id_tr_clicked]"), function() {-->
-<!--                            // window.location.href = 'Salle?id=' + link.toString();-->
-<!--                            var link = /*[[${salle.getId()}]]*/ 1;-->
-<!--                            console.log('Salle?id=' + link.toString());-->
-<!--                        });-->
-<!--                    });-->
+            <tr th:each="salle:${campus.getList_salles()}" th:id_salle_selected="${salle.getId()}" >
 
-<!--                    /*]]>*/-->
-<!--                </script>-->
-                <td th:text="${salle.batiment_name}" width="33%">Segard</td>
+                <script type="text/javascript">
+                    /*<![CDATA[*/
+
+                    $(document).ready(function() {
+                        $("[id_salle_selected='[[${salle.getId()}]]']").click(function() {
+                            var id_salle = [[${salle.getId()}]];
+                            var url_for_salle = "Salle?id_selected_salle=" + id_salle.toString();
+                            window.location.href = url_for_salle;
+                            // console.log(url_for_salle);
+                        });
+                    });
+                    /*]]>*/
+                </script>
+
+                <td th:text="${salle.batiment_name}" width="33%" > Segard</td>
                 <td th:text="${salle.etage_name}" width="33%">2ème</td>
                 <td th:text="${salle.salle_name}" width="33%">S202</td>
             </tr>
@@ -122,14 +120,7 @@
     </div>
 
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(document.body).on("click", "tr[thhref]", function() {
-            // window.location.href = this.dataset.href;
-            console.log(this.dataset.href);
-        });
-    });
-</script>
+
 </body>
 
 
