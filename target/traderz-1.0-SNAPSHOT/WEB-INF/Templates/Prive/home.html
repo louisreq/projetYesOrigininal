@@ -6,7 +6,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css_for_all.css">
+
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -84,7 +84,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="salle:${campus.getList_salles()}">
+<!--            (id=${salle.getId()})-->
+<!--th:href="@{'Salle?id=' + ${salle.getId()}}"-->
+            <tr th:each="salle:${campus.getList_salles()}  " th:id="${salle.getId()}" th:href="@{'Salle?id=' + ${salle.getId()}}" >
+<!--                <script type="text/javascript" th:inline="javascript">-->
+<!--                    /*<![CDATA[*/-->
+
+<!--                    $(document).ready(function() {-->
+<!--                        var id_tr_clicked = /*[[${salle.getId()}]]*/ "id clicked";-->
+<!--                        console.log(id_tr_clicked);-->
+<!--                        console.log($(this).closest("tr[id=id_tr_clicked]").innerHTML);-->
+<!--                        $(document.body).on("click", $(this).closest("tr[id=id_tr_clicked]"), function() {-->
+<!--                            // window.location.href = 'Salle?id=' + link.toString();-->
+<!--                            var link = /*[[${salle.getId()}]]*/ 1;-->
+<!--                            console.log('Salle?id=' + link.toString());-->
+<!--                        });-->
+<!--                    });-->
+
+<!--                    /*]]>*/-->
+<!--                </script>-->
                 <td th:text="${salle.batiment_name}" width="33%">Segard</td>
                 <td th:text="${salle.etage_name}" width="33%">2ème</td>
                 <td th:text="${salle.salle_name}" width="33%">S202</td>
@@ -104,7 +122,14 @@
     </div>
 
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document.body).on("click", "tr[href]", function() {
+            // window.location.href = this.dataset.href;
+            console.log(this.dataset.href);
+        });
+    });
+</script>
 </body>
 
 
