@@ -3,13 +3,13 @@ package hei.devweb.traderz.dao.impl;
 import hei.devweb.traderz.dao.CampusDao;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.entities.Campus;
+import hei.devweb.traderz.entities.Salle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CampusDaoImpl implements CampusDao {
 
@@ -38,5 +38,53 @@ public class CampusDaoImpl implements CampusDao {
         }
         return liste_campus;
     }
+
+    public List<Salle> GetListOfSalleWithCampusId(Integer campus_id){
+        List<Salle> liste_salle = new ArrayList<>();
+        String query = "SELECT\n" +
+                "    salle.id as id_salle,\n" +
+                "    salle.nom_salle as nom_salle,\n" +
+                "    etage.id as id_etage,\n" +
+                "    etage.nom_etage as nom_etage,\n" +
+                "    batiment.id as id_batiment,\n" +
+                "    batiment.nom_batiment as nom_batiment,\n" +
+                "    campus.id as id_campus,\n" +
+                "    campus.nom_campus as nom_campus\n" +
+                "\n" +
+                "\n" +
+                "FROM campus\n" +
+                "INNER JOIN batiment ON (campus.id = batiment.campus_id)\n" +
+                "INNER JOIN etage ON (batiment.id = etage.batiment_id)\n" +
+                "INNER JOIN salle ON (etage.id = salle.etage_id)\n" +
+                "WHERE campus.id = " + campus_id + "\n" +
+                "ORDER BY nom_campus, nom_batiment, nom_etage, nom_salle";
+
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    liste_salle.add(new Salle(
+                            resultSet.getInt("id_salle"),
+                            resultSet.getString("nom_salle"),
+                            resultSet.getInt("id_etage"),
+                            resultSet.getString("nom_etage"),
+                            resultSet.getInt("id_batiment"),
+                            resultSet.getString("nom_batiment"),
+                            resultSet.getInt("id_campus")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return liste_salle;
+    }
+//    public Campus GetCampusFromId(Integer id){
+//        Campus campus = null;
+//
+//        return campus;
+//    }
 
 }

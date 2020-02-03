@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+    <html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js" rel="stylesheet">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../../../IMG/logo3.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Home">Accueil</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="apropos.html">A propos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <div class="dropdown">
+                            <button class="dropbtn">Mes alertes
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+
+                            <div class="dropdown-content">
+                                <a href="Create_Alerte">Créer une alerte</a>
+                                <a href="Historique_Alerte">Historique des alertes</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <div class="dropdown">
+                            <button class="nav-item dropbtn"> Mes favoris
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="Add_Favoris">Ajouter un favori</a>
+                                <a href="Liste_Favoris">Liste des favoris</a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <a type="button" class="btn btn-danger btn-block bouton" href="PageConnexion"> Se déconnecter </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <title>YIIAQ</title>
+</head>
+    <body>
+<div class="tab-content">
+  <div class="tab-pane active" id="inbox">
+      
+      <div class="container">
+        <div class="content-container clearfix">
+          <div class="col-md-12">
+            <br/>
+            <h1 class="content-title">Liste des favoris</h1>
+             
+            <input type="search" placeholder="Rechercher dans mes favoris" class="form-control" />
+            <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row form-group">
+        <!-- TABLE HEI -->
+    <table class="table table-hover">
+      <thead>
+        <h3>salles principales</h3>
+
+        <tr>
+          <th>Ecole</th>
+          <th>Etage</th>
+          <th>Salle</th>
+         
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-href="salle.html">
+          <td>Hei</td>
+          <td>2ème</td>
+          <td>S202</td>
+
+          
+        </tr>
+        <tr data-href="salle.html">
+          <td>Hei</td>
+          <td>1er</td>
+          <td>S10</td>
+        </tr>
+        <tr data-href="salle.html">
+          <td>Hei</td>
+          <td>1er</td>
+          <td>S12</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div class="row form-group">
+  <!-- TABLE HEI -->
+    <table class="table table-hover">
+      <thead>
+        <h3>salles secondaires</h3>
+
+        <tr>
+          <th>Ecole</th>
+          <th>Etage</th>
+          <th>Salle</th>
+         
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-href="salle.html">
+          <td>Isa</td>
+          <td>2ème</td>
+          <td>S202</td>
+
+          
+        </tr>
+        <tr data-href="salle.html">
+          <td>Isa</td>
+          <td>1er</td>
+          <td>S10</td>
+        </tr>
+        <tr data-href="salle.html">
+          <td>Isen</td>
+          <td>1er</td>
+          <td>S12</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>

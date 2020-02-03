@@ -19,4 +19,6 @@ public class SalleManager {
 
     public List<Salle> GetListOfSalleFromCampusAndUserInput(Integer id_campus, String user_input){return salleDao.GetListOfSalleFromCampusAndUserInput(id_campus, user_input);}
 
+    public List<Salle> GetAllSalles(){return salleDao.GetAllSalles();}
+
 }

@@ -23,7 +23,17 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+   DROP TABLE IF EXISTS `user_has_favoris`;
+   CREATE TABLE IF NOT EXISTS `user_has_favoris` (
+                                           `id` int(11) NOT NULL AUTO_INCREMENT,
+                                           `personne_id` int(11) NOT NULL,
+                                           `is_favori_preffered` boolean,
+                                           `salle_id` int(11) NOT NULL,
 
+                                           PRIMARY KEY (`id`),
+                                           FOREIGN KEY (personne_id) REFERENCES personne(id),
+                                           FOREIGN KEY (salle_id) REFERENCES salle(id)
+   );
 --
 -- Structure de la table `alerte`
 --
@@ -33,9 +43,32 @@ CREATE TABLE IF NOT EXISTS `alerte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `personne_id` int(11) NOT NULL,
+  `salle_id` int(11) NOT NULL,
 
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (personne_id) REFERENCES personne(id),
+  FOREIGN KEY (salle_id) REFERENCES salle(id)
+);
+
+   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
+   VALUES ('2', '2020-01-05 13:00:05', 'On a du mal à resspirer, est-ce normal ?', '2', '21');
+
+
+   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
+   VALUES ('3', '2020-01-05 13:30:05', 'Le capteur affiche 120 Decibels, il n\'y aurait pas un problème ??', '2', '21');
+
+
+   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
+   VALUES ('4', '2020-01-14 14:21:34', 'La taux d\'humidité est anormalement élevé', '3', '7');
+
+
+   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
+   VALUES ('5', '2020-01-18 09:27:02', 'Il fait sombre ici, il y a des problèmes de luminosité', '3', '8');
+
+
+   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
+   VALUES ('6', '2020-01-30 13:00:05', 'On s\'endore tous dans la salle, y a-t-il un problème avec l\'air ambiant ??', '3', '17');
 -- --------------------------------------------------------
 
 --
@@ -1076,10 +1109,11 @@ DROP TABLE IF EXISTS `seuil`;
 CREATE TABLE IF NOT EXISTS `seuil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `niveau` int(11) NOT NULL,
-  `alerte_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_D6A93D152C9BA629` (`alerte_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+#   `alerte_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+#   FOREIGN KEY (alerte_id) REFERENCES alerte(id)
+
+);
 
 -- --------------------------------------------------------
 

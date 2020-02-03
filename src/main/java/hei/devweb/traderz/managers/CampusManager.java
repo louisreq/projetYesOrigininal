@@ -2,6 +2,7 @@ package hei.devweb.traderz.managers;
 
 import hei.devweb.traderz.dao.impl.CampusDaoImpl;
 import hei.devweb.traderz.entities.Campus;
+import hei.devweb.traderz.entities.Salle;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public class CampusManager {
 
     public List<Campus> GetListOfCampus(){return campusDao.GetListOfCampus();}
 
+    public List<Salle> GetListOfSalleWithCampusId(Integer campus_id){return campusDao.GetListOfSalleWithCampusId(campus_id);}
 }

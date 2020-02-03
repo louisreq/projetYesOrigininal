@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js" rel="stylesheet">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../../../IMG/logo3.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="Home">Accueil</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="apropos.html">A propos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <div class="dropdown">
+                            <button class="dropbtn">Mes alertes
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+
+                            <div class="dropdown-content">
+                                <a href="Create_Alerte">Créer une alerte</a>
+                                <a href="Historique_Alerte">Historique des alertes</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <div class="dropdown">
+                            <button class="nav-item dropbtn"> Mes favoris
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="Add_Favoris">Ajouter un favori</a>
+                                <a href="Liste_Favoris">Liste des favoris</a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <a type="button" class="btn btn-danger btn-block bouton" href="PageConnexion"> Se déconnecter </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <title>YIIAQ</title>
+</head>
+<body>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <section class="col-md-10 col-md-offset-3">
+            <h1 class="mt-4">Yncréa Intelligence Indoor Air Quality</h1>
+            <p></p>
+            <h2 class="mt-4"> Alertes </h2>
+            <blockquote class="blockquote">
+                <p>
+                    Vous pouvez nous envoyer une alerte si vous le désirez grâce au formulaire ci-dessous: Si vous rencontrez un problème quant à la qualité de l'air, la température ou autre:
+                </p>
+
+            </blockquote>
+        </section>
+
+
+    </div>
+
+    <!-- remplissez le formulaire -->
+
+    <form class="form-horizontal" method="post">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Créer une alerte</legend>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+
+                <div class="col-md-4">
+                    <p> Salle de classe </p>
+                    <select id="selectbasic" name="selectbasic" class="form-control" required="true">
+                        <div th:each="campus:${liste_campus}">
+                            <option th:each="salle:${campus.getList_salles()}" th:text="${campus.campus_name} + ' - ' + ${salle.salle_name}" th:value="${salle.getId()}"> HEI-T101</option>
+                        </div>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="">
+                <label class="col-md-4 control-label" for="Message_alerte">Titre de l'alerte</label>
+                <div class="col-md-8">
+                    <input id="titre_alerte" name="titre_alerte" class="form-control" type="text" placeholder="Titre du message d'alerte" required="true">
+                </div>
+            </div>
+<!--            <input id="titre_alerte" name="titre_alerte" class="form-control" type="text" placeholder="Titre du message d'alerte" required="true">-->
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Message_alerte">Objet de l'alerte</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" id="Message_alerte" name="Message_alerte" placeholder="Ecrivez votre commentaire" required="true"></textarea>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for=""></label>
+                <div class="col-md-4">
+                    <button id="" name="" class="btn btn-primary">Envoyer</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+</body>
+<style>
+
+    .fa-heart-o{
+        border-radius: 50%;
+        background:#b4b4b4;
+    }
+    .fa-heart-o:hover{
+        background: #ffb3ba;
+    }
+    .fa-heart-on{
+        background: #ffb3ba;
+
+    }
+    .fa-heart-on:hover{
+        border-radius: 50%;
+        background:#b4b4b4;
+    }
+
+
+    p {
+        font-size: 17px
+    }
+    legend{
+        font-size: 25px
+    }
+
+    .image
+    {
+
+
+        width: 100%;
+        border-radius: 20px;
+        border:2px lightgrey solid;
+
+
+    }
+    .image1
+    {
+
+
+        width: 100%;
+        border-radius: 20px;
+        border:2px lightgrey solid;
+
+    }
+    .l2
+
+    {
+
+
+        width: 100%;
+
+    }
+
+
+    [class*="col-"] {
+        /*background-color: lightgreen;
+         border: 2px solid black;*/
+        border-radius: 6px;
+        line-height: 26px;
+        text-align: left;
+    }
+    .logo_text {
+        text-align: left;
+        vertical-align: bottom;
+        /*        display: flex;
+                justify-content: */
+    }
+    blockquote {
+        text-align: left;
+    }
+    /*      .logo_text b{
+            position: absolute;
+            bottom: 0;
+          }*/
+    /*      .logo_img img{
+            position: absolute;
+            right: 0;
+
+          }
+    */
+
+    span{
+        font-size: 35px
+
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .custom-checkbox {
+        /* Presentation */
+        font-size: 50px
+    }
+
+    /* Required Styling */
+
+    label input[type="checkbox"] {
+        display: none;
+    }
+
+    .custom-checkbox {
+        margin-left: 2em;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .custom-checkbox .glyphicon {
+        color: gold;
+        position: absolute;
+        top: 0.4em;
+        left: -1.25em;
+        font-size: 0.75em;
+    }
+
+    .custom-checkbox .glyphicon-star-empty {
+        color: gray;
+    }
+
+    .custom-checkbox .glyphicon-star {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .custom-checkbox:hover .glyphicon-star{
+        opacity: 0.5;
+    }
+
+    .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+        opacity: 1;
+    }
+
+
+    /*.navbar {
+      overflow: hidden;
+     background-color: #333;
+    }*/
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /*.dropdown {
+      float: left;
+      overflow: hidden;
+    }*/
+
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    /*.navbar a:hover, .dropdown:hover .dropbtn {
+      background-color: red;
+    }*/
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+
+    ul.mail-list{
+        padding:0;
+        margin:0;
+        list-style:none;
+        margin-top:20px;
+    }
+    ul.mail-list li a{
+        display:block;
+        border-bottom:1px dotted #CFCFCF;
+        padding:20px;
+        text-decoration:none;
+    }
+    ul.mail-list li:last-child a{
+        border-bottom:none;
+    }
+    ul.mail-list li a:hover{
+        background-color:#DBF9FF;
+    }
+    ul.mail-list li span{
+        display:block;
+    }
+    ul.mail-list li span.mail-sender{
+        font-weight:600;
+        color:black;
+    }
+    ul.mail-list li span.mail-subject{
+        color:black;
+    }
+    ul.mail-list li span.mail-message-preview{
+        display:block;
+        color:black;
+    }
+    .mail-search{
+        border-bottom-color:#7FBCC9!important;
+    }
+    .mail-message-preview{
+        font-size: 18px;
+    }
+    .mail-subject{
+        font-size: 22px ;
+        font-weight: bold;
+    }
+    .mail-sender{
+        font-size: 30px ;
+        font-weight: bold;
+
+    }
+
+
+    /* Gray Scale */
+    .hover08 a img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover08 a:hover img {
+        -webkit-filter: grayscale(0);
+        filter: grayscale(0);
+    }
+
+    .hover01 a img {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover01 a:hover img {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+    /* Zoom In #2 */
+    .hover02 a img {
+        width: 300px;
+        height: auto;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover02 a:hover img {
+        width: 350px;
+    }
+
+    .bouton{
+        height: 40px;
+        line-height: 10px;
+
+    }
+</style>
+</html>

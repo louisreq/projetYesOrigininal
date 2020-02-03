@@ -3,7 +3,6 @@ package hei.devweb.traderz.servlets;
 import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
