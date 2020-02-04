@@ -16,6 +16,8 @@
     <filter-mapping>
         <filter-name>AuthentificationFiltre</filter-name>
         <url-pattern>/Prive/*</url-pattern>
+        <url-pattern>/Admin/*</url-pattern>
+
     </filter-mapping>
 
     <filter>

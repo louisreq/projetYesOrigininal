@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
 
-@WebServlet("/Prive/Historique_Alerte")
+@WebServlet(urlPatterns = {"/Prive/Historique_Alerte", "/Admin/Historique_Alerte"})
 public class HistoriqueAlerteServlet extends PrivateServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +45,13 @@ public class HistoriqueAlerteServlet extends PrivateServlet {
         context.setVariable("id_selected_salle", id_selected_salle );
         context.setVariable("liste_alertes", liste_alertes);
 
-        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("Historique_Alerte", context, resp.getWriter());
+        if (user.getRole().equals("admin")){
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+
+            templateEngine.process("/WEB-INF/Templates/Admin/Historique_Alerte", context, resp.getWriter());
+        }else{
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+            templateEngine.process("/WEB-INF/Templates/Prive/Historique_Alerte", context, resp.getWriter());
+        }
     }
 }

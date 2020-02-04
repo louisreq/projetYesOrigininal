@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 public abstract class PrivateServlet extends HttpServlet {
     protected TemplateEngine createTemplateEngine(ServletContext servletContext) {
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
-        templateResolver.setPrefix("/WEB-INF/Templates/Prive/");
+//        templateResolver.setPrefix("/WEB-INF/Templates/Prive/");
         templateResolver.setSuffix(".html");
 
         TemplateEngine templateEngine = new TemplateEngine();

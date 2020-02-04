@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet("/Prive/Create_Alerte")
+@WebServlet(urlPatterns = {"/Prive/Create_Alerte", "/Admin/Create_Alerte"}) //"/Prive/Create_Alerte")
 public class CreateAlerteServlet extends PrivateServlet {
 
     @Override
@@ -38,8 +38,14 @@ public class CreateAlerteServlet extends PrivateServlet {
         context.setVariable("useronline", user );
         context.setVariable("liste_campus", liste_campus);
 
-        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("Create_Alerte", context, resp.getWriter());
+        if (user.getRole().equals("admin")){
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+
+            templateEngine.process("/WEB-INF/Templates/Admin/Create_Alerte", context, resp.getWriter());
+        }else{
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+            templateEngine.process("/WEB-INF/Templates/Prive/Create_Alerte", context, resp.getWriter());
+        }
     }
 
     @Override
@@ -57,7 +63,11 @@ public class CreateAlerteServlet extends PrivateServlet {
 
         AlerteManager.getInstance().AddAlerte(datetime, message, user.getIdUser(), Integer.parseInt(salle_id), titre);
         System.out.println("We just added the message \n" + message + "\n for the room " + salle_id);
-        resp.sendRedirect("/Prive/Historique_Alerte");
-// The JDBC driver knows what to do with a java.sql type:
+
+        if(user.getRole().equals("admin")){
+            resp.sendRedirect("/Admin/Historique_Alerte");
+        }else {
+            resp.sendRedirect("/Prive/Historique_Alerte");
+        }
     }
 }

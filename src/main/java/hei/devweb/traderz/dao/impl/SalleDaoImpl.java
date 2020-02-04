@@ -124,44 +124,48 @@ public class SalleDaoImpl implements SalleDao {
         return liste_salles;
     }
 
+    public Salle GetSalleFromId(Integer id_salle) {
 
-//    public ArrayList GetFavoris(Integer userId) {
-//
-//        List<Integer, Integer, Integer, String> liste_salles = new ArrayList<>();
-//
-//        String query = "SELECT \n" +
-//                "\tuhf.id as id_favori,\n" +
-//                "    uhf.personne_id as id_personne,\n" +
-//                "    uhf.salle_id as id_salle,\n" +
-//                "    CASE\n" +
-//                "\t\tWHEN 1 THEN 'Principale'\n" +
-//                "        ELSE 'Secondaire'\n" +
-//                "    END as principale_or_secondaire\n" +
-//                "\n" +
-//                "FROM user_has_favoris uhf\n" +
-//                "INNER JOIN personne ON (personne.id = uhf.personne_id)\n" +
-//                "INNER JOIN salle ON (salle.id = uhf.personne_id)\n" +
-//                "\n" +
-//                "Where uhf.personne_id = " + userId;
-//
-//        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
-//             PreparedStatement statement = (connection).prepareStatement(query)) {
-//
-//            try (ResultSet resultSet = statement.executeQuery()) {
-//                while (resultSet.next()) {
-//
-//                    liste_salles.add(
-//                            resultSet.getInt("id_favoris"),
-//                            resultSet.getInt("id_personne"),
-//                            resultSet.getInt("id_salle"),
-//                            resultSet.getString("principale_or_secondaire")
-//                    );
-//                }
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return liste_salles;
-//    }
+
+        String query = "SELECT\n" +
+                "    salle.id as id_salle,\n" +
+                "    salle.nom_salle as nom_salle,\n" +
+                "    etage.id as id_etage,\n" +
+                "    etage.nom_etage as nom_etage,\n" +
+                "    batiment.id as id_batiment,\n" +
+                "    batiment.nom_batiment as nom_batiment,\n" +
+                "    campus.id as id_campus,\n" +
+                "    campus.nom_campus as nom_campus\n" +
+                "\n" +
+                "\n" +
+                "FROM campus\n" +
+                "INNER JOIN batiment ON (campus.id = batiment.campus_id)\n" +
+                "INNER JOIN etage ON (batiment.id = etage.batiment_id)\n" +
+                "INNER JOIN salle ON (etage.id = salle.etage_id)\n" +
+                "\n" +
+                "WHERE salle.id = " + id_salle + " \n" +
+                "ORDER BY nom_campus, nom_batiment, nom_etage, nom_salle";
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+
+                    return new Salle(
+                            resultSet.getInt("id_salle"),
+                            resultSet.getString("nom_salle"),
+                            resultSet.getInt("id_etage"),
+                            resultSet.getString("nom_etage"),
+                            resultSet.getInt("id_batiment"),
+                            resultSet.getString("nom_batiment"),
+                            resultSet.getInt("id_campus"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

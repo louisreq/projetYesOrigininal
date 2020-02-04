@@ -21,4 +21,6 @@ public class CampusManager {
     public List<Campus> GetListOfCampus(){return campusDao.GetListOfCampus();}
 
     public List<Salle> GetListOfSalleWithCampusId(Integer campus_id){return campusDao.GetListOfSalleWithCampusId(campus_id);}
+    public Campus GetCampusFromSalleId(Integer id_salle){return  campusDao.GetCampusFromSalleId(id_salle);}
+    public Campus GetListOfSalleWithCampusName(String name_campus){return  campusDao.GetListOfSalleWithCampusName(name_campus);}
 }

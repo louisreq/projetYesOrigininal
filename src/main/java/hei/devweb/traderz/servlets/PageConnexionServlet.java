@@ -1,5 +1,6 @@
 package hei.devweb.traderz.servlets;
 
+import hei.devweb.traderz.entities.User;
 import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -26,7 +27,12 @@ public class PageConnexionServlet extends GenericServlet {
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("PageConnexion", context, resp.getWriter());
         }else {
-            resp.sendRedirect("/Prive/Home"); // l'utilisateur est connecté
+            User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
+            if(user.getRole().equals("admin")){
+                resp.sendRedirect("/Admin/Home");
+            }else {
+                resp.sendRedirect("/Prive/Home"); // l'utilisateur est connecté
+            }
         }
 
     }
@@ -42,7 +48,12 @@ public class PageConnexionServlet extends GenericServlet {
         try {
             if (new UserManager().confirmPassword(email, password)){
                 req.getSession().setAttribute("user_connected_email", email);
-                resp.sendRedirect("/Prive/Home");
+                User user = UserManager.getInstance().CreateUserFromEmail(email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
+                if(user.getRole().equals("admin")){
+                    resp.sendRedirect("/Admin/Home");
+                }else {
+                    resp.sendRedirect("/Prive/Home"); // l'utilisateur est connecté
+                }
             } else {
                 errorMessage = "Wrong password!";
             }
@@ -53,7 +64,7 @@ public class PageConnexionServlet extends GenericServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("errorMessage", errorMessage);
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("PageConnexion", context, resp.getWriter());
+        templateEngine.process("/PageConnexion", context, resp.getWriter());
     }
 }
 

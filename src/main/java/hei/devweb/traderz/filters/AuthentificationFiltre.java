@@ -16,7 +16,7 @@ import java.io.IOException;
 
 
 
-@WebFilter(filterName = "AuthentificationFiltre", urlPatterns="/Prive/*")
+@WebFilter(filterName = "AuthentificationFiltre", urlPatterns={"/Prive/*", "/Admin/*"})
 public class AuthentificationFiltre implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

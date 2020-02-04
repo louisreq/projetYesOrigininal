@@ -9,4 +9,6 @@ public interface CampusDao {
 
     List<Campus> GetListOfCampus();
     List<Salle> GetListOfSalleWithCampusId(Integer campus_id);
+    Campus GetCampusFromSalleId(Integer id_salle);
+    Campus GetListOfSalleWithCampusName(String name_campus);
 }
