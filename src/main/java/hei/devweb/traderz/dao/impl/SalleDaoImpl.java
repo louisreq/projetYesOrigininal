@@ -168,4 +168,66 @@ public class SalleDaoImpl implements SalleDao {
         return null;
     }
 
+
+
+    public List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id){
+        List<Salle> liste_favorite_salle = new ArrayList<>();
+
+        String query = "SELECT\n" +
+                "\n" +
+                "\ts1.id as id_salle,\n" +
+                "    s1.nom_salle as nom_salle,\n" +
+                "    e1.id as id_etage,\n" +
+                "    e1.nom_etage as nom_etage,\n" +
+                "    b1.id as id_batiment,\n" +
+                "    b1.nom_batiment as nom_batiment,\n" +
+                "    c1.id as id_campus,\n" +
+                "    c1.nom_campus as nom_campus\n" +
+                "FROM salle as s1 \n" +
+                "INNER JOIN etage AS e1 ON (s1.etage_id = e1.id)\n" +
+                "INNER JOIN batiment AS b1 ON (e1.batiment_id = b1.id)\n" +
+                "INNER JOIN campus as c1 ON (b1.campus_id = c1.id) \n" +
+                "\n" +
+                "WHERE c1.id = " + campus_id + "\n" +
+                "AND NOT EXISTS(\n" +
+                "\tSELECT\n" +
+                "\n" +
+                "\t\ts2.id as id_salle\n" +
+                "\t\n" +
+                "\tFROM user_has_favoris as uhf\n" +
+                "\tINNER JOIN personne AS p2 ON (uhf.personne_id = p2.id)\n" +
+                "\tINNER JOIN salle AS s2 ON (uhf.salle_id = s2.id)\n" +
+                "\tINNER JOIN etage AS e2 ON (s2.etage_id = e2.id)\n" +
+                "\tINNER JOIN batiment AS b2 ON (e2.batiment_id = b2.id)\n" +
+                "\tINNER JOIN campus AS c2 ON (b2.campus_id = c2.id) \n" +
+                "\tWHERE p2.id = " + user_id +"\n" +
+                "\tAND c2.id = " + campus_id + "\n" +
+                "    AND s1.id = s2.id\n" +
+                ")";
+
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+            System.out.println(statement);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    liste_favorite_salle.add(new Salle(
+                            resultSet.getInt("id_salle"),
+                            resultSet.getString("nom_salle"),
+                            resultSet.getInt("id_etage"),
+                            resultSet.getString("nom_etage"),
+                            resultSet.getInt("id_batiment"),
+                            resultSet.getString("nom_batiment"),
+                            resultSet.getInt("id_campus")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  liste_favorite_salle;
+    }
+
+
+
 }

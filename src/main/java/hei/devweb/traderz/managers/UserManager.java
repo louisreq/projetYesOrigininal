@@ -36,13 +36,6 @@ public class UserManager {
         return userDao.getStoredPassword(email).equals(password);
     }
 
-//    public boolean userValid (String nomUser){
-//        /*if (userDao.UserDontExist(nomUser)){
-//            throw new IllegalArgumentException("This username already exist !");
-//        }*/
-//        return userDao.UserDontExist(nomUser);
-//    }
-
 // Methode permettant de verifier que 2 champs sont bien egaux
 
     public boolean verifyNewPassword (String newPassword, String confirmNewPassword){
@@ -59,7 +52,8 @@ public class UserManager {
 
     public User CreateUserFromEmail (String email ){return userDao.CreateUserFromEmail(email);}
 
-
+    public Boolean IsEmailAlreadyTaken(String email){return userDao.IsEmailAlreadyTaken(email);}
+    public User addUser(User newUser){return userDao.addUser(newUser);}
 }
 
 

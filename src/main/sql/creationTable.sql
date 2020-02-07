@@ -34,6 +34,34 @@ SET time_zone = "+00:00";
                                            FOREIGN KEY (personne_id) REFERENCES personne(id),
                                            FOREIGN KEY (salle_id) REFERENCES salle(id)
    );
+
+
+DROP TABLE IF EXISTS `sensors`;
+CREATE TABLE IF NOT EXISTS `sensors` (
+                   `id_sensor` int(11) NOT NULL AUTO_INCREMENT,
+                   `id_rasberry` int(11) NOT NULL,
+                   `time_info_collected` datetime,
+                   `CO` float,
+                   `CO2` int(11),
+                   `LMG` float,
+                   `dust` float,
+                   `formol` float,
+                   `humid` float,
+                   `light` int(11),
+                   `sound` int(11),
+                   `temperature` float,
+                   `tolu` float,
+                   PRIMARY KEY (`id_sensor`),
+                   FOREIGN KEY (id_rasberry) REFERENCES rasberry(id)
+);
+DROP TABLE IF EXISTS `rasberry`;
+CREATE TABLE IF NOT EXISTS `rasberry` (
+                   `id_rasberry` int(11) NOT NULL,
+                   `id_salle` int(11),
+                   PRIMARY KEY (`id_rasberry`),
+                   FOREIGN KEY (id_salle) REFERENCES salle(id)
+);
+--
 --
 -- Structure de la table `alerte`
 --

@@ -2,12 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js" rel="stylesheet">
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
 
@@ -56,8 +60,11 @@
 
                         </div>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="formulaire">Formulaire</a>
+                    </li>
                     <li>
-                        <a type="button" class="btn btn-danger btn-block bouton" href="PageConnexion"> Se déconnecter </a>
+                        <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
                     </li>
                 </ul>
             </div>
@@ -79,10 +86,11 @@
                     <!-- <input type="search" placeholder="Rechercher dans mes messages" class="form-control" /> -->
 
                     <ul class="mail-list">
-                        <li th:each="alerte:${liste_alertes}">
-                            <a href="">
+                        <!--                        data-toggle="modal" th:data-target="'#ModalAlerte_' + ${alerte.getId()}"-->
+                        <li th:each="alerte:${liste_alertes}" class="text_too_long">
+                            <a  data-toggle="modal" th:href="'#ModalAlerte_' + ${alerte.getId()}">
                                 <!-- <span class="mail-sender">HEI</span> -->
-                                <span class="mail-subject" th:text="${alerte.getTitre()}">Ici le titre de l'Alerte</span>
+                                <span class="mail-subject" th:text="${alerte.getTitre()} + '          -       ' + ${alerte.getDatetime().toLocaleString()}">Ici le titre de l'Alerte</span>
                                 <span class="mail-message-preview" th:text="${alerte.getMessage()}"> Ici le message de l'alerte </span>
                             </a>
                         </li>
@@ -94,36 +102,40 @@
         </div>
 
     </div>
-<!--     <div class="tab-pane" id="compose">
 
-        <div class="container">
-            <div class="content-container clearfix">
-                <h1 class="content-title">Compose</h1>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input id="tokenfield" type="text" class="form-control" placeholder="To" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Cc" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Bcc" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject" />
-                    </div>
-                    <textarea class="form-control" placeholder="message"></textarea>
-                    <div class="btn-send">
-                        <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-send"></span> Send</button>
-                    </div>
-                </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" th:each="alerte:${liste_alertes}" th:id="'ModalAlerte_' + ${alerte.getId()}" tabindex="-1" role="dialog" th:aria-labelledby="'ModalAlerteTitle_' + ${alerte.getId()}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" th:id="'ModalAlerteTitle_' + ${alerte.getId()}" th:text="${alerte.getTitre()} + ' - ' + ${alerte.getDatetime().toLocaleString()}">Problème de ventilation en S102</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body" th:text="${alerte.getMessage()}">
+                L'air de la salle S102 ne se ventile pas
+            </div>
+
         </div>
-    </div> -->
+    </div>
+
 </div>
 </body>
-<style>
 
+<style>
+    /*.ul li.text_too_long {*/
+    /*    max-width: 10px;*/
+    /*}*/
+    /*.ul li.text_too_long span {*/
+    /*    white-space: nowrap;*/
+    /*    overflow: hidden;*/
+    /*    text-overflow: ellipsis;*/
+    /*    display: inline-block;*/
+    /*    max-width: 100px;*/
+    /*}*/
     .fa-heart-o{
         border-radius: 50%;
         background:#b4b4b4;
@@ -141,7 +153,7 @@
     }
 
 
-    p {
+    p  {
         font-size: 17px
     }
     legend{
@@ -208,9 +220,9 @@
         font-size: 35px
 
     }
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
+    /*body {*/
+    /*    font-family: Arial, Helvetica, sans-serif;*/
+    /*}*/
     .custom-checkbox {
         /* Presentation */
         font-size: 50px
@@ -400,6 +412,8 @@
     .bouton{
         height: 40px;
         line-height: 10px;
+        margin: 1px;
+
 
     }
 </style>

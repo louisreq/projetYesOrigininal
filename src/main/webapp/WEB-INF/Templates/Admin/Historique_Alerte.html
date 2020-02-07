@@ -2,14 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js" rel="stylesheet">
+
 
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
@@ -60,7 +61,7 @@
                         </div>
                     </li>
                     <li>
-                        <a type="button" class="btn btn-danger btn-block bouton" href="PageConnexion"> Se déconnecter </a>
+                        <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +84,7 @@
 
                     <ul class="mail-list">
 <!--                        data-toggle="modal" th:data-target="'#ModalAlerte_' + ${alerte.getId()}"-->
-                        <li th:each="alerte:${liste_alertes}">
+                        <li th:each="alerte:${liste_alertes}" class="text_too_long">
                             <a  data-toggle="modal" th:href="'#ModalAlerte_' + ${alerte.getId()}">
                                 <!-- <span class="mail-sender">HEI</span> -->
                                 <span class="mail-subject" th:text="${alerte.getTitre()} + '          -       ' + ${alerte.getDatetime().toLocaleString()}">Ici le titre de l'Alerte</span>
@@ -122,7 +123,16 @@
 </body>
 
 <style>
-
+    /*.ul li.text_too_long {*/
+    /*    max-width: 10px;*/
+    /*}*/
+    /*.ul li.text_too_long span {*/
+    /*    white-space: nowrap;*/
+    /*    overflow: hidden;*/
+    /*    text-overflow: ellipsis;*/
+    /*    display: inline-block;*/
+    /*    max-width: 100px;*/
+    /*}*/
     .fa-heart-o{
         border-radius: 50%;
         background:#b4b4b4;

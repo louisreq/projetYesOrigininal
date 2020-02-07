@@ -21,5 +21,6 @@ public class SalleManager {
 
     public List<Salle> GetAllSalles(){return salleDao.GetAllSalles();}
     public Salle GetSalleFromId(Integer id_salle){return salleDao.GetSalleFromId(id_salle);}
+    public List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id){return salleDao.GetListOfFavoriteSallesFromUserIdAndCampusId(user_id, campus_id);}
 
 }

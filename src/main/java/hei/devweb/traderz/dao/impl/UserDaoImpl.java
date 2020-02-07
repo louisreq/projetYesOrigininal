@@ -71,7 +71,7 @@ public class UserDaoImpl implements UserDao{
      * @return  retourne l'objet user avec son identifiant si l'objet à bien été ajouté dans les tables , retourne null sinon
      */
     public User addUser(User newUser){
-        String query ="INSERT INTO personne(nom_personne,prenom_personne,email,sexe,mot_passe,role)" +
+        String query ="INSERT INTO personne(nom_personne,prenom_personne,email,sexe,mot_passe,role)\n" +
                 "VALUES(?,?,?,?,?,?)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
@@ -81,12 +81,11 @@ public class UserDaoImpl implements UserDao{
             statement.setString(4,newUser.getSexe());
             statement.setString(5,newUser.getMdp());
             statement.setString(6,newUser.getRole());
+            System.out.println(statement);
             statement.executeUpdate();
-
             try (ResultSet ids = statement.getGeneratedKeys()) {
                 if (ids.next()) {
                     int generatedId = ids.getInt(1);
-
                     newUser.setIdUser(generatedId);
                     return newUser;
                 }
@@ -112,7 +111,35 @@ public class UserDaoImpl implements UserDao{
         }
     }
 
+    public Boolean IsEmailAlreadyTaken(String email){
+//        List<Favori> liste_favoris = new ArrayList<>();
 
+        String query = "SELECT \n" +
+                "\tCASE\n" +
+                "\t\tWHEN EXISTS (\n" +
+                "\t\t\tSELECT 1\n" +
+                "\t\t\tFROM personne p\n" +
+                "\t\t\tWHERE p.email= '" + email + "'\n" +
+                "\n" +
+                "\t) THEN TRUE\n" +
+                "\tELSE FALSE\n" +
+                "\tEND as user_is_created";
+
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+            System.out.println(statement);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    Boolean res = resultSet.getBoolean("user_is_created");
+                    return res;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }

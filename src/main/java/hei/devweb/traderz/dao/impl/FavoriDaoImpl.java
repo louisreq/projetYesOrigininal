@@ -4,15 +4,40 @@ import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.dao.FavoriDao;
 import hei.devweb.traderz.entities.Favori;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriDaoImpl implements FavoriDao {
 
+    public void AddFavori (Integer id_personne, Integer principale_ou_secondaire, Integer id_salle){
+        String query = "INSERT INTO `user_has_favoris`(`personne_id`, `is_favori_preffered`, `salle_id`)\n" +
+                "VALUE (?, ?, ?)";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            statement.setInt(1, id_personne);
+            statement.setInt(2, principale_ou_secondaire);
+            statement.setInt(3, id_salle);
+
+            System.out.println(statement);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("/!\\/!\\ Error, cannot Add this to Favorite /!\\/!\\ ");
+        }
+    }
+
+    public void DeleteFavoriFromSalleIdAndUserId (Integer id_salle, Integer id_user){
+        String query = "DELETE FROM `user_has_favoris` WHERE personne_id = " + id_user + " AND salle_id = " + id_salle;
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+
+            System.out.println(statement);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("/!\\/!\\ Error, cannot Delete this to Favorite /!\\/!\\ ");
+        }
+    }
 
     public List<Favori> GetListOfFavorisFromUserId(Integer user_id){
         List<Favori> liste_favoris = new ArrayList<>();
@@ -26,7 +51,7 @@ public class FavoriDaoImpl implements FavoriDao {
                 "    etage.nom_etage as nom_etage,\n" +
                 "    salle.nom_salle,\n" +
                 "    CASE\n" +
-                "\t\tWHEN 1 THEN 'Principale'\n" +
+                "\t\tWHEN uhf.is_favori_preffered=1 THEN 'Principale'\n" +
                 "        ELSE 'Secondaire'\n" +
                 "    END as principale_or_secondaire\n" +
                 "\n" +
@@ -42,7 +67,7 @@ public class FavoriDaoImpl implements FavoriDao {
 
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
-
+            System.out.println(statement);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
 
@@ -63,4 +88,37 @@ public class FavoriDaoImpl implements FavoriDao {
         }
         return  liste_favoris;
     }
+
+    public Boolean IsSalleFavori(Integer user_id, Integer salle_id){
+//        List<Favori> liste_favoris = new ArrayList<>();
+
+        String query = "SELECT \n" +
+                "\tCASE \n" +
+                "\t\tWHEN EXISTS (\n" +
+                "\t\t\tSELECT \n" +
+                "\t\t\t\t*\n" +
+                "\t\t\tFROM user_has_favoris uhf\n" +
+                "\n" +
+                "\t\t\twhere uhf.personne_id= " + user_id + " \n" +
+                "\t\t\tand uhf.salle_id = " + salle_id + " \n" +
+                "\t\t\t) THEN TRUE\n" +
+                "\t\tELSE FALSE\n" +
+                "\tEND as favori";
+
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+            System.out.println(statement);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    Boolean res = resultSet.getBoolean("favori");
+                   return res;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

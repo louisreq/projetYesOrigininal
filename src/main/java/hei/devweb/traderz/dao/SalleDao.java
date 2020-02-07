@@ -8,5 +8,5 @@ public interface SalleDao {
     List<Salle> GetListOfSalleFromCampusAndUserInput(Integer id_campus, String user_input);
     List<Salle> GetAllSalles();
     Salle GetSalleFromId(Integer id_salle);
-
+    List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id);
 }

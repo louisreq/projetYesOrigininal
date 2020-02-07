@@ -57,6 +57,9 @@
 
                         </div>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="formulaire">Formulaire</a>
+                    </li>
                     <li>
                         <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
                     </li>
@@ -73,7 +76,7 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row form-group">
-        <section class="col-md-10 col-md-offset-3">
+        <section class="col-md-10">
             <h1 class="mt-4">Yncréa Intelligence Indoor Air Quality</h1>
             <p></p>
             <p></p>
@@ -84,6 +87,12 @@
                 </p>
                 <footer class="blockquote-footer">Thierry OCCRE</footer>
             </blockquote>
+
+        </section>
+        <section class="col-md-2 ">
+            <!-- Material checked -->
+            <a data-toggle='collapse' href='Salle' id='collapseExample1' class='text-center switch_to_favori btn btn-default' th:text="${ajouter_ou_supprimer}"></a>
+
         </section>
 
     </div>
@@ -100,7 +109,48 @@
         <div class="col-xs-3 col-sm-4 col-md-4">
             <h4 class="display-6" th:text="'Salle Bâtiment ' + ${salle.batiment_name} + ' - au ' + ${salle.etage_name}"> Salle Bâtiment Ségard - au 2ème étage</h4>
         </div>
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            /**
+             * sends a request to the specified url from a form. this will change the window location.
+             * @param {string} path the path to send the post request to
+             * @param {object} params the paramiters to add to the url
+             * @param {string} [method=post] the method to use on the form
+             */
 
+            function post(params) {
+                var method='post';
+                // The rest of this code assumes you are not using a library.
+                // It can be made less wordy if you use one.
+                var form = document.createElement('form');
+                form.method = method;
+                // form.action = path;
+
+                for (var key in params) {
+                    if (params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement('input');
+                        hiddenField.type = 'hidden';
+                        hiddenField.name = key;
+                        hiddenField.value = params[key];
+                        form.appendChild(hiddenField);
+                    }
+                }
+                document.body.appendChild(form);
+                form.submit();
+            }
+
+            $(document).ready(function(){
+                $('#collapseExample1').on('click', function () {
+                    var text=$('#collapseExample1').text();
+                    if(text.includes("Supprimer")){
+                        post({switch_favori: 'del', salle_id:'[[${salle.getId()}]]'});
+                    } else{
+                        post({switch_favori: 'add', salle_id:'[[${salle.getId()}]]'});
+                    }
+                });
+            });
+            /*]]>*/
+        </script>
     </section>
 
 
@@ -242,7 +292,11 @@
 
 </body>
 <style>
-
+    .switch_to_favori{
+        padding-top: 12px;
+        margin-top: 20px;
+        background-color: #92badd;
+    }
     .fa-heart-o{
         border-radius: 50%;
         background:#b4b4b4;

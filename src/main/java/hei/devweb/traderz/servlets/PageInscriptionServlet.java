@@ -16,10 +16,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-@WebServlet("/pageInscription")
-public class PageInscriptionServlet extends GenericServlet {
+@WebServlet("/PageInscription")
+public class PageInscriptionServlet extends PrivateServlet {
 
-    private UserDao userDao = new UserDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,7 +26,7 @@ public class PageInscriptionServlet extends GenericServlet {
 
         WebContext context = new WebContext (req, resp, req.getServletContext());
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("PageInscription", context, resp.getWriter());
+        templateEngine.process("/WEB-INF/Templates/PageInscription", context, resp.getWriter());
     }
 
     @Override
@@ -36,32 +35,24 @@ public class PageInscriptionServlet extends GenericServlet {
         String prenom = null;
         String nom = null;
         String mail = null;
-        String mailBis = null;
         String sexe = null;
-        String username = null;
         String password = null;
         String confirmPassword = null;
-        LocalDate dateNaissance = null;
-        double liquidites = 200000;
-        double valeur = 0;
-        boolean verifPseudo = false;
-        String role = null;
+        String role = "user";
+        Boolean isEmailTaken = null;
 
         try {
             prenom = req.getParameter("prenom");
             nom = req.getParameter("nom");
-            mail = req.getParameter("mail");
-//            mailBis = req.getParameter("confirmMail");
-//            String releaseDateAsString = req.getParameter("dateNaissance");
-//            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//            dateNaissance = LocalDate.parse(releaseDateAsString, dateFormat);
+            mail = req.getParameter("adresse_mail");
             sexe = req.getParameter("sexe");
-//            username = req.getParameter("identifiant");
-            password = req.getParameter("mdp");
-            role = req.getParameter("role");
-//            confirmPassword = req.getParameter("confirmationMdp");
-//            verifPseudo = UserManager.getInstance().userValid(username);
-
+            password = req.getParameter("password");
+//            role = req.getParameter("role");
+            confirmPassword = req.getParameter("password2");
+            isEmailTaken = UserManager.getInstance().IsEmailAlreadyTaken(mail);
+            System.out.println("Voici toutes les valeurs :\n - Prenom Nom = " + prenom + " " + nom);
+            System.out.println("- Email = " + mail + "\n- sexe = " + sexe +"\n- Role = " + role);
+            System.out.println("- Password1 = " + password + "\n- Password2 = " + confirmPassword);;
         } catch (NumberFormatException | DateTimeParseException ignored) {
         }
 
@@ -69,30 +60,21 @@ public class PageInscriptionServlet extends GenericServlet {
         String errorMessage=null;
         User newUser = new User(idUser,nom,prenom,mail,sexe,password,role);
         try{
-            if (UserManager.getInstance().verifyNewPassword(password,confirmPassword) & UserManager.getInstance().verifyNewPassword(mail,mailBis) ) {
-                if (verifPseudo == false) {
-                    User createdUser = userDao.addUser(newUser);
-                    resp.sendRedirect("pageAccueil");
+            if (password.equals(confirmPassword)) {
+                System.out.println("Password confirmed");
+                if (!isEmailTaken) {
+                    System.out.println("Email is available");
+                    User createdUser = UserManager.getInstance().addUser(newUser);
+                    resp.sendRedirect("/PageConnexion");
                 } else {
+                    System.out.println("Email not evailable");
                     errorMessage = "Wrong characters";
-                    resp.sendRedirect("pageInscription");
+                    resp.sendRedirect("/PageInscription");
                 }
             }
         }catch (Exception e ) {
             errorMessage = e.getMessage();
         }
-        /*User newUser = new User(idUser,prenom,nom,username,password,mail,dateNaissance,sexe,liquidites,valeur);
-
-        try {
-
-            User createdUser= userDao.addUser(newUser);
-                resp.sendRedirect("pageAccueil");
-
-        } catch (IllegalArgumentException e){
-            String errormessage = e.getMessage();
-            resp.sendRedirect("pageInscription");
-        }*/
-
     }
 }
 

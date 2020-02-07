@@ -165,3 +165,36 @@ INNER JOIN salle ON (salle.id = uhf.personne_id)
 
 Where uhf.personne_id = 3
 
+-- Requête pour avoir toutes les salles qui ne sont pas dans les favoris d'une personne
+
+SELECT
+
+	s1.id as id_salle,
+    s1.nom_salle as nom_salle,
+    e1.id as id_etage,
+    e1.nom_etage as nom_etage,
+    b1.id as id_batiment,
+    b1.nom_batiment as nom_batiment,
+    c1.id as id_campus,
+    c1.nom_campus as nom_campus
+FROM salle as s1
+INNER JOIN etage AS e1 ON (s1.etage_id = e1.id)
+INNER JOIN batiment AS b1 ON (e1.batiment_id = b1.id)
+INNER JOIN campus as c1 ON (b1.campus_id = c1.id)
+
+WHERE c1.id = 1
+AND NOT EXISTS(
+	SELECT
+
+		s2.id as id_salle
+
+	FROM user_has_favoris as uhf
+	INNER JOIN personne AS p2 ON (uhf.personne_id = p2.id)
+	INNER JOIN salle AS s2 ON (uhf.salle_id = s2.id)
+	INNER JOIN etage AS e2 ON (s2.etage_id = e2.id)
+	INNER JOIN batiment AS b2 ON (e2.batiment_id = b2.id)
+	INNER JOIN campus AS c2 ON (b2.campus_id = c2.id)
+	WHERE p2.id = 3
+	AND c2.id = 1
+    AND s1.id = s2.id
+)

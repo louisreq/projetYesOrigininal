@@ -1,70 +1,315 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
 <html>
 <head>
-	<title>Bienvenue sur Traderz</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../Css/general.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<title>Bienvenue sur YIIAQ</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../Css/connexion_page.css" type="text/css" >
+	<link href="test.css" rel="stylesheet" type="text/plain">
+
 </head>
 <body>
-	<div class ="page">
 
-		<header>
-			<h1>Bienvenue sur Trader - Premiere plateforme de trading social</h1>
-		</header>
-		<div class ="contenuInscription">
-				<h2>Créer un compte </h2>
-			<div class="inscription">
-			<form class="connexion" method="post" action ="pageInscription">
-				<article  id ="inscription1">
-					<h3>Informations personnelles</h3>
-						<div class ="prenom">
-							<input type="text" id="prenom" name="prenom" required="required" placeholder="Prenom" />
-						</div>
-						<div class ="nom">
-							<input type="text" id="nom" name="nom" required="required" placeholder="Nom" />
-						</div>
-						<div class ="mail">
-							<input type="email" id="mail" name="mail" required="required" placeholder="mail" />
-						</div>
-						<div class ="confirmationmail">
-							<input type="email" id="confirmMail" name="confirmMail" required="required" placeholder="Confirmer le mail" />
-						</div>
-						<div class ="dateNaissance">
-							<label>Date de Naissance :</label>
-							<input type="date" id="dateNaissance" name="dateNaissance" required="required"  />
-						</div>
-						<div class="sexe">
-							<label>Sexe :</label>
-							<input type="radio" name="sexe" value="Masculin" id="Masculin" required="required"/>
-							<label for="Masculin">Masculin</label>
-							<input type="radio" name="sexe" value ="Feminin" id="Feminin" />
-							<label for="Feminin">Feminin</label>
-						</div>
-							
-				</article>
-				<article id ="inscription2">
-					<h3>Données de jeu</h3>
-						<div class ="identifiant">
-							<input type="text" id="identifiant" name="identifiant" required="required" placeholder="Identifiant" />
-						</div>
-						<div class ="mdp">
-							<input type="password" id="mdp" name="mdp" required="required" placeholder="Mot de Passe">
-						</div>
-						<div class ="confirmationmdp">
-							<input type="password" id="confirmationMdp" name="confirmationMdp" required="required" placeholder="confimer le Mot de Passe">
-						</div>
-						<div class="bouton">
-							<input type="submit" name="Valider inscription" value="Valider inscription"/>
-						</div>
-						<div class="accueil">
-							<a href="pageAccueil">Deja membre ?</a>
-						</div>
-				</article>
-			</form>
-			</div>	
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+	<div id="formContent">
+		<!-- Tabs Titles -->
+
+		<!-- Icon -->
+		<div class="fadeIn first">
+			<img src="../../IMG/logo3.png" id="icon" alt="User Icon" />
 		</div>
+
+		<!-- Login Form -->
+		<form method="post">
+			<input type="text" id="nom" class="fadeIn first" name="nom" placeholder="Nom" required>
+			<input type="text" id="prenom" class="fadeIn second" name="prenom" placeholder="Prénom" required>
+			<select id="sexe" class="fadeIn third form-control" name="sexe" required>
+				<option value="1" selected>Homme</option>
+				<option value="2">Femme</option>
+			</select>
+			<input type="text" id="adresse_mail" class="fadeIn fourth" name="adresse_mail" placeholder="Adresse mail" required>
+			<input type="password" id="password" class="fadeIn fifth" name="password" placeholder="Mot de passe" required>
+			<input type="password" id="password2" class="fadeIn sixth" name="password2" placeholder="Confirmation du mot de passe" required>
+
+			<input type="submit" class="fadeIn seventh" value="S'inscrire"> <!-- rediriger vers la page de connexion -->
+		</form>
+
+
+
 	</div>
+</div>
 </body>
-</html>
+
+<style>
+	html {
+		background-color: #56baed;
+	}
+
+	body {
+		font-family: "Poppins", sans-serif;
+		height: 100vh;
+		background-color: #0d0d0d;
+	}
+
+	a {
+		color: #92badd;
+		display:inline-block;
+		text-decoration: none;
+		font-weight: 400;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		display:inline-block;
+		margin: 40px 8px 10px 8px;
+		color: #cccccc;
+	}
+
+
+
+	/* STRUCTURE */
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		min-height: 100%;
+		padding: 20px;
+	}
+
+	#formContent {
+		-webkit-border-radius: 10px 10px 10px 10px;
+		border-radius: 10px 10px 10px 10px;
+		background: #fff;
+		padding: 30px;
+		width: 90%;
+		max-width: 450px;
+		position: relative;
+		padding: 0px;
+		-webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+		box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+		text-align: center;
+	}
+
+	#formFooter {
+		background-color: #f6f6f6;
+		border-top: 1px solid #dce8f1;
+		padding: 25px;
+		text-align: center;
+		-webkit-border-radius: 0 0 10px 10px;
+		border-radius: 0 0 10px 10px;
+	}
+
+
+
+	/* TABS */
+
+	h2.inactive {
+		color: #cccccc;
+	}
+
+	h2.active {
+		color: #0d0d0d;
+		border-bottom: 2px solid #5fbae9;
+	}
+
+
+
+	/* FORM TYPOGRAPHY*/
+
+	input[type=button], input[type=submit], input[type=reset]{
+		background-color: #56baed;
+		border: none;
+		color: white;
+		padding: 15px 80px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		text-transform: uppercase;
+		font-size: 13px;
+		-webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+		box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+		-webkit-border-radius: 5px 5px 5px 5px;
+		border-radius: 5px 5px 5px 5px;
+		margin: 5px 20px 40px 20px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
+
+	input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+		background-color: #39ace7;
+	}
+
+	input[type=button]:active, input[type=submit]:active, input[type=reset]:active{
+		-moz-transform: scale(0.95);
+		-webkit-transform: scale(0.95);
+		-o-transform: scale(0.95);
+		-ms-transform: scale(0.95);
+		transform: scale(0.95);
+	}
+
+	input[type=text], input[type=password], select, option {
+		background-color: #f6f6f6;
+		border: none;
+		color: #0d0d0d;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 5px;
+		width: 85%;
+		border: 2px solid #f6f6f6;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		-ms-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		-webkit-border-radius: 5px 5px 5px 5px;
+		border-radius: 5px 5px 5px 5px;
+	}
+
+	input[type=text]:focus, input[type=password]:focus, select:focus, option:focus {
+		background-color: #fff;
+		border-bottom: 2px solid #5fbae9;
+	}
+
+	input[type=text]::placeholder, input[type=password]::placeholder, select::placeholder, option::placeholder {
+		color: #cccccc;
+	}
+
+
+
+	/* ANIMATIONS */
+
+	/* Simple CSS3 Fade-in-down Animation */
+	.fadeInDown {
+		-webkit-animation-name: fadeInDown;
+		animation-name: fadeInDown;
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	@-webkit-keyframes fadeInDown {
+		0% {
+			opacity: 0;
+			-webkit-transform: translate3d(0, -100%, 0);
+			transform: translate3d(0, -100%, 0);
+		}
+		100% {
+			opacity: 1;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
+
+	@keyframes fadeInDown {
+		0% {
+			opacity: 0;
+			-webkit-transform: translate3d(0, -100%, 0);
+			transform: translate3d(0, -100%, 0);
+		}
+		100% {
+			opacity: 1;
+			-webkit-transform: none;
+			transform: none;
+		}
+	}
+
+	/* Simple CSS3 Fade-in Animation */
+	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+	.fadeIn {
+		opacity:0;
+		-webkit-animation:fadeIn ease-in 1;
+		-moz-animation:fadeIn ease-in 1;
+		animation:fadeIn ease-in 1;
+
+		-webkit-animation-fill-mode:forwards;
+		-moz-animation-fill-mode:forwards;
+		animation-fill-mode:forwards;
+
+		-webkit-animation-duration:1s;
+		-moz-animation-duration:1s;
+		animation-duration:1s;
+	}
+
+	.fadeIn.first {
+		-webkit-animation-delay: 0.4s;
+		-moz-animation-delay: 0.4s;
+		animation-delay: 0.4s;
+	}
+
+	.fadeIn.second {
+		-webkit-animation-delay: 0.6s;
+		-moz-animation-delay: 0.6s;
+		animation-delay: 0.6s;
+	}
+
+	.fadeIn.third {
+		-webkit-animation-delay: 0.8s;
+		-moz-animation-delay: 0.8s;
+		animation-delay: 0.8s;
+	}
+
+	.fadeIn.fourth {
+		-webkit-animation-delay: 1s;
+		-moz-animation-delay: 1s;
+		animation-delay: 1s;
+	}
+
+	/* Simple CSS3 Fade-in Animation */
+	.underlineHover:after {
+		display: block;
+		left: 0;
+		bottom: -10px;
+		width: 0;
+		height: 2px;
+		background-color: #56baed;
+		content: "";
+		transition: width 0.2s;
+	}
+
+	.underlineHover:hover {
+		color: #0d0d0d;
+	}
+
+	.underlineHover:hover:after{
+		width: 100%;
+	}
+
+
+
+	/* OTHERS */
+
+	*:focus {
+		outline: none;
+	}
+
+	#icon {
+		width:40%;
+	}
+</style>
+</body>
 </html>

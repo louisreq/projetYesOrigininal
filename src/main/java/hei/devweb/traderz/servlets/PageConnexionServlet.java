@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/PageConnexion")
-public class PageConnexionServlet extends GenericServlet {
+public class PageConnexionServlet extends PrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class PageConnexionServlet extends GenericServlet {
         if (user_connected_email == null) { // l'utilisateur n'est pas connecté
             WebContext context = new WebContext(req, resp, req.getServletContext());
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-            templateEngine.process("PageConnexion", context, resp.getWriter());
+            templateEngine.process("/WEB-INF/Templates/PageConnexion", context, resp.getWriter());
         }else {
             User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
             if(user.getRole().equals("admin")){
@@ -64,7 +64,7 @@ public class PageConnexionServlet extends GenericServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("errorMessage", errorMessage);
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
-        templateEngine.process("/PageConnexion", context, resp.getWriter());
+        templateEngine.process("/WEB-INF/Templates/PageConnexion", context, resp.getWriter());
     }
 }
 
