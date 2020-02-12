@@ -3,11 +3,10 @@ package hei.devweb.traderz.dao.impl;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.dao.SalleDao;
 import hei.devweb.traderz.entities.Salle;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 public class SalleDaoImpl implements SalleDao {
 
     public List<String> SplitUserInput(String user_input){
-        List<String> splitted_input = new ArrayList<>();
+        List<String> splitted_input;
         splitted_input = Arrays.asList(user_input.split(" "));
         return splitted_input;
     }
@@ -168,7 +167,33 @@ public class SalleDaoImpl implements SalleDao {
         return null;
     }
 
+    public JSONArray GetTemperature(){
 
+        //Creating a JSONObject object
+        JSONObject jsonObject = new JSONObject();
+
+        String[] nullable = new String[0];
+        JSONArray array = new JSONArray();
+        String query = "SELECT\n" +
+                "\ts.time_info_collected as time_info_collected,\n" +
+                "    s.temperature \n" +
+                "FROM yes_3024.sensors as s;";
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+            System.out.println(statement);
+            try (ResultSet resultSet = statement.executeQuery()){
+                while(resultSet.next()){
+                    JSONObject record = new JSONObject();
+                    record.put("time_info_collected", resultSet.getString("time_info_collected"));
+                    record.put("temperature", resultSet.getFloat("temperature"));
+                    array.add(record);
+            } }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  array;
+    }
 
     public List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id){
         List<Salle> liste_favorite_salle = new ArrayList<>();

@@ -290,7 +290,170 @@
     </section>
 </div>
 
+<svg width="960" height="500">
+</svg>
+
 </body>
+
+<!--    <script type="module" src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>-->
+<script src = "https://d3js.org/d3.v4.min.js"></script>
+<!--STYLE POUR LE TEST VISU AVEC D3.JS-->
+<style>
+    circle{
+        fill:tomato;
+        opacity:0.5;
+    }
+
+    text {
+        font-size: 2.5em;
+        font-family: sans-serif;
+    }
+
+    .tick text{
+        font-size: 2.4em;
+        color : #635F5D;
+    }
+
+    .tick line {
+        stroke: #C0C0BB;
+    }
+
+    .xAxisLabel{
+        font-size:4em;
+        fill:#635F5D;
+    }
+
+    .title{
+        font-size:4em;
+        fill:#635F5D;
+    }
+
+    .line_path{
+        fill:none;
+        stroke:tomato;
+        stroke-width:3;
+        stroke-linejoin:round;
+    }
+</style>
+
+<!-- SCRIPT TEST POUR LA VISO AVEC D3.JS-->
+<script th:inline="javascript">
+
+    // import * as d3 from 'd3-transition';
+    const svg = d3.select('svg');
+
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    // d.mpg = +d.mpg;
+    // d.cylinders = +d.cylinders;
+    // d.displacement = +d.displacement;
+    // d.horsepower = +d.horsepower;
+    // d.weight = +d.weight;
+    // d.acceleration = +d.acceleration;
+    // d.year = +d.year;
+
+
+    const render = data => {
+        const globalTitle = "A Week in San Fransisco";
+        const yAxisLable = "Temperature";
+
+        const yValue = d => d.Temperatures;
+        const circleRadius = 0;
+        const xAxisLable = "Time";
+        const xValue = d => d.Time;
+        const margin = { top:60, bottom:90, left:150, right:25};
+        const innerHeight = height - margin.top - margin.bottom;
+        const innerWidth = width - margin.left - margin.right
+
+        const xScale = d3.scaleTime()
+            .domain(d3.extent(data, xValue))
+            .range([0, innerWidth])
+            .nice();
+
+        const yScale = d3.scaleLinear()
+            .domain(d3.extent(data, yValue))
+            .range([innerHeight, 0])
+            .nice();
+
+
+        console.log(xScale.domain());
+        console.log(xScale.range());
+
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+        const xAxis = d3.axisBottom(xScale)
+            .tickSize(-innerHeight + 10)
+            .tickPadding(20);
+
+        const yAxis = d3.axisLeft(yScale)
+            .tickSize(-innerWidth);
+
+        const yAxisGroup = g.append('g').call(yAxis);
+        yAxisGroup
+            .selectAll('.domain')
+            .remove();
+
+        yAxisGroup.append('text')
+            .attr('class', 'xAxisLabel')
+            .attr('x',-innerHeight/2)
+            .attr('y', -80)
+            .attr('fill', 'black')
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+            .text(yAxisLable);
+
+        const xAxisGroup = g.append('g').call(xAxis)
+            .attr('transform', `translate(0, ${innerHeight})`);
+        xAxisGroup.select('.domain').remove();
+
+        xAxisGroup.append('text')
+            .attr('class', 'xAxisLabel')
+            .attr('x', innerWidth/2)
+            .attr('y', 70)
+            .attr('fill', 'black')
+            .text(xAxisLable);
+
+        const lineGenerator = d3.line()
+            .x(d => xScale(xValue(d)))
+            .y(d => yScale(yValue(d)))
+            .curve(d3.curveBasis);
+
+        g.append('path')
+            .attr('class', 'line_path')
+            .attr('d', lineGenerator(data));
+
+        g.selectAll('rect').data(data)
+            .enter().append('circle')
+            .attr('cy', d => yScale(yValue(d)))
+            .attr('cx', d => xScale(xValue(d)))
+            .attr('r', circleRadius);
+
+        g.append('text')
+            .attr('class', 'title')
+            .text(globalTitle)
+            .attr('y', -10);
+    };
+
+
+    const data_json = '[(${array_of_temperature})]';
+
+    const json = JSON.parse(data_json);
+
+    json.forEach(function(element, index) {
+        element.Time = new Date(element['time_info_collected']);
+        element.Temperatures = +element['temperature'];
+
+        delete element['time_info_collected'];
+        delete element['temperature'];
+    });
+
+    render(json);
+
+</script>
+
+
 <style>
     .switch_to_favori{
         padding-top: 12px;

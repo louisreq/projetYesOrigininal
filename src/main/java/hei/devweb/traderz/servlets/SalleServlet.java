@@ -9,6 +9,7 @@ import hei.devweb.traderz.managers.CampusManager;
 import hei.devweb.traderz.managers.FavoriManager;
 import hei.devweb.traderz.managers.SalleManager;
 import hei.devweb.traderz.managers.UserManager;
+import org.json.simple.JSONArray;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -32,14 +33,20 @@ public class SalleServlet extends PrivateServlet{
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
+
         Boolean is_salle_favori = FavoriManager.getInstance().IsSalleFavori(user.getIdUser(), selected_salle.getId());
         String ajouter_ou_supprimer;
         if(is_salle_favori){
             ajouter_ou_supprimer = "Supprimer des Favoris";
         }else {
             ajouter_ou_supprimer = "Ajouter aux Favoris";
-
         }
+
+        JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature();
+
+        System.out.println(array_of_temperature);
+
+        context.setVariable("array_of_temperature", array_of_temperature);
         context.setVariable("useronline", user );
         context.setVariable("selected_salle", selected_salle );
         context.setVariable("campus_with_the_selected_salle", campus_with_the_selected_salle);
