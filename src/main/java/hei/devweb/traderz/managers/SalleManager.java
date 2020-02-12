@@ -24,6 +24,7 @@ public class SalleManager {
     public Salle GetSalleFromId(Integer id_salle){return salleDao.GetSalleFromId(id_salle);}
     public List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id){return salleDao.GetListOfFavoriteSallesFromUserIdAndCampusId(user_id, campus_id);}
 
-    public JSONArray GetTemperature(){return salleDao.GetTemperature();};
+    public JSONArray GetTemperature(){return salleDao.GetTemperature();}
+//    public JSONArray GetActualTempAndHumidity(){return  salleDao.GetActualTempAndHumidity();}
 
 }

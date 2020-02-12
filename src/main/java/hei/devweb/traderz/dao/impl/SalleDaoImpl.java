@@ -170,14 +170,15 @@ public class SalleDaoImpl implements SalleDao {
     public JSONArray GetTemperature(){
 
         //Creating a JSONObject object
-        JSONObject jsonObject = new JSONObject();
+//        JSONObject jsonObject = new JSONObject();
 
-        String[] nullable = new String[0];
+//        String[] nullable = new String[0];
         JSONArray array = new JSONArray();
         String query = "SELECT\n" +
                 "\ts.time_info_collected as time_info_collected,\n" +
-                "    s.temperature \n" +
-                "FROM yes_3024.sensors as s;";
+                "    s.temperature,\n" +
+                "    s.humid\n" +
+                "FROM yes_3024.sensors as s";
 
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
@@ -186,7 +187,8 @@ public class SalleDaoImpl implements SalleDao {
                 while(resultSet.next()){
                     JSONObject record = new JSONObject();
                     record.put("time_info_collected", resultSet.getString("time_info_collected"));
-                    record.put("temperature", resultSet.getFloat("temperature"));
+                    record.put("temperature", resultSet.getString("temperature"));
+                    record.put("humid", resultSet.getString("humid"));
                     array.add(record);
             } }
         } catch (SQLException e) {
@@ -194,6 +196,9 @@ public class SalleDaoImpl implements SalleDao {
         }
         return  array;
     }
+
+
+
 
     public List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id){
         List<Salle> liste_favorite_salle = new ArrayList<>();

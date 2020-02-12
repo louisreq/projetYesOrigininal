@@ -3,12 +3,10 @@ package hei.devweb.traderz.servlets;
 //import com.sun.org.apache.xpath.internal.operations.Bool;
 //import com.sun.org.apache.xpath.internal.operations.String;
 import hei.devweb.traderz.entities.Campus;
+import hei.devweb.traderz.entities.Capteur;
 import hei.devweb.traderz.entities.Salle;
 import hei.devweb.traderz.entities.User;
-import hei.devweb.traderz.managers.CampusManager;
-import hei.devweb.traderz.managers.FavoriManager;
-import hei.devweb.traderz.managers.SalleManager;
-import hei.devweb.traderz.managers.UserManager;
+import hei.devweb.traderz.managers.*;
 import org.json.simple.JSONArray;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -43,9 +41,10 @@ public class SalleServlet extends PrivateServlet{
         }
 
         JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature();
-
+        Capteur actual_humidity_and_temperature = CapteurManager.getInstance().GetActualTempAndHumidity();
         System.out.println(array_of_temperature);
 
+        context.setVariable("actual_humidity_and_temperature", actual_humidity_and_temperature);
         context.setVariable("array_of_temperature", array_of_temperature);
         context.setVariable("useronline", user );
         context.setVariable("selected_salle", selected_salle );

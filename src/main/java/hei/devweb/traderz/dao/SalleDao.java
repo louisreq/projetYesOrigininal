@@ -11,4 +11,5 @@ public interface SalleDao {
     Salle GetSalleFromId(Integer id_salle);
     List<Salle> GetListOfFavoriteSallesFromUserIdAndCampusId(Integer user_id, Integer campus_id);
     JSONArray GetTemperature();
+//    JSONArray GetActualTempAndHumidity();
 }
