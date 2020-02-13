@@ -111,6 +111,34 @@ public class UserDaoImpl implements UserDao{
         }
     }
 
+    /**
+     * Methode supprimant les informations d'un utilisateurs dans la table
+     * @param id_user Integer contenant le pseudo de l'utilisateur à supprimer
+     */
+    public void TurnAdminToUser(Integer id_user){
+        String query = "UPDATE personne\n" +
+                "SET personne.role = 'user'\n" +
+                "WHERE personne.id = " + id_user;
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void TurnUserToAdmin(Integer id_user){
+        String query = "UPDATE personne\n" +
+                "SET personne.role = 'admin'\n" +
+                "WHERE personne.id = " + id_user;
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Boolean IsEmailAlreadyTaken(String email){
 //        List<Favori> liste_favoris = new ArrayList<>();
 
@@ -141,5 +169,35 @@ public class UserDaoImpl implements UserDao{
         return null;
     }
 
+    public List<User> GetAllAdmin() {
+
+        List<User> list_of_admin = new ArrayList<>();
+
+        String query = "SELECT \n" +
+                "\t*\n" +
+                "FROM personne\n" +
+                "WHERE personne.role = 'admin'";
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    list_of_admin.add(new User(
+                            resultSet.getInt("id"),
+                            resultSet.getString("nom_personne"),
+                            resultSet.getString("prenom_personne"),
+                            resultSet.getString("email"),
+                            resultSet.getString("sexe"),
+                            resultSet.getString("mot_passe"),
+                            resultSet.getString("role")));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list_of_admin;
+    }
 
 }

@@ -48,12 +48,19 @@ public class UserManager {
         return newPassword.equals(confirmNewPassword);
     }
 
-    public void supprimerUser(String pseudo) {         userDao.supprimerUser(pseudo);   }
+    public void supprimerUser(String pseudo) {userDao.supprimerUser(pseudo);}
+
+    public void TurnAdminToUser(Integer id_user){userDao.TurnAdminToUser(id_user);}
+
+    public void TurnUserToAdmin(Integer id_user){userDao.TurnUserToAdmin(id_user);}
 
     public User CreateUserFromEmail (String email ){return userDao.CreateUserFromEmail(email);}
 
     public Boolean IsEmailAlreadyTaken(String email){return userDao.IsEmailAlreadyTaken(email);}
+
     public User addUser(User newUser){return userDao.addUser(newUser);}
+
+    public List<User> GetAllAdmin(){return userDao.GetAllAdmin();}
 }
 
 

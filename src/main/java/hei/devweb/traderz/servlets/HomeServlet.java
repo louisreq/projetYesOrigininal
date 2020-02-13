@@ -27,8 +27,13 @@ public class HomeServlet extends PrivateServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
+        String user_searched_from_salle = (String) req.getSession().getAttribute("user_searched_from_salle");
+//        String test = (user_searched_from_salle == null ? text_searched : user_searched_from_salle);
+
 //        Get element from the searching bar
         String text_searched = ((text_searched = req.getParameter("text_searched")) != null) ? text_searched : "";
+
+        text_searched = (user_searched_from_salle == null ? text_searched : user_searched_from_salle);
 //        Get the campus clicked
         String campus_clicked = ((campus_clicked = req.getParameter("campus_selected")) != null) ? campus_clicked : "";
         System.out.println("\n\n On a CLIQUE sur " + campus_clicked + " ->" + " !!\n\n");
@@ -67,9 +72,6 @@ public class HomeServlet extends PrivateServlet {
         }
 
 
-
-
-
         context.setVariable("liste_campus", liste_campus);
         context.setVariable("text_searched", text_searched);
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
@@ -79,6 +81,8 @@ public class HomeServlet extends PrivateServlet {
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
         context.setVariable("useronline", user );
 
+//        System.out.println(user_searched_from_salle);
+        req.getSession().removeAttribute("user_searched_from_salle");
         if (user.getRole().equals("admin")){
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("/WEB-INF/Templates/Admin/home", context, resp.getWriter());

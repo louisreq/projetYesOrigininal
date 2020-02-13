@@ -50,7 +50,10 @@ public class SalleServlet extends PrivateServlet{
         context.setVariable("selected_salle", selected_salle );
         context.setVariable("campus_with_the_selected_salle", campus_with_the_selected_salle);
         context.setVariable("ajouter_ou_supprimer", ajouter_ou_supprimer);
-
+        for (Salle salle : campus_with_the_selected_salle.getList_salles()){
+            System.out.println(salle.getBatiment_name());
+        }
+        System.out.println();
         if (user.getRole().equals("admin")){
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
 
@@ -72,6 +75,19 @@ public class SalleServlet extends PrivateServlet{
         String switch_favori = req.getParameter("switch_favori");
         String salle_id = req.getParameter("salle_id");
 
+//        Get element from the searching bar
+        String text_searched = ((text_searched = req.getParameter("text_searched")) != null) ? text_searched : "";
+
+        System.out.println(text_searched);
+        if(!text_searched.equals("")){
+            req.getSession().setAttribute("user_searched_from_salle", text_searched);
+            if(user.getRole().equals("admin")){
+                resp.sendRedirect("/Admin/Home");
+            }else {
+                resp.sendRedirect("/Prive/Home");
+            }
+        }else{
+
         System.out.println("SWITCH_FAVORI " + switch_favori);
         if(switch_favori.equals("del")){
             FavoriManager.getInstance().DeleteFavoriFromSalleIdAndUserId(Integer.parseInt(salle_id), user.getIdUser());
@@ -89,5 +105,6 @@ public class SalleServlet extends PrivateServlet{
         }else {
             resp.sendRedirect("/Prive/Salle?id_selected_salle=" + salle_id);
         }
+    }
     }
 }
