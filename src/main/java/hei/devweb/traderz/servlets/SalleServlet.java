@@ -17,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet(urlPatterns = {"/Prive/Salle", "/Admin/Salle"})
 public class SalleServlet extends PrivateServlet{
@@ -40,12 +42,9 @@ public class SalleServlet extends PrivateServlet{
             ajouter_ou_supprimer = "Ajouter aux Favoris";
         }
 
-        JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature();
-        Capteur actual_humidity_and_temperature = CapteurManager.getInstance().GetActualTempAndHumidity();
-        System.out.println(array_of_temperature);
 
-        context.setVariable("actual_humidity_and_temperature", actual_humidity_and_temperature);
-        context.setVariable("array_of_temperature", array_of_temperature);
+//        System.out.println(array_of_temperature);
+
         context.setVariable("useronline", user );
         context.setVariable("selected_salle", selected_salle );
         context.setVariable("campus_with_the_selected_salle", campus_with_the_selected_salle);
@@ -55,10 +54,37 @@ public class SalleServlet extends PrivateServlet{
         }
         System.out.println();
         if (user.getRole().equals("admin")){
-            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+//            On récupère les informations des dates de début et de fin pour les graphs
 
+            Date date = new Date();
+            String today= new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+            String debut_graph_date = ((debut_graph_date = req.getParameter("debut_graph_date")) != null) ? debut_graph_date : today;
+            String debut_graph_heure = ((debut_graph_heure = req.getParameter("debut_graph_heure")) != null) ? debut_graph_heure : "08:00";
+
+            String fin_graph_date = ((fin_graph_date = req.getParameter("fin_graph_date")) != null) ? fin_graph_date : today;
+            String fin_graph_heure = ((fin_graph_heure = req.getParameter("fin_graph_heure")) != null) ? fin_graph_heure : "20:00";
+
+            context.setVariable("debut_graph_date", debut_graph_date);
+            context.setVariable("debut_graph_heure", debut_graph_heure);
+            context.setVariable("fin_graph_date", fin_graph_date);
+            context.setVariable("fin_graph_heure", fin_graph_heure);
+
+            JSONArray array_of_all_sensors_info = CapteurManager.getInstance().GetAllSensorsInfoWithDates(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure);
+            context.setVariable("array_of_all_sensors_info", array_of_all_sensors_info);
+
+            Capteur actual_sensors_info = CapteurManager.getInstance().GetActualAllSensorsInfo();
+            context.setVariable("actual_sensors_info", actual_sensors_info);
+
+            TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("/WEB-INF/Templates/Admin/salle", context, resp.getWriter());
         }else{
+            JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature();
+            context.setVariable("array_of_temperature", array_of_temperature);
+
+            Capteur actual_humidity_and_temperature = CapteurManager.getInstance().GetActualTempAndHumidity();
+            context.setVariable("actual_humidity_and_temperature", actual_humidity_and_temperature);
+
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("/WEB-INF/Templates/Prive/salle", context, resp.getWriter());
         }
