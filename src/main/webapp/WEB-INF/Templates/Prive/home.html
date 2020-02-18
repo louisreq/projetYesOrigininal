@@ -121,6 +121,7 @@
 
             <tr th:each="salle:${campus.getList_salles()}" th:id_salle_selected="${salle.getId()}" >
 
+                <!--Script to make the whole row clickable-->
                 <script type="text/javascript">
                     /*<![CDATA[*/
 
@@ -153,24 +154,10 @@
 
     </div>
 
-
-
-<!--    <script type="text/javascript" src="home.js">-->
-
-<!--    </script>-->
-
 </div>
 
 </body>
 
-<!--<script>-->
-<!--    // const tes = d3.csv('data.csv');-->
-<!--    // console.log(tes);-->
-<!--    d3.csv('data.csv').then(data => {-->
-<!--        console.log(data);-->
-<!--    })-->
-
-<!--</script>-->
 <style>
 
     .fa-heart-o{

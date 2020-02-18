@@ -84,8 +84,65 @@
         </section>
         <section class="col-md-2 ">
             <!-- Material checked -->
-            <a data-toggle='collapse' href='Salle' id='collapseExample1' class='text-center switch_to_favori btn btn-default' th:text="${ajouter_ou_supprimer}"></a>
+            <p >Ajouter au favori:</p>
+            <i class="heart fa fa-heart-o" id="coeur_favori"></i>
+<!--            <a data-toggle='collapse' href='Salle' id='collapseExample1' class='text-center switch_to_favori btn btn-default' th:text="${ajouter_ou_supprimer}"></a>-->
         </section>
+
+        <!-- CSS POUR LES COEUR DES FAVORIS -->
+        <style type="text/css">
+
+            .heart {
+                font-size: 45px;
+                color:red;
+            }
+        </style>
+
+        <!-- SCRIPT POUR CHANGER LE COEUR DES FAVORIS (Toggle class revisité) -->
+        <script type="text/javascript" th:inline="javascript" th:each="salle:${campus_with_the_selected_salle.getList_salles()}">
+
+
+            /*<![CDATA[*/
+            function post(params) {
+                var method='post';
+                // The rest of this code assumes you are not using a library.
+                // It can be made less wordy if you use one.
+                var form = document.createElement('form');
+                form.method = method;
+                // form.action = path;
+
+                for (var key in params) {
+                    if (params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement('input');
+                        hiddenField.type = 'hidden';
+                        hiddenField.name = key;
+                        hiddenField.value = params[key];
+                        form.appendChild(hiddenField);
+                    }
+                }
+                document.body.appendChild(form);
+                form.submit();
+            }
+
+            $(document).ready(function(){
+                var text=  '[[${ajouter_ou_supprimer}]]';//$('#coeur_favori').text(); // Ici mettre un paramètre de la servlet
+                var coeur = document.getElementById('coeur_favori');
+                if(text.includes("Supprimer")){
+                    coeur.className = 'heart fa fa-heart';
+                } else{
+                    coeur.className = 'heart fa fa-heart-o';
+                }
+                $('#coeur_favori').on('click', function () {
+                    if(text.includes("Supprimer")){
+                        post({switch_favori: 'del', salle_id:'[[${salle.getId()}]]'});
+                    } else{
+                        post({switch_favori: 'add', salle_id:'[[${salle.getId()}]]'});
+                    }
+                });
+            });
+            /*]]>*/
+        </script>
+
     </div>
 
     <section class="row" th:each="salle:${campus_with_the_selected_salle.getList_salles()}">
@@ -498,21 +555,6 @@
     .navbar
     {
         background-color: #0DA2E0;
-    }
-    .fa-heart-o{
-        border-radius: 50%;
-        background:#b4b4b4;
-    }
-    .fa-heart-o:hover{
-        background: #ffb3ba;
-    }
-    .fa-heart-on{
-        background: #ffb3ba;
-
-    }
-    .fa-heart-on:hover{
-        border-radius: 50%;
-        background:#b4b4b4;
     }
 
 

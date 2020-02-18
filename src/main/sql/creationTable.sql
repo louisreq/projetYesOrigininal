@@ -22,17 +22,93 @@ SET time_zone = "+00:00";
 -- Base de données :  `sb_db`
 --
 
+   DROP TABLE IF EXISTS `info_sensibilisation`;
+
+   CREATE TABLE `info_sensibilisation` (
+       `id_info_sensibilisation` int NOT NULL AUTO_INCREMENT,
+       `id_user` int NOT NULL,
+       `q_air_quartier` varchar(250) NOT NULL,
+       `pollution` tinyint(1) NOT NULL,
+       `q_air_general` tinyint(1) NOT NULL,
+       `prev_quotididen_q_air_ext` tinyint(1) NOT NULL,
+       `effet_pollution_air_sante` tinyint(1) NOT NULL,
+       `recommandation_proteger_pollution_quotidienne` tinyint(1) NOT NULL,
+       `pics_pollution` tinyint(1) NOT NULL,
+       `precautions_pic_pollution` tinyint(1) NOT NULL,
+       `sources_pollution_air_inter` tinyint(1) NOT NULL,
+       `sources_pollution_air_exter` tinyint(1) NOT NULL,
+       `moyens_air_sain_inter` tinyint(1) NOT NULL,
+       `moyens_air_sain_exter` tinyint(1) NOT NULL,
+       `actions_publiques_ameliorer_qualite_air` tinyint(1) NOT NULL,
+       `saison_pollue` varchar(250) NOT NULL,
+       `impact_sante` varchar(250) NOT NULL,
+       `impact_air_pollue_organe` varchar(250),
+       `aeration_logement` varchar(250) NOT NULL,
+       `frequence_aeration_logement` varchar(250),
+       `air_pollue` varchar(250) NOT NULL,
+       `sport` tinyint(1) NOT NULL,
+       `sport_route_trafic` tinyint(1),
+       `remarques` varchar(250),
+       PRIMARY KEY (`id_info_sensibilisation`),
+       FOREIGN KEY (id_user) REFERENCES personne(id)
+
+   ) ;
+
+   DROP TABLE IF EXISTS `enquete`;
+
+   CREATE TABLE `enquete` (
+      `id_info_enquete` int(11) NOT NULL AUTO_INCREMENT,
+      `id_user` int(11) NOT NULL,
+      `sexe` tinyint(1) NOT NULL,
+      `age` int(11) NOT NULL,
+      `situation` varchar(250) NOT NULL,
+      `domaine` varchar(250),
+      `diplome` varchar(250) NOT NULL,
+      `parent` tinyint(1) NOT NULL,
+      `commune` varchar(250) NOT NULL,
+      `mot1` varchar(250) DEFAULT NULL,
+      `mot2` varchar(250) DEFAULT NULL,
+      `mot3` varchar(250) DEFAULT NULL,
+      PRIMARY KEY (`id_info_enquete`),
+      FOREIGN KEY (id_user) REFERENCES personne(id)
+   );
+
+
+   DROP TABLE IF EXISTS `sensation_salles`;
+   CREATE TABLE `sensation_salles` (
+       `id_sensation` int(11) NOT NULL AUTO_INCREMENT,
+       `id_salle` int(11) NOT NULL,
+       `id_user` int(11) NOT NULL,
+       `id_sensor` int(11) NOT NULL,
+       `q_air_hei` varchar(250) NOT NULL,
+       `salle_actuelle` varchar(250) NOT NULL,
+       `dist_fenetre` varchar(250) NOT NULL,
+       `dist_ventilo` varchar(250) NOT NULL,
+       `climat_salle` varchar(250) NOT NULL,
+       `temp_sensation` varchar(250) NOT NULL,
+       `capteur_temp` varchar(250) NOT NULL,
+       `air_sensation` varchar(250) NOT NULL,
+       `air_agreable` varchar(250) NOT NULL,
+       `odeur` varchar(250) NOT NULL,
+       `poussiere` tinyint(1) NOT NULL,
+       `symptomes` varchar(250) NOT NULL,
+       `q_air_salle` varchar(250) NOT NULL,
+       PRIMARY KEY (`id_sensation`),
+       FOREIGN KEY (id_salle) REFERENCES salle(id),
+       FOREIGN KEY (id_user) REFERENCES personne(id)
+       -- CONSTRAINT `sens_salles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `enquete` (`id_infop`)
+   );
 -- --------------------------------------------------------
    DROP TABLE IF EXISTS `user_has_favoris`;
    CREATE TABLE IF NOT EXISTS `user_has_favoris` (
-                                           `id` int(11) NOT NULL AUTO_INCREMENT,
-                                           `personne_id` int(11) NOT NULL,
-                                           `is_favori_preffered` boolean,
-                                           `salle_id` int(11) NOT NULL,
+       `id` int(11) NOT NULL AUTO_INCREMENT,
+       `personne_id` int(11) NOT NULL,
+       `is_favori_preffered` boolean,
+       `salle_id` int(11) NOT NULL,
 
-                                           PRIMARY KEY (`id`),
-                                           FOREIGN KEY (personne_id) REFERENCES personne(id),
-                                           FOREIGN KEY (salle_id) REFERENCES salle(id)
+       PRIMARY KEY (`id`),
+       FOREIGN KEY (personne_id) REFERENCES personne(id),
+       FOREIGN KEY (salle_id) REFERENCES salle(id)
    );
 
 

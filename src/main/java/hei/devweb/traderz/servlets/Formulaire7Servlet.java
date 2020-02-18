@@ -40,7 +40,6 @@ public class Formulaire7Servlet extends PrivateServlet {
 
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
         String template_to_load;
 
         // Set template to load
@@ -48,13 +47,16 @@ public class Formulaire7Servlet extends PrivateServlet {
             template_to_load = "formulaire6";
         } else if(qualite_air_un_impact_sur_la_sante.equals("Non")) {
             template_to_load = "formulaire9";
-            Boolean la_personne_a_un_impact_sur_sa_sante = Boolean.FALSE;
-            req.getSession().setAttribute("la_personne_a_un_impact_sur_sa_sante", la_personne_a_un_impact_sur_sa_sante);
+            req.getSession().setAttribute("la_personne_a_un_impact_sur_sa_sante", Boolean.FALSE);
+            req.getSession().setAttribute("qualite_air_un_impact_sur_la_sante", qualite_air_un_impact_sur_la_sante);
+            System.out.println("\nqualite_air_un_impact_sur_la_sante : " + qualite_air_un_impact_sur_la_sante);
         }else{
             template_to_load = "formulaire8";
-            Boolean la_personne_a_un_impact_sur_sa_sante = Boolean.TRUE;
-            req.getSession().setAttribute("la_personne_a_un_impact_sur_sa_sante", la_personne_a_un_impact_sur_sa_sante);
+            req.getSession().setAttribute("la_personne_a_un_impact_sur_sa_sante", Boolean.TRUE);
+            req.getSession().setAttribute("qualite_air_un_impact_sur_la_sante", qualite_air_un_impact_sur_la_sante);
+            System.out.println("\nqualite_air_un_impact_sur_la_sante : " + qualite_air_un_impact_sur_la_sante);
         }
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load + "\n");
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

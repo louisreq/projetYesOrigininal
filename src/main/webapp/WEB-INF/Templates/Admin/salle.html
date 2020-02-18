@@ -66,7 +66,7 @@
                         </button>
                         <div class="dropdown-content">
                             <a href="Stats_Formulaire">Statistiques du formulaire</a>
-                            <a href="Questionnaire">Répondre au formulaire</a>
+                            <a href="formulaire">Répondre au formulaire</a>
                         </div>
                     </div>
                 </li>
@@ -95,7 +95,9 @@
     <div class="row form-group">
 
         <section class="col-md-10">
-            <input type="search" placeholder="Rechercher d'autres salles" class="form-control" />
+            <form action="" method="post">
+                <input type="search" placeholder="Rechercher d'autres salles" class="form-control" id="text_searched" name="text_searched" />
+            </form>
         </section>
     </div>
 
@@ -118,16 +120,16 @@
     <!-- FORMULAIRE POUR CHOISIR L'INTERVALLE DE TEMPS DES GRAPHIQUES   +  COEUR POUR AJOUTER AUX FAVORIS -->
     <div class="row">
         <form method="get" id="form_for_graph_dates" class="form-inline">
-        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="col-xs-4 col-sm-4 col-md-4">
                 <input type="hidden"  th:each="salle:${campus_with_the_selected_salle.getList_salles()}" th:value="${salle.getId()}" name="id_selected_salle">
-            Du <input type="date" name="debut_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${debut_graph_date}" style="margin: 0 5px 15px 5px;">à
+                Du <input type="date" name="debut_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${debut_graph_date}" style="margin: 0 5px 15px 5px;">à
 
-            <input type="time" name="debut_graph_heure"  th:value="${debut_graph_heure}" style="margin: 0 5px 15px 5px;">
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-            Au <input type="date" name="fin_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${fin_graph_date}" style="margin: 0 5px 15px 5px;"> à
-            <input type="time" name="fin_graph_heure"  th:value="${fin_graph_heure}" style="margin: 0 2px 2px 2px; ">
-        </div>
+                <input type="time" name="debut_graph_heure"  th:value="${debut_graph_heure}" style="margin: 0 5px 15px 5px;">
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                Au <input type="date" name="fin_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${fin_graph_date}" style="margin: 0 5px 15px 5px;"> à
+                <input type="time" name="fin_graph_heure"  th:value="${fin_graph_heure}" style="margin: 0 2px 2px 2px; ">
+            </div>
         </form>
         <div class="col-xs-2 col-sm-2 col-md-2">
             <button id="valider_info_date" name="valider_info_date" style="margin:0px 4px 6px 6px;"class="btn btn-secondary" type="submit" form="form_for_graph_dates" >Valider</button>
@@ -136,7 +138,7 @@
         <div class="col-xs-2 col-sm-2 col-md-2">
 
             <p >Ajouter au favori:</p>
-            <i class="heart fa fa-heart-o"></i>
+            <i class="heart fa fa-heart-o" id="coeur_favori"></i>
 
         </div>
     </div>
@@ -150,12 +152,49 @@
         }
     </style>
 
-    <!-- SCRIPT TOGGLE CLASS POUR LE COEUR DES FAVORIS -->
-    <script type="text/javascript">
+    <!-- SCRIPT POUR CHANGER LE COEUR DES FAVORIS (Toggle class revisité) -->
+    <script type="text/javascript" th:inline="javascript" th:each="salle:${campus_with_the_selected_salle.getList_salles()}">
 
-        $(".heart.fa").click(function() {
-            $(this).toggleClass("fa-heart fa-heart-o");
+
+        /*<![CDATA[*/
+        function post(params) {
+            var method='post';
+            // The rest of this code assumes you are not using a library.
+            // It can be made less wordy if you use one.
+            var form = document.createElement('form');
+            form.method = method;
+            // form.action = path;
+
+            for (var key in params) {
+                if (params.hasOwnProperty(key)) {
+                    var hiddenField = document.createElement('input');
+                    hiddenField.type = 'hidden';
+                    hiddenField.name = key;
+                    hiddenField.value = params[key];
+                    form.appendChild(hiddenField);
+                }
+            }
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        $(document).ready(function(){
+            var text=  '[[${ajouter_ou_supprimer}]]';//$('#coeur_favori').text(); // Ici mettre un paramètre de la servlet
+            var coeur = document.getElementById('coeur_favori');
+            if(text.includes("Supprimer")){
+                coeur.className = 'heart fa fa-heart';
+            } else{
+                coeur.className = 'heart fa fa-heart-o';
+            }
+            $('#coeur_favori').on('click', function () {
+                if(text.includes("Supprimer")){
+                    post({switch_favori: 'del', salle_id:'[[${salle.getId()}]]'});
+                } else{
+                    post({switch_favori: 'add', salle_id:'[[${salle.getId()}]]'});
+                }
+            });
         });
+        /*]]>*/
     </script>
 
 
@@ -1084,7 +1123,38 @@
 
     </script>
 
+<!--SCRIPT POUR DOWNLOAD LE CSV -->
+    <script th:each="salle:${campus_with_the_selected_salle.getList_salles()}" th:inline="javascript">
+        function download_csv() {
+            const nom_salle = [[${salle.getSalle_name()}]];
+            const heure_min_debut = [[${debut_graph_heure}]];
+            const date_heure_debut = [[${debut_graph_date}]] + "_" + heure_min_debut.replace(":", "h") ;
+            const heure_min_fin = [[${fin_graph_heure}]];
+            const date_heure_fin = [[${fin_graph_date}]] + "_" + heure_min_fin.replace(':', 'h') ;
+            const titre_csv = nom_salle + "_" + date_heure_debut + "_" + date_heure_fin + ".csv";
 
+            const data_json_all = '[(${array_of_all_sensors_info})]';
+
+            const json_data_all = JSON.parse(data_json_all);
+
+            const header = Object.keys(json_data_all[0]);
+
+            console.log(header);
+            const replacer = (key, value) => value === null ? '' : value;
+            let csv = json_data_all.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+            csv.unshift(header.join(','));
+            csv = csv.join('\r\n');
+            console.log(csv);
+
+            console.log(csv);
+            var hiddenElement = document.createElement('a');
+            hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+            hiddenElement.target = '_blank';
+            hiddenElement.download = titre_csv;
+            hiddenElement.click();
+        }
+
+    </script>
 
 
     <!--STYLE POUR LE TEST VISU AVEC D3.JS-->
@@ -1164,7 +1234,7 @@
     <section class="row">
         <br/>
         <p> Si vous souhaitez extraire les données capteurs dans un Excel sur ce laps de temps:</p>
-        <button id="extraire_data_csv" name="extraire_data_csv" style="margin:0px 4px 6px 6px;"class="btn btn-secondary">Extraire</button>
+        <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin:0px 4px 6px 6px;"class="btn btn-secondary">Extraire</button>
     </section>
 </div>
 

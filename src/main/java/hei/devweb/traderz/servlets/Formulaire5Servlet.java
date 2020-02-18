@@ -39,7 +39,6 @@ public class Formulaire5Servlet extends PrivateServlet {
 
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
         String template_to_load;
         // Set template to load
         if(retour_suivant.equals("Retour")){
@@ -47,6 +46,7 @@ public class Formulaire5Servlet extends PrivateServlet {
         } else{
             template_to_load = "formulaire6";
         }
+        System.out.println("\nRetour ou suivant ? -> " + retour_suivant + " " + template_to_load + "\n");
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

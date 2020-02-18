@@ -37,13 +37,9 @@ public class Formulaire3Servlet extends PrivateServlet{
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-
-        String diplome = req.getParameter("diplome");
-        String autre_reponse_diplome = req.getParameter("autre_reponse");
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println("We have the diplôme : " + diplome + "\n l'autre réponse est : " + autre_reponse_diplome);
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
+
         String template_to_load = "";
         // Set template to load
         if(retour_suivant.equals("Retour")){
@@ -52,9 +48,36 @@ public class Formulaire3Servlet extends PrivateServlet{
             }else {
                 template_to_load = "formulaire2";
             }
-        } else{
+        } else{ // Si l'utilisateur a cliqué sur "Suivant"
+//            GET USER'S INPUT
+            String diplome = (req.getParameter("diplome") != null ? req.getParameter("diplome") : "");
+            String autre_reponse_diplome = (req.getParameter("autre_reponse") != null ? req.getParameter("autre_reponse") : "");
+
+            String is_Parent = req.getParameter("parent");
+            String quelle_ville = req.getParameter("quelle_ville");
+            String mot1 = req.getParameter("mot1");
+            String mot2 = req.getParameter("mot2");
+            String mot3 = req.getParameter("mot3");
+
+            System.out.println("\nWe have the diplôme : " + diplome + "\n l'autre réponse est : " + autre_reponse_diplome);
+            System.out.println("You leave in : " + quelle_ville);
+            System.out.println("You choosed the words: 1) " + mot1 + "\t 2) " + mot2 + "\t3) " + mot3);
+
+
+//            SET ALL ATTRIBUTES ANSWERED BY USER
+            req.getSession().setAttribute("is_Parent", is_Parent);
+            req.getSession().setAttribute("mot1", mot1);
+            req.getSession().setAttribute("mot2", mot2);
+            req.getSession().setAttribute("mot3", mot3);
+
+            if(diplome.equals("autre")){
+                req.getSession().setAttribute("diplome", autre_reponse_diplome);
+            }else{
+                req.getSession().setAttribute("diplome", diplome);
+            }
             template_to_load = "formulaire4";
         }
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load + "\n");
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);
