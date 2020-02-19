@@ -38,11 +38,9 @@ public class Formulaire13Servlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-        String remarques = req.getParameter("remarques");
 
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
         String template_to_load;
 
         // Set template to load
@@ -53,8 +51,14 @@ public class Formulaire13Servlet extends PrivateServlet {
                 template_to_load = "formulaire11";
             }
         } else{
+            String remarques = req.getParameter("remarques");
+            req.getSession().setAttribute("remarques", remarques);
+            System.out.println("remarques : " + remarques);
+
             template_to_load = "formulaire14";
         }
+
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

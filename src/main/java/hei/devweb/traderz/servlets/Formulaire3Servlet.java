@@ -65,7 +65,13 @@ public class Formulaire3Servlet extends PrivateServlet{
 
 
 //            SET ALL ATTRIBUTES ANSWERED BY USER
-            req.getSession().setAttribute("is_Parent", is_Parent);
+//            req.getSession().setAttribute("diplome", diplome);
+            req.getSession().setAttribute("quelle_ville", quelle_ville);
+            if(is_Parent.equals("oui")){
+                req.getSession().setAttribute("is_Parent", Boolean.TRUE);
+            }else{
+                req.getSession().setAttribute("is_Parent", Boolean.FALSE);
+            }
             req.getSession().setAttribute("mot1", mot1);
             req.getSession().setAttribute("mot2", mot2);
             req.getSession().setAttribute("mot3", mot3);

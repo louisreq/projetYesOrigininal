@@ -36,19 +36,27 @@ public class Formulaire8Servlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-        String impacte_air_pollue = req.getParameter("impacte_air_pollue");
-
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
+
+
         String template_to_load;
 
         // Set template to load
         if(retour_suivant.equals("Retour")){
             template_to_load = "formulaire7";
         } else{
+            String[] impacte_air_pollue = req.getParameterValues("impacte_air_pollue");
+            String liste_impact_air_pollue = "";
+            for(String impact : impacte_air_pollue){
+                liste_impact_air_pollue += impact + ", ";
+            }
+            liste_impact_air_pollue = liste_impact_air_pollue.substring(0, liste_impact_air_pollue.length() - 2);
+            req.getSession().setAttribute("impacte_air_pollue", liste_impact_air_pollue);
+            System.out.println("impacte_air_pollue : " + liste_impact_air_pollue);
             template_to_load = "formulaire9";
         }
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

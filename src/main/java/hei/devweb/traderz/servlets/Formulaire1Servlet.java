@@ -53,7 +53,11 @@ public class Formulaire1Servlet extends PrivateServlet {
         else if(qui_etes_vous.equals("personnel")){
 //            SET ALL ATTRIBUTES ANSWERED BY THE USER
             req.getSession().setAttribute("qui_etes_vous", qui_etes_vous);
-            req.getSession().setAttribute("homme_femme", homme_femme);
+            if(homme_femme.equals("homme")){
+                req.getSession().setAttribute("homme_femme", 1);
+            } else {
+                req.getSession().setAttribute("homme_femme", 2);
+            }
             req.getSession().setAttribute("age", age);
 
             template_to_load = "formulaire3";
@@ -66,7 +70,11 @@ public class Formulaire1Servlet extends PrivateServlet {
             }else{
                 req.getSession().setAttribute("qui_etes_vous", qui_etes_vous);
             }
-            req.getSession().setAttribute("homme_femme", homme_femme);
+            if(homme_femme.equals("homme")){
+                req.getSession().setAttribute("homme_femme", 1);
+            } else {
+                req.getSession().setAttribute("homme_femme", 2);
+            }
             req.getSession().setAttribute("age", age);
 
             template_to_load = "formulaire2";

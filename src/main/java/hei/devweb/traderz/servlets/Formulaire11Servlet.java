@@ -39,12 +39,10 @@ public class Formulaire11Servlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-        String evitez_trafic_velo = req.getParameter("evitez_trafic_velo");
         String Pratiquez_vous_course_a_pied = req.getParameter("Pratiquez_vous_course_a_pied");
 
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
         String template_to_load;
 
         // Set template to load
@@ -55,14 +53,20 @@ public class Formulaire11Servlet extends PrivateServlet {
                 template_to_load = "formulaire9";
             }
         } else if(Pratiquez_vous_course_a_pied.equals("non1")){
+            String evitez_trafic_velo = req.getParameter("evitez_trafic_velo");
+            req.getSession().setAttribute("evitez_trafic_velo", evitez_trafic_velo);
+            System.out.println("evitez_trafic_velo : " + evitez_trafic_velo);
             template_to_load = "formulaire13";
-            Boolean la_personne_pratique_la_course_a_pied = Boolean.FALSE;
-            req.getSession().setAttribute("la_personne_pratique_la_course_a_pied", la_personne_pratique_la_course_a_pied);
+            req.getSession().setAttribute("la_personne_pratique_la_course_a_pied", Boolean.FALSE);
         }else{
+            String evitez_trafic_velo = req.getParameter("evitez_trafic_velo");
+            req.getSession().setAttribute("evitez_trafic_velo", evitez_trafic_velo);
+            System.out.println("evitez_trafic_velo : " + evitez_trafic_velo);
             template_to_load = "formulaire12";
-            Boolean la_personne_pratique_la_course_a_pied = Boolean.TRUE;
-            req.getSession().setAttribute("la_personne_pratique_la_course_a_pied", la_personne_pratique_la_course_a_pied);
+            req.getSession().setAttribute("la_personne_pratique_la_course_a_pied", Boolean.TRUE);
         }
+
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

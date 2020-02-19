@@ -1,5 +1,6 @@
 package hei.devweb.traderz.servlets;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import hei.devweb.traderz.entities.Campus;
 import hei.devweb.traderz.entities.User;
 import hei.devweb.traderz.managers.CampusManager;
@@ -83,6 +84,7 @@ public class Formulaire4Servlet extends PrivateServlet {
             }
 
             String poussiere = req.getParameter("poussiere");
+
             String[] symptomes = req.getParameterValues("symptomes");
             String liste_symptomes = "";
             for(String s : symptomes){
@@ -119,16 +121,24 @@ public class Formulaire4Servlet extends PrivateServlet {
 
 //            SET ALL ATTRIBUTES FROM USER'S ANSWERS
             req.getSession().setAttribute("qualite_air_hei", qualite_air_hei);
-            req.getSession().setAttribute("salle_actuelle", salle_actuelle);
-            req.getSession().setAttribute("fenetre_la_plus_proche", fenetre_la_plus_proche);
-            req.getSession().setAttribute("distance_ventilation", distance_ventilation);
+            req.getSession().setAttribute("salle_actuelle", Integer.parseInt(salle_actuelle));
+            req.getSession().setAttribute("fenetre_la_plus_proche", fenetre_la_plus_proche.substring("win".length()));
+            if(distance_ventilation.contains("ventilation")){
+                req.getSession().setAttribute("distance_ventilation", distance_ventilation.substring("ventilation_".length()));
+            }else{
+                req.getSession().setAttribute("distance_ventilation", distance_ventilation);
+            }
             req.getSession().setAttribute("temperature_espace_de_travail", temperature_espace_de_travail);
             req.getSession().setAttribute("confort_temperature", confort_temperature);
             req.getSession().setAttribute("temperature_capteur", temperature_capteur);
             req.getSession().setAttribute("humidity_air", humidity_air);
             req.getSession().setAttribute("confort_humidity_air", confort_humidity_air);
             req.getSession().setAttribute("liste_odeurs", liste_odeurs);
-            req.getSession().setAttribute("poussiere", poussiere);
+            if(poussiere.equals("Oui1")){
+                req.getSession().setAttribute("poussiere", Boolean.TRUE);
+            }else{
+                req.getSession().setAttribute("poussiere", Boolean.FALSE);
+            }
             req.getSession().setAttribute("liste_symptomes", liste_symptomes);
             req.getSession().setAttribute("qualite_air_salle", qualite_air_salle);
         }

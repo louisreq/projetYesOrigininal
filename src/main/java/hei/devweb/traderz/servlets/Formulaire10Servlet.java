@@ -36,19 +36,22 @@ public class Formulaire10Servlet extends PrivateServlet{
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-        String frequence_aeration = req.getParameter("frequence_aeration");
 
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
         String template_to_load;
 
         // Set template to load
         if(retour_suivant.equals("Retour")){
             template_to_load = "formulaire9";
         } else{
+            String frequence_aeration = req.getParameter("frequence_aeration");
+            req.getSession().setAttribute("frequence_aeration", frequence_aeration);
+            System.out.println("frequence_aeration : " + frequence_aeration);
             template_to_load = "formulaire11";
         }
+
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

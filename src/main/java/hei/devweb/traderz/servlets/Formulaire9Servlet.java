@@ -38,11 +38,11 @@ public class Formulaire9Servlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
-        String Aerez_vous_votre_logement = req.getParameter("Aerez_vous_votre_logement");
-
         String retour_suivant = req.getParameter("retour_suivant");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
+        String Aerez_vous_votre_logement = (req.getParameter("Aerez_vous_votre_logement") != null ? req.getParameter("Aerez_vous_votre_logement") : "");
+
+
         String template_to_load;
 
         // Set template to load
@@ -54,13 +54,19 @@ public class Formulaire9Servlet extends PrivateServlet {
             }
         } else if(Aerez_vous_votre_logement.equals("non")){
             template_to_load = "formulaire11";
-            Boolean la_personne_aere_son_logement = Boolean.FALSE;
-            req.getSession().setAttribute("la_personne_aere_son_logement", la_personne_aere_son_logement);
+            req.getSession().setAttribute("la_personne_aere_son_logement", Boolean.FALSE);
+            req.getSession().setAttribute("Aerez_vous_votre_logement", Boolean.FALSE);
+            System.out.println("la_personne_aere_son_logement : " + Aerez_vous_votre_logement);
         }else{
             template_to_load = "formulaire10";
-            Boolean la_personne_aere_son_logement = Boolean.TRUE;
-            req.getSession().setAttribute("la_personne_aere_son_logement", la_personne_aere_son_logement);
+            req.getSession().setAttribute("Aerez_vous_votre_logement", Boolean.TRUE);
+            req.getSession().setAttribute("la_personne_aere_son_logement", Boolean.TRUE);
+            System.out.println("la_personne_aere_son_logement : " + Aerez_vous_votre_logement);
+
         }
+
+        System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
+
 
         if (user.getRole().equals("admin")){
             resp.sendRedirect("/Admin/" + template_to_load);

@@ -47,18 +47,18 @@ public class Formulaire6Servlet extends PrivateServlet {
 
 //          GET USER'S ANSWERS
             String qualite_air_quartier = req.getParameter("qualite_air_quartier");
-            String entendu_parler_pollution_de_fond = req.getParameter("entendu_parler_pollution_de_fond");
-            String qualite_air_en_general = req.getParameter("qualite_air_en_general");
-            String previsions_quotidiennes = req.getParameter("previsions_quotidiennes");
-            String pollution_air_sur_la_sante = req.getParameter("pollution_air_sur_la_sante");
-            String se_proteger_de_la_pollution_au_quotidien = req.getParameter("se_proteger_de_la_pollution_au_quotidien");
-            String pics_de_pollution = req.getParameter("pics_de_pollution");
-            String precaution_pics_de_pollution = req.getParameter("precaution_pics_de_pollution");
-            String sources_de_pollution_air_interieur = req.getParameter("sources_de_pollution_air_interieur");
-            String sources_de_pollution_air_exterieur = req.getParameter("sources_de_pollution_air_exterieur");
-            String air_sain_interieur = req.getParameter("air_sain_interieur");
-            String air_sain_exterieur = req.getParameter("air_sain_exterieur");
-            String actions_publics_air = req.getParameter("actions_publics_air");
+            Boolean entendu_parler_pollution_de_fond = (req.getParameter("entendu_parler_pollution_de_fond").contains("oui") ? Boolean.TRUE : Boolean.FALSE); //BOOLEAN
+            Boolean qualite_air_en_general = (req.getParameter("qualite_air_en_general").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean previsions_quotidiennes = (req.getParameter("previsions_quotidiennes").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean pollution_air_sur_la_sante = (req.getParameter("pollution_air_sur_la_sante").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean se_proteger_de_la_pollution_au_quotidien = (req.getParameter("se_proteger_de_la_pollution_au_quotidien").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean pics_de_pollution = (req.getParameter("pics_de_pollution").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean precaution_pics_de_pollution = (req.getParameter("precaution_pics_de_pollution").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean sources_de_pollution_air_interieur = (req.getParameter("sources_de_pollution_air_interieur").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean sources_de_pollution_air_exterieur = (req.getParameter("sources_de_pollution_air_exterieur").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean air_sain_interieur = (req.getParameter("air_sain_interieur").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean air_sain_exterieur =(req.getParameter("air_sain_exterieur").contains("oui") ? Boolean.TRUE : Boolean.FALSE);
+            Boolean actions_publics_air = (req.getParameter("actions_publics_air").contains("oui") ? Boolean.TRUE : Boolean.FALSE); //BOOLEAN
             String[] saison = req.getParameterValues("saison");
             String liste_saison = "";
             for(String s : saison){
