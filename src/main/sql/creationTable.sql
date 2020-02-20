@@ -223,20 +223,33 @@ INSERT INTO `campus` (`id`, `nom_campus`, `adresse_campus`, `ville`, `code_posta
 (2, 'YNCREA', '21 rue de toul', 'LILLE', 59800);
 
 -- --------------------------------------------------------
+--
+-- Structure de la table `capteur_salle`
+--
+
+   DROP TABLE IF EXISTS `capteur`;
+   CREATE TABLE IF NOT EXISTS `capteur` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `nom_capteur` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+      `is_deleted` tinyint(1) DEFAULT 0,
+      PRIMARY KEY (`id`)
+   ) ;
 
 --
--- Structure de la table `capteur`
+-- Structure de la table `capteur_salle`
 --
 
-DROP TABLE IF EXISTS `capteur`;
-CREATE TABLE IF NOT EXISTS `capteur` (
+DROP TABLE IF EXISTS `capteur_salle`;
+CREATE TABLE IF NOT EXISTS `capteur_salle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom_capteur` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `position` int(11) NOT NULL,
+  `position` varchar(255) NOT NULL,
   `salle_id` int(11) NOT NULL,
+  `date_debut` datetime NOT NULL,
+  `date_fin` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_94F72F09DC304035` (`salle_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  FOREIGN KEY (salle_id) REFERENCES salle(id)
+) ;
 
 --
 -- Déchargement des données de la table `capteur`

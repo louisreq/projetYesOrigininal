@@ -23,4 +23,5 @@ public class CapteurManager {
 
     public Capteur GetActualAllSensorsInfo(){return capteurDao.GetActualAllSensorsInfo();}
 
+
 }

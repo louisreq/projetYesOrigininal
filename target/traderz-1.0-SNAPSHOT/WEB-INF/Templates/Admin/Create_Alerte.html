@@ -122,7 +122,6 @@
                         <div th:each="campus:${liste_campus}">
                             <option th:each="salle:${campus.getList_salles()}" th:text="${campus.campus_name} + ' - ' + ${salle.salle_name}" th:value="${salle.getId()}"> HEI-T101</option>
                         </div>
-
                     </select>
                 </div>
             </div>

@@ -7,9 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SalleDaoImpl implements SalleDao {
 
@@ -121,6 +119,68 @@ public class SalleDaoImpl implements SalleDao {
             e.printStackTrace();
         }
         return liste_salles;
+    }
+
+    public Map<Integer, String> GetAllSallesMapedWithIdAndCampusName() {
+
+        Map<Integer, String> mapping = new HashMap<Integer, String>();
+
+        String query = "SELECT \n" +
+                "salle.id as id_salle,\n" +
+                "CONCAT(campus.nom_campus, \" - \", salle.nom_salle) as nom\n" +
+                "\n" +
+                "FROM campus\n" +
+                "INNER JOIN batiment ON (campus.id = batiment.campus_id)\n" +
+                "INNER JOIN etage ON (batiment.id = etage.batiment_id)\n" +
+                "INNER JOIN salle ON (etage.id = salle.etage_id)";
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    mapping.put(
+                            resultSet.getInt("id_salle"),
+                            resultSet.getString("nom")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mapping;
+    }
+
+    public Map<Integer, String> GetAllSallesMapedWithIdAndEtage() {
+
+        Map<Integer, String> mapping = new HashMap<Integer, String>();
+
+        String query = "SELECT \n" +
+                "salle.id as id_salle,\n" +
+                "etage.nom_etage as nom\n" +
+                "\n" +
+                "FROM campus\n" +
+                "INNER JOIN batiment ON (campus.id = batiment.campus_id)\n" +
+                "INNER JOIN etage ON (batiment.id = etage.batiment_id)\n" +
+                "INNER JOIN salle ON (etage.id = salle.etage_id)";
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+
+                    mapping.put(
+                            resultSet.getInt("id_salle"),
+                            resultSet.getString("nom")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return mapping;
     }
 
     public Salle GetSalleFromId(Integer id_salle) {

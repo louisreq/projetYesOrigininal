@@ -28,14 +28,9 @@ public class AddFavoriServlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         List<Campus> liste_campus = CampusManager.getInstance().GetListOfCampus() ;
-//        List<Salle> salles_favorites = SalleManager.getInstance().;
-//        for(Salle fav : salles_favorites){
-//            System.out.println("On a la salle " + fav.getSalle_name() + " dans les favoris");
-//        }
+
         for (Campus campus : liste_campus){
             List<Salle> salle_to_select = SalleManager.getInstance().GetListOfFavoriteSallesFromUserIdAndCampusId(user.getIdUser(), campus.getId());
-//            salles_favorites.removeAll(all_salle_du_campus);
-//            all_salle_du_campus.forEach(salles_favorites::remove);
             campus.setList_salles(salle_to_select);
         }
 
