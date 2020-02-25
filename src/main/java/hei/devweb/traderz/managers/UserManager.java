@@ -139,6 +139,8 @@ public class UserManager {
     public User addUser(User newUser){return userDao.addUser(newUser);}
 
     public List<User> GetAllAdmin(){return userDao.GetAllAdmin();}
+
+    public void SendEmailForgotPassword(String email){userDao.SendEmailForgotPassword(email);}
 }
 
 

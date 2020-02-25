@@ -54,8 +54,8 @@ public class Formulaire14Servlet extends PrivateServlet {
             String age = (String) req.getSession().getAttribute("age");
             String qui_etes_vous = (String) req.getSession().getAttribute("qui_etes_vous");
 
-//            Page 2
-            String quel_domaine = (String) req.getSession().getAttribute("quel_domaine");
+//            Page 2 optionnel
+            String quel_domaine = (String) (req.getSession().getAttribute("quel_domaine") != null ? req.getSession().getAttribute("quel_domaine") : "");
 
 //            Page 3
             String diplome = (String) req.getSession().getAttribute("diplome");
@@ -100,16 +100,16 @@ public class Formulaire14Servlet extends PrivateServlet {
             String liste_saison = (String) req.getSession().getAttribute("liste_saison");
 
 //            Page 7
-            String qualite_air_un_impact_sur_la_sante = (String) req.getSession().getAttribute("qualite_air_un_impact_sur_la_sante");
+            String qualite_air_un_impact_sur_la_sante = (String) (req.getSession().getAttribute("qualite_air_un_impact_sur_la_sante") != null ? req.getSession().getAttribute("qualite_air_un_impact_sur_la_sante") : "");
 
 //            Page 8
-            String impacte_air_pollue = (String) req.getSession().getAttribute("impacte_air_pollue");
+            String impacte_air_pollue = (String) (req.getSession().getAttribute("impacte_air_pollue") != null ? req.getSession().getAttribute("impacte_air_pollue") : "");
 
 //            Page 9
-            Boolean Aerez_vous_votre_logement = (Boolean) req.getSession().getAttribute("Aerez_vous_votre_logement");
+            Boolean Aerez_vous_votre_logement = (Boolean) (req.getSession().getAttribute("Aerez_vous_votre_logement") != null ? req.getSession().getAttribute("Aerez_vous_votre_logement") : "");
 
 //            Page 10
-            String frequence_aeration = (String) req.getSession().getAttribute("frequence_aeration");
+            String frequence_aeration = (String) (req.getSession().getAttribute("frequence_aeration") != null ? req.getSession().getAttribute("frequence_aeration") : "");
 
 //            Page 11
             Boolean la_personne_pratique_la_course_a_pied = (Boolean) req.getSession().getAttribute("la_personne_pratique_la_course_a_pied");
@@ -119,14 +119,14 @@ public class Formulaire14Servlet extends PrivateServlet {
             Boolean evitez_le_sport_traffic = (Boolean) req.getSession().getAttribute("evitez_le_sport_traffic");
 
 //            Page 13
-            String remarques = (String) req.getSession().getAttribute("remarques");
+            String remarques = (String) (req.getSession().getAttribute("remarques") != null ? req.getSession().getAttribute("remarques") : "");
 
 //~~~~~~~~~~~~~~    DELETE ALL ATTRIBUTES    ~~~~~~~~~~~~~~
 //            Page 1
             req.getSession().removeAttribute("homme_femme");
             req.getSession().removeAttribute("age");
             req.getSession().removeAttribute("qui_etes_vous");
-//            Page 2
+//            Page 2 OPTIONNEL
             req.getSession().removeAttribute("quel_domaine");
 //            Page 3
             req.getSession().removeAttribute("diplome");

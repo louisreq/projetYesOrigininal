@@ -11,67 +11,66 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="../../../../IMG/logo3.png" alt="">
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="Home">Accueil</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="apropos.html">A propos</a>
-                    </li>
-                    <li class="nav-item active">
-                        <div class="dropdown">
-                            <button class="dropbtn">Mes alertes
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-
-                            <div class="dropdown-content">
-                                <a href="Create_Alerte">Créer une alerte</a>
-                                <a href="Historique_Alerte">Historique des alertes</a>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item ">
-                        <div class="dropdown">
-                            <button class="nav-item dropbtn"> Mes favoris
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="Add_Favoris">Ajouter un favori</a>
-                                <a href="Liste_Favoris">Liste des favoris</a>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="formulaire">Formulaire</a>
-                    </li>
-                    <li>
-                        <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <title>YIIAQ</title>
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="Home">Accueil</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="apropos.html">A propos</a>
+                </li>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="dropbtn">Mes alertes
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="Create_Alerte">Créer une alerte</a>
+                            <a href="Historique_Alerte">Historique des alertes</a>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <div class="dropdown">
+                        <button class="nav-item dropbtn"> Mes favoris
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="Add_Favoris">Ajouter un favori</a>
+                            <a href="Liste_Favoris">Liste des favoris</a>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="formulaire">Formulaire</a>
+                </li>
+                <li>
+                    <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="wrapper fadeInDown">
     <div class="formContent">
@@ -90,6 +89,8 @@
 </div>
 <!-- Login Form -->
 <form method="post" >
+
+<!--    HOMME OU FEMME ? (Radio, string)-->
     <div class="wrapper fadeInDown">
         <div class="formContent">
             <h5>Vous êtes :</h5>
@@ -102,10 +103,10 @@
                 <label class="form-check-label" for="femme">Une femme</label>
             </div>
 
-
         </div>
     </div>
 
+<!-- Quel est votre âge  ? (number) -->
     <div class="wrapper fadeInDown">
         <div class="formContent">
             <!-- Tabs Titles -->
@@ -114,6 +115,7 @@
         </div>
     </div>
 
+<!--    Qui êtes-vous ? (Radio, String)-->
     <div class="wrapper fadeInDown">
         <div class="formContent">
             <!-- Tabs Titles -->
@@ -127,7 +129,7 @@
                 <input class="form-check-input" type="radio" name="qui_etes_vous" id="personnel" value="personnel">
                 <label class="form-check-label" for="personnel">Personnel(administration, communication, formation, qualité...)</label>
             </div>
-            <div class="form-check"onclick="ShowHideDiv()">
+            <div class="form-check" onclick="ShowHideDiv()">
                 <input class="form-check-input" type="radio" name="qui_etes_vous" id="enseignant" value="enseignant">
                 <label class="form-check-label" for="enseignant">Enseignant.e</label>
             </div>

@@ -1,14 +1,23 @@
 package hei.devweb.traderz.dao.impl;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.dao.UserDao;
 import hei.devweb.traderz.entities.User;
+//import java.util.*;
+//import javax.mail.*;
+//
+//import javax.mail.internet.*;
+//import javax.activation.*;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 // Classe contenant l'implémentation de l'ensemble des méthodes concernant l'utilisateur
 
@@ -245,7 +254,7 @@ public class UserDaoImpl implements UserDao{
                 "moyens_air_sain_inter, moyens_air_sain_exter, actions_publiques_ameliorer_qualite_air," +
                 "saison_pollue, impact_sante, impact_air_pollue_organe, aeration_logement," +
                 "frequence_aeration_logement, eviter_trafic_velo, sport, sport_route_trafic, remarques)\n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " + sport_route_trafic + ", ?)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
             statement.setInt(1, id_user);
@@ -269,8 +278,7 @@ public class UserDaoImpl implements UserDao{
             statement.setString(19, frequence_aeration_logement);
             statement.setString(20, eviter_trafic_velo);
             statement.setBoolean(21, sport);
-            statement.setBoolean(22, sport_route_trafic);
-            statement.setString(23, remarques);
+            statement.setString(22, remarques);
 
             System.out.println(statement);
             statement.executeUpdate();
@@ -308,6 +316,52 @@ public class UserDaoImpl implements UserDao{
         }
         return null;
     }
+
+    public void SendEmailForgotPassword(String email_adresse){
+
+        try {
+            Email email = new SimpleEmail();
+            email.setHostName("smtp.gmail.com");
+            email.setSmtpPort(465);
+            email.setAuthenticator(new DefaultAuthenticator("springbootalura@gmail.com", "springboot"));
+            email.setSSLOnConnect(true);
+
+            email.setFrom("springbootalura@gmail.com");
+            email.setSubject("You were envited by Vip List");
+            email.setMsg("Hello You were invited by Vip List.");
+            email.addTo(email_adresse);
+            email.send();
+
+        } catch (EmailException e) {
+            e.printStackTrace();
+        }
+//        String to = email;//change accordingly
+//        String from = "noreply_yncrea_indoor_intellignece_air_quality@gmail.com";
+//        String host = "mail.smtp.gmail.com";//or IP address
+//
+//        //Get the session object
+//        Properties properties = System.getProperties();
+//        properties.setProperty("mail.smtp.host", host);
+//        properties.put("mail.smtp.auth", "true");
+//        properties.put("mail.smtp.port", "465");
+//        Session session = Session.getInstance(properties, null);
+//
+//        //compose the message
+//        try{
+//            MimeMessage message = new MimeMessage(session);
+//            message.setFrom(new InternetAddress(from));
+//            message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+//            message.setSubject("Ping");
+//            message.setText("Hello, this is example of sending email  ");
+//
+//            // Send message
+//            Transport.send(message, "user", "password");
+//            System.out.println("message sent successfully....");
+//
+//        }catch (MessagingException mex) {mex.printStackTrace();}
+    }
+
+
 
     public List<User> GetAllAdmin() {
 

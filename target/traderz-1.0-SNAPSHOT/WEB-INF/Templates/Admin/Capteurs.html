@@ -21,7 +21,7 @@
     <title>YIIAQ</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img class="logo3" src="../../../IMG/logo3.png" alt="">
@@ -35,7 +35,7 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="Home">Accueil</a>
                 </li>
 
@@ -78,7 +78,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="Gestion_Admin">Administrateurs</a>
+                    <a class="nav-link" href="Gestion_Admin">Administrateurs</a>
                 </li>
 
                 <li class="nav-item ">
@@ -97,29 +97,29 @@
 <!-- Page Content -->
 <div class="container">
     <br><br>
-<!--    <div class="alert" role="alert" style="visibility: hidden;" id="Alerte_Create_Admin">-->
+    <div class="alert" role="alert" style="visibility: hidden;" id="Alerte_Create_Rasberry">
 
-<!--    </div>-->
-<!--    &lt;!&ndash;SCRIPT POUR AFFICHER -OU NON) LE MESSAGE D'INFO APRES AVOIR ESSAYE D'AJOUTER UN ADMIN&ndash;&gt;-->
-<!--    <script th:inline="javascript">-->
-<!--        var message_create_admin = "[(${message_information_apres_create_admin})]" ;-->
-<!--        if(message_create_admin == null){-->
-<!--            alerte = document.getElementById('Alerte_Create_Admin');-->
-<!--            alerte.style.visibility = 'hidden';-->
-<!--            alerte.className = "alerte";-->
-<!--        }else if(message_create_admin === "L'email renseigne n'est pas valide. Par consequent aucun administrateur a ete ajoute"){-->
-<!--            alerte = document.getElementById('Alerte_Create_Admin');-->
-<!--            alerte.style.visibility = "visible";-->
-<!--            alerte.className = "alerte alert-danger"-->
-<!--            alerte.innerHTML = message_create_admin;-->
-<!--        }else{-->
-<!--            alerte = document.getElementById('Alerte_Create_Admin');-->
-<!--            alerte.style.visibility = "visible";-->
-<!--            alerte.className = "alerte alert-success"-->
-<!--            alerte.innerHTML = message_create_admin;-->
-<!--        }-->
-<!--    </script>-->
-
+    </div>
+    <!--SCRIPT POUR AFFICHER -OU NON) LE MESSAGE D'INFO APRES AVOIR ESSAYE D'AJOUTER UN ADMIN-->
+    <script th:inline="javascript">
+        var message_create_admin = "[(${message_information_apres_ajout_rasberry})]" ;
+        if(message_create_admin == null){
+            alerte = document.getElementById('Alerte_Create_Rasberry');
+            alerte.style.visibility = 'hidden';
+            alerte.className = "alerte";
+        }else if(message_create_admin.includes("a pas pu ")){
+            alerte = document.getElementById('Alerte_Create_Rasberry');
+            alerte.style.visibility = "visible";
+            alerte.className = "alerte alert-danger"
+            alerte.innerHTML = message_create_admin;
+        }else{
+            alerte = document.getElementById('Alerte_Create_Rasberry');
+            alerte.style.visibility = "visible";
+            alerte.className = "alerte alert-success"
+            alerte.innerHTML = message_create_admin;
+        }
+    </script>
+<!--BARRE POUR CHERCHER UNE SALLE-->
     <div class="row" style="padding-top: 30px;">
         <!-- Search form -->
         <div class="active-cyan-10 mb-10 col-md-10">
@@ -152,7 +152,7 @@
                     <td th:text="${mapping_id_salle_name.get(rasberry.getId_salle())}">HEI T024</td>
                     <td th:text="${mapping_id_salle_etage.get(rasberry.getId_salle())}">RDC</td>
                     <td th:text="${rasberry.getNom_rasberry()}"></td>
-                    <td th:text="${rasberry.getEmplacement()}">Sur le mur de gauche</td>Localisation
+                    <td th:text="${rasberry.getEmplacement()}">Sur le mur de gauche</td>
 
                     <td>
                         <button data-toggle="modal" th:data-target="'#ModalSupprimerCapteurLocalisation_' + ${rasberry.getNom_rasberry()}"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -164,6 +164,7 @@
             </table>
         </div>
     </div>
+<!--    section modal localisation-->
     <section class="Loop for modales" th:each="rasberry : ${liste_rasberry}">
         <!-- Modal Supprimer capteur LOCALISATION -->
         <div class="modal fade" th:id="'ModalSupprimerCapteurLocalisation_' + ${rasberry.getNom_rasberry()}" tabindex="-1" role="dialog" th:aria-labelledby="'ModalSupprimerCapteurLocalisationTitle_' + ${rasberry.getNom_rasberry()}" aria-hidden="true">
@@ -282,7 +283,7 @@
             <table class="table table-hover">
                 <thead>
                 <h1 style="margin-right: 4px;">Liste des capteurs</h1>
-                <button class="pull-right" data-toggle="modal" data-target="#edit_capteur_name" style="height: 60% ;"><i class="fa fa-plus" ></i></button>
+                <button class="pull-right" data-toggle="modal" data-target="#add_new_capteur" style="height: 60% ;"><i class="fa fa-plus" ></i></button>
 
                 <tr>
                     <th>Id_Capteur</th>
@@ -297,8 +298,8 @@
                     <td th:text="${mapping_id_and_name_rasberry.get(key)}">RDC</td>
                     <td th:text="${#lists.contains(liste_rasberry_name, mapping_id_and_name_rasberry.get(key))}"></td>
                     <td>
-                        <button data-toggle="modal" th:data-target="'#ModalSupprimerRasberry_' + ${mapping_id_and_name_rasberry.get(key)}"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        <button data-toggle="modal" th:data-target="'#ModalModifierRasberry_' + ${mapping_id_and_name_rasberry.get(key)}"><i class="fa fa-edit" ></i></button>
+                        <button data-toggle="modal" th:data-target="'#ModalSupprimerCapteur_' + ${mapping_id_and_name_rasberry.get(key)}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button data-toggle="modal" th:data-target="'#ModalModifierCapteur_' + ${mapping_id_and_name_rasberry.get(key)}"><i class="fa fa-edit" ></i></button>
                     </td>
                 </tr>
 
@@ -307,6 +308,7 @@
         </div>
     </div>
 
+<!--Section Modal Capteurs-->
     <section class="Loop for modales" th:each="key : ${mapping_id_and_name_rasberry.keySet()}">
         <!-- Modal Supprimer capteur -->
         <div class="modal fade" th:id="'ModalSupprimerCapteur_' + ${mapping_id_and_name_rasberry.get(key)}" tabindex="-1" role="dialog" th:aria-labelledby="'ModalSupprimerCapteurTitle_' + ${mapping_id_and_name_rasberry.get(key)}" aria-hidden="true">
@@ -355,9 +357,9 @@
 
                             <form method="post" >
 <!--                                <input type="hidden" class="fadeIn fourth" name="nom_rasberry_selected_hidden" th:value="${rasberry.getNom_rasberry()}">-->
-                                <input type="text" class="fadeIn fourth" name="nom_rasberry" th:placeholder="'Nom du Capteur : ' + ${mapping_id_and_name_rasberry.get(key)}" readonly>
+                                <input type="text" class="fadeIn fourth" name="nom_rasberry" th:value="${mapping_id_and_name_rasberry.get(key)}" th:placeholder="'Nom du Capteur : ' + ${mapping_id_and_name_rasberry.get(key)}" readonly>
                                 <input type="text" class="fadeIn fourth" name="nouveau_nom_rasberry" placeholder="Entrez le nouveau nom du capteur" required><span class="required">*</span>
-                                <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Valider les modifications du capteur"> <!-- rediriger vers la page de connexion -->
+                                <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Valider le nouveau nom du capteur"> <!-- rediriger vers la page de connexion -->
                             </form>
                         </div>
 
@@ -368,12 +370,12 @@
 
     </section>
 
-    <!--    MODAL modifier nom Capteur-->
-    <div class="modal fade" id="edit_capteur_name" tabindex="-1" role="dialog" aria-labelledby="edit_capteur_name_Title" aria-hidden="true">
+    <!--    MODAL Ajouter un Capteur-->
+    <div class="modal fade" id="add_new_capteur" tabindex="-1" role="dialog" aria-labelledby="add_new_capteur_Title" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="edit_capteur_name_Title">Ajouter un Capteur</h5>
+                    <h5 class="modal-title" id="add_new_capteur_Title">Ajouter un Capteur</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -384,8 +386,8 @@
                     <div class="wrapper fadeInDown">
 
                         <form method="post" >
-<!--                            <input type="text" id="Emplacement_New" class="fadeIn fourth" name="emplacement_add_localisation" placeholder="Emplacement (ex: Derrière la porte, Sur le mur de gauche)" required><span class="required">*</span>-->
-                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter une localisation à un capteur"> <!-- rediriger vers la page de connexion -->
+                            <input type="text" class="fadeIn fourth" name="nom_add_rasberry" placeholder="Tappez le nom du nouveau Capteur" required><span class="required">*</span>
+                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter un nouveau capteur ?"> <!-- rediriger vers la page de connexion -->
                         </form>
                     </div>
 
@@ -607,10 +609,9 @@
     }
 
 
-    /*.navbar {
-      overflow: hidden;
-     background-color: #333;
-    }*/
+    .navbar {
+        background-color: #0DA2E0;
+    }
 
     .navbar a {
         float: left;
@@ -759,4 +760,5 @@
     }
 
 </style>
+
 </html>

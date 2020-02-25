@@ -115,7 +115,7 @@ public class RasberryDaoImpl implements RasberryDao {
                 "WHERE nom_capteur = ? ";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
-            statement.setString(2, rasberry.getNom_rasberry());
+            statement.setString(1, rasberry.getNom_rasberry());
 
             System.out.println(statement);
             statement.executeUpdate();
@@ -123,5 +123,68 @@ public class RasberryDaoImpl implements RasberryDao {
             throw  new RuntimeException("/!\\/!\\ Error, cannot Delete Capteur/!\\/!\\ ");
         }
     }
+
+    public void EditRasberry (String old_name, String new_name){
+        String query = "UPDATE capteur\n" +
+                "SET nom_capteur = ? \n" +
+                "WHERE nom_capteur = ? ";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            statement.setString(1, new_name);
+            statement.setString(2, old_name);
+
+            System.out.println(statement);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("/!\\/!\\ Error, cannot Delete Capteur/!\\/!\\ ");
+        }
+    }
+
+    public void EditRasberrySalleName (String old_name, String new_name){
+        String query = "UPDATE capteur_salle\n" +
+                "SET nom_capteur = ? \n" +
+                "WHERE nom_capteur = ? ";
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            statement.setString(1, new_name);
+            statement.setString(2, old_name);
+
+            System.out.println(statement);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            throw  new RuntimeException("/!\\/!\\ Error, cannot Delete Capteur/!\\/!\\ ");
+        }
+    }
+
+    public Boolean IsCapteurNameAlreadyTaken(String rasberry_name){
+//        List<Favori> liste_favoris = new ArrayList<>();
+
+        String query = "SELECT \n" +
+                "\tCASE\n" +
+                "\t\tWHEN EXISTS (\n" +
+                "\t\t\tSELECT 1\n" +
+                "\t\t\tFROM capteur c\n" +
+                "\t\t\tWHERE c.nom_capteur= '" + rasberry_name + "'\n" +
+                "\n" +
+                "\t) THEN TRUE\n" +
+                "\tELSE FALSE\n" +
+                "\tEND as rasberry_exists";
+
+
+        try (Connection connection = DataSourceProvider.getDataSource().getConnection();
+             PreparedStatement statement = (connection).prepareStatement(query)) {
+            System.out.println(statement);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    Boolean res = resultSet.getBoolean("rasberry_exists");
+                    return res;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

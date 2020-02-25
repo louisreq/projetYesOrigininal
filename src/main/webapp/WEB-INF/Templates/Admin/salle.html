@@ -15,7 +15,7 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img class="logo3" src="../../../IMG/logo3.png" alt="">
@@ -119,27 +119,40 @@
 
     <!-- FORMULAIRE POUR CHOISIR L'INTERVALLE DE TEMPS DES GRAPHIQUES   +  COEUR POUR AJOUTER AUX FAVORIS -->
     <div class="row">
-        <form method="get" id="form_for_graph_dates" class="form-inline">
-            <div class="col-xs-4 col-sm-4 col-md-4">
-                <input type="hidden"  th:each="salle:${campus_with_the_selected_salle.getList_salles()}" th:value="${salle.getId()}" name="id_selected_salle">
-                Du <input type="date" name="debut_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${debut_graph_date}" style="margin: 0 5px 15px 5px;">à
+        <div class="col-xs-9 col-sm-9 col-md-9">
 
-                <input type="time" name="debut_graph_heure"  th:value="${debut_graph_heure}" style="margin: 0 5px 15px 5px;">
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4">
-                Au <input type="date" name="fin_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${fin_graph_date}" style="margin: 0 5px 15px 5px;"> à
-                <input type="time" name="fin_graph_heure"  th:value="${fin_graph_heure}" style="margin: 0 2px 2px 2px; ">
-            </div>
+        <form method="get" id="form_for_graph_dates" class="form-inline">
+                <div class="form-group">
+                    <input type="hidden"  th:each="salle:${campus_with_the_selected_salle.getList_salles()}" th:value="${salle.getId()}" name="id_selected_salle">
+                </div>
+<!--                Date heure début-->
+                <div class="form-group">
+                    <label for="debut_graph_date" style="font-size: 30px; padding-bottom: 12px;">Du</label>
+                    <input type="date" class="form-control" id="debut_graph_date" name="debut_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${debut_graph_date}" style="margin: 0 5px 15px 5px;">
+                </div>
+                <div class="form-group">
+                    <label for="debut_graph_heure" style="font-size: 30px; padding-bottom: 12px;">à</label>
+                    <input type="time" class="form-control" id="debut_graph_heure" name="debut_graph_heure"  th:value="${debut_graph_heure}" style="margin: 0 5px 15px 5px;">
+                </div>
+<!--                Date heure fin-->
+                <div class="form-group">
+                    <label for="fin_graph_date" style="font-size: 30px; padding-bottom: 12px;">Au</label>
+                    <input type="date" class="form-control" id="fin_graph_date" name="fin_graph_date" max="2021-01-01" min="2020-01-01"  th:value="${fin_graph_date}" style="margin: 0 5px 15px 5px;">
+                </div>
+                <div class="form-group">
+                    <label for="fin_graph_heure" style="font-size: 30px; padding-bottom: 12px;">à</label>
+                    <input type="time" class="form-control" id="fin_graph_heure" name="fin_graph_heure"  th:value="${fin_graph_heure}" style="margin: 0 5px 15px 15px; ">
+                </div>
+            <button id="valider_info_date" name="valider_info_date" style="margin:0px 5px 15px 15px;"class="btn btn-secondary form-control" type="submit" form="form_for_graph_dates" >Valider</button>
         </form>
-        <div class="col-xs-2 col-sm-2 col-md-2">
-            <button id="valider_info_date" name="valider_info_date" style="margin:0px 4px 6px 6px;"class="btn btn-secondary" type="submit" form="form_for_graph_dates" >Valider</button>
         </div>
 
-        <div class="col-xs-2 col-sm-2 col-md-2">
+<!--    <div class="col-xs-1 col-sm-1 col-md-1">-->
+<!--        </div>-->
 
-            <p >Ajouter au favori:</p>
+        <div class="col-xs-3 col-sm-3 col-md-3">
             <i class="heart fa fa-heart-o" id="coeur_favori"></i>
-
+            <span style="font-size: 20px;height:200px;vertical-align:text-top;line-height: 0px;">Ajouter au favori</span>
         </div>
     </div>
 
@@ -198,29 +211,83 @@
     </script>
 
 
-    <br>
-    <br>
-
+    <br/>
+    <br/>
+    <p style="text-align: center;">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+    <br/>
+    <br/>
 
     <!-- TOUS LES ELEMENTS MESUREES PAR LES CAPTEURS  -->
     <section class="row form-group">
 
-        <!-- Element CO2 -->
+<!--LIGNE 1 (2 éléments) -->
+        <div class="col-xs-2 col-sm-2 col-md-2"> </div>
+
+        <!-- Element Luminosity  -->
+        <div class="col-xs-4 col-sm-3 col-md-3" style="margin-bottom : 50px;" >
+            <section class="row">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#luminosityModal"><a>
+                    <img src="../../../IMG/luminosity_v3.png" alt="Luminosity" align="right">
+                </a></div>
+
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <section class="row">
+                        <b>Lum.</b>
+                    </section>
+
+                    <section class="row">
+                        <p th:text="${actual_sensors_info.getLight()} + ' lux'">125lux</p>
+                    </section>
+                </div>
+
+            </section>
+        </div>
+
+
+        <div class="col-xs-1 col-sm-1 col-md-1"></div>
+
+        <!-- Element PM2.5  -->
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <section class="row">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#pm2_5Modal"><a>
+                    <img src="../../../IMG/pm2.5_v3.jpg" alt="PM2,5" align="right">
+                </a></div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <section class="row">
+                        <b>Qualité</b>
+                    </section>
+
+                    <section class="row">
+                        <p th:text="${actual_sensors_info.getDust() + ' ppb'}">0.11ppb</p>
+                    </section>
+                </div>
+
+            </section>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2"> </div>
+
+        <br/>
+<!--LIGNE 2 (3 éléments) -->
+        <!-- Element Decibels -->
         <div class="col-xs-4 col-sm-3 col-md-3">
 
             <section class="row">
 
-                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#co2Modal"><a>
-                    <img src="../../../IMG/co2_v3.png" alt="CO2" align="right">
-                </a></div>
-
-
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#decibelModal">
+                    <a>
+                        <img src="../../../IMG/son_v3.png" alt="Son" align="right">
+                    </a>
+                </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
                         <b>CO2</b>
                     </section>
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getCO2()} + ' ppm'">458ppm</p>
+                        <p th:text="${actual_sensors_info.getSound()} + ' Db'">53 Db</p>
                     </section>
                 </div>
 
@@ -269,55 +336,133 @@
 
         <br/>
 
-        <div class="col-xs-2 col-sm-2 col-md-2"> </div>
 
-        <!-- Element Luminosity  -->
-        <div class="col-xs-4 col-sm-3 col-md-3" style="margin-bottom : 50px;" >
+<!--        LIGNE 3  (3 éléments) -->
+        <!-- Element CO2 -->
+        <div class="col-xs-4 col-sm-3 col-md-3">
+
             <section class="row">
 
-                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#luminosityModal"><a>
-                    <img src="../../../IMG/luminosity_v3.png" alt="Luminosity" align="right">
-                </a></div>
-
-
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#co2Modal">
+                    <a>
+                        <img src="../../../IMG/co!.png" style="width: 70%;" alt="CO2" align="right">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
-                        <b>Lum.</b>
+                        <b>CO2</b>
                     </section>
-
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getLight()} + ' lux'">125lux</p>
+                        <p th:text="${actual_sensors_info.getCO2()} + ' ppm'">458ppm</p>
                     </section>
                 </div>
 
             </section>
         </div>
 
+        <!-- Element CO  -->
+        <div class="col-xs-4 col-sm-3 col-md-4">
+            <section class="row">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 hover01 column" data-toggle="modal" data-target="#monoxydeModal"><a>
+                    <img src="../../../IMG/co_v3.png" style="width: 50%;" alt="CO" align="right"></a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
+                    <section class="row">
+                        <b>CO</b>
+                    </section>
+
+                    <section class="row">
+                        <p>450 ppm</p>
+                    </section>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- Element Benzène  -->
+        <div class="col-xs-4 col-sm-3 col-md-4" style="margin-bottom : 90px;">
+            <section class="row">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#benzeneModal"><a>
+                    <img src="../../../IMG/benzene.png" style="width: 40%;" alt="Benzene" align="right">
+                </a></div>
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
+                    <section class="row">
+                        <b>Benzene</b>
+                    </section>
+
+                    <section class="row">
+                        <p>0,2 ppb</p>
+                    </section>
+                </div>
+
+
+            </section>
+        </div>
+
+        <br/>
+
+<!--        LIGNE 4 (2 éléments) -->
+        <div class="col-xs-2 col-sm-2 col-md-2"> </div>
+
+<!--        ELEMENT TOLU-->
+        <div class="col-xs-4 col-sm-3 col-md-3" style="margin-bottom : 50px;" >
+            <section class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#toluModal">
+                    <a>
+                     <img src="../../../IMG/tolu_v3.jpg" style="width: 60%; " alt="Tolu" align="right">
+                   </a>
+                </div>
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <section class="row">
+                        <b>Tolu</b>
+                    </section>
+
+                    <section class="row">
+                        <p>450 ppm</p>
+                    </section>
+                </div>
+
+            </section>
+        </div>
 
         <div class="col-xs-1 col-sm-1 col-md-1"></div>
 
-        <!-- Element PM2.5  -->
+        <!-- Element Formol -->
         <div class="col-xs-4 col-sm-3 col-md-3">
             <section class="row">
 
-                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#pm2_5Modal"><a>
-                    <img src="../../../IMG/pm2.5_v3.jpg" alt="PM2,5" align="right">
+                <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#formolModal"><a>
+                    <img src="../../../IMG/formol.png" style="width: 65%;" alt="Formol" align="right">
                 </a></div>
+
 
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <section class="row">
-                        <b>Qualité</b>
+                        <b>Formol</b>
                     </section>
 
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getDust() + ' ppb'}">0.11ppb</p>
+                        <p>0.11 ppm</p>
                     </section>
                 </div>
 
             </section>
         </div>
+        <div class="col-xs-2 col-sm-2 col-md-2"> </div>
+
     </section>
 
+    <br/>
+    <p style="text-align: center;">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+    <br/>
+    <br/>
+
+
+
+<!--    VISUALISATION DES GRAPH-->
 <!--    CDN POUR FAIRE LES GRAPH AVEC D3.JS-->
     <script src = "https://d3js.org/d3.v4.min.js"></script>
 
@@ -486,7 +631,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="humidityModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="humidityModalTitle">Humidité en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -646,7 +791,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="co2ModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="co2ModalTitle">Concentration de CO2 en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -808,7 +953,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="luminosityModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="luminosityModalTitle">Evolution de la Luminosité en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -835,8 +980,8 @@
 
 
             // TEMPERATURE PLOT
-            const globalTitlePlot1_luminosity = "Evolution de la Température";
-            const yAxisLable_Plot1_luminosity = "Température";
+            const globalTitlePlot1_luminosity = "Evolution de la Luminosité";
+            const yAxisLable_Plot1_luminosity = "Luminosité (Lux)";
             const yValue_Plot1_luminosity = d => d.Luminosity;
             const xValue_Plot1_luminosity = d => d.Time;
 
@@ -970,7 +1115,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="pm2_5ModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="pm2_5ModalTitle">Concentration de Particules PM2.5 en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1116,12 +1261,824 @@
             element.PM2_5 = +element['dust'];
 
             delete element['time_info_collected'];
-            delete element['dust']
+            delete element['dust'];
         });
 
         render_PM2_5(json_PM2_5);
 
     </script>
+
+    <!-- LA MODALE DECIBELS -->
+    <div class="modal fade" id="decibelModal" tabindex="-1" role="dialog" aria-labelledby="decibelModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="decibelModalTitle">Evolution du son en fonction du temps:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <svg width="1800" height="800" id="svg_decibel_modal">
+
+                    </svg>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT DECIBELS GRAPH D3.JS-->
+    <script th:inline="javascript">
+
+        const svg_Decibel = d3.select('#svg_decibel_modal');
+
+        const width_Decibel = +svg_Decibel.attr("width");
+        const height_Decibel = +svg_Decibel.attr("height");
+
+        const render_Decibel = data => {
+
+
+            // TEMPERATURE PLOT
+            const globalTitlePlot1_Decibel = "Evolution du Son";
+            const yAxisLable_Plot1_Decibel = "Son (Décibel)";
+            const yValue_Plot1_Decibel = d => d.Decibel;
+            const xValue_Plot1_Decibel = d => d.Time;
+
+            const circleRadius_Decibel = 0;
+            const xAxisLable_Plot1_Decibel = "Time";
+
+            const global_margin_Decibel = { top:60, bottom:140, left:150, right:25};
+            const marginLeftPlot_Decibel = { top:0, bottom:0, left:0, right:80};
+
+
+            const innerHeight_Decibel = height_Decibel - global_margin_Decibel.top - global_margin_Decibel.bottom;
+            const innerWidth_Decibel = width_Decibel - global_margin_Decibel.left - global_margin_Decibel.right;
+
+
+            // SCALES FOR LEFT PLOT
+            const xScale_Plot1_Decibel = d3.scaleTime()
+                .domain(d3.extent(data, xValue_Plot1_Decibel))
+                .range([0, innerWidth_Decibel/2 - marginLeftPlot_Decibel.right - marginLeftPlot_Decibel.left])
+                .nice();
+
+            const yScale_Plot1_Decibel = d3.scaleLinear()
+                .domain(d3.extent(data, yValue_Plot1_Decibel))
+                .range([innerHeight_Decibel, 0])
+                .nice();
+            // ----------------------------------
+
+
+            const g_Decibel = svg_Decibel.append('g')
+                .attr('transform', `translate(${global_margin_Decibel.left}, ${global_margin_Decibel.top})`);
+
+
+            // AXIS FOR PLOT 1
+            const xAxis_Plot1_Decibel = d3.axisBottom(xScale_Plot1_Decibel)
+                .tickSize(-innerHeight_Decibel)
+                .tickPadding(20);
+
+            const yAxis_Plot1_Decibel = d3.axisLeft(yScale_Plot1_Decibel)
+                .tickSize(-innerWidth_Decibel/2 + marginLeftPlot_Decibel.right);
+            // ---------------------------------------------
+
+
+            const temperaturePlotGroup_Decibel = g_Decibel.append('g');
+
+            temperaturePlotGroup_Decibel
+                .append("rect")
+                .attr("x",0)
+                .attr("y",0)
+                .attr("height", height_Decibel-200)
+                .attr("width", innerWidth_Decibel/2 - 70)
+                .style("fill", "whitesmoke");
+
+
+
+            // AXIS GROUP FOR LEFT PLOT
+            const yAxisGroupLeftPlot_Decibel = temperaturePlotGroup_Decibel.append('g').call(yAxis_Plot1_Decibel);
+            yAxisGroupLeftPlot_Decibel
+                .selectAll('.domain')
+                .remove();
+
+            yAxisGroupLeftPlot_Decibel.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x',-innerHeight_Decibel/2)
+                .attr('y', -80)
+                .attr('fill', 'black')
+                .attr('transform', 'rotate(-90)')
+                .attr('text-anchor', 'middle')
+                .text(yAxisLable_Plot1_Decibel);
+
+            const xAxisGroupLeftPlot_Decibel = temperaturePlotGroup_Decibel.append('g').call(xAxis_Plot1_Decibel)
+                .attr('transform', `translate(0, ${innerHeight_Decibel})`);
+            xAxisGroupLeftPlot_Decibel.select('.domain').remove();
+
+            xAxisGroupLeftPlot_Decibel.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x', innerWidth_Decibel/4)
+                .attr('y', 80)
+                .attr('fill', 'black')
+                .text(xAxisLable_Plot1_Decibel);
+// -----------------------------------
+
+
+// LINE GENERATOR FOR THE LEFT PLOT
+            const lineGeneratorLeftPlot_Decibel = d3.line()
+                .x(d => xScale_Plot1_Decibel(xValue_Plot1_Decibel(d)))
+                .y(d => yScale_Plot1_Decibel(yValue_Plot1_Decibel(d)))
+                .curve(d3.curveBasis);
+
+            temperaturePlotGroup_Decibel.append('path')
+                .attr('class', 'line_path_left_plot')
+                .attr('d', lineGeneratorLeftPlot_Decibel(data));
+
+            temperaturePlotGroup_Decibel.selectAll('rect').data(data)
+                .enter().append('circle')
+                .attr('cy', d => yScale_Plot1_Decibel(yValue_Plot1_Decibel(d)))
+                .attr('cx', d => xScale_Plot1_Decibel(xValue_Plot1_Decibel(d)))
+                .attr('r', circleRadius_Decibel);
+
+            temperaturePlotGroup_Decibel.append('text')
+                .attr('class', 'title')
+                .text(globalTitlePlot1_Decibel)
+                .attr('y', -10);
+            // ---------------------------------
+
+
+        };
+
+
+
+        const data_json_Decibel = '[(${array_of_all_sensors_info})]';
+
+        const json_Decibel = JSON.parse(data_json_Decibel);
+
+        json_Decibel.forEach(function(element, index) {
+            element.Time = new Date(element['time_info_collected']);
+            element.Temperatures = +element['temperature'];
+            element.Humidite = +element['humid'];
+            element.Decibel = +element['sound'];
+
+            delete element['time_info_collected'];
+            delete element['temperature'];
+            delete element['humid'];
+            delete element['sound'];
+        });
+
+        render_Decibel(json_Decibel);
+
+    </script>
+
+    <!-- LA MODALE MONOXYDE -->
+    <div class="modal fade" id="monoxydeModal" tabindex="-1" role="dialog" aria-labelledby="monoxydeModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="monoxydeModalTitle">Temperature en fonction du temps:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <svg width="1800" height="800" id="svg_monoxyde_modal">
+
+                    </svg>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT MONOXYDE GRAPH D3.JS-->
+    <script th:inline="javascript">
+
+        const svg_Monoxyde = d3.select('#svg_monoxyde_modal');
+
+        const width_Monoxyde = +svg_Monoxyde.attr("width");
+        const height_Monoxyde = +svg_Monoxyde.attr("height");
+
+        const render_Monoxyde = data => {
+
+
+            // TEMPERATURE PLOT
+            const globalTitlePlot1_Monoxyde = "Evolution du Monoxyde de Carbone";
+            const yAxisLable_Plot1_Monoxyde = "CO (en ppm)";
+            const yValue_Plot1_Monoxyde = d => d.Monoxyde;
+            const xValue_Plot1_Monoxyde = d => d.Time;
+
+            const circleRadius_Monoxyde = 0;
+            const xAxisLable_Plot1_Monoxyde = "Time";
+
+            const global_margin_Monoxyde = { top:60, bottom:140, left:150, right:25};
+            const marginLeftPlot_Monoxyde = { top:0, bottom:0, left:0, right:80};
+
+
+            const innerHeight_Monoxyde = height_Monoxyde - global_margin_Monoxyde.top - global_margin_Monoxyde.bottom;
+            const innerWidth_Monoxyde = width_Monoxyde - global_margin_Monoxyde.left - global_margin_Monoxyde.right;
+
+
+            // SCALES FOR LEFT PLOT
+            const xScale_Plot1_Monoxyde = d3.scaleTime()
+                .domain(d3.extent(data, xValue_Plot1_Monoxyde))
+                .range([0, innerWidth_Monoxyde/2 - marginLeftPlot_Monoxyde.right - marginLeftPlot_Monoxyde.left])
+                .nice();
+
+            const yScale_Plot1_Monoxyde = d3.scaleLinear()
+                .domain(d3.extent(data, yValue_Plot1_Monoxyde))
+                .range([innerHeight_Monoxyde, 0])
+                .nice();
+            // ----------------------------------
+
+
+            const g_Monoxyde = svg_Monoxyde.append('g')
+                .attr('transform', `translate(${global_margin_Monoxyde.left}, ${global_margin_Monoxyde.top})`);
+
+
+            // AXIS FOR PLOT 1
+            const xAxis_Plot1_Monoxyde = d3.axisBottom(xScale_Plot1_Monoxyde)
+                .tickSize(-innerHeight_Monoxyde)
+                .tickPadding(20);
+
+            const yAxis_Plot1_Monoxyde = d3.axisLeft(yScale_Plot1_Monoxyde)
+                .tickSize(-innerWidth_Monoxyde/2 + marginLeftPlot_Monoxyde.right);
+            // ---------------------------------------------
+
+
+            const temperaturePlotGroup_Monoxyde = g_Monoxyde.append('g');
+
+            temperaturePlotGroup_Monoxyde
+                .append("rect")
+                .attr("x",0)
+                .attr("y",0)
+                .attr("height", height_Monoxyde-200)
+                .attr("width", innerWidth_Monoxyde/2 - 70)
+                .style("fill", "whitesmoke");
+
+
+
+            // AXIS GROUP FOR LEFT PLOT
+            const yAxisGroupLeftPlot_Monoxyde = temperaturePlotGroup_Monoxyde.append('g').call(yAxis_Plot1_Monoxyde);
+            yAxisGroupLeftPlot_Monoxyde
+                .selectAll('.domain')
+                .remove();
+
+            yAxisGroupLeftPlot_Monoxyde.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x',-innerHeight_Monoxyde/2)
+                .attr('y', -80)
+                .attr('fill', 'black')
+                .attr('transform', 'rotate(-90)')
+                .attr('text-anchor', 'middle')
+                .text(yAxisLable_Plot1_Monoxyde);
+
+            const xAxisGroupLeftPlot_Monoxyde = temperaturePlotGroup_Monoxyde.append('g').call(xAxis_Plot1_Monoxyde)
+                .attr('transform', `translate(0, ${innerHeight_Monoxyde})`);
+            xAxisGroupLeftPlot_Monoxyde.select('.domain').remove();
+
+            xAxisGroupLeftPlot_Monoxyde.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x', innerWidth_Monoxyde/4)
+                .attr('y', 80)
+                .attr('fill', 'black')
+                .text(xAxisLable_Plot1_Monoxyde);
+// -----------------------------------
+
+
+// LINE GENERATOR FOR THE LEFT PLOT
+            const lineGeneratorLeftPlot_Monoxyde = d3.line()
+                .x(d => xScale_Plot1_Monoxyde(xValue_Plot1_Monoxyde(d)))
+                .y(d => yScale_Plot1_Monoxyde(yValue_Plot1_Monoxyde(d)))
+                .curve(d3.curveBasis);
+
+            temperaturePlotGroup_Monoxyde.append('path')
+                .attr('class', 'line_path_left_plot')
+                .attr('d', lineGeneratorLeftPlot_Monoxyde(data));
+
+            temperaturePlotGroup_Monoxyde.selectAll('rect').data(data)
+                .enter().append('circle')
+                .attr('cy', d => yScale_Plot1_Monoxyde(yValue_Plot1_Monoxyde(d)))
+                .attr('cx', d => xScale_Plot1_Monoxyde(xValue_Plot1_Monoxyde(d)))
+                .attr('r', circleRadius_Monoxyde);
+
+            temperaturePlotGroup_Monoxyde.append('text')
+                .attr('class', 'title')
+                .text(globalTitlePlot1_Monoxyde)
+                .attr('y', -10);
+            // ---------------------------------
+
+
+        };
+
+
+
+        const data_json_Monoxyde = '[(${array_of_all_sensors_info})]';
+
+        const json_Monoxyde = JSON.parse(data_json_Monoxyde);
+
+        json_Monoxyde.forEach(function(element, index) {
+            element.Time = new Date(element['time_info_collected']);
+            element.Temperatures = +element['temperature'];
+            element.Humidite = +element['humid'];
+            element.Monoxyde = +element['CO'];
+
+            delete element['time_info_collected'];
+            delete element['temperature'];
+            delete element['humid'];
+            delete element['CO'];
+        });
+
+        render_Monoxyde(json_Monoxyde);
+
+    </script>
+
+    <!-- LA MODALE BENZENE -->
+    <div class="modal fade" id="benzeneModal" tabindex="-1" role="dialog" aria-labelledby="benzeneModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="benzeneModalTitle">Benzène en fonction du temps:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <svg width="1800" height="800" id="svg_benzene_modal">
+
+                    </svg>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT BENZENE GRAPH D3.JS-->
+    <script th:inline="javascript">
+
+        const svg_Benzene = d3.select('#svg_benzene_modal');
+
+        const width_Benzene = +svg_Benzene.attr("width");
+        const height_Benzene = +svg_Benzene.attr("height");
+
+        const render_Benzene = data => {
+
+
+            // TEMPERATURE PLOT
+            const globalTitlePlot1_Benzene = "Evolution du Benzène";
+            const yAxisLable_Plot1_Benzene = "Benzène (en ppb)";
+            const yValue_Plot1_Benzene = d => d.Benzene;
+            const xValue_Plot1_Benzene = d => d.Time;
+
+            const circleRadius_Benzene = 0;
+            const xAxisLable_Plot1_Benzene = "Time";
+
+            const global_margin_Benzene = { top:60, bottom:140, left:150, right:25};
+            const marginLeftPlot_Benzene = { top:0, bottom:0, left:0, right:80};
+
+
+            const innerHeight_Benzene = height_Benzene - global_margin_Benzene.top - global_margin_Benzene.bottom;
+            const innerWidth_Benzene = width_Benzene - global_margin_Benzene.left - global_margin_Benzene.right;
+
+
+            // SCALES FOR LEFT PLOT
+            const xScale_Plot1_Benzene = d3.scaleTime()
+                .domain(d3.extent(data, xValue_Plot1_Benzene))
+                .range([0, innerWidth_Benzene/2 - marginLeftPlot_Benzene.right - marginLeftPlot_Benzene.left])
+                .nice();
+
+            const yScale_Plot1_Benzene = d3.scaleLinear()
+                .domain(d3.extent(data, yValue_Plot1_Benzene))
+                .range([innerHeight_Benzene, 0])
+                .nice();
+            // ----------------------------------
+
+
+            const g_Benzene = svg_Benzene.append('g')
+                .attr('transform', `translate(${global_margin_Benzene.left}, ${global_margin_Benzene.top})`);
+
+
+            // AXIS FOR PLOT 1
+            const xAxis_Plot1_Benzene = d3.axisBottom(xScale_Plot1_Benzene)
+                .tickSize(-innerHeight_Benzene)
+                .tickPadding(20);
+
+            const yAxis_Plot1_Benzene = d3.axisLeft(yScale_Plot1_Benzene)
+                .tickSize(-innerWidth_Benzene/2 + marginLeftPlot_Benzene.right);
+            // ---------------------------------------------
+
+
+            const temperaturePlotGroup_Benzene = g_Benzene.append('g');
+
+            temperaturePlotGroup_Benzene
+                .append("rect")
+                .attr("x",0)
+                .attr("y",0)
+                .attr("height", height_Benzene-200)
+                .attr("width", innerWidth_Benzene/2 - 70)
+                .style("fill", "whitesmoke");
+
+
+
+            // AXIS GROUP FOR LEFT PLOT
+            const yAxisGroupLeftPlot_Benzene = temperaturePlotGroup_Benzene.append('g').call(yAxis_Plot1_Benzene);
+            yAxisGroupLeftPlot_Benzene
+                .selectAll('.domain')
+                .remove();
+
+            yAxisGroupLeftPlot_Benzene.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x',-innerHeight_Benzene/2)
+                .attr('y', -80)
+                .attr('fill', 'black')
+                .attr('transform', 'rotate(-90)')
+                .attr('text-anchor', 'middle')
+                .text(yAxisLable_Plot1_Benzene);
+
+            const xAxisGroupLeftPlot_Benzene = temperaturePlotGroup_Benzene.append('g').call(xAxis_Plot1_Benzene)
+                .attr('transform', `translate(0, ${innerHeight_Benzene})`);
+            xAxisGroupLeftPlot_Benzene.select('.domain').remove();
+
+            xAxisGroupLeftPlot_Benzene.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x', innerWidth_Benzene/4)
+                .attr('y', 80)
+                .attr('fill', 'black')
+                .text(xAxisLable_Plot1_Benzene);
+// -----------------------------------
+
+
+// LINE GENERATOR FOR THE LEFT PLOT
+            const lineGeneratorLeftPlot_Benzene = d3.line()
+                .x(d => xScale_Plot1_Benzene(xValue_Plot1_Benzene(d)))
+                .y(d => yScale_Plot1_Benzene(yValue_Plot1_Benzene(d)))
+                .curve(d3.curveBasis);
+
+            temperaturePlotGroup_Benzene.append('path')
+                .attr('class', 'line_path_left_plot')
+                .attr('d', lineGeneratorLeftPlot_Benzene(data));
+
+            temperaturePlotGroup_Benzene.selectAll('rect').data(data)
+                .enter().append('circle')
+                .attr('cy', d => yScale_Plot1_Benzene(yValue_Plot1_Benzene(d)))
+                .attr('cx', d => xScale_Plot1_Benzene(xValue_Plot1_Benzene(d)))
+                .attr('r', circleRadius_Benzene);
+
+            temperaturePlotGroup_Benzene.append('text')
+                .attr('class', 'title')
+                .text(globalTitlePlot1_Benzene)
+                .attr('y', -10);
+            // ---------------------------------
+
+
+        };
+
+
+
+        const data_json_Benzene = '[(${array_of_all_sensors_info})]';
+
+        const json_Benzene = JSON.parse(data_json_Benzene);
+
+        json_Benzene.forEach(function(element, index) {
+            element.Time = new Date(element['time_info_collected']);
+            element.Temperatures = +element['temperature'];
+            element.Humidite = +element['humid'];
+            element.Benzene = +element['LMG'];
+
+            delete element['time_info_collected'];
+            delete element['temperature'];
+            delete element['humid'];
+            delete element['LMG'];
+        });
+
+        render_Benzene(json_Benzene);
+
+    </script>
+
+    <!-- LA MODALE TOLU -->
+    <div class="modal fade" id="toluModal" tabindex="-1" role="dialog" aria-labelledby="toluModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="toluModalTitle">Toluène en fonction du temps:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <svg width="1800" height="800" id="svg_tolu_modal">
+
+                    </svg>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TOLU GRAPH D3.JS-->
+    <script th:inline="javascript">
+
+        const svg_Tolu = d3.select('#svg_tolu_modal');
+
+        const width_Tolu = +svg_Tolu.attr("width");
+        const height_Tolu = +svg_Tolu.attr("height");
+
+        const render_Tolu = data => {
+
+
+            // TEMPERATURE PLOT
+            const globalTitlePlot1_Tolu = "Evolution du Toluène";
+            const yAxisLable_Plot1_Tolu = "Toluène (en ppb)";
+            const yValue_Plot1_Tolu = d => d.Toluene;
+            const xValue_Plot1_Tolu = d => d.Time;
+
+            const circleRadius_Tolu = 0;
+            const xAxisLable_Plot1_Tolu = "Time";
+
+            const global_margin_Tolu = { top:60, bottom:140, left:150, right:25};
+            const marginLeftPlot_Tolu = { top:0, bottom:0, left:0, right:80};
+
+
+            const innerHeight_Tolu = height_Tolu - global_margin_Tolu.top - global_margin_Tolu.bottom;
+            const innerWidth_Tolu = width_Tolu - global_margin_Tolu.left - global_margin_Tolu.right;
+
+
+            // SCALES FOR LEFT PLOT
+            const xScale_Plot1_Tolu = d3.scaleTime()
+                .domain(d3.extent(data, xValue_Plot1_Tolu))
+                .range([0, innerWidth_Tolu/2 - marginLeftPlot_Tolu.right - marginLeftPlot_Tolu.left])
+                .nice();
+
+            const yScale_Plot1_Tolu = d3.scaleLinear()
+                .domain(d3.extent(data, yValue_Plot1_Tolu))
+                .range([innerHeight_Tolu, 0])
+                .nice();
+            // ----------------------------------
+
+
+            const g_Tolu = svg_Tolu.append('g')
+                .attr('transform', `translate(${global_margin_Tolu.left}, ${global_margin_Tolu.top})`);
+
+
+            // AXIS FOR PLOT 1
+            const xAxis_Plot1_Tolu = d3.axisBottom(xScale_Plot1_Tolu)
+                .tickSize(-innerHeight_Tolu)
+                .tickPadding(20);
+
+            const yAxis_Plot1_Tolu = d3.axisLeft(yScale_Plot1_Tolu)
+                .tickSize(-innerWidth_Tolu/2 + marginLeftPlot_Tolu.right);
+            // ---------------------------------------------
+
+
+            const temperaturePlotGroup_Tolu = g_Tolu.append('g');
+
+            temperaturePlotGroup_Tolu
+                .append("rect")
+                .attr("x",0)
+                .attr("y",0)
+                .attr("height", height_Tolu-200)
+                .attr("width", innerWidth_Tolu/2 - 70)
+                .style("fill", "whitesmoke");
+
+
+
+            // AXIS GROUP FOR LEFT PLOT
+            const yAxisGroupLeftPlot_Tolu = temperaturePlotGroup_Tolu.append('g').call(yAxis_Plot1_Tolu);
+            yAxisGroupLeftPlot_Tolu
+                .selectAll('.domain')
+                .remove();
+
+            yAxisGroupLeftPlot_Tolu.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x',-innerHeight_Tolu/2)
+                .attr('y', -80)
+                .attr('fill', 'black')
+                .attr('transform', 'rotate(-90)')
+                .attr('text-anchor', 'middle')
+                .text(yAxisLable_Plot1_Tolu);
+
+            const xAxisGroupLeftPlot_Tolu = temperaturePlotGroup_Tolu.append('g').call(xAxis_Plot1_Tolu)
+                .attr('transform', `translate(0, ${innerHeight_Tolu})`);
+            xAxisGroupLeftPlot_Tolu.select('.domain').remove();
+
+            xAxisGroupLeftPlot_Tolu.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x', innerWidth_Tolu/4)
+                .attr('y', 80)
+                .attr('fill', 'black')
+                .text(xAxisLable_Plot1_Tolu);
+// -----------------------------------
+
+
+// LINE GENERATOR FOR THE LEFT PLOT
+            const lineGeneratorLeftPlot_Tolu = d3.line()
+                .x(d => xScale_Plot1_Tolu(xValue_Plot1_Tolu(d)))
+                .y(d => yScale_Plot1_Tolu(yValue_Plot1_Tolu(d)))
+                .curve(d3.curveBasis);
+
+            temperaturePlotGroup_Tolu.append('path')
+                .attr('class', 'line_path_left_plot')
+                .attr('d', lineGeneratorLeftPlot_Tolu(data));
+
+            temperaturePlotGroup_Tolu.selectAll('rect').data(data)
+                .enter().append('circle')
+                .attr('cy', d => yScale_Plot1_Tolu(yValue_Plot1_Tolu(d)))
+                .attr('cx', d => xScale_Plot1_Tolu(xValue_Plot1_Tolu(d)))
+                .attr('r', circleRadius_Tolu);
+
+            temperaturePlotGroup_Tolu.append('text')
+                .attr('class', 'title')
+                .text(globalTitlePlot1_Tolu)
+                .attr('y', -10);
+            // ---------------------------------
+
+
+        };
+
+
+
+        const data_json_Tolu = '[(${array_of_all_sensors_info})]';
+
+        const json_Tolu = JSON.parse(data_json_Tolu);
+
+        json_Tolu.forEach(function(element, index) {
+            element.Time = new Date(element['time_info_collected']);
+            element.Temperatures = +element['temperature'];
+            element.Humidite = +element['humid'];
+            element.Toluene = +element['tolu'];
+
+            delete element['time_info_collected'];
+            delete element['temperature'];
+            delete element['humid'];
+            delete element['tolu'];
+        });
+
+        render_Tolu(json_Tolu);
+
+    </script>
+
+    <!-- LA MODALE formol -->
+    <div class="modal fade" id="formolModal" tabindex="-1" role="dialog" aria-labelledby="formolModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formolModalTitle">Formol en fonction du temps:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <svg width="1800" height="800" id="svg_formol_modal">
+
+                    </svg>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT FORMOL GRAPH D3.JS-->
+    <script th:inline="javascript">
+
+        const svg_Formol = d3.select('#svg_formol_modal');
+
+        const width_Formol = +svg_Formol.attr("width");
+        const height_Formol = +svg_Formol.attr("height");
+
+        const render_Formol = data => {
+
+
+            // TEMPERATURE PLOT
+            const globalTitlePlot1_Formol = "Evolution du Formol";
+            const yAxisLable_Plot1_Formol = "Formol (en ppm)";
+            const yValue_Plot1_Formol = d => d.Formol;
+            const xValue_Plot1_Formol = d => d.Time;
+
+            const circleRadius_Formol = 0;
+            const xAxisLable_Plot1_Formol = "Time";
+
+            const global_margin_Formol = { top:60, bottom:140, left:150, right:25};
+            const marginLeftPlot_Formol = { top:0, bottom:0, left:0, right:80};
+
+
+            const innerHeight_Formol = height_Formol - global_margin_Formol.top - global_margin_Formol.bottom;
+            const innerWidth_Formol = width_Formol - global_margin_Formol.left - global_margin_Formol.right;
+
+
+            // SCALES FOR LEFT PLOT
+            const xScale_Plot1_Formol = d3.scaleTime()
+                .domain(d3.extent(data, xValue_Plot1_Formol))
+                .range([0, innerWidth_Formol/2 - marginLeftPlot_Formol.right - marginLeftPlot_Formol.left])
+                .nice();
+
+            const yScale_Plot1_Formol = d3.scaleLinear()
+                .domain(d3.extent(data, yValue_Plot1_Formol))
+                .range([innerHeight_Formol, 0])
+                .nice();
+            // ----------------------------------
+
+
+            const g_Formol = svg_Formol.append('g')
+                .attr('transform', `translate(${global_margin_Formol.left}, ${global_margin_Formol.top})`);
+
+
+            // AXIS FOR PLOT 1
+            const xAxis_Plot1_Formol = d3.axisBottom(xScale_Plot1_Formol)
+                .tickSize(-innerHeight_Formol)
+                .tickPadding(20);
+
+            const yAxis_Plot1_Formol = d3.axisLeft(yScale_Plot1_Formol)
+                .tickSize(-innerWidth_Formol/2 + marginLeftPlot_Formol.right);
+            // ---------------------------------------------
+
+
+            const temperaturePlotGroup_Formol = g_Formol.append('g');
+
+            temperaturePlotGroup_Formol
+                .append("rect")
+                .attr("x",0)
+                .attr("y",0)
+                .attr("height", height_Formol-200)
+                .attr("width", innerWidth_Formol/2 - 70)
+                .style("fill", "whitesmoke");
+
+
+
+            // AXIS GROUP FOR LEFT PLOT
+            const yAxisGroupLeftPlot_Formol = temperaturePlotGroup_Formol.append('g').call(yAxis_Plot1_Formol);
+            yAxisGroupLeftPlot_Formol
+                .selectAll('.domain')
+                .remove();
+
+            yAxisGroupLeftPlot_Formol.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x',-innerHeight/2)
+                .attr('y', -80)
+                .attr('fill', 'black')
+                .attr('transform', 'rotate(-90)')
+                .attr('text-anchor', 'middle')
+                .text(yAxisLable_Plot1_Formol);
+
+            const xAxisGroupLeftPlot_Formol = temperaturePlotGroup_Formol.append('g').call(xAxis_Plot1_Formol)
+                .attr('transform', `translate(0, ${innerHeight_Formol})`);
+            xAxisGroupLeftPlot_Formol.select('.domain').remove();
+
+            xAxisGroupLeftPlot_Formol.append('text')
+                .attr('class', 'xAxisLabel')
+                .attr('x', innerWidth_Formol/4)
+                .attr('y', 80)
+                .attr('fill', 'black')
+                .text(xAxisLable_Plot1_Formol);
+// -----------------------------------
+
+
+// LINE GENERATOR FOR THE LEFT PLOT
+            const lineGeneratorLeftPlot_Formol = d3.line()
+                .x(d => xScale_Plot1_Formol(xValue_Plot1_Formol(d)))
+                .y(d => yScale_Plot1_Formol(yValue_Plot1_Formol(d)))
+                .curve(d3.curveBasis);
+
+            temperaturePlotGroup_Formol.append('path')
+                .attr('class', 'line_path_left_plot')
+                .attr('d', lineGeneratorLeftPlot_Formol(data));
+
+            temperaturePlotGroup_Formol.selectAll('rect').data(data)
+                .enter().append('circle')
+                .attr('cy', d => yScale_Plot1_Formol(yValue_Plot1_Formol(d)))
+                .attr('cx', d => xScale_Plot1_Formol(xValue_Plot1_Formol(d)))
+                .attr('r', circleRadius_Formol);
+
+            temperaturePlotGroup_Formol.append('text')
+                .attr('class', 'title')
+                .text(globalTitlePlot1_Formol)
+                .attr('y', -10);
+            // ---------------------------------
+
+
+        };
+
+
+
+        const data_json_Formol = '[(${array_of_all_sensors_info})]';
+
+        const json_Formol = JSON.parse(data_json_Formol);
+
+        json_Formol.forEach(function(element, index) {
+            element.Time = new Date(element['time_info_collected']);
+            element.Temperatures = +element['temperature'];
+            element.Humidite = +element['humid'];
+            element.Formol = +element['formol'];
+
+            delete element['time_info_collected'];
+            delete element['temperature'];
+            delete element['humid'];
+            delete element['formol'];
+        });
+
+        render_Formol(json_Formol);
+
+    </script>
+
+
 
 <!--SCRIPT POUR DOWNLOAD LE CSV -->
     <script th:each="salle:${campus_with_the_selected_salle.getList_salles()}" th:inline="javascript">
@@ -1233,10 +2190,13 @@
     <!-- PARTIE EXTRAIRE LES DONNES SOUS FORMAT CSV -->
     <section class="row">
         <br/>
-        <p> Si vous souhaitez extraire les données capteurs dans un Excel sur ce laps de temps:</p>
-        <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin:0px 4px 6px 6px;"class="btn btn-secondary">Extraire</button>
+        <p style="margin-top: 15px;"> Si vous souhaitez extraire les données capteurs dans un Excel sur ce laps de temps:</p>
+        <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin-left: 15px;" class="btn btn-secondary">Extraire</button>
     </section>
 </div>
+
+<br/>
+<br/>
 
 </body>
 <style>
@@ -1362,10 +2322,10 @@
     }
 
 
-    /*.navbar {
-      overflow: hidden;
-     background-color: #333;
-    }*/
+    .navbar {
+        /*overflow: hidden;*/
+        background-color: #0DA2E0;
+    }
 
     .navbar a {
         float: left;

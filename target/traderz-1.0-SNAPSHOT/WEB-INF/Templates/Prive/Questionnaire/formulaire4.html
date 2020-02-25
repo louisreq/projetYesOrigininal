@@ -11,67 +11,67 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="../../../../IMG/logo3.png" alt="">
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="Home">Accueil</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="apropos.html">A propos</a>
-                    </li>
-                    <li class="nav-item active">
-                        <div class="dropdown">
-                            <button class="dropbtn">Mes alertes
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-
-                            <div class="dropdown-content">
-                                <a href="Create_Alerte">Créer une alerte</a>
-                                <a href="Historique_Alerte">Historique des alertes</a>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item ">
-                        <div class="dropdown">
-                            <button class="nav-item dropbtn"> Mes favoris
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="Add_Favoris">Ajouter un favori</a>
-                                <a href="Liste_Favoris">Liste des favoris</a>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="formulaire">Formulaire</a>
-                    </li>
-                    <li>
-                        <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <title>YIIAQ</title>
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="Home">Accueil</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="apropos.html">A propos</a>
+                </li>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="dropbtn">Mes alertes
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="Create_Alerte">Créer une alerte</a>
+                            <a href="Historique_Alerte">Historique des alertes</a>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <div class="dropdown">
+                        <button class="nav-item dropbtn"> Mes favoris
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="Add_Favoris">Ajouter un favori</a>
+                            <a href="Liste_Favoris">Liste des favoris</a>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="formulaire">Formulaire</a>
+                </li>
+                <li>
+                    <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="wrapper fadeInDown">
     <div class="formContent">
         <!-- Icon -->
@@ -117,24 +117,36 @@
 </div>
 
 <!--    INPUT SALLE Radio -->
-<div class="wrapper fadeInDown">
-    <div class="formContent">
-        <p>Dans quelle salle vous trouvez-vous actuellement ? </p>
-<!--Faire une loop sur les salles dispo-->
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="salle" id="salle1" value="salle1">
-            <label class="form-check-label" for="salle1">Salle 1</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="salle" id="salle2" value="salle2">
-            <label class="form-check-label" for="salle2">Salle 2</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="salle" id="ect" value="ect">
-            <label class="form-check-label" for="ect">Etc.</label>
+<!--<div class="wrapper fadeInDown">-->
+<!--    <div class="formContent">-->
+<!--        <p>Dans quelle salle vous trouvez-vous actuellement ? </p>-->
+<!--&lt;!&ndash;Faire une loop sur les salles dispo&ndash;&gt;-->
+<!--        <div th:each="campus : ${liste_campus}">-->
+<!--            <div class="form-check" th:each="salle:${campus.getList_salles()}">-->
+<!--                <input class="form-check-input" type="radio" name="salle" th:id="${salle.getId()}" th:value="${salle.getId()}">-->
+<!--                <label class="form-check-label" th:for="${salle.getId()}" th:text="${campus.campus_name} + ' - ' + ${salle.salle_name}">Salle 1</label>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+    <!--    INPUT SALLE Radio BIS -->
+    <div class="wrapper fadeInDown">
+        <div class="formContent">
+            <p>Dans quelle salle vous trouvez-vous actuellement ? </p>
+            <!--Faire une loop sur les salles dispo-->
+            <select id="salle_actuelle" name="salle_actuelle" class="form-control" required="true">
+                <div th:each="campus:${liste_campus}">
+                    <option th:each="salle:${campus.getList_salles()}" th:text="${campus.campus_name} + ' - ' + ${salle.salle_name}" th:value="${salle.getId()}"> HEI-T101</option>
+                </div>
+
+            </select>
         </div>
     </div>
-</div>
+
+
+
 
 <!--    INPUT FENETRE LA PLUS PROCHE  Radio -->
 <div class="wrapper fadeInDown">
@@ -407,11 +419,11 @@
 
         <p>Aujourd’hui, dans votre espace de travail, avez-vous remarqué de la poussière ?</p>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="poussière" id="Oui1" value="Oui1" required>
+            <input class="form-check-input" type="radio" name="poussiere" id="Oui1" value="Oui1" required>
             <label class="form-check-label" for="Oui1">Oui</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="poussière" id="Non1" value="Non1">
+            <input class="form-check-input" type="radio" name="poussiere" id="Non1" value="Non1">
             <label class="form-check-label" for="Non1">Non</label>
         </div>
     </div>

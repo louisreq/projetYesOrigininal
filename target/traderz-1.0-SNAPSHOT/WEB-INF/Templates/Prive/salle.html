@@ -11,67 +11,64 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img class="logo3" src="../../../IMG/logo3.png" alt="">
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="Home">Accueil</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="apropos.html">A propos</a>
-                    </li>
-                    <li class="nav-item active">
-                        <div class="dropdown">
-                            <button class="dropbtn">Mes alertes
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-
-                            <div class="dropdown-content">
-                                <a href="Create_Alerte">Créer une alerte</a>
-                                <a href="Historique_Alerte">Historique des alertes</a>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item ">
-                        <div class="dropdown">
-                            <button class="nav-item dropbtn"> Mes favoris
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="Add_Favoris">Ajouter un favori</a>
-                                <a href="Liste_Favoris">Liste des favoris</a>
-                            </div>
-
-                        </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="formulaire">Formulaire</a>
-                    </li>
-                    <li>
-                        <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <title>YIIAQ</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+        </a>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="Home">Accueil</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="apropos.html">A propos</a>
+                </li>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="dropbtn">Mes alertes
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a href="Create_Alerte">Créer une alerte</a>
+                            <a href="Historique_Alerte">Historique des alertes</a>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <div class="dropdown">
+                        <button class="nav-item dropbtn"> Mes favoris
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="Add_Favoris">Ajouter un favori</a>
+                            <a href="Liste_Favoris">Liste des favoris</a>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="formulaire">Formulaire</a>
+                </li>
+                <li>
+                    <a type="button" class="btn btn-danger btn-block bouton" href="Deconnexion"> Se déconnecter </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <br>
 <br>
 <!-- Page Content -->
@@ -547,17 +544,80 @@
 
 
 <style>
-    .switch_to_favori{
-        padding-top: 12px;
-        margin-top: 20px;
-        background-color: #92badd;
-    }
-    .navbar
+    .required
     {
-        background-color: #0DA2E0;
+        color: red;
+    }
+    .mail-message-preview{
+        text-overflow: ellipsis;
+    }
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+        text-align: center;}
+
+
+    input[type=submit], input[type=reset]{
+        background-color: #4C4B4A;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
 
+    input[type=text], select, option {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    input[type=text]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+    }
+
+    input[type=text]::placeholder {
+        color: #cccccc;
+    }
+
+    #aa{
+        background-color: steelblue;
+    }
     p  {
         font-size: 17px
     }
@@ -676,10 +736,9 @@
     }
 
 
-    /*.navbar {
-      overflow: hidden;
-     background-color: #333;
-    }*/
+    .navbar {
+        background-color: #0DA2E0;
+    }
 
     .navbar a {
         float: left;
@@ -815,16 +874,18 @@
         -webkit-transition: .3s ease-in-out;
         transition: .3s ease-in-out;
     }
-    .hover02 a:hover img {
-        width: 350px;
+    .hover02 a:hover img {:wq
+    width: 350px;
     }
 
     .bouton{
-        height: 40px;
+        height: 37px;
         line-height: 10px;
-        margin: 1px;
+        /* margin: 1px;*/
 
 
     }
+
 </style>
+
 </html>

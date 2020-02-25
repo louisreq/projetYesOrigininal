@@ -9,5 +9,6 @@ public interface RasberryDao {
 
     public List<Rasberry> GetAllRasberrySalle();
     public Map<Integer, String> GetAllRasberry();
+    public Boolean IsCapteurNameAlreadyTaken(String rasberry_name);
 
 }

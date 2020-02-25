@@ -34,6 +34,8 @@ public class User {
         this.role = role;
     }
 
+
+//GETTERS & SETTERS
     public Integer getIdUser() {
         return idUser;
     }
