@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -16,7 +16,7 @@
     <title>YIIAQ</title>
 </head>
 
-<body>
+<body style="background-color: lightgrey">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
@@ -100,43 +100,49 @@
     <h1>PARTIE 1 -  Informations Personnelles</h1>
     <section class="row">
         <!-- Question 1 : Homme ou femme  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 1 : </b>Homme ou femme ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Nombre d'Homme</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_homme}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Pourcentage Homme</h5>
-                    <p class="card-text">32,8%</p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <div th:with="result=${nbr_homme}/(${nbr_homme} + ${nbr_femme})*100">
+                        <p class="card-text" th:text="${result} + '%'">32,8%</p>
+                    </div>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Nombre de femme</h5>
-                    <p class="card-text">254</p>
+                    <p class="card-text" th:text="${nbr_femme}">254</p>
                     <h5 class="card-title" style="font-weight: bold;">Pourcentage Femme</h5>
-                    <p class="card-text">67,2%</p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <div th:with="result=${nbr_femme}/(${nbr_homme} + ${nbr_femme})*100">
+                        <p class="card-text" th:text="${result} + '%'">67,2%</p>
+                    </div>
                 </section>
             </div>
         </div>
-
-
+    </section>
+    <br/>
+    <section class="row">
         <!-- Question 2 : Moyenne d'âge -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 2 : </b> Information sur les âges</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;" >x < 18ans</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${nbr_age_sup_26}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">18ans < x < 26 ans</h5>
-                    <p class="card-text">240</p>
-
+                    <div th:with="result=(${nbr_homme} + ${nbr_femme}) - (${nbr_age_sup_26} + ${nbr_age_sup_26})">
+                        <p class="card-text" th:text="${result}">240</p>
+                    </div>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">26ans < x</h5>
-                    <p class="card-text">24</p>
+                    <p class="card-text" th:text="${nbr_age_sup_26}">24</p>
                     <h5 class="card-title" style="font-weight: bold;">Moyenne d'âge</h5>
-                    <p class="card-text">22,4 ans</p>
+                    <div th:with="result=(${somme_all_age}/(${nbr_homme} + ${nbr_femme}))">
+                        <p class="card-text" th:text="${result} + ' ans'">22,4 ans</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -144,85 +150,81 @@
     <br/>
     <section class="row">
         <!-- Question 3 : Qui Êtes-vous ? -->
-        <div class="col-xs-12 col-sm-12 col-md-12 offset-md-3 offset-sm-3">
-            <div class="card d-inline-block" style="width: 48%;">
-                <h5 class="card-header"><b>Question 3 : </b> Qui êtes-vous ?</h5>
-                <div class="card-body" >
-                    <div class="row">
-                        <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
-                            <h5 class="card-title" style="font-weight: bold;" >Etudiant</h5>
-                            <p class="card-text">240</p>
-                            <h5 class="card-title" style="font-weight: bold;">Personnel</h5>
-                            <p class="card-text">56</p>
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 3 : </b> Qui êtes-vous ?</h5>
+            <div class="card-body" >
+                <div class="row">
+                    <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                        <h5 class="card-title" style="font-weight: bold;" >Etudiant</h5>
+                        <p class="card-text" th:text="${nbr_etudiant}">240</p>
+                        <h5 class="card-title" style="font-weight: bold;">Personnel</h5>
+                        <p class="card-text" th:text="${nbr_personnel}">56</p>
 
-                        </section>
-                        <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
-                            <h5 class="card-title" style="font-weight: bold;">Enseignant</h5>
-                            <p class="card-text">24</p>
-                            <h5 class="card-title" style="font-weight: bold;">Autre</h5>
-                            <p class="card-text">8</p>
+                    </section>
+                    <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                        <h5 class="card-title" style="font-weight: bold;">Enseignant</h5>
+                        <p class="card-text" th:text="${nbr_enseignant}">24</p>
+                        <h5 class="card-title" style="font-weight: bold;">Autre</h5>
+                        <p class="card-text" th:text="${nbr_autre_q3}">8</p>
+                    </section>
+                </div>
+                <div class="row" style="padding-left: 225px;">
+                    <button type="button" class="btn btn-lg btn-secondary" data-placement="top" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Autre réponses</button>
 
-                        </section>
-                    </div>
-                    <div class="row" style="padding-left: 155px;">
-                        <button type="button" class="btn btn-lg btn-secondary" data-placement="top" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Autre réponses</button>
-
-                        <script type="text/javascript">
-                            $(function () {
-                                $('.example-popover').popover({
-                                    container: 'body'
-                                })
+                    <script type="text/javascript">
+                        $(function () {
+                            $('.example-popover').popover({
+                                container: 'body'
                             })
-                            $(function () {
-                                $('[data-toggle="popover"]').popover()
-                            })
-                        </script>
-                    </div>
+                        })
+                        $(function () {
+                            $('[data-toggle="popover"]').popover()
+                        })
+                    </script>
                 </div>
             </div>
         </div>
-
     </section>
 
     <br/>
 
     <section class="row">
         <!-- Question 4 : Quel Domaine -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 4 : </b> Domaines d'étude </h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">BFA</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${nbr_BFA}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">BAA</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${nbr_BAA}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">BTP</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${nbr_BTP}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">CITE</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${nbr_CITE}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">CCM</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${nbr_CCM}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">ENT</h5>
-                    <p class="card-text">13</p>
+                    <p class="card-text" th:text="${nbr_ENT}">13</p>
                     <h5 class="card-title" style="font-weight: bold;">ESEA</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${nbr_ESEA}">12</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
 
                     <h5 class="card-title" style="font-weight: bold;">IMS</h5>
-                    <p class="card-text">32</p>
+                    <p class="card-text" th:text="${nbr_IMS}">32</p>
                     <h5 class="card-title" style="font-weight: bold;">ITI</h5>
-                    <p class="card-text">5</p>
+                    <p class="card-text" th:text="${nbr_ITI}">5</p>
                     <h5 class="card-title" style="font-weight: bold;">MOIL</h5>
-                    <p class="card-text">45</p>
+                    <p class="card-text" th:text="${nbr_MOIL}">45</p>
                     <h5 class="card-title" style="font-weight: bold;">MR</h5>
-                    <p class="card-text">0</p>
+                    <p class="card-text" th:text="${nbr_MR}">0</p>
                     <h5 class="card-title" style="font-weight: bold;">SC</h5>
-                    <p class="card-text">7</p>
+                    <p class="card-text" th:text="${nbr_SC}">7</p>
                     <h5 class="card-title" style="font-weight: bold;">TIMTEX</h5>
-                    <p class="card-text">30</p>
+                    <p class="card-text" th:text="${nbr_TIMTEX}">30</p>
                     <h5 class="card-title" style="font-weight: bold;">Autre</h5>
-                    <p class="card-text">25</p>
+                    <p class="card-text" th:text="${nbr_autre_q4}">25</p>
                 </section>
             </div>
         </div>
@@ -232,58 +234,68 @@
 
     <section class="row">
         <!-- Question 5 : Quel Diplome?  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 5 : </b>Quel Diplôme ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Pas de Diplôme</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_pas_diplome}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">BEP ou CAP</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${nbr_CAP}">23</p>
                     <h5 class="card-title" style="font-weight: bold;">BAC</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${nbr_BAC}">1435</p>
 
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">BAC +2</h5>
-                    <p class="card-text">324</p>
+                    <p class="card-text" th:text="${nbr_BAC_2}">324</p>
+                    <h5 class="card-title" style="font-weight: bold;">BAC +3</h5>
+                    <p class="card-text" th:text="${nbr_BAC_3}">254</p>
                     <h5 class="card-title" style="font-weight: bold;">BAC +5 (et plus)</h5>
-                    <p class="card-text">254</p>
+                    <p class="card-text" th:text="${nbr_BAC_5}">254</p>
+
+                </section>
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
                     <h5 class="card-title" style="font-weight: bold;">Autre réponses</h5>
-                    <p class="card-text">67</p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <p class="card-text" th:text="${nbr_autre_q5}">67</p>
                 </section>
             </div>
         </div>
 
-
-        <!-- Question 6 : Êtes-vous Parent ? -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 6 : </b> Êtes-vous Parent ?</h5>
-            <div class="card-body" >
-                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
-                    <h5 class="card-title" style="font-weight: bold;">Nombre de Parents</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Pourcentage de Parents</h5>
-                    <p class="card-text">32,8%</p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                </section>
-                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
-                    <h5 class="card-title" style="font-weight: bold;">Nombre de Non-Parent</h5>
-                    <p class="card-text">254</p>
-                    <h5 class="card-title" style="font-weight: bold;">Pourcentage de Non-Parent</h5>
-                    <p class="card-text">67,2%</p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                </section>
-            </div>
-        </div>
     </section>
 
     <br/>
 
     <section class="row">
+        <!-- Question 6 : Êtes-vous Parent ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 6 : </b> Êtes-vous Parent ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Nombre de Parents</h5>
+                    <p class="card-text" th:text="${nbr_parent}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Pourcentage de Parents</h5>
+                    <div th:with="result=(${nbr_parent}*100)/(${nbr_homme} + ${nbr_femme})">
+                        <p class="card-text" th:text="${result} + '%'">32,8%</p>
+                    </div>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Nombre de Non-Parent</h5>
+                    <div th:with="result=((${nbr_homme} + ${nbr_femme}) - ${nbr_parent})">
+                        <p class="card-text" th:text="${result}">254</p>
+                    </div>
+                    <h5 class="card-title" style="font-weight: bold;">Pourcentage de Non-Parent</h5>
+                    <div th:with="result=(((${nbr_homme} + ${nbr_femme}) - ${nbr_parent})/(${nbr_homme} + ${nbr_femme}))*100">
+                        <p class="card-text" th:text="${result} + '%'">67,2%</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <br/>
+    <section class="row">
         <!-- Question 7 : Quelle Ville?  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 7 : </b>Quelle Ville ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
@@ -313,10 +325,12 @@
                 </section>
             </div>
         </div>
+    </section>
+    <br/>
 
-
+    <section class="row">
         <!-- Question 8  Mot en rapport avec Air -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 8 : </b> 10 mots en rapport avec Air</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
@@ -348,7 +362,6 @@
             </div>
         </div>
     </section>
-
     <br/><br/>
 
     <!-- >>>>>>>>>>>>>> PARTIE 2 Qualité de l'air dans la Salle <<<<<<<<<<<<<<<<<<< -->
@@ -358,28 +371,31 @@
 
     <section class="row">
         <!-- Question 9 : Qualité de l'air en Général ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 9 : </b>Qualité de l'air en Général ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Plutôt Bonne</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_p_bonne}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Bonne</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_bonne}">1435</p>
 
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Plutôt Mauvaise</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_p_mauvaise}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Mauvaise</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_mauvaise}">23</p>
                 </section>
             </div>
         </div>
+    </section>
 
+    <br/>
 
+    <section class="row">
         <!-- Question 10 :  Salles les plus Utilisées -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 10 : </b> Salles les plus utilisées</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
@@ -402,41 +418,45 @@
 
     <section class="row">
         <!-- Question 11 : Distance de la Fenêtre la plus proche ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 11 : </b>Distance de la Fenêtre la plus proche ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Moins d'1 mètre</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_fenetre_1m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Entre 1 et 3 mètres</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${dist_fenetre_1_3m}">1435</p>
 
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Entre 3 et 5 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="dist_fenetre_3_5m">124</p>
                     <h5 class="card-title" style="font-weight: bold;">A plus de 5 mètres</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_fenetre_5m}">23</p>
                 </section>
             </div>
         </div>
 
+    </section>
 
+    <br/>
+
+    <section class="row">
         <!-- Question 12 :  Distance de la Bouche de ventilation ? -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 12 : </b> Distance de la Bouche de ventilation ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">A moins de 2 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_ventilo_2m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Entre 2 et 5 mètres</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_ventilo_2_5m}">23</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">A plus de 5 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_ventilo_plus5m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Je ne sais pas</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_ventilo_jsp}">23</p>
                 </section>
             </div>
         </div>
@@ -446,214 +466,251 @@
 
     <section class="row">
         <!-- Question 13 : Dans votre espace de travail vous diriez qu'il fait ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
+        <div class="card d-inline-block" style="width: 60%;">
             <h5 class="card-header"><b>Question 13 : </b><br>Dans votre espace de travail vous diriez qu'il fait ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Un peu chaud</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${chaud_moins}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Chaud</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${chaud}">1435</p>
                     <h5 class="card-title" style="font-weight: bold;">Très chaud</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${chaud_plus}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Un peu froid</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${froid_moins}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Froid</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${froid}">1435</p>
                     <h5 class="card-title" style="font-weight: bold;">Très froid</h5>
-                    <p class="card-text">1435</p>
-                </section>
-            </div>
-        </div>
-
-
-        <!-- Question 14 :  Quelle Température d'après le Capteur ? -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 14 : </b><br>Quelle Température dans la salle d'après le Capteur ?</h5>
-            <div class="card-body" >
-                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-3 offset-md-3" style="padding: 0;">
-                    <h5 class="card-title" style="font-weight: bold;">Température Maximum</h5>
-                    <p class="card-text">32°C</p>
-                    <h5 class="card-title" style="font-weight: bold;">Température Minimum</h5>
-                    <p class="card-text">6°C</p>
-                    <h5 class="card-title" style="font-weight: bold;">Température Moyenne</h5>
-                    <p class="card-text">16°C</p>
+                    <p class="card-text" th:text="${froid_plus}">1435</p>
                 </section>
             </div>
         </div>
     </section>
 
-    <br>
+    <br/>
 
     <section class="row">
-        <!-- Question 15 : Dans votre espace de travail vous diriez que l'air est ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 14 : </b><br>Dans votre espace de travail vous diriez que l'air est ?</h5>
+        <!-- Question 14 :  Cette température vous paraît ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 14 : </b><br>Cette température vous paraît ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Assez Confortable</h5>
+                    <p class="card-text" th:text="${temp_assez_confortable}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Confortable</h5>
+                    <p class="card-text" th:text="${temp_confortable}">1435</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Assez Inconfortable</h5>
+                    <p class="card-text" th:text="${temp_assez_inconfortable}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Inconfortable</h5>
+                    <p class="card-text" th:text="${temp_inconfortable}">1435</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 15 :  Quelle Température d'après le Capteur ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 15 : </b><br>Quelle Température dans la salle d'après le Capteur ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Température Maximum</h5>
+                    <p class="card-text" th:text="${temp_max} + '°C'">32°C</p>
+                    <h5 class="card-title" style="font-weight: bold;">Température Minimum</h5>
+                    <p class="card-text" th:text="${temp_min} + '°C'">6°C</p>
+                    <h5 class="card-title" style="font-weight: bold;">Température Moyenne</h5>
+                    <div th:with="result=(${somme_temp}/${count_temp})*100">
+                        <p class="card-text" th:text="${result} + '°C'">16°C</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 16 : Dans votre espace de travail vous diriez que l'air est ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 16 : </b><br>Dans votre espace de travail vous diriez que l'air est ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Sec</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${air_sec}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Très Sec</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${air_tres_sec}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Humide</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${air_humide}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Très Humide</h5>
-                    <p class="card-text">1435</p>
-                </section>
-            </div>
-        </div>
-
-
-        <!-- Question 16 :  Cet air vous paraît ? -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 16 : </b><br>Cet air vous paraît ?</h5>
-            <div class="card-body" >
-                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
-                    <h5 class="card-title" style="font-weight: bold;">Assez Agréable</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Agréable</h5>
-                    <p class="card-text">1435</p>
-                </section>
-                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
-                    <h5 class="card-title" style="font-weight: bold;">Assez Désagréable</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Désagréable</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${air_tres_humide}">1435</p>
                 </section>
             </div>
         </div>
     </section>
 
-    <br>
+    <br/>
 
     <section class="row">
-        <!-- Question 17 : Quelles sont les odeurs présentes ?-->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 17 : </b> Quelles sont les odeurs présentes ? </h5>
+        <!-- Question 17 :  Cet air vous paraît ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 17 : </b><br>Cet air vous paraît ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Assez Agréable</h5>
+                    <p class="card-text" th:text="${hum_assez_agreable}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Agréable</h5>
+                    <p class="card-text" th:text="${hum_agreable}">1435</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Assez Désagréable</h5>
+                    <p class="card-text" th:text="${hum_assez_desagreable}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Désagréable</h5>
+                    <p class="card-text" th:text="${hum_desagreable}">1435</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 18 : Quelles sont les odeurs présentes ?-->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 18 : </b> Quelles sont les odeurs présentes ? </h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Nourriture</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${odeur_nourriture}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Corporelle</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${odeur_corporelle}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Moisi</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${odeur_moisi}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Humidité</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${odeur_humidite}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Poussière</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${odeur_poussiere}">11</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
 
                     <h5 class="card-title" style="font-weight: bold;">Déodorant/Parfum</h5>
-                    <p class="card-text">32</p>
+                    <p class="card-text" th:text="${odeur_parfum}">32</p>
                     <h5 class="card-title" style="font-weight: bold;">Produit de Nettoyage</h5>
-                    <p class="card-text">5</p>
+                    <p class="card-text" th:text="${odeur_nettoyage}">5</p>
                     <h5 class="card-title" style="font-weight: bold;">Tabac</h5>
-                    <p class="card-text">45</p>
+                    <p class="card-text" th:text="${odeur_tabac}">45</p>
                     <h5 class="card-title" style="font-weight: bold;">Aucune odeur</h5>
-                    <p class="card-text">0</p>
+                    <p class="card-text" th:text="${aucune_odeur}">0</p>
                     <h5 class="card-title" style="font-weight: bold;">Autre réponse</h5>
-                    <p class="card-text">7</p>
+                    <p class="card-text" th:text="${nbr_autre_q18}">7</p>
                 </section>
             </div>
         </div>
     </section>
+
+    <br/>
+
     <section class="row">
-        <!-- Question 18 : Ressentez-vous des symptômes ?-->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 18 : </b> Ressentez-vous des symptômes ? </h5>
+        <!-- Question 19 : Ressentez-vous des symptômes ?-->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 19 : </b> Ressentez-vous des symptômes ? </h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Yeux rouges, irrités</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${yeux_rouge}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Yeux secs</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${yeux_secs}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Nez bouché</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${nez_bouche}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Rougeurs ou irritations de la peau</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${rougeurs}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Grattement du cuir chevelu</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${grattement}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Yeux qui coulent</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${yeux_coulent}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Saignement de Nez</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${saignement_nez}">11</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Gonflement d'une partie du corps</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${gonflement}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Sècheresse ou irritation des voies respiratoires</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${secheresse}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Maux de tête</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${maux_tete}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Difficultés de concentration</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${difficultes_concentration}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Sensation de fatigue</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${sensation_fatigue}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Je ne ressens aucun de ces symptômes</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${aucun_symptome}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Autres</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${nbr_autre_q19}">11</p>
                 </section>
             </div>
         </div>
     </section>
 
-    <br>
+    <br/>
 
 
     <section class="row">
-        <!-- Question 19 : Avez-vous remarqué de la poussière ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 19 : </b><br>Avez-vous remarqué de la poussière ?</h5>
+        <!-- Question 20 : Avez-vous remarqué de la poussière ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 20 : </b><br>Avez-vous remarqué de la poussière ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${poussiere}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
-                </section>
-            </div>
-        </div>
-
-
-        <!-- Question 20 :  Aujourd'hui, la qualité de l'air vous paraît ? -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 20 : </b><br>Aujourd'hui, la qualité de l'air vous paraît ?</h5>
-            <div class="card-body" >
-                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
-                    <h5 class="card-title" style="font-weight: bold;">Aussi bonne que d'habitude</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Meilleure que d'habitude</h5>
-                    <p class="card-text">1435</p>
-                </section>
-                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
-                    <h5 class="card-title" style="font-weight: bold;">Aussi mauvaise que d'habitude</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Moins bonne que d'habitude</h5>
-                    <p class="card-text">1435</p>
-                </section>
-                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-3 offset-md-3">
-                    <h5 class="card-title" style="font-weight: bold;">Pas de référence</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${pas_poussiere}">124</p>
                 </section>
             </div>
         </div>
     </section>
 
-    <br>
+    <br/>
 
     <section class="row">
-        <!-- Question 21 : Comment jugez vous la qualité de l'air dans votre quartier ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 21 : </b><br>Comment jugez vous la qualité de l'air dans votre quartier ?</h5>
+        <!-- Question 21 :  Aujourd'hui, la qualité de l'air vous paraît ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 21 : </b><br>Aujourd'hui, la qualité de l'air vous paraît ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Aussi bonne que d'habitude</h5>
+                    <p class="card-text" th:text="${aussi_bonne}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Meilleure que d'habitude</h5>
+                    <p class="card-text" th:text="${Meilleure}">1435</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Aussi mauvaise que d'habitude</h5>
+                    <p class="card-text" th:text="${aussi_mauvaise}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Moins bonne que d'habitude</h5>
+                    <p class="card-text" th:text="${moins_bonne}">1435</p>
+                </section>
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
+                    <h5 class="card-title" style="font-weight: bold;">Pas de référence</h5>
+                    <p class="card-text" th:text="${aucune_reference}">1435</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 22 : Comment jugez vous la qualité de l'air dans votre quartier ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 22 : </b><br>Comment jugez vous la qualité de l'air dans votre quartier ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Plutôt bonne</h5>
@@ -668,7 +725,7 @@
                     <p class="card-text">124</p>
                 </section>
 
-                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-3 offset-md-3">
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
                     <h5 class="card-title" style="font-weight: bold;">Je ne sais pas</h5>
                     <p class="card-text">1435</p>
                 </section>
@@ -676,12 +733,15 @@
         </div>
     </section>
 
-    <br>
+    <br/> <br/>
+
+    <!-- >>>>>>>>>>>>>> PARTIE 2 Qualité de l'air dans la Salle <<<<<<<<<<<<<<<<<<< -->
+    <h1>PARTIE 3 -  Information Sensibilisation</h1>
 
     <section class="row">
-        <!-- Question 22 : Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante"  ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 22 : </b><br>Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante" ?</h5>
+        <!-- Question 23 : Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante"  ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 23 : </b><br>Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante" ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
@@ -695,12 +755,12 @@
         </div>
     </section>
 
-    <br>
+    <br/>
 
     <section class="row">
-        <!-- Question 23 : Avez-vous le sentiment d'être suffisement informé en ce qui concerne :  -->
+        <!-- Question 24 : Avez-vous le sentiment d'être suffisement informé en ce qui concerne :  -->
         <div class="card d-inline-block" >
-            <h5 class="card-header"><b>Question 23 : </b><br>Avez-vous le sentiment d'être suffisement informé en ce qui concerne :</h5>
+            <h5 class="card-header"><b>Question 24 : </b><br>Avez-vous le sentiment d'être suffisement informé en ce qui concerne :</h5>
             <div class="card-body" >
                 <section class="row">
                     <!-- Question 1 -->
@@ -875,12 +935,12 @@
         </div>
     </section>
 
-    <br>
+    <br/>
 
     <section class="row">
-        <!-- Question 24 : Durant quelles saison(s) l'air extérieur est-il le plus pollué ?  -->
-        <div class="card d-inline-block" style="width: 48%;">
-            <h5 class="card-header"><b>Question 22 : </b><br>Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante" ?</h5>
+        <!-- Question 25 : Durant quelles saison(s) l'air extérieur est-il le plus pollué ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 25 : </b><br> Durant quelles saison(s) l'air extérieur est-il le plus pollué ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Printemps</h5>
@@ -897,6 +957,144 @@
             </div>
         </div>
     </section>
+
+    <section class="row">
+        <!-- Question 26 : La qualité de l'air a-t-elle un impact sur la santé ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 26 : </b><br> La qualité de l'air a-t-elle un impact sur la santé ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui, un fort impact</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui, un faible impact</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-3 offset-md-3">
+                    <h5 class="card-title" style="font-weight: bold;">Non, pas d'impact</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 27 : Aérez-vous votre logement ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 27 : </b><br> Aérez-vous votre logement ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Non</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 28 : A quelle fréquence aérez-vous ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 28 : </b><br> A quelle fréquence aérez-vous ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">1 à 2 fois par jour</h5>
+                    <p class="card-text">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">2 à 4 fois par semaine</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">1 fois par semaine</h5>
+                    <p class="card-text">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">1 à 2 fois par mois</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 29 : Lors de vos déplacements à Pied/vélo/trotinette, évitez-vous les routes où le traffic est important ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 29 : </b><br>Lors de vos déplacements à Pied/vélo/trotinette, évitez-vous les routes où le traffic est important ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui, je prends souvent les chemins parallèles, moins exposés à la pollution</h5>
+                    <p class="card-text">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Oui parfois</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Non concerné, j'effectue surtout des déplacements motorisés (voiture, transports en commun)</h5>
+                    <p class="card-text">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Non, jamais</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 30 : Pratiquez-vous au moins un de ces sports dehors ? -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 30 : </b>Pratiquez-vous au moins un de ces sports dehors : marche sportive, course à pied, roller, cyclisme ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Non</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
+    <section class="row">
+        <!-- Question 31 : Si oui, évitez vous de faire l'un de ces sports le long des routes où le traffic est important ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 31 : </b><br> La qualité de l'air a-t-elle un impact sur la santé ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui</h5>
+                    <p class="card-text">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Non</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <!-- Question 32 : Autres remarques  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 32 : </b><br> Autres remarques</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Oui</h5>
+                    <p class="card-text">124</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 
