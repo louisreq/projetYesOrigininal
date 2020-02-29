@@ -49,6 +49,7 @@ SET time_zone = "+00:00";
        `sport` tinyint(1) NOT NULL,
        `sport_route_trafic` tinyint(1),
        `remarques` varchar(250),
+       `date_creation` datetime,
        PRIMARY KEY (`id_info_sensibilisation`),
        FOREIGN KEY (id_user) REFERENCES personne(id)
 
@@ -69,6 +70,7 @@ SET time_zone = "+00:00";
       `mot1` varchar(250) DEFAULT NULL,
       `mot2` varchar(250) DEFAULT NULL,
       `mot3` varchar(250) DEFAULT NULL,
+      `date_creation` datetime,
       PRIMARY KEY (`id_info_enquete`),
       FOREIGN KEY (id_user) REFERENCES personne(id)
    );
@@ -93,6 +95,7 @@ SET time_zone = "+00:00";
        `poussiere` tinyint(1) NOT NULL,
        `symptomes` varchar(250) NOT NULL,
        `q_air_salle` varchar(250) NOT NULL,
+       `date_creation` datetime,
        PRIMARY KEY (`id_sensation`),
        FOREIGN KEY (id_salle) REFERENCES salle(id),
        FOREIGN KEY (id_user) REFERENCES personne(id)
@@ -146,33 +149,33 @@ DROP TABLE IF EXISTS `alerte`;
 CREATE TABLE IF NOT EXISTS `alerte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
+  `titre` varchar(255) NOT NULL,
   `message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `personne_id` int(11) NOT NULL,
   `salle_id` int(11) NOT NULL,
+  `checked` tinyint(1) NOT NULL,
 
   PRIMARY KEY (`id`),
   FOREIGN KEY (personne_id) REFERENCES personne(id),
   FOREIGN KEY (salle_id) REFERENCES salle(id)
 );
 
-   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
-   VALUES ('2', '2020-01-05 13:00:05', 'On a du mal à resspirer, est-ce normal ?', '2', '21');
+   INSERT INTO `yes_3024`.`alerte` (`date`, `titre`, `message`, `personne_id`, `salle_id`, `checked`)
+   VALUES ('2020-01-05 13:00:05', 'Problème respiration',  'On a du mal à resspirer, est-ce normal ?', '2', '21', 1);
 
 
-   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
-   VALUES ('3', '2020-01-05 13:30:05', 'Le capteur affiche 120 Decibels, il n\'y aurait pas un problème ??', '2', '21');
+   INSERT INTO `yes_3024`.`alerte` (`date`, `titre`, `message`, `personne_id`, `salle_id`, `checked`)
+   VALUES ('2020-01-05 13:30:05', 'Capteur Décibel cassé', 'Le capteur affiche 120 Decibels, il n\'y aurait pas un problème ??', '2', '21', 0);
+
+   INSERT INTO `yes_3024`.`alerte` (`date`, `titre`, `message`, `personne_id`, `salle_id`, `checked`)
+   VALUES ( '2020-01-14 14:21:34', 'Trop d\'humidité', 'La taux d\'humidité est anormalement élevé', '3', '7', 0);
+
+   INSERT INTO `yes_3024`.`alerte` (`date`, `titre`, `message`, `personne_id`, `salle_id`, `checked`)
+   VALUES ( '2020-01-18 09:27:02', 'Plus de lumière', 'Il fait sombre ici, il y a des problèmes de luminosité', '3', '8', 0);
 
 
-   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
-   VALUES ('4', '2020-01-14 14:21:34', 'La taux d\'humidité est anormalement élevé', '3', '7');
-
-
-   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
-   VALUES ('5', '2020-01-18 09:27:02', 'Il fait sombre ici, il y a des problèmes de luminosité', '3', '8');
-
-
-   INSERT INTO `yes_3024`.`alerte` (`id`, `date`, `message`, `personne_id`, `salle_id`)
-   VALUES ('6', '2020-01-30 13:00:05', 'On s\'endore tous dans la salle, y a-t-il un problème avec l\'air ambiant ??', '3', '17');
+   INSERT INTO `yes_3024`.`alerte` (`date`, `titre`, `message`, `personne_id`, `salle_id`, `checked`)
+   VALUES ( '2020-01-30 13:00:05', 'Endormissements', 'On s\'endore tous dans la salle, y a-t-il un problème avec l\'air ambiant ??', '3', '17', 1);
 -- --------------------------------------------------------
 
 --

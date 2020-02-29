@@ -56,10 +56,10 @@ public class UserManager {
 
     public void AddQuestionnairePartieInfoPerso(Integer id_user, Integer sexe, Integer age, String situation,
                                                 String domaine, String diplome, Boolean parent, String commune,
-                                                String mot1, String mot2, String mot3){
+                                                String mot1, String mot2, String mot3, Object date_creation){
         userDao.AddQuestionnairePartieInfoPerso(id_user, sexe, age, situation,
                                                 domaine, diplome, parent, commune,
-                                                mot1, mot2, mot3);
+                                                mot1, mot2, mot3, date_creation);
     }
 
     public void AddQuestionnairePartieSensationSalle(
@@ -77,7 +77,8 @@ public class UserManager {
             String odeur,
             Boolean poussiere,
             String symptomes,
-            String q_air_salle
+            String q_air_salle,
+            Object date_creation
     ){ userDao.AddQuestionnairePartieSensationSalle(
             id_salle,
             id_user,
@@ -93,7 +94,8 @@ public class UserManager {
             odeur,
             poussiere,
             symptomes,
-            q_air_salle
+            q_air_salle,
+            date_creation
             );}
 
 
@@ -120,7 +122,8 @@ public class UserManager {
             String eviter_trafic_velo,
             Boolean sport,
             Boolean sport_route_trafic,
-            String remarques
+            String remarques,
+            Object date_creation
     ){
         userDao.AddQuestionnairePartieInfoSensibilisation(
                 id_user, q_air_quartier, pollution, q_air_general, prev_quotidien_q_air_ext, effet_pollution_air_sante,
@@ -128,7 +131,7 @@ public class UserManager {
                 sources_pollution_air_inter, sources_pollution_air_exter, moyens_air_sain_inter, moyens_air_sain_exter,
                 actions_publiques_ameliorer_qualite_air, saison_pollue, impact_sante, impact_air_pollue_organe,
                 aeration_logement, frequence_aeration_logement, eviter_trafic_velo, sport, sport_route_trafic,
-                remarques
+                remarques, date_creation
         );
     }
 

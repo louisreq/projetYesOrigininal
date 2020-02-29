@@ -2,9 +2,11 @@ package hei.devweb.traderz.servlets;
 
 import hei.devweb.traderz.entities.Formulaire_Partie1;
 import hei.devweb.traderz.entities.Formulaire_Partie2;
+import hei.devweb.traderz.entities.Formulaire_Partie3;
 import hei.devweb.traderz.entities.User;
 import hei.devweb.traderz.managers.Formulaire_Partie1_Manager;
 import hei.devweb.traderz.managers.Formulaire_Partie2_Manager;
+import hei.devweb.traderz.managers.Formulaire_Partie3_Manager;
 import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -250,7 +252,7 @@ public class StatsFormulaireServlet extends PrivateServlet{
     Integer temp_assez_inconfortable = 0;
     Integer temp_inconfortable = 0;
 //    Q°15
-    Double temp_min = -100000.;
+    Double temp_min = +100000.;
     Double temp_max = -100000.;
     Double somme_temp = 0.;
     Integer count_temp = 0;
@@ -559,9 +561,246 @@ public class StatsFormulaireServlet extends PrivateServlet{
         context.setVariable("aussi_mauvaise", aussi_mauvaise);
 
 
+        //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE 2 QUESTIONNAIRE     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        List<Formulaire_Partie3> liste_form_partie3 = Formulaire_Partie3_Manager.getInstance().GetAllFormPartie3();
+
+        Integer reponse_totale = 0;
+//        Q°22
+        Integer nbr_q_air_quartier_bonne = 0;
+        Integer nbr_q_air_quartier_p_bonne = 0;
+        Integer nbr_q_air_quartier_p_mauvaise = 0;
+        Integer nbr_q_air_quartier_mauvaise = 0;
+        Integer nbr_q_air_quartier_jsp = 0;
+//        Q°23
+        Integer connais_pollution_ambiante = 0;
+//        Q°24
+//        1)
+        Integer qualite_air_general = 0;
+//        2)
+        Integer prev_quotidienne_q_air_ext = 0;
+//        3)
+        Integer effet_pollution_sante = 0;
+//        4)
+        Integer recommandation_protection_pollution = 0;
+//        5)
+        Integer pics_pollution = 0;
+//        6)
+        Integer precaution_pics_pollution = 0;
+//        7)
+        Integer source_pollution_int = 0;
+//        8)
+        Integer source_pollution_ext = 0;
+//        9)
+        Integer moyens_air_sain_int = 0;
+//        10)
+        Integer moyens_air_sain_ext = 0;
+//        11)
+        Integer actions_publiques = 0;
+//        Q°25
+        Integer printemps = 0;
+        Integer ete = 0;
+        Integer automne = 0;
+        Integer hiver = 0;
+//        Q°26
+        Integer fort_impact_sante = 0;
+        Integer faible_impact_sante = 0;
+        Integer pas_impact_sante = 0;
+//        Q°27
+        Integer aerer_logement = 0;
+//        Q°28
+        Integer frequence_aeration_jour = 0;
+        Integer frequence_aeration_1_semaine = 0;
+        Integer frequence_aeration_4_semaine = 0;
+        Integer frequence_aeration_mois = 0;
+//        Q°29
+        Integer evite_pollution_souvent = 0;
+        Integer evite_pollution_parfois = 0;
+        Integer evite_pollution_jamais = 0;
+        Integer evite_pollution_pas_concerne = 0;
+//        Q°30
+        Integer pratique_course_a_pied = 0;
+//        Q°31
+        Integer evite_traffic_course_a_pied = 0;
+//        Q°32
+        Integer nbr_remarque = 0;
+        for(Formulaire_Partie3 partie3 : liste_form_partie3){
+            reponse_totale += 1;
+//            Question 22
+            if(partie3.getQualite_air_quartier().equals("bonne+")){
+                nbr_q_air_hei_bonne += 1;
+            }else if(partie3.getQualite_air_quartier().equals("bonne")){
+                nbr_q_air_hei_p_bonne += 1;
+            }else if(partie3.getQualite_air_quartier().equals("mauvaise")){
+                nbr_q_air_hei_p_mauvaise += 1;
+            }else if(partie3.getQualite_air_quartier().equals("mauvaise-")){
+                nbr_q_air_hei_mauvaise += 1;
+            }else if(partie3.getQualite_air_quartier().equals("jsp")){
+                nbr_q_air_hei_mauvaise += 1;
+            }
+//            Question 23
+            if(partie3.getPollution()){
+                connais_pollution_ambiante += 1;
+            }
+//            Question 24
+//            1)
+            if(partie3.getQualite_air_general()){
+                qualite_air_general += 1;
+            }
+//            2)
+            if(partie3.getPrev_quotidien_q_air_ext()){
+                prev_quotidienne_q_air_ext += 1;
+            }
+//            3)
+            if (partie3.getEffet_pollution_air_sante()){
+                effet_pollution_sante += 1;
+            }
+//            4)
+            if(partie3.getRecommandation_proteger_pollution_quotidienne()){
+                recommandation_protection_pollution += 1;
+            }
+//            5)
+            if(partie3.getPics_pollution()){
+                pics_pollution += 1;
+            }
+//            6)
+            if(partie3.getPrecautions_pic_pollution()){
+                precaution_pics_pollution += 1;
+            }
+//            7)
+            if(partie3.getSources_pollution_air_inter()){
+                source_pollution_int += 1;
+            }
+//            8)
+            if(partie3.getSources_pollution_air_exter()){
+                source_pollution_ext += 1;
+            }
+//            9)
+            if(partie3.getMoyens_air_sain_inter()){
+                moyens_air_sain_int += 1;
+            }
+//            10)
+            if(partie3.getMoyens_air_sain_exter()){
+                moyens_air_sain_ext += 1;
+            }
+//            11)
+            if(partie3.getActions_publiques_ameliorer_qualite_air()){
+                actions_publiques += 1;
+            }
+//            Question 25
+
+            String liste_of_saison_string = partie3.getSaison_pollue() != null ? partie3.getSaison_pollue() : "";
+            if(!liste_of_saison_string.equals("")){
+                List<String> liste_of_saison = Arrays.asList(liste_of_saison_string.split("\\s*,\\s*"));
+                for(String saison : liste_of_saison){
+                    if(saison.equals("printemps")){
+                        printemps += 1;
+                    }else if(saison.equals("Ete")){
+                        ete += 1;
+                    }else if(saison.equals("Automne")){
+                        automne += 1;
+                    }else if(saison.equals("Hiver")){
+                        hiver += 1;
+                    }
+                }
+            }
+//            Question 26
+            if(partie3.getImpact_sante().equals("oui+")){
+                fort_impact_sante += 1;
+            }else if(partie3.getImpact_sante().equals("Non")){
+                pas_impact_sante += 1;
+            }else{
+                faible_impact_sante += 1;
+            }
+//            Question 27
+            if(partie3.getAeration_logement()){
+                aerer_logement += 1;
+            }
+//            Question 28
+            if(partie3.getFrequence_aeration_logement().equals("une_à_2_fois_par_jour")){
+                frequence_aeration_jour += 1;
+            }else if(partie3.getFrequence_aeration_logement().equals("deux_à_4_fois_par_semaine")){
+                frequence_aeration_4_semaine += 1;
+            }else if(partie3.getFrequence_aeration_logement().equals("une_fois_par_semaine")){
+                frequence_aeration_1_semaine += 1;
+            }else if(partie3.getFrequence_aeration_logement().equals("une_fois_par_mois")){
+                frequence_aeration_mois += 1;
+            }
+//            Question 29
+            if(partie3.getEviter_trafic_velo().equals("oui+")){
+                evite_pollution_souvent += 1;
+            }else if(partie3.getEviter_trafic_velo().equals("oui")){
+                evite_pollution_parfois += 1;
+            }else if(partie3.getEviter_trafic_velo().equals("non")){
+                evite_pollution_jamais += 1;
+            }else if(partie3.getEviter_trafic_velo().equals("nonconcernée")){
+                evite_pollution_pas_concerne += 1;
+            }
+//            Question 30
+            if(partie3.getSport()){
+                pratique_course_a_pied += 1;
+            }
+//            Question 31
+            if(partie3.getSport_route_trafic()){
+                evite_traffic_course_a_pied += 1;
+            }
+//            Question 32
+            if(!partie3.getRemarques().equals("")){
+                nbr_remarque += 1;
+            }
 
 
 
+        }
+
+        context.setVariable("reponse_totale", reponse_totale);
+//        Q°22
+        context.setVariable("nbr_q_air_quartier_bonne", nbr_q_air_quartier_bonne);
+        context.setVariable("nbr_q_air_quartier_jsp", nbr_q_air_quartier_jsp);
+        context.setVariable("nbr_q_air_quartier_mauvaise", nbr_q_air_quartier_mauvaise);
+        context.setVariable("nbr_q_air_quartier_p_bonne", nbr_q_air_quartier_p_bonne);
+        context.setVariable("nbr_q_air_quartier_p_mauvaise", nbr_q_air_quartier_p_mauvaise);
+//        Q°23
+        context.setVariable("connais_pollution_ambiante", connais_pollution_ambiante);
+//        Q°24
+        context.setVariable("qualite_air_general", qualite_air_general);
+        context.setVariable("prev_quotidienne_q_air_ext", prev_quotidienne_q_air_ext);
+        context.setVariable("effet_pollution_sante", effet_pollution_sante);
+        context.setVariable("recommandation_protection_pollution", recommandation_protection_pollution);
+        context.setVariable("pics_pollution", pics_pollution);
+        context.setVariable("precaution_pics_pollution", precaution_pics_pollution);
+        context.setVariable("source_pollution_int", source_pollution_int);
+        context.setVariable("source_pollution_ext", source_pollution_ext);
+        context.setVariable("moyens_air_sain_int", moyens_air_sain_int);
+        context.setVariable("moyens_air_sain_ext", moyens_air_sain_ext);
+        context.setVariable("actions_publiques", actions_publiques);
+//        Q°25
+        context.setVariable("printemps", printemps);
+        context.setVariable("ete", ete);
+        context.setVariable("automne", automne);
+        context.setVariable("hiver", hiver);
+//        Q°26
+        context.setVariable("fort_impact_sante", fort_impact_sante);
+        context.setVariable("faible_impact_sante", faible_impact_sante);
+        context.setVariable("pas_impact_sante", pas_impact_sante);
+//        Q°27
+        context.setVariable("aerer_logement", aerer_logement);
+//        Q°28
+        context.setVariable("frequence_aeration_1_semaine", frequence_aeration_1_semaine);
+        context.setVariable("frequence_aeration_4_semaine", frequence_aeration_4_semaine);
+        context.setVariable("frequence_aeration_jour", frequence_aeration_jour);
+        context.setVariable("frequence_aeration_mois", frequence_aeration_mois);
+//        Q°29
+        context.setVariable("evite_pollution_jamais", evite_pollution_jamais);
+        context.setVariable("evite_pollution_parfois", evite_pollution_parfois);
+        context.setVariable("evite_pollution_pas_concerne", evite_pollution_pas_concerne);
+        context.setVariable("evite_pollution_souvent", evite_pollution_souvent);
+//        Q°30
+        context.setVariable("pratique_course_a_pied", pratique_course_a_pied);
+//        Q°31
+        context.setVariable("evite_traffic_course_a_pied", evite_traffic_course_a_pied);
+//        Q°32
+        context.setVariable("nbr_remarque", nbr_remarque);
 
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());

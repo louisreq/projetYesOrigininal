@@ -2,6 +2,8 @@ package hei.devweb.traderz.entities;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.sql.Timestamp;
+
 public class Formulaire_Partie2 {
 
     private Integer id_sensation;
@@ -20,9 +22,9 @@ public class Formulaire_Partie2 {
     private Boolean poussiere;
     private String symptome;
     private String qualite_air_salle;
+    private Timestamp date_creation;
 
-
-    public Formulaire_Partie2(Integer id_sensation, Integer id_salle, Integer id_user, Integer id_sensor, String qualite_air_hei, String distance_fenetre, String distance_ventilo, String climat_salle, String temp_sensation, Double capteur_temp, String air_sensation, String air_agreable, String odeur, Boolean poussiere, String symptome, String qualite_air_salle) {
+    public Formulaire_Partie2(Integer id_sensation, Integer id_salle, Integer id_user, Integer id_sensor, String qualite_air_hei, String distance_fenetre, String distance_ventilo, String climat_salle, String temp_sensation, Double capteur_temp, String air_sensation, String air_agreable, String odeur, Boolean poussiere, String symptome, String qualite_air_salle, Timestamp date_creation) {
         this.id_sensation = id_sensation;
         this.id_salle = id_salle;
         this.id_user = id_user;
@@ -39,6 +41,7 @@ public class Formulaire_Partie2 {
         this.poussiere = poussiere;
         this.symptome = symptome;
         this.qualite_air_salle = qualite_air_salle;
+        this.date_creation = date_creation;
     }
 
 
@@ -168,5 +171,13 @@ public class Formulaire_Partie2 {
 
     public void setQualite_air_salle(String qualite_air_salle) {
         this.qualite_air_salle = qualite_air_salle;
+    }
+
+    public Timestamp getDate_creation() {
+        return date_creation;
+    }
+
+    public void setDate_creation(Timestamp date_creation) {
+        this.date_creation = date_creation;
     }
 }

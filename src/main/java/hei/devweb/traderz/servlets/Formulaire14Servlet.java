@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(urlPatterns = {"/Prive/formulaire14", "/Admin/formulaire14"})
 public class Formulaire14Servlet extends PrivateServlet {
@@ -184,33 +185,20 @@ public class Formulaire14Servlet extends PrivateServlet {
             req.getSession().removeAttribute("remarques");
 
 //            INSERER LES REPONSES DANS LES 3 TABLES DE LA BDD CORRESPONDANTES
-//            userDao.AddQuestionnairePartieInfoPerso(id_user, sexe, age, situation,
-//                    domaine, diplome, parent, commune,
-//                    mot1, mot2, mot3);
+            Date date = new Date();
+            Object datetime = new java.sql.Timestamp(date.getTime());
+
             UserManager.getInstance().AddQuestionnairePartieInfoPerso(user.getIdUser(), homme_femme,
                     Integer.parseInt(age), qui_etes_vous, quel_domaine, diplome,
-                    is_Parent, quelle_ville, mot1, mot2, mot3);
+                    is_Parent, quelle_ville, mot1, mot2, mot3, datetime);
 
             UserManager.getInstance().AddQuestionnairePartieSensationSalle(
                     salle_actuelle, user.getIdUser(), 1,
                     qualite_air_hei, fenetre_la_plus_proche, distance_ventilation,
                     temperature_espace_de_travail, confort_temperature, temperature_capteur,
                     humidity_air, confort_humidity_air, liste_odeurs,
-                    poussiere, liste_symptomes, qualite_air_salle
+                    poussiere, liste_symptomes, qualite_air_salle, datetime
                     );
-
-//            String saison_pollue,
-//            String impact_sante,
-//            String impact_air_pollue_organe,
-//            Boolean aeration_logement,
-//            String frequence_aeration_logement,
-//            String eviter_trafic_velo,
-//            Boolean sport,
-//            String sport_route_trafic,
-//            String remarques
-
-
-//            String liste_saison = (String) req.getSession().getAttribute("liste_saison");
 
             UserManager.getInstance().AddQuestionnairePartieInfoSensibilisation(
                     user.getIdUser(), qualite_air_quartier, entendu_parler_pollution_de_fond, qualite_air_en_general,
@@ -219,7 +207,7 @@ public class Formulaire14Servlet extends PrivateServlet {
                     sources_de_pollution_air_exterieur, air_sain_interieur, air_sain_exterieur, actions_publics_air,
                     liste_saison, qualite_air_un_impact_sur_la_sante, impacte_air_pollue, Aerez_vous_votre_logement,
                     frequence_aeration, evitez_trafic_velo, la_personne_pratique_la_course_a_pied,
-                    evitez_le_sport_traffic, remarques
+                    evitez_le_sport_traffic, remarques, datetime
             );
 
             template_to_load = "Home";

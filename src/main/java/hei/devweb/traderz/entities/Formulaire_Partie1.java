@@ -1,6 +1,7 @@
 package hei.devweb.traderz.entities;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.sql.Timestamp;
 
 public class Formulaire_Partie1 {
 //    Partie 1 : Info Perso
@@ -16,8 +17,9 @@ public class Formulaire_Partie1 {
     private String mot1;
     private String mot2;
     private String mot3;
+    private Timestamp date_creation;
 
-    public Formulaire_Partie1(Integer id_info_part_1, Integer id_user, Integer sexe, Integer age, String situation, String domaine, String diplome, Boolean parent, String commune, String mot1, String mot2, String mot3) {
+    public Formulaire_Partie1(Integer id_info_part_1, Integer id_user, Integer sexe, Integer age, String situation, String domaine, String diplome, Boolean parent, String commune, String mot1, String mot2, String mot3, Timestamp date_creation) {
         this.id_info_part_1 = id_info_part_1;
         this.id_user = id_user;
         this.sexe = sexe;
@@ -30,7 +32,9 @@ public class Formulaire_Partie1 {
         this.mot1 = mot1;
         this.mot2 = mot2;
         this.mot3 = mot3;
+        this.date_creation = date_creation;
     }
+
 
     public Integer getId_info_part_1() {
         return id_info_part_1;
@@ -126,5 +130,13 @@ public class Formulaire_Partie1 {
 
     public void setMot3(String mot3) {
         this.mot3 = mot3;
+    }
+
+    public Timestamp getDate_creation() {
+        return date_creation;
+    }
+
+    public void setDate_creation(Timestamp date_creation) {
+        this.date_creation = date_creation;
     }
 }

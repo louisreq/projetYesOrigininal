@@ -149,9 +149,9 @@ public class UserDaoImpl implements UserDao{
         }
     }
 
-    public void AddQuestionnairePartieInfoPerso(Integer id_user, Integer sexe, Integer age, String situation, String domaine, String diplome, Boolean parent, String commune, String mot1, String mot2, String mot3){
-        String query = "INSERT INTO enquete(id_user, sexe, age, situation, domaine, diplome, parent, commune, mot1, mot2, mot3)\n" +
-                "Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public void AddQuestionnairePartieInfoPerso(Integer id_user, Integer sexe, Integer age, String situation, String domaine, String diplome, Boolean parent, String commune, String mot1, String mot2, String mot3, Object date_creation){
+        String query = "INSERT INTO enquete(id_user, sexe, age, situation, domaine, diplome, parent, commune, mot1, mot2, mot3, date_creation)\n" +
+                "Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
             statement.setInt(1, id_user);
@@ -165,6 +165,7 @@ public class UserDaoImpl implements UserDao{
             statement.setString(9, mot1);
             statement.setString(10, mot2);
             statement.setString(11, mot3);
+            statement.setObject(12, date_creation);
 
             System.out.println(statement);
             statement.executeUpdate();
@@ -188,14 +189,15 @@ public class UserDaoImpl implements UserDao{
             String odeur,
             Boolean poussiere,
             String symptomes,
-            String q_air_salle
+            String q_air_salle,
+            Object date_creation
             ){
 
 
         String query = "INSERT INTO sensation_salles(id_salle, id_user, id_sensor, q_air_hei," +
                 "dist_fenetre, dist_ventilo, climat_salle, temp_sensation, capteur_temp, air_sensation," +
-                "air_agreable, odeur, poussiere, symptomes, q_air_salle)\n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "air_agreable, odeur, poussiere, symptomes, q_air_salle, date_creation)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
             statement.setInt(1, id_salle);
@@ -213,6 +215,7 @@ public class UserDaoImpl implements UserDao{
             statement.setBoolean(13, poussiere);
             statement.setString(14, symptomes);
             statement.setString(15, q_air_salle);
+            statement.setObject(16, date_creation);
 
             System.out.println(statement);
             statement.executeUpdate();
@@ -245,7 +248,8 @@ public class UserDaoImpl implements UserDao{
             String eviter_trafic_velo,
             Boolean sport,
             Boolean sport_route_trafic,
-            String remarques
+            String remarques,
+            Object date_creation
     ){
         String query = "INSERT INTO info_sensibilisation(" +
                 "id_user, q_air_quartier, pollution, q_air_general, prev_quotidien_q_air_ext," +
@@ -253,8 +257,8 @@ public class UserDaoImpl implements UserDao{
                 "precautions_pic_pollution, sources_pollution_air_inter, sources_pollution_air_exter," +
                 "moyens_air_sain_inter, moyens_air_sain_exter, actions_publiques_ameliorer_qualite_air," +
                 "saison_pollue, impact_sante, impact_air_pollue_organe, aeration_logement," +
-                "frequence_aeration_logement, eviter_trafic_velo, sport, sport_route_trafic, remarques)\n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " + sport_route_trafic + ", ?)";
+                "frequence_aeration_logement, eviter_trafic_velo, sport, sport_route_trafic, remarques, date_creation)\n" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " + sport_route_trafic + ", ?, ?)";
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
             statement.setInt(1, id_user);
@@ -279,6 +283,7 @@ public class UserDaoImpl implements UserDao{
             statement.setString(20, eviter_trafic_velo);
             statement.setBoolean(21, sport);
             statement.setString(22, remarques);
+            statement.setObject(23, date_creation);
 
             System.out.println(statement);
             statement.executeUpdate();

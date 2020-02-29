@@ -18,6 +18,13 @@ public class AlerteManager {
     private AlerteDaoImpl alerteDao = new AlerteDaoImpl();
 
 
-    public void AddAlerte (Object datetime, String message, Integer personne_id, Integer salle_id, String titre){ alerteDao.AddAlerte(datetime, message, personne_id, salle_id, titre); }
+    public void AddAlerte (Object datetime, String message, Integer personne_id, Integer salle_id, String titre, Boolean checked){
+        alerteDao.AddAlerte(datetime, message, personne_id, salle_id, titre, checked);
+    }
     public List<Alerte> GetAlertesFromUserId(Integer user_id){return alerteDao.GetAlertesFromUserId(user_id);}
+
+    public List<Alerte> GetAllAlertes(){return alerteDao.GetAllAlertes();}
+
+    public void SetAlerteChecked (Integer id_alerte, Boolean checked){ alerteDao.SetAlerteChecked(id_alerte, checked);}
+
 }

@@ -16,12 +16,12 @@
     <title>YIIAQ</title>
 </head>
 
-<body style="background-color: lightgrey">
+<body style="background-color: whitesmoke">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+            <img class="logo3" src="../../../../IMG/logo3.png" alt="">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -376,16 +376,16 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Plutôt Bonne</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_p_bonne}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Bonne</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_bonne}">1435</p>
 
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Plutôt Mauvaise</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_p_mauvaise}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Mauvaise</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${nbr_q_air_hei_mauvaise}">23</p>
                 </section>
             </div>
         </div>
@@ -423,16 +423,16 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Moins d'1 mètre</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_fenetre_1m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Entre 1 et 3 mètres</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${dist_fenetre_1_3m}">1435</p>
 
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Entre 3 et 5 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_fenetre_3_5m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">A plus de 5 mètres</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_fenetre_5m}">23</p>
                 </section>
             </div>
         </div>
@@ -448,15 +448,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">A moins de 2 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_ventilo_2m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Entre 2 et 5 mètres</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_ventilo_2_5m}">23</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">A plus de 5 mètres</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${dist_ventilo_plus5m}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Je ne sais pas</h5>
-                    <p class="card-text">23</p>
+                    <p class="card-text" th:text="${dist_ventilo_jsp}">23</p>
                 </section>
             </div>
         </div>
@@ -471,19 +471,19 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Un peu chaud</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${chaud_moins}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Chaud</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${chaud}">1435</p>
                     <h5 class="card-title" style="font-weight: bold;">Très chaud</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${chaud_plus}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Un peu froid</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${froid_moins}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Froid</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${froid}">1435</p>
                     <h5 class="card-title" style="font-weight: bold;">Très froid</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${froid_plus}">1435</p>
                 </section>
             </div>
         </div>
@@ -498,15 +498,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Assez Confortable</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${temp_assez_confortable}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Confortable</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${temp_confortable}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Assez Inconfortable</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${temp_assez_inconfortable}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Inconfortable</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${temp_inconfortable}">1435</p>
                 </section>
             </div>
         </div>
@@ -521,11 +521,13 @@
             <div class="card-body" >
                 <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Température Maximum</h5>
-                    <p class="card-text">32°C</p>
+                    <p class="card-text" th:text="${temp_max} + '°C'">32°C</p>
                     <h5 class="card-title" style="font-weight: bold;">Température Minimum</h5>
-                    <p class="card-text">6°C</p>
+                    <p class="card-text" th:text="${temp_min} + '°C'">6°C</p>
                     <h5 class="card-title" style="font-weight: bold;">Température Moyenne</h5>
-                    <p class="card-text">16°C</p>
+                    <div th:with="result=(${somme_temp}/${count_temp})*100">
+                        <p class="card-text" th:text="${result} + '°C'">16°C</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -540,15 +542,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Sec</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${air_sec}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Très Sec</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${air_tres_sec}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Humide</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${air_humide}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Très Humide</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${air_tres_humide}">1435</p>
                 </section>
             </div>
         </div>
@@ -563,15 +565,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Assez Agréable</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${hum_assez_agreable}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Agréable</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${hum_agreable}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Assez Désagréable</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${hum_assez_desagreable}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Désagréable</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${hum_desagreable}">1435</p>
                 </section>
             </div>
         </div>
@@ -586,28 +588,28 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Nourriture</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${odeur_nourriture}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Corporelle</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${odeur_corporelle}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Moisi</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${odeur_moisi}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Humidité</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${odeur_humidite}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Poussière</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${odeur_poussiere}">11</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
 
                     <h5 class="card-title" style="font-weight: bold;">Déodorant/Parfum</h5>
-                    <p class="card-text">32</p>
+                    <p class="card-text" th:text="${odeur_parfum}">32</p>
                     <h5 class="card-title" style="font-weight: bold;">Produit de Nettoyage</h5>
-                    <p class="card-text">5</p>
+                    <p class="card-text" th:text="${odeur_nettoyage}">5</p>
                     <h5 class="card-title" style="font-weight: bold;">Tabac</h5>
-                    <p class="card-text">45</p>
+                    <p class="card-text" th:text="${odeur_tabac}">45</p>
                     <h5 class="card-title" style="font-weight: bold;">Aucune odeur</h5>
-                    <p class="card-text">0</p>
+                    <p class="card-text" th:text="${aucune_odeur}">0</p>
                     <h5 class="card-title" style="font-weight: bold;">Autre réponse</h5>
-                    <p class="card-text">7</p>
+                    <p class="card-text" th:text="${nbr_autre_q18}">7</p>
                 </section>
             </div>
         </div>
@@ -622,35 +624,35 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Yeux rouges, irrités</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${yeux_rouge}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Yeux secs</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${yeux_secs}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Nez bouché</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${nez_bouche}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Rougeurs ou irritations de la peau</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${rougeurs}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Grattement du cuir chevelu</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${grattement}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Yeux qui coulent</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${yeux_coulent}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Saignement de Nez</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${saignement_nez}">11</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Gonflement d'une partie du corps</h5>
-                    <p class="card-text">12</p>
+                    <p class="card-text" th:text="${gonflement}">12</p>
                     <h5 class="card-title" style="font-weight: bold;">Sècheresse ou irritation des voies respiratoires</h5>
-                    <p class="card-text">65</p>
+                    <p class="card-text" th:text="${secheresse}">65</p>
                     <h5 class="card-title" style="font-weight: bold;">Maux de tête</h5>
-                    <p class="card-text">147</p>
+                    <p class="card-text" th:text="${maux_tete}">147</p>
                     <h5 class="card-title" style="font-weight: bold;">Difficultés de concentration</h5>
-                    <p class="card-text">6</p>
+                    <p class="card-text" th:text="${difficultes_concentration}">6</p>
                     <h5 class="card-title" style="font-weight: bold;">Sensation de fatigue</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${sensation_fatigue}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Je ne ressens aucun de ces symptômes</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${aucun_symptome}">11</p>
                     <h5 class="card-title" style="font-weight: bold;">Autres</h5>
-                    <p class="card-text">11</p>
+                    <p class="card-text" th:text="${nbr_autre_q19}">11</p>
                 </section>
             </div>
         </div>
@@ -666,11 +668,11 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${poussiere}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${pas_poussiere}">124</p>
                 </section>
             </div>
         </div>
@@ -685,47 +687,19 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Aussi bonne que d'habitude</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${aussi_bonne}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Meilleure que d'habitude</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${Meilleure}">1435</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Aussi mauvaise que d'habitude</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${aussi_mauvaise}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Moins bonne que d'habitude</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${moins_bonne}">1435</p>
                 </section>
                 <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
                     <h5 class="card-title" style="font-weight: bold;">Pas de référence</h5>
-                    <p class="card-text">1435</p>
-                </section>
-            </div>
-        </div>
-    </section>
-
-    <br/>
-
-    <section class="row">
-        <!-- Question 22 : Comment jugez vous la qualité de l'air dans votre quartier ?  -->
-        <div class="card d-inline-block" style="width: 60%;">
-            <h5 class="card-header"><b>Question 22 : </b><br>Comment jugez vous la qualité de l'air dans votre quartier ?</h5>
-            <div class="card-body" >
-                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
-                    <h5 class="card-title" style="font-weight: bold;">Plutôt bonne</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Bonne</h5>
-                    <p class="card-text">124</p>
-                </section>
-                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
-                    <h5 class="card-title" style="font-weight: bold;">Plutôt mauvaise</h5>
-                    <p class="card-text">124</p>
-                    <h5 class="card-title" style="font-weight: bold;">Mauvaise</h5>
-                    <p class="card-text">124</p>
-                </section>
-
-                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
-                    <h5 class="card-title" style="font-weight: bold;">Je ne sais pas</h5>
-                    <p class="card-text">1435</p>
+                    <p class="card-text" th:text="${aucune_reference}">1435</p>
                 </section>
             </div>
         </div>
@@ -736,6 +710,36 @@
     <!-- >>>>>>>>>>>>>> PARTIE 2 Qualité de l'air dans la Salle <<<<<<<<<<<<<<<<<<< -->
     <h1>PARTIE 3 -  Information Sensibilisation</h1>
 
+    <br/>
+
+    <section class="row">
+        <!-- Question 22 : Comment jugez vous la qualité de l'air dans votre quartier ?  -->
+        <div class="card d-inline-block" style="width: 60%;">
+            <h5 class="card-header"><b>Question 22 : </b><br>Comment jugez vous la qualité de l'air dans votre quartier ?</h5>
+            <div class="card-body" >
+                <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
+                    <h5 class="card-title" style="font-weight: bold;">Plutôt bonne</h5>
+                    <p class="card-text" th:text="${nbr_q_air_quartier_p_bonne}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Bonne</h5>
+                    <p class="card-text" th:text="${nbr_q_air_quartier_bonne}">124</p>
+                </section>
+                <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
+                    <h5 class="card-title" style="font-weight: bold;">Plutôt mauvaise</h5>
+                    <p class="card-text" th:text="${nbr_q_air_quartier_p_mauvaise}">124</p>
+                    <h5 class="card-title" style="font-weight: bold;">Mauvaise</h5>
+                    <p class="card-text" th:text="${nbr_q_air_quartier_mauvaise}">124</p>
+                </section>
+
+                <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-4 offset-md-4">
+                    <h5 class="card-title" style="font-weight: bold;">Je ne sais pas</h5>
+                    <p class="card-text" th:text="${nbr_q_air_quartier_jsp}">1435</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+
     <section class="row">
         <!-- Question 23 : Avez-vous déjà entendu parler de "pollution de fond" ou "pollution ambiante"  ?  -->
         <div class="card d-inline-block" style="width: 60%;">
@@ -743,11 +747,13 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${connais_pollution_ambiante}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
+                    <div th:with="result=(${reponse_totale} - ${connais_pollution_ambiante})">
+                        <p class="card-text" th:text="${result}">124</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -767,25 +773,29 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${qualite_air_general}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${qualite_air_general})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
                     <!-- Question 2     -->
                     <div class="card d-inline-block" style="width: 48%;">
-                        <h5 class="card-header"><b>2) </b><br>Les prévisions quotidienne sur la qualité de l'ai extérieur ?</h5>
+                        <h5 class="card-header"><b>2) </b><br>Les prévisions quotidienne sur la qualité de l'air extérieur ?</h5>
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${prev_quotidienne_q_air_ext}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${prev_quotidienne_q_air_ext})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -798,11 +808,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${effet_pollution_sante}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${effet_pollution_sante})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -812,11 +824,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${recommandation_protection_pollution}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${recommandation_protection_pollution})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -828,11 +842,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${pics_pollution}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${pics_pollution})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -842,11 +858,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${precaution_pics_pollution}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${precaution_pics_pollution})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -859,11 +877,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${source_pollution_int}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${source_pollution_int})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -873,11 +893,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${source_pollution_ext}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${source_pollution_ext})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -889,25 +911,29 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${moyens_air_sain_int}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${moyens_air_sain_int})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
                     <!-- Question 10     -->
                     <div class="card d-inline-block" style="width: 48%;">
-                        <h5 class="card-header"><b>8) </b><br>Les moyens pour avoir un air sain à l'extérieur ?</h5>
+                        <h5 class="card-header"><b>10) </b><br>Les moyens pour avoir un air sain à l'extérieur ?</h5>
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${moyens_air_sain_ext}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${moyens_air_sain_ext})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -920,11 +946,13 @@
                         <div class="card-body" >
                             <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                                 <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                                <p class="card-text">124</p>
+                                <p class="card-text" th:text="${actions_publiques}">124</p>
                             </section>
                             <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                                 <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                                <p class="card-text">124</p>
+                                <div th:with="result=(${reponse_totale} - ${actions_publiques})">
+                                    <p class="card-text" th:text="${result}">124</p>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -942,15 +970,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Printemps</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${printemps}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Eté</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${ete}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Automne</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${automne}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Hiver</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${hiver}">124</p>
                 </section>
             </div>
         </div>
@@ -963,15 +991,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui, un fort impact</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${fort_impact_sante}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Oui, un faible impact</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${faible_impact_sante}">124</p>
                 </section>
                 <section class="col-xs-12 col-sm-12 col-md-12 d-inline-block offset-sm-3 offset-md-3">
                     <h5 class="card-title" style="font-weight: bold;">Non, pas d'impact</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${pas_impact_sante}">124</p>
                 </section>
             </div>
         </div>
@@ -986,11 +1014,13 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${aerer_logement}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
+                    <div th:with="result=(${reponse_totale} - ${aerer_logement})">
+                        <p class="card-text" th:text="${result}">124</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -1005,15 +1035,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">1 à 2 fois par jour</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${frequence_aeration_jour}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">2 à 4 fois par semaine</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${frequence_aeration_4_semaine}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">1 fois par semaine</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${frequence_aeration_1_semaine}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">1 à 2 fois par mois</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${frequence_aeration_mois}">124</p>
                 </section>
             </div>
         </div>
@@ -1028,15 +1058,15 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui, je prends souvent les chemins parallèles, moins exposés à la pollution</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${evite_pollution_souvent}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Oui parfois</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${evite_pollution_parfois}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non concerné, j'effectue surtout des déplacements motorisés (voiture, transports en commun)</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${evite_pollution_pas_concerne}">124</p>
                     <h5 class="card-title" style="font-weight: bold;">Non, jamais</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${evite_pollution_jamais}">124</p>
                 </section>
             </div>
         </div>
@@ -1051,11 +1081,13 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${pratique_course_a_pied}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
+                    <div th:with="result=(${reponse_totale} - ${pratique_course_a_pied})">
+                        <p class="card-text" th:text="${result}">124</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -1066,15 +1098,17 @@
     <section class="row">
         <!-- Question 31 : Si oui, évitez vous de faire l'un de ces sports le long des routes où le traffic est important ?  -->
         <div class="card d-inline-block" style="width: 60%;">
-            <h5 class="card-header"><b>Question 31 : </b><br> La qualité de l'air a-t-elle un impact sur la santé ?</h5>
+            <h5 class="card-header"><b>Question 31 : </b><br> Si oui, évitez vous de faire l'un de ces sports le long des routes où le traffic est important ?</h5>
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${evite_traffic_course_a_pied}">124</p>
                 </section>
                 <section class="col-xs-6 col-sm-6 col-md-6 d-inline-block" style="padding: 0; text-align: right;">
                     <h5 class="card-title" style="font-weight: bold;">Non</h5>
-                    <p class="card-text">124</p>
+                    <div th:with="result=(${pratique_course_a_pied} - ${pratique_course_a_pied})">
+                        <p class="card-text" th:text="${result}">124</p>
+                    </div>
                 </section>
             </div>
         </div>
@@ -1087,7 +1121,7 @@
             <div class="card-body" >
                 <section class="col-xs-5 col-sm-5 col-md-5 d-inline-block" style="padding: 0;">
                     <h5 class="card-title" style="font-weight: bold;">Oui</h5>
-                    <p class="card-text">124</p>
+                    <p class="card-text" th:text="${nbr_remarque}">124</p>
                 </section>
             </div>
         </div>
@@ -1223,10 +1257,9 @@
     }
 
 
-    /*.navbar {
-      overflow: hidden;
-     background-color: #333;
-    }*/
+    .navbar {
+        background-color: #0DA2E0;
+    }
 
     .navbar a {
         float: left;

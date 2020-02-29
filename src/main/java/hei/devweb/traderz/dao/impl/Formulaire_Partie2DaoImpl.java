@@ -41,7 +41,8 @@ public class Formulaire_Partie2DaoImpl implements Formulaire_Partie2Dao {
                             resultSet.getString("odeur"),
                             resultSet.getBoolean("poussiere"),
                             resultSet.getString("symptomes"),
-                            resultSet.getString("q_air_salle")
+                            resultSet.getString("q_air_salle"),
+                            resultSet.getTimestamp("date_creation")
                     ));
                 }
             }

@@ -61,7 +61,7 @@ public class CreateAlerteServlet extends PrivateServlet {
         String salle_id = req.getParameter("selectbasic");
         String titre = req.getParameter("titre_alerte");
 
-        AlerteManager.getInstance().AddAlerte(datetime, message, user.getIdUser(), Integer.parseInt(salle_id), titre);
+        AlerteManager.getInstance().AddAlerte(datetime, message, user.getIdUser(), Integer.parseInt(salle_id), titre, Boolean.FALSE);
         System.out.println("We just added the message \n" + message + "\n for the room " + salle_id);
 
         if(user.getRole().equals("admin")){

@@ -37,7 +37,8 @@ public class Formulaire_Partie1DaoImpl implements Formulaire_Partie1Dao {
                             resultSet.getString("commune"),
                             resultSet.getString("mot1"),
                             resultSet.getString("mot2"),
-                            resultSet.getString("mot3")
+                            resultSet.getString("mot3"),
+                            resultSet.getTimestamp("date_creation")
                             ));
                 }
             }
