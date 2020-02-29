@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AlerteDao {
     public List<Alerte> GetAlertesFromUserId(Integer user_id);
-    public List<Alerte> GetAllAlertes();
+    public List<Alerte> GetAllAlertes(String user_input);
 }

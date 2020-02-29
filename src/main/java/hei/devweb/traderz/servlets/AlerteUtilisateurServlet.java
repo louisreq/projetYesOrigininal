@@ -66,8 +66,8 @@ public class AlerteUtilisateurServlet extends PrivateServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
 
-        String switch_checkbox = req.getParameter("switch_checkbox");
-        String alerte_id = req.getParameter("alerte_id");
+        String switch_checkbox = (req.getParameter("switch_checkbox") != null ? req.getParameter("switch_checkbox") : "" );
+        String alerte_id = (req.getParameter("alerte_id") != null ? req.getParameter("alerte_id") : "");
 
         if(switch_checkbox.equals("yes")){
             AlerteManager.getInstance().SetAlerteChecked(Integer.parseInt(alerte_id), Boolean.TRUE);

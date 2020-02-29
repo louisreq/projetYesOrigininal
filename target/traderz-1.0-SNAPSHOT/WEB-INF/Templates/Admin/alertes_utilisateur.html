@@ -138,33 +138,49 @@
             <tbody>
             <tr th:each="alerte:${liste_unchecked_alerte}">
                 <td class="inbox-small-cells">
-                    <input type="checkbox" th:id="'checkbox_id_' + ${alerte.getId()}" class="mail-checkbox">
+                    <input type="checkbox" th:id_checkbox_alerte="${alerte.getId()}" class="mail-checkbox">
                 </td>
                 <td class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
                 <td class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
                 <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
                 <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
-            </tr>
-            <script th:inline="javascript">
-                /*<![CDATA[*/
+                <script type="text/javascript" th:inline="javascript">
+                    /*<![CDATA[*/
+                    function post(params) {
+                        var method='post';
+                        // The rest of this code assumes you are not using a library.
+                        // It can be made less wordy if you use one.
+                        var form = document.createElement('form');
+                        form.method = method;
+                        // form.action = path;
 
-                $(document).ready(function(){
-                    var id_alerte1 = 'checkbox_id_';
-                    var id_alerte2 = '2';
-                    var alerte = id_alerte1 + id_alerte2;
-                    var coeur = document.getElementById(alerte);
-
-                    $('#' + alerte).on('click', function () {
-                        if(coeur.checked){
-                            console.log('Il est checked');
-                        } else{
-                            console.log('Il est pas checked');
+                        for (var key in params) {
+                            if (params.hasOwnProperty(key)) {
+                                var hiddenField = document.createElement('input');
+                                hiddenField.type = 'hidden';
+                                hiddenField.name = key;
+                                hiddenField.value = params[key];
+                                form.appendChild(hiddenField);
+                            }
                         }
-                    });
-                });
-                /*]]>*/
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
 
-            </script>
+
+
+                    $(document).ready(function(){
+
+                        $("[id_checkbox_alerte='[[${alerte.getId()}]]']").on('click', function () {
+                            post({switch_checkbox: 'yes', alerte_id:'[[${alerte.getId()}]]'});
+                            console.log('prout');
+                        });
+                    });
+                    /*]]>*/
+
+                </script>
+            </tr>
+
 
             </tbody>
         </table>
@@ -191,12 +207,49 @@
             <tbody>
             <tr class="unread" th:each="alerte:${liste_checked_alerte}">
                 <td class="inbox-small-cells">
-                    <input type="checkbox" class="mail-checkbox" checked>
+                    <input type="checkbox" th:id_checkbox_alerte="${alerte.getId()}" class="mail-checkbox" checked>
                 </td>
                 <td class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
                 <td class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
                 <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
                 <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
+
+                <script type="text/javascript" th:inline="javascript">
+                    /*<![CDATA[*/
+                    function post(params) {
+                        var method='post';
+                        // The rest of this code assumes you are not using a library.
+                        // It can be made less wordy if you use one.
+                        var form = document.createElement('form');
+                        form.method = method;
+                        // form.action = path;
+
+                        for (var key in params) {
+                            if (params.hasOwnProperty(key)) {
+                                var hiddenField = document.createElement('input');
+                                hiddenField.type = 'hidden';
+                                hiddenField.name = key;
+                                hiddenField.value = params[key];
+                                form.appendChild(hiddenField);
+                            }
+                        }
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+
+
+
+                    $(document).ready(function(){
+
+                        $("[id_checkbox_alerte='[[${alerte.getId()}]]']").on('click', function () {
+                            post({switch_checkbox: 'no', alerte_id:'[[${alerte.getId()}]]'});
+                            console.log("mega prout");
+                        });
+                    });
+                    /*]]>*/
+
+                </script>
+
             </tr>
 
             </tbody>

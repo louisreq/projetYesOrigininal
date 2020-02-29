@@ -8,56 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4e83fb-0a6d-408b-89fc-a7a7684fb6b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/Formulaire_Partie3Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/Formulaire_Partie3DaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Formulaire_Partie3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/Formulaire_Partie3_Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/alertes_utilisateur.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/AlerteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/AlerteDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/AlerteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/AlerteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Alerte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Alerte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Formulaire_Partie1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Formulaire_Partie1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Formulaire_Partie2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/Formulaire_Partie2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/AlerteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/AlerteManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/Formulaire_Partie2_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/Formulaire_Partie2_Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/managers/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CreateAlerteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/CreateAlerteServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/Formulaire14Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/Formulaire14Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/StatsFormulaireServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/StatsFormulaireServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/sql/creationTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/creationTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/visualisation_questionnaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/visualisation_questionnaire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/salle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/Formulaire_Partie1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/Formulaire_Partie1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/Formulaire_Partie2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/Formulaire_Partie2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/UserManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/UserManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/StatsFormulaireServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/StatsFormulaireServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/alertes_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/alertes_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/AlerteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/AlerteManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/visualisation_questionnaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/visualisation_questionnaire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/salle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie1DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/Formulaire_Partie2DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/Formulaire_Partie1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/Formulaire_Partie1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/Formulaire_Partie2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/Formulaire_Partie2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/UserManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/UserManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/StatsFormulaireServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/StatsFormulaireServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/lib/YahooFinanceAPI-3.12.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.9.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/alertes_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/alertes_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/AlerteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/AlerteManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -333,7 +295,7 @@
       <workItem from="1582646862720" duration="2271000" />
       <workItem from="1582707443650" duration="26163000" />
       <workItem from="1582793019664" duration="22564000" />
-      <workItem from="1582969842494" duration="7304000" />
+      <workItem from="1582969842494" duration="9842000" />
     </task>
     <servers />
   </component>

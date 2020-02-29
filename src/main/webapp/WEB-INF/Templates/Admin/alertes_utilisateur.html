@@ -144,41 +144,43 @@
                 <td class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
                 <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
                 <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
-            </tr>
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-                function post(params) {
-                    var method='post';
-                    // The rest of this code assumes you are not using a library.
-                    // It can be made less wordy if you use one.
-                    var form = document.createElement('form');
-                    form.method = method;
-                    // form.action = path;
+                <script type="text/javascript" th:inline="javascript">
+                    /*<![CDATA[*/
+                    function post(params) {
+                        var method='post';
+                        // The rest of this code assumes you are not using a library.
+                        // It can be made less wordy if you use one.
+                        var form = document.createElement('form');
+                        form.method = method;
+                        // form.action = path;
 
-                    for (var key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            var hiddenField = document.createElement('input');
-                            hiddenField.type = 'hidden';
-                            hiddenField.name = key;
-                            hiddenField.value = params[key];
-                            form.appendChild(hiddenField);
+                        for (var key in params) {
+                            if (params.hasOwnProperty(key)) {
+                                var hiddenField = document.createElement('input');
+                                hiddenField.type = 'hidden';
+                                hiddenField.name = key;
+                                hiddenField.value = params[key];
+                                form.appendChild(hiddenField);
+                            }
                         }
+                        document.body.appendChild(form);
+                        form.submit();
                     }
-                    document.body.appendChild(form);
-                    form.submit();
-                }
 
 
 
-                $(document).ready(function(){
+                    $(document).ready(function(){
 
-                    $("[id_checkbox_alerte='[[${alerte.getId()}]]']").on('click', function () {
-                        post({switch_checkbox: 'yes', salle_id:'[[${alerte.getId()}]]'});
+                        $("[id_checkbox_alerte='[[${alerte.getId()}]]']").on('click', function () {
+                            post({switch_checkbox: 'yes', alerte_id:'[[${alerte.getId()}]]'});
+                            console.log('prout');
+                        });
                     });
-                });
-                /*]]>*/
+                    /*]]>*/
 
-            </script>
+                </script>
+            </tr>
+
 
             </tbody>
         </table>
@@ -212,7 +214,7 @@
                 <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
                 <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
 
-                <script th:inline="javascript">
+                <script type="text/javascript" th:inline="javascript">
                     /*<![CDATA[*/
                     function post(params) {
                         var method='post';
@@ -240,7 +242,8 @@
                     $(document).ready(function(){
 
                         $("[id_checkbox_alerte='[[${alerte.getId()}]]']").on('click', function () {
-                            post({switch_checkbox: 'no', salle_id:'[[${alerte.getId()}]]'});
+                            post({switch_checkbox: 'no', alerte_id:'[[${alerte.getId()}]]'});
+                            console.log("mega prout");
                         });
                     });
                     /*]]>*/

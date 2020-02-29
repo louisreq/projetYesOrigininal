@@ -23,7 +23,7 @@ public class AlerteManager {
     }
     public List<Alerte> GetAlertesFromUserId(Integer user_id){return alerteDao.GetAlertesFromUserId(user_id);}
 
-    public List<Alerte> GetAllAlertes(){return alerteDao.GetAllAlertes();}
+    public List<Alerte> GetAllAlertes(String user_input){return alerteDao.GetAllAlertes(user_input);}
 
     public void SetAlerteChecked (Integer id_alerte, Boolean checked){ alerteDao.SetAlerteChecked(id_alerte, checked);}
 
