@@ -49,7 +49,7 @@ public class MdpOublieServlet extends PrivateServlet {
         }else{
             //   2) Send an email telling the actual password + Tell to change mdp at the first connexion
         UserManager.getInstance().SendEmailForgotPassword(email);
-        resp.sendRedirect("/PageConnexion");
+        resp.sendRedirect("/traderz_war/PageConnexion");
 
         }
     }

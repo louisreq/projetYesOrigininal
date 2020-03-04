@@ -63,9 +63,9 @@ public class AddFavoriServlet extends PrivateServlet {
         System.out.println("We just added Favorite \n" + principale_ou_secondaire + "\n for the room " + salle_id);
 
         if(user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/Liste_Favoris");
+            resp.sendRedirect("/traderz_war/Admin/Liste_Favoris");
         }else {
-            resp.sendRedirect("/Prive/Liste_Favoris");
+            resp.sendRedirect("/traderz_war/Prive/Liste_Favoris");
         }
     }
 }

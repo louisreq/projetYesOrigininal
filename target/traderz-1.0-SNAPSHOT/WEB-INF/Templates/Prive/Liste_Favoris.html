@@ -12,10 +12,10 @@
     <!--    <link rel="stylesheet" type="text/css" href="css_for_all.css">-->
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg static-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="../../../IMG/logo3.png" alt="">
+                <img class="logo3" src="../IMG/logo3.png" alt="">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
 
     <title>YIIAQ</title>
 </head>
-<body>
+<body style="background-color: whitesmoke">
 <div class="tab-content">
     <div class="tab-pane active" id="inbox">
 
@@ -173,39 +173,26 @@
 </body>
 <style>
 
-    .fa-heart-o{
-        border-radius: 50%;
-        background:#b4b4b4;
+    #aa{
+        background-color: steelblue;
     }
-    .fa-heart-o:hover{
-        background: #ffb3ba;
-    }
-    .fa-heart-on{
-        background: #ffb3ba;
-
-    }
-    .fa-heart-on:hover{
-        border-radius: 50%;
-        background:#b4b4b4;
-    }
-
-
-    p {
+    p  {
         font-size: 17px
     }
     legend{
         font-size: 25px
     }
 
+    .logo3
+    {
+        width: 70%;
+    }
+
     .image
     {
-
-
         width: 100%;
         border-radius: 20px;
         border:2px lightgrey solid;
-
-
     }
     .image1
     {
@@ -303,10 +290,10 @@
     }
 
 
-    /*.navbar {
-      overflow: hidden;
-     background-color: #333;
-    }*/
+    .navbar {
+        /*overflow: hidden;*/
+        background-color: #0DA2E0;
+    }
 
     .navbar a {
         float: left;
@@ -445,11 +432,31 @@
     .hover02 a:hover img {
         width: 350px;
     }
+    .hover03 a img {
 
+        height: auto;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover03 a:hover img {
+        width: 280px;
+    }
     .bouton{
         height: 40px;
         line-height: 10px;
+        margin: 1px;
+
 
     }
+
+
+    .bouton{
+        height: 37px;
+        line-height: 10px;
+        /* margin: 1px;*/
+
+
+    }
+
 </style>
 </html>

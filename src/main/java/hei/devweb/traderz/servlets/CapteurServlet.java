@@ -98,10 +98,11 @@ public class CapteurServlet extends PrivateServlet {
         System.out.println(text_searched);
         if(!text_searched.equals("")){
             req.getSession().setAttribute("user_searched_from_salle", text_searched);
-            resp.sendRedirect("/Admin/Home");
+            resp.sendRedirect("/traderz_war/Admin/Home");
 
         }else{
-            if(form_submitted.equals("Ajouter une localisation à un capteur")){
+            System.out.println("\n\nVoici le formulaire retourné \t ----> \t " + form_submitted);
+            if(form_submitted.equals("Ajouter une localisation du capteur")){
                 // Modal Ajout Localisation à un Capteur
                 String id_salle_selected_add_localisation = (req.getParameter("salle_add_localisation") != null ? req.getParameter("salle_add_localisation") : "");
                 String name_rasberry_add_localisation = (req.getParameter("rasberry_add_localisation") != null ? req.getParameter("rasberry_add_localisation") : "");
@@ -154,7 +155,7 @@ public class CapteurServlet extends PrivateServlet {
                 RasberryManager.getInstance().SetDateFinRasberrySalle(rasberry_location_remove);
                 System.out.println("We juste ended the localisation for the Rasberry : " + nom_rasberry_remove_localisation);
 
-            }else if(form_submitted.equals("Supprimer ce capteur Définitivement ?")){
+            }else if(form_submitted.equals("Supprimer ce capteur Definitivement ?")){
                 String nom_rasberry_remove = req.getParameter("nom_rasberry_remove");
                 Date date = new Date();
                 Timestamp datetime = new java.sql.Timestamp(date.getTime());
@@ -190,9 +191,9 @@ public class CapteurServlet extends PrivateServlet {
             }
 
             if(user.getRole().equals("admin")){
-                resp.sendRedirect("/Admin/Capteur");
+                resp.sendRedirect("/traderz_war/Admin/Capteur");
             }else {
-                resp.sendRedirect("/Prive/Capteur");
+                resp.sendRedirect("/traderz_war/Prive/Capteur");
             }
         }
 

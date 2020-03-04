@@ -65,9 +65,9 @@ public class CreateAlerteServlet extends PrivateServlet {
         System.out.println("We just added the message \n" + message + "\n for the room " + salle_id);
 
         if(user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/Historique_Alerte");
+            resp.sendRedirect("/traderz_war/Admin/Historique_Alerte");
         }else {
-            resp.sendRedirect("/Prive/Historique_Alerte");
+            resp.sendRedirect("/traderz_war/Prive/Historique_Alerte");
         }
     }
 }

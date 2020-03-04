@@ -13,11 +13,11 @@
 
     <title>YIIAQ</title>
 </head>
-<body>
+<body style="background-color: whitesmoke">
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+            <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -228,7 +228,7 @@
             <section class="row">
 
                 <div class="col-xs-6 col-sm-6 col-md-6 hover01 column" data-toggle="modal" data-target="#exampleModalLong"><a>
-                    <img src="../../../IMG/hot_v3.png"  alt="Temperature" align="right"></a>
+                    <img src="../IMG/hot_v3.png"  alt="Temperature" align="right"></a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
@@ -251,7 +251,7 @@
             <section class="row">
 
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_img hover01" data-toggle="modal" data-target="#exampleModalLong"><a>
-                    <img src="../../../IMG/humidity_v3.png" alt="Humidity" align="right">
+                    <img src="../IMG/humidity_v3.png" alt="Humidity" align="right">
                 </a></div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
@@ -544,76 +544,6 @@
 
 
 <style>
-    .required
-    {
-        color: red;
-    }
-    .mail-message-preview{
-        text-overflow: ellipsis;
-    }
-    .wrapper {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        min-height: 100%;
-        padding: 20px;
-        text-align: center;}
-
-
-    input[type=submit], input[type=reset]{
-        background-color: #4C4B4A;
-        border: none;
-        color: white;
-        padding: 15px 80px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        text-transform: uppercase;
-        font-size: 13px;
-        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-        -webkit-border-radius: 5px 5px 5px 5px;
-        border-radius: 5px 5px 5px 5px;
-        margin: 5px 20px 40px 20px;
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-    }
-
-
-    input[type=text], select, option {
-        background-color: #f6f6f6;
-        border: none;
-        color: #0d0d0d;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 5px;
-        width: 85%;
-        border: 2px solid #f6f6f6;
-        -webkit-transition: all 0.5s ease-in-out;
-        -moz-transition: all 0.5s ease-in-out;
-        -ms-transition: all 0.5s ease-in-out;
-        -o-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-        -webkit-border-radius: 5px 5px 5px 5px;
-        border-radius: 5px 5px 5px 5px;
-    }
-
-    input[type=text]:focus {
-        background-color: #fff;
-        border-bottom: 2px solid #5fbae9;
-    }
-
-    input[type=text]::placeholder {
-        color: #cccccc;
-    }
 
     #aa{
         background-color: steelblue;
@@ -632,13 +562,9 @@
 
     .image
     {
-
-
         width: 100%;
         border-radius: 20px;
         border:2px lightgrey solid;
-
-
     }
     .image1
     {
@@ -737,6 +663,7 @@
 
 
     .navbar {
+        /*overflow: hidden;*/
         background-color: #0DA2E0;
     }
 
@@ -874,9 +801,26 @@
         -webkit-transition: .3s ease-in-out;
         transition: .3s ease-in-out;
     }
-    .hover02 a:hover img {:wq
-    width: 350px;
+    .hover02 a:hover img {
+        width: 350px;
     }
+    .hover03 a img {
+
+        height: auto;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover03 a:hover img {
+        width: 280px;
+    }
+    .bouton{
+        height: 40px;
+        line-height: 10px;
+        margin: 1px;
+
+
+    }
+
 
     .bouton{
         height: 37px;

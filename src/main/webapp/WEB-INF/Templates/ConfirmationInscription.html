@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        function sendEmail() {
+            var email = '[[${mail}]]';
+            var mail = email.substring(1, email.length-1);
+            console.log(email);
+            console.log(mail);
+                Email.send({
+                    Host: "smtp.office365.com",
+                    Username : "yassir.boulhanni@hei.yncrea.fr",
+                    Password : "ehhypjd3",
+                    To : mail,
+                    From : "yassir.boulhanni@hei.yncrea.fr",
+                    Subject : "inscription",
+                    Body : "votre inscription est bien enregistré"
+
+                })
+                    .then(function(message){
+                        alert("mail sent successfully")
+                    });
+            }
+
+            /*<![CDATA[*/
+
+            window.onload = function(){
+                document.getElementById("bouton_envoie_confirmation_email").click();
+                window.location.href = "PageConnexion";
+            };
+            /*]]>*/
+
+    </script>
+</head>
+<body>
+
+<form method="get">
+    <input type="button" id="bouton_envoie_confirmation_email" value="Send Email" onclick="sendEmail()"/>
+</form>
+
+</body>
+</html>

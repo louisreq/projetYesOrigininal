@@ -49,6 +49,15 @@ public class SalleServlet extends PrivateServlet{
         context.setVariable("selected_salle", selected_salle );
         context.setVariable("campus_with_the_selected_salle", campus_with_the_selected_salle);
         context.setVariable("ajouter_ou_supprimer", ajouter_ou_supprimer);
+
+        Date date = new Date();
+        String today= new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+        String debut_graph_date = ((debut_graph_date = req.getParameter("debut_graph_date")) != null) ? debut_graph_date : today;
+        String debut_graph_heure = ((debut_graph_heure = req.getParameter("debut_graph_heure")) != null) ? debut_graph_heure : "08:00";
+
+        String fin_graph_date = ((fin_graph_date = req.getParameter("fin_graph_date")) != null) ? fin_graph_date : today;
+        String fin_graph_heure = ((fin_graph_heure = req.getParameter("fin_graph_heure")) != null) ? fin_graph_heure : "20:00";
         for (Salle salle : campus_with_the_selected_salle.getList_salles()){
             System.out.println(salle.getBatiment_name());
         }
@@ -56,14 +65,14 @@ public class SalleServlet extends PrivateServlet{
         if (user.getRole().equals("admin")){
 //            On récupère les informations des dates de début et de fin pour les graphs
 
-            Date date = new Date();
-            String today= new SimpleDateFormat("yyyy-MM-dd").format(date);
-
-            String debut_graph_date = ((debut_graph_date = req.getParameter("debut_graph_date")) != null) ? debut_graph_date : today;
-            String debut_graph_heure = ((debut_graph_heure = req.getParameter("debut_graph_heure")) != null) ? debut_graph_heure : "08:00";
-
-            String fin_graph_date = ((fin_graph_date = req.getParameter("fin_graph_date")) != null) ? fin_graph_date : today;
-            String fin_graph_heure = ((fin_graph_heure = req.getParameter("fin_graph_heure")) != null) ? fin_graph_heure : "20:00";
+//            Date date = new Date();
+//            String today= new SimpleDateFormat("yyyy-MM-dd").format(date);
+//
+//            String debut_graph_date = ((debut_graph_date = req.getParameter("debut_graph_date")) != null) ? debut_graph_date : today;
+//            String debut_graph_heure = ((debut_graph_heure = req.getParameter("debut_graph_heure")) != null) ? debut_graph_heure : "08:00";
+//
+//            String fin_graph_date = ((fin_graph_date = req.getParameter("fin_graph_date")) != null) ? fin_graph_date : today;
+//            String fin_graph_heure = ((fin_graph_heure = req.getParameter("fin_graph_heure")) != null) ? fin_graph_heure : "20:00";
 
             context.setVariable("debut_graph_date", debut_graph_date);
             context.setVariable("debut_graph_heure", debut_graph_heure);
@@ -79,7 +88,8 @@ public class SalleServlet extends PrivateServlet{
             TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
             templateEngine.process("/WEB-INF/Templates/Admin/salle", context, resp.getWriter());
         }else{
-            JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature();
+
+            JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure);
             context.setVariable("array_of_temperature", array_of_temperature);
 
             Capteur actual_humidity_and_temperature = CapteurManager.getInstance().GetActualTempAndHumidity();
@@ -108,9 +118,9 @@ public class SalleServlet extends PrivateServlet{
         if(!text_searched.equals("")){
             req.getSession().setAttribute("user_searched_from_salle", text_searched);
             if(user.getRole().equals("admin")){
-                resp.sendRedirect("/Admin/Home");
+                resp.sendRedirect("/traderz_war/Admin/Home");
             }else {
-                resp.sendRedirect("/Prive/Home");
+                resp.sendRedirect("/traderz_war/Prive/Home");
             }
         }else{
 
@@ -127,9 +137,9 @@ public class SalleServlet extends PrivateServlet{
 //        AlerteManager.getInstance().AddAlerte(datetime, message, user.getIdUser(), Integer.parseInt(salle_id), titre);
 
         if(user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/Salle?id_selected_salle=" + salle_id);
+            resp.sendRedirect("/traderz_war/Admin/Salle?id_selected_salle=" + salle_id);
         }else {
-            resp.sendRedirect("/Prive/Salle?id_selected_salle=" + salle_id);
+            resp.sendRedirect("/traderz_war/Prive/Salle?id_selected_salle=" + salle_id);
         }
     }
     }

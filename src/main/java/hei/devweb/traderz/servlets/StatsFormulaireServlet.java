@@ -11,7 +11,7 @@ import hei.devweb.traderz.managers.UserManager;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;

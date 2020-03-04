@@ -21,7 +21,7 @@ public class CapteurDaoImpl implements CapteurDao {
                 "\ts.time_info_collected as time_info_collected,\n" +
                 "    s.temperature,\n" +
                 "    s.humid\n" +
-                "FROM yes_3024.sensors as s\n" +
+                "FROM sensors as s\n" +
                 "ORDER BY s.time_info_collected DESC\n" +
                 "LIMIT 1\n";
 
@@ -93,7 +93,7 @@ public class CapteurDaoImpl implements CapteurDao {
         Capteur capteur_actuel = null;
 
         String query = "SELECT * \n" +
-                "FROM yes_3024.sensors as s\n" +
+                "FROM sensors as s\n" +
                 "ORDER BY s.time_info_collected DESC\n" +
                 "LIMIT 1\n";
 

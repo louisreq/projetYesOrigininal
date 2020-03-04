@@ -40,15 +40,14 @@ public class Formulaire14Servlet extends PrivateServlet {
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
 
-        String retour_suivant = req.getParameter("retour_suivant");
+        String valider_formulaire = (req.getParameter("valider_formulaire") != null ? req.getParameter("valider_formulaire") : "");
 
-        System.out.println(" Retour ou suivant ? -> " + retour_suivant);
-        String template_to_load;
+        System.out.println(" valider_formulaire ? -> " + valider_formulaire);
+        String template_to_load = "";
 
         // Set template to load
-        if(retour_suivant.equals("Retour")){
-                template_to_load = "formulaire13";
-        } else{
+        if(!valider_formulaire.equals("")){
+
 //~~~~~~~~~~~~~~~~     GET ALL ATTRIBUTES FROM PREVIOUS PAGES      ~~~~~~~~~~~~~~~~~~
 //            Page 1
             Integer homme_femme = (Integer) req.getSession().getAttribute("homme_femme");
@@ -214,9 +213,9 @@ public class Formulaire14Servlet extends PrivateServlet {
         }
 
         if (user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/" + template_to_load);
+            resp.sendRedirect("/traderz_war/Admin/" + template_to_load);
         }else{
-            resp.sendRedirect("/Prive/" + template_to_load);
+            resp.sendRedirect("/traderz_war/Prive/" + template_to_load);
         }
     }
 }

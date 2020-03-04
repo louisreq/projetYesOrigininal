@@ -20,11 +20,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.js" rel="stylesheet">
     <title>YIIAQ</title>
 </head>
-<body>
+<body style="background-color: whitesmoke">
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+            <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,7 +143,7 @@
                     <th>Salle</th>
                     <th>Etage</th>
                     <th>Nom Capteur</th>
-                    <th>Emplacement</th>
+                    <th>Etat et Emplacement</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -263,7 +263,7 @@
                                 </div>
                             </select><span class="required">*</span>
                             <input type="text" id="Emplacement_New" class="fadeIn fourth" name="emplacement_add_localisation" placeholder="Emplacement (ex: Derrière la porte, Sur le mur de gauche)" required><span class="required">*</span>
-                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter une localisation à un capteur"> <!-- rediriger vers la page de connexion -->
+                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter une localisation du capteur"> <!-- rediriger vers la page de connexion -->
                         </form>
                     </div>
 
@@ -329,7 +329,7 @@
                             <form method="post" >
                                 <input type="hidden" class="fadeIn fourth" name="nom_rasberry_remove" th:value="${mapping_id_and_name_rasberry.get(key)}" required>
 
-                                <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Supprimer ce capteur Définitivement ?"> <!-- rediriger vers la page de connexion -->
+                                <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Supprimer ce capteur Definitivement ?"> <!-- rediriger vers la page de connexion -->
                             </form>
                         </div>
 

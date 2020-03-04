@@ -4,7 +4,7 @@ import hei.devweb.traderz.dao.AlerteDao;
 import hei.devweb.traderz.dao.DataSourceProvider;
 import hei.devweb.traderz.entities.Alerte;
 
-import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -106,9 +106,10 @@ public class AlerteDaoImpl implements AlerteDao {
                 "INNER JOIN etage ON (salle.etage_id = etage.id)\n" +
                 "INNER JOIN batiment ON (etage.batiment_id = batiment.id)\n" +
                 "INNER JOIN campus ON (batiment.campus_id = campus.id)\n" +
-                "WHERE \n" +
+                "WHERE 1=1 \n" +
                 QueryLikeStatement
                 ;
+        System.out.println(query);
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
 

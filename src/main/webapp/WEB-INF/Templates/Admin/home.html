@@ -17,12 +17,12 @@
 
     <title>YIIAQ</title>
 </head>
-<body>
+<body style="background-color: whitesmoke">
 
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="logo3" src="../../../IMG/logo3.png" alt="">
+            <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,6 +108,26 @@
 
     </div>
 
+    <br>
+    <br>
+
+    <!-- IMAGE POUR ATTIRER LES USERS A REPONDRE AU QUESTIONNAIRE  -->
+    <div class="row ">
+        <div class=" col-md-4">
+            <span style="font-size: 120%;text-align: justify;">Si vous souhaitez nous aider à ameliorer la qualité de l'air interieur de vos salles, repondez à ce formulaire et dites nous ce qu'est pour vous une atmosphere agreable.</span>
+        </div>
+        <div class=" col-md-4">
+            <div class="hover03" style="margin-left: auto;margin-right: auto;width: 70%;">
+                <a href="formulaire"> <img class="image" src="../IMG/questionnaireaccueil.jpg"> </a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
     <div class="row">
         <!-- Search form -->
         <div class="active-cyan-10 mb-10 col-md-10">
@@ -160,9 +180,9 @@
 
     <!-- Select your Campus -->
     <div class="row ">
-        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='HEI'"> <img class="image" src="../../../IMG/home1.PNG" alt="HEI_Lille"> </a> </div>
-        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='ISEN'"><img class="image" src="../../../IMG/home4.PNG" alt="ISEN_Lille"></a> </div>
-        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='ISA'"> <img class="image" src="../../../IMG/home3.PNG" alt="ISA_Lille"> </a> </div>
+        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='HEI'"> <img class="image" src="../IMG/home1.PNG" alt="HEI_Lille"> </a> </div>
+        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='ISEN'"><img class="image" src="../IMG/home4.PNG" alt="ISEN_Lille"></a> </div>
+        <div class="col-xs-3 col-md-3 col-lg-4 hover02 column"> <a href="Home?campus_selected='ISA'"> <img class="image" src="../IMG/home3.PNG" alt="ISA_Lille"> </a> </div>
 
     </div>
 
@@ -189,13 +209,9 @@
 
     .image
     {
-
-
         width: 100%;
         border-radius: 20px;
         border:2px lightgrey solid;
-
-
     }
     .image1
     {
@@ -435,6 +451,23 @@
     .hover02 a:hover img {
         width: 350px;
     }
+    .hover03 a img {
+
+        height: auto;
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .hover03 a:hover img {
+        width: 280px;
+    }
+    .bouton{
+        height: 40px;
+        line-height: 10px;
+        margin: 1px;
+
+
+    }
+
 
     .bouton{
         height: 37px;

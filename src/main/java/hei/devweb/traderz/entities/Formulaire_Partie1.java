@@ -1,6 +1,6 @@
 package hei.devweb.traderz.entities;
 
-import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Timestamp;
 
 public class Formulaire_Partie1 {

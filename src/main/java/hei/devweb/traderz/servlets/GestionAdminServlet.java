@@ -53,7 +53,7 @@ public class GestionAdminServlet extends PrivateServlet {
         System.out.println(text_searched);
         if(!text_searched.equals("")){
             req.getSession().setAttribute("user_searched_from_salle", text_searched);
-            resp.sendRedirect("/Admin/Home");
+            resp.sendRedirect("/traderz_war/Admin/Home");
 
         }else{
 
@@ -86,7 +86,7 @@ public class GestionAdminServlet extends PrivateServlet {
 
 
 
-        resp.sendRedirect("/Admin/Gestion_Admin");
+        resp.sendRedirect("/traderz_war/Admin/Gestion_Admin");
     }
     }
 }

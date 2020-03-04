@@ -11,12 +11,12 @@ public class DeconnexionServlet extends PrivateServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().removeAttribute("user_connected_email");
-        resp.sendRedirect("/PageConnexion");
+        resp.sendRedirect("/traderz_war/PageConnexion");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().setAttribute("user_connected_email", null);
-        resp.sendRedirect("/PageConnexion");
+        resp.sendRedirect("/traderz_war/PageConnexion");
     }
 }

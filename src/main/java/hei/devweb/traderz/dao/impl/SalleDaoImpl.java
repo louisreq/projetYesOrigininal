@@ -227,7 +227,7 @@ public class SalleDaoImpl implements SalleDao {
         return null;
     }
 
-    public JSONArray GetTemperature(){
+    public JSONArray GetTemperature(String date_debut, String heure_debut, String date_fin, String heure_fin){
 
         //Creating a JSONObject object
 //        JSONObject jsonObject = new JSONObject();
@@ -238,7 +238,10 @@ public class SalleDaoImpl implements SalleDao {
                 "\ts.time_info_collected as time_info_collected,\n" +
                 "    s.temperature,\n" +
                 "    s.humid\n" +
-                "FROM yes_3024.sensors as s";
+                "FROM sensors as s\n" +
+                "WHERE s.time_info_collected >= '" + date_debut + " " + heure_debut + "'" +
+                "\nAND s.time_info_collected <= '" + date_fin + " " + heure_fin + "'";
+        ;
 
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {

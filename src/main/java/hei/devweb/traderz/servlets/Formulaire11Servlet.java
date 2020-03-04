@@ -69,9 +69,9 @@ public class Formulaire11Servlet extends PrivateServlet {
         System.out.println(" Retour ou suivant ? -> " + retour_suivant + " " + template_to_load);
 
         if (user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/" + template_to_load);
+            resp.sendRedirect("/traderz_war/Admin/" + template_to_load);
         }else{
-            resp.sendRedirect("/Prive/" + template_to_load);
+            resp.sendRedirect("/traderz_war/Prive/" + template_to_load);
         }
     }
 }

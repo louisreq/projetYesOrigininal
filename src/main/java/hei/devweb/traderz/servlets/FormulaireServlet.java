@@ -39,9 +39,9 @@ public class FormulaireServlet extends PrivateServlet{
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
 
         if(user.getRole().equals("admin")){
-            resp.sendRedirect("/Admin/formulaire1");
+            resp.sendRedirect("/traderz_war/Admin/formulaire1");
         }else {
-            resp.sendRedirect("/Prive/formulaire1");
+            resp.sendRedirect("/traderz_war/Prive/formulaire1");
         }
     }
 }

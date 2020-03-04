@@ -1,6 +1,5 @@
 package hei.devweb.traderz.entities;
 
-import java.time.LocalDate;
 
 // Création d'un objet User
 public class User {
@@ -11,18 +10,8 @@ public class User {
     private String sexe;
     private String mdp;
     private String role;
+
 //  Constructeur de l'objet User
-
-    /**
-     * Constructeur de l'ojet User
-     * @param idUser id du user
-     * @param prenom du user
-     * @param nom du user
-     * @param mdp  password du user
-     * @param mail du user
-     * @param role (User or Admin)
-     */
-
 
     public User(Integer idUser,  String nom, String prenom, String mail, String sexe, String mdp, String role) {
         this.idUser = idUser;

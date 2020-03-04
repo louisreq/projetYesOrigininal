@@ -8,18 +8,299 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4e83fb-0a6d-408b-89fc-a7a7684fb6b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/traderz_war2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/traderz_war3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/IndexServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/IMG/questionnaireaccueil.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/ConfirmationInscription.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/visualisation_questionnaire.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/logo3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/logo30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/prettyPhoto.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/20190930_221121.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/20190930_221128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/20190930_224055.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20180129_172300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20180129_172316.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20180129_172333.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_113353.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_132356.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_141452.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_141501.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_141512.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_141521.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190916_141534.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190930_220919.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190930_220942.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190930_221021.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190930_224439.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20190930_224446.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20191014_201511 (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_111132.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_115151.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_115636.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_115640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_115645.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/IMG_20200127_115655.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/act.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/alerte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/analyse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/bg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/bg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/bg4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/collect.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/contact.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/formulaire.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/hei.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/loupe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/loupe1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/partners/partner_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/full/item9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/portfolio/recent/item9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/contentPattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_rounded/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/contentPattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/dark_square/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/default_thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/sprite_next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/sprite_prev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/sprite_x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/default/sprite_y.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/contentPatternBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/contentPatternLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/contentPatternRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/contentPatternTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/facebook/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_rounded/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_rounded/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_rounded/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_rounded/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_rounded/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_square/btnNext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_square/btnPrevious.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_square/default_thumbnail.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_square/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/prettyPhoto/light_square/sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/propose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/sauvegarder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/slider/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/slider/img3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/temp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/images/water.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/html5shiv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/jquery-migrate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/jquery.isotope.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/jquery.prettyPhoto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/js/wow.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/DataSourceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/DataSourceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/SalleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/SalleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/AlerteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/dao/impl/AlerteDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/Formulaire14Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/Formulaire14Servlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageInscriptionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hei/devweb/traderz/servlets/PageInscriptionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/creationTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/sql/creationTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_alerte.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_batiment.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_campus.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_capteur.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_capteur_type.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_etage.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_fos_user.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_personne.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_personne_data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_questionnaire.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_salle.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_seuil.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/sql/yes_3024_type.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Add_Favori.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Add_Favori.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Capteurs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Capteurs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Create_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Create_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Gestion_Admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Gestion_Admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Historique_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Historique_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Liste_Favoris.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Liste_Favoris.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire11.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire12.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire13.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire14.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire5.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire6.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire7.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire8.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire9.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/Questionnaire/formulaire9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/alertes_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/alertes_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Admin/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageConnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageConnexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageInscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/PageInscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Add_Favori.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Add_Favori.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Create_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Create_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Historique_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Historique_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Liste_Favoris.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Liste_Favoris.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire11.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire12.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire13.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire14.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire5.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire6.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire7.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire8.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire9.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire/formulaire9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/AlerteDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/AlerteDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/DataSourceProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/DataSourceProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/AlerteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/managers/AlerteManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/PageInscriptionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hei/devweb/traderz/servlets/PageInscriptionServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Add_Favori.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Add_Favori.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Capteurs.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Capteurs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Create_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Create_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Gestion_Admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Gestion_Admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Historique_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Historique_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Liste_Favoris.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Liste_Favoris.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire11.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire12.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire13.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire14.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire4.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire5.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire6.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire7.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire8.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire9.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/Questionnaire/formulaire9.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/alertes_utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/alertes_utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Admin/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/PageConnexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/PageConnexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/PageInscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/PageInscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Add_Favori.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Add_Favori.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Create_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Create_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Historique_Alerte.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Historique_Alerte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Liste_Favoris.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Liste_Favoris.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire1.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire10.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire11.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire12.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire13.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire14.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire3.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire4.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire5.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire6.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire7.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire8.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire9.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/Questionnaire/formulaire9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/salle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/Templates/Prive/salle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/AlerteDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/AlerteDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/DataSourceProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/DataSourceProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/dao/impl/AlerteDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/entities/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/AlerteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/managers/AlerteManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/AlerteUtilisateurServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/Formulaire14Servlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/PageInscriptionServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/classes/hei/devweb/traderz/servlets/PageInscriptionServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/traderz-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,22 +353,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/Templates/Prive/Questionnaire" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/IMG" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Prive\Questionnaire" />
-      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\IMG" />
-      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Admin" />
-      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Prive" />
-      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\IMG" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\IMG" />
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates" />
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Prive" />
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Prive\Questionnaire" />
+      <recent name="C:\Users\benoi\Documents\IntelliJIDEA\YES_Sandbox\src\main\webapp\WEB-INF\Templates\Admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -156,7 +437,7 @@
       <deployment>
         <artifact name="traderz:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="" />
+            <option name="CONTEXT_PATH" value="/traderz_war" />
           </settings>
         </artifact>
       </deployment>
@@ -295,7 +576,12 @@
       <workItem from="1582646862720" duration="2271000" />
       <workItem from="1582707443650" duration="26163000" />
       <workItem from="1582793019664" duration="22564000" />
-      <workItem from="1582969842494" duration="9842000" />
+      <workItem from="1582969842494" duration="10332000" />
+      <workItem from="1583092367821" duration="2535000" />
+      <workItem from="1583141170686" duration="14795000" />
+      <workItem from="1583226588374" duration="5402000" />
+      <workItem from="1583312704244" duration="9358000" />
+      <workItem from="1583322766561" duration="7076000" />
     </task>
     <servers />
   </component>

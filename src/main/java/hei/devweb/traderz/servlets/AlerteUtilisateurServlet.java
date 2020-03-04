@@ -28,11 +28,13 @@ public class AlerteUtilisateurServlet extends PrivateServlet {
 
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
+        //        Get element from the searching bar
+        String text_searched = (req.getParameter("text_searched_alerte") != null ? req.getParameter("text_searched_alerte") : "");
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
         context.setVariable("useronline", user );
 
-        List<Alerte> liste_alerte = AlerteManager.getInstance().GetAllAlertes();
+        List<Alerte> liste_alerte = AlerteManager.getInstance().GetAllAlertes(text_searched);
         List<Alerte> liste_checked_alerte = new ArrayList<>();
         List<Alerte> liste_unchecked_alerte = new ArrayList<>();
         for(Alerte alerte : liste_alerte){
@@ -51,6 +53,7 @@ public class AlerteUtilisateurServlet extends PrivateServlet {
         context.setVariable("liste_checked_alerte", liste_checked_alerte);
         context.setVariable("liste_unchecked_alerte", liste_unchecked_alerte);
         context.setVariable("mapping_id_salle_name", mapping_id_salle_name);
+        context.setVariable("text_searched", text_searched);
 
         TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
         templateEngine.process("/WEB-INF/Templates/Admin/alertes_utilisateur", context, resp.getWriter());
@@ -79,6 +82,6 @@ public class AlerteUtilisateurServlet extends PrivateServlet {
         System.out.println("We just switched checked  \n" + switch_checkbox + "\n for the alerte " + alerte_id);
 
 
-        resp.sendRedirect("/Admin/Alertes_Utilisateurs");
+        resp.sendRedirect("/traderz_war/Admin/Alertes_Utilisateurs");
     }
 }

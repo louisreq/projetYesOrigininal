@@ -54,6 +54,7 @@ public class PageInscriptionServlet extends PrivateServlet {
             System.out.println("- Email = " + mail + "\n- sexe = " + sexe +"\n- Role = " + role);
             System.out.println("- Password1 = " + password + "\n- Password2 = " + confirmPassword);;
         } catch (NumberFormatException | DateTimeParseException ignored) {
+            System.out.println("Why Am I  here ??");
         }
 
         Integer idUser = null;
@@ -62,18 +63,31 @@ public class PageInscriptionServlet extends PrivateServlet {
         try{
             if (password.equals(confirmPassword)) {
                 System.out.println("Password confirmed");
-                if (!isEmailTaken) {
-                    System.out.println("Email is available");
-                    User createdUser = UserManager.getInstance().addUser(newUser);
-                    resp.sendRedirect("/PageConnexion");
+                if(mail.contains("@yncrea.fr") || mail.contains("@hei.yncrea.fr") || mail.contains("@isa.yncrea.fr") || mail.contains("@isen.yncrea.fr")){
+                    if (!isEmailTaken) {
+                        System.out.println("Email is available");
+                        User createdUser = UserManager.getInstance().addUser(newUser);
+
+                        WebContext context = new WebContext (req, resp, req.getServletContext());
+
+                        context.setVariable("mail", mail);
+
+                        TemplateEngine templateEngine = createTemplateEngine(req.getServletContext());
+                        templateEngine.process("/WEB-INF/Templates/ConfirmationInscription", context, resp.getWriter());
+                    } else {
+                        System.out.println("Email not available");
+                        errorMessage = "Wrong characters";
+                        resp.sendRedirect("/traderz_war/PageInscription");
+                    }
                 } else {
-                    System.out.println("Email not evailable");
-                    errorMessage = "Wrong characters";
-                    resp.sendRedirect("/PageInscription");
+                    System.out.println("The email do not have a proper format. It must be an 'yncrea' address");
+                    resp.sendRedirect("/traderz_war/PageInscription");
                 }
             }
+
         }catch (Exception e ) {
             errorMessage = e.getMessage();
+            System.out.println(errorMessage);
         }
     }
 }

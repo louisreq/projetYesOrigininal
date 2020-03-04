@@ -29,9 +29,9 @@ public class PageConnexionServlet extends PrivateServlet {
         }else {
             User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
             if(user.getRole().equals("admin")){
-                resp.sendRedirect("/Admin/Home");
+                resp.sendRedirect("/traderz_war/Admin/Home");
             }else {
-                resp.sendRedirect("/Prive/Home"); // l'utilisateur est connecté
+                resp.sendRedirect("/traderz_war/Prive/Home"); // l'utilisateur est connecté
             }
         }
 
@@ -50,9 +50,9 @@ public class PageConnexionServlet extends PrivateServlet {
                 req.getSession().setAttribute("user_connected_email", email);
                 User user = UserManager.getInstance().CreateUserFromEmail(email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
                 if(user.getRole().equals("admin")){
-                    resp.sendRedirect("/Admin/Home");
+                    resp.sendRedirect("/traderz_war/Admin/Home");
                 }else {
-                    resp.sendRedirect("/Prive/Home"); // l'utilisateur est connecté
+                    resp.sendRedirect("/traderz_war/Prive/Home"); // l'utilisateur est connecté
                 }
             } else {
                 errorMessage = "Wrong password!";
