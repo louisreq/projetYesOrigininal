@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="Home">
             <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
@@ -97,24 +97,40 @@
             <h1 class="mt-4">Yncréa Intelligence Indoor Air Quality</h1>
             <p></p>
             <p></p>
-            <blockquote class="blockquote">
+            <blockquote class="blockquote" style="text-align: justify;">
                 <p>
-                    Bienvenu sur la plateforme Yncréa Indoor Air Quality. Vous pourrez ici trouver des infomrations sur la qualité de l'air dans les salles selon différents critères. Le taux d'humidité, concentration en carbon etc...
-                    La recherche de la salle peut se faire directement sur la barre de recherche, ou bien en cliquant sur les logo de ton campus
+                    Dans le cadre de la chaire SBnodesSG, l’équipe de recherches à Yncréa HDF- HEI travaille sur la Qualité de l’Air Intérieur (QAI) et l’amélioration du confort dans les espaces de travail. Pour ce faire, un smart capteur a été développé pour permettre un pilotage intelligent du système de ventilation. À savoir, ce capteur mesure des polluants atmosphériques et des conditions de confort (CO2, CO, formaldéhyde, benzène, toluène, particules fines PM2,5, température, humidité, niveau sonore et l’éclairage des locaux).
                 </p>
-                <footer class="blockquote-footer">Thierry OCCRE</footer>
+                <p>
+                    Afin de faciliter la visualisation de mesures des capteurs, la plateforme “Yncréa Intelligence Indoor Air Quality” a été créée. En plus d’avertir et afficher en temps réel la QAI, cette application vous donne la possibilité de répondre sur un questionnaire pour savoir votre perception vis-à-vis de la QAI et du confort des espaces que vous occupez. De plus, grâce à cette application vous pouvez remonter des alertes, ce qui permet aux gestionnaires du bâtiment d’agir en temps réel.
+                </p>
+
             </blockquote>
         </section>
-
+    </div>
+    <div class="row">
+        <section class="col-lg-2 col-md-2">
+        </section>
+        <section class="col-lg-3 col-md-3">
+            <img src="../IMG/SBnodesSG.jpg" style="width: 90%;">
+        </section>
+        <section class="col-lg-3 col-md-3">
+            <figure>
+                <img src="../IMG/capteur.jpg" style="width: 90%;">
+                <figcaption style="font-family: 'Bell MT'; padding-left: 12px;"><b>Smart Capteur QAI et confort</b></figcaption>
+            </figure>
+        </section>
     </div>
 
+    <br>
+    <br>
     <br>
     <br>
 
     <!-- IMAGE POUR ATTIRER LES USERS A REPONDRE AU QUESTIONNAIRE  -->
     <div class="row ">
         <div class=" col-md-4">
-            <span style="font-size: 120%;text-align: justify;">Si vous souhaitez nous aider à ameliorer la qualité de l'air interieur de vos salles, repondez à ce formulaire et dites nous ce qu'est pour vous une atmosphere agreable.</span>
+            <span style="font-size: 120%;text-align: justify;">Si vous souhaitez nous aider à améliorer la qualité de l'air interieur de vos salles, répondez à ce formulaire et dites nous ce qu'est pour vous une atmosphère agréable !</span>
         </div>
         <div class=" col-md-4">
             <div class="hover03" style="margin-left: auto;margin-right: auto;width: 70%;">
@@ -137,7 +153,10 @@
         </div>
     </div>
 
-
+    <br>
+    <br>
+<!--    1er etage-->
+<!--    2ème etage-->
     <div class="row form-group">
         <!-- TABLE HEI -->
         <table class="table table-hover" th:each="campus:${liste_campus}">

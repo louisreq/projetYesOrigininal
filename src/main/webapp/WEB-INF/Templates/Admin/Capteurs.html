@@ -23,7 +23,7 @@
 <body style="background-color: whitesmoke">
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="Home">
             <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
@@ -263,7 +263,7 @@
                                 </div>
                             </select><span class="required">*</span>
                             <input type="text" id="Emplacement_New" class="fadeIn fourth" name="emplacement_add_localisation" placeholder="Emplacement (ex: Derrière la porte, Sur le mur de gauche)" required><span class="required">*</span>
-                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter une localisation du capteur"> <!-- rediriger vers la page de connexion -->
+                            <input type="submit" class="fadeIn seventh" name="Valider_formulaire" value="Ajouter la localisation du capteur"> <!-- rediriger vers la page de connexion -->
                         </form>
                     </div>
 
@@ -420,7 +420,7 @@
         text-align: center;}
 
 
-    input[type=submit], input[type=reset]{
+    .modal-body input[type=submit], .modal-body input[type=reset]{
         background-color: #4C4B4A;
         border: none;
         color: white;
@@ -443,7 +443,7 @@
     }
 
 
-    input[type=text], select, option {
+    .modal-body input[type=text], select, option {
         background-color: #f6f6f6;
         border: none;
         color: #0d0d0d;
@@ -464,12 +464,12 @@
         border-radius: 5px 5px 5px 5px;
     }
 
-    input[type=text]:focus {
+    .modal-body input[type=text]:focus {
         background-color: #fff;
         border-bottom: 2px solid #5fbae9;
     }
 
-    input[type=text]::placeholder {
+    .modal-body input[type=text]::placeholder {
         color: #cccccc;
     }
     .fa-heart-o{

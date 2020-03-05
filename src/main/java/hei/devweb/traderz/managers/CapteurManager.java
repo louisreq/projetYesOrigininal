@@ -19,7 +19,7 @@ public class CapteurManager {
 
     public Capteur GetActualTempAndHumidity(){return capteurDao.GetActualTempAndHumidity();}
 
-    public JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin){return capteurDao.GetAllSensorsInfoWithDates(date_debut, heure_debut, date_fin, heure_fin);}
+    public JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin, Integer id_salle){return capteurDao.GetAllSensorsInfoWithDates(date_debut, heure_debut, date_fin, heure_fin, id_salle);}
 
     public Capteur GetActualAllSensorsInfo(){return capteurDao.GetActualAllSensorsInfo();}
 

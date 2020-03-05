@@ -198,3 +198,14 @@ AND NOT EXISTS(
 	AND c2.id = 1
     AND s1.id = s2.id
 )
+
+
+
+
+SELECT
+    *
+FROM sensors s
+INNER JOIN capteur c ON (s.id_rasberry = c.id)
+INNER JOIN capteur_salle cs ON (c.nom_capteur = cs.nom_capteur AND cs.date_debut < dateheurFIN AND (isnull(cs.date_fin) OR cs.date_fin > dateheureDEBUT) )
+
+WHERE cs.salle_id = id_de_notre_salle

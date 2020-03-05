@@ -79,7 +79,7 @@ public class SalleServlet extends PrivateServlet{
             context.setVariable("fin_graph_date", fin_graph_date);
             context.setVariable("fin_graph_heure", fin_graph_heure);
 
-            JSONArray array_of_all_sensors_info = CapteurManager.getInstance().GetAllSensorsInfoWithDates(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure);
+            JSONArray array_of_all_sensors_info = CapteurManager.getInstance().GetAllSensorsInfoWithDates(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure, selected_salle.getId());
             context.setVariable("array_of_all_sensors_info", array_of_all_sensors_info);
 
             Capteur actual_sensors_info = CapteurManager.getInstance().GetActualAllSensorsInfo();
@@ -89,7 +89,12 @@ public class SalleServlet extends PrivateServlet{
             templateEngine.process("/WEB-INF/Templates/Admin/salle", context, resp.getWriter());
         }else{
 
-            JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure);
+            context.setVariable("debut_graph_date", debut_graph_date);
+            context.setVariable("debut_graph_heure", debut_graph_heure);
+            context.setVariable("fin_graph_date", fin_graph_date);
+            context.setVariable("fin_graph_heure", fin_graph_heure);
+
+            JSONArray array_of_temperature = SalleManager.getInstance().GetTemperature(debut_graph_date, debut_graph_heure, fin_graph_date, fin_graph_heure, selected_salle.getId());
             context.setVariable("array_of_temperature", array_of_temperature);
 
             Capteur actual_humidity_and_temperature = CapteurManager.getInstance().GetActualTempAndHumidity();

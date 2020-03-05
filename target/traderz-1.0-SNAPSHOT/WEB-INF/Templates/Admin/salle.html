@@ -17,7 +17,7 @@
 
 <nav class="navbar navbar-expand-lg static-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="Home">
             <img class="logo3" src="../IMG/logo3.png" alt="">
         </a>
 
@@ -155,6 +155,15 @@
             <span style="font-size: 20px;height:200px;vertical-align:text-top;line-height: 0px;">Ajouter au favori</span>
         </div>
     </div>
+    <br/>
+    <br/>
+
+    <!-- PARTIE EXTRAIRE LES DONNES SOUS FORMAT CSV -->
+    <section class="row">
+        <br/>
+        <p style="margin-top: 15px;"> Si vous souhaitez extraire les données capteurs dans un Excel sur ce laps de temps:</p>
+        <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin-left: 15px;" class="btn btn-secondary">Extraire</button>
+    </section>
 
     <!-- CSS POUR LES COEUR DES FAVORIS -->
     <style type="text/css">
@@ -238,7 +247,7 @@
                     </section>
 
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getLight()} + ' lux'">125lux</p>
+                        <p th:text="${actual_sensors_info.getLight()} + ' Lux'">125Lux</p>
                     </section>
                 </div>
 
@@ -262,7 +271,7 @@
                     </section>
 
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getDust() + ' ppb'}">0.11ppb</p>
+                        <p th:text="${actual_sensors_info.getDust() + ' µg/m3'}">0.11µg/m3</p>
                     </section>
                 </div>
 
@@ -284,10 +293,10 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
-                        <b>CO2</b>
+                        <b>Intensité Sonore</b>
                     </section>
                     <section class="row">
-                        <p th:text="${actual_sensors_info.getSound()} + ' Db'">53 Db</p>
+                        <p th:text="${actual_sensors_info.getSound()} + ' dB'">53 dB</p>
                     </section>
                 </div>
 
@@ -303,7 +312,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
-                        <b>Temp.</b>
+                        <b>Température</b>
                     </section>
 
                     <section class="row">
@@ -324,7 +333,7 @@
                 </a></div>
                 <div class="col-xs-6 col-sm-6 col-md-6 logo_text">
                     <section class="row">
-                        <b>Hum.</b>
+                        <b>Humidité</b>
                     </section>
 
                     <section class="row">
@@ -373,7 +382,7 @@
                     </section>
 
                     <section class="row">
-                        <p>450 ppm</p>
+                        <p th:text="${#numbers.formatDecimal(actual_sensors_info.getCO(), 1, 3)} + ' ppm'">450 ppm</p>
                     </section>
                 </div>
 
@@ -393,7 +402,7 @@
                     </section>
 
                     <section class="row">
-                        <p>0,2 ppb</p>
+                        <p th:text="${actual_sensors_info.getLMG()} + ' ppb'">0,2 ppb</p>
                     </section>
                 </div>
 
@@ -417,11 +426,11 @@
 
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <section class="row">
-                        <b>Tolu</b>
+                        <b>Toluène</b>
                     </section>
 
                     <section class="row">
-                        <p>450 ppm</p>
+                        <p th:text="${actual_sensors_info.getTolu()} + ' ppb'">450 ppb</p>
                     </section>
                 </div>
 
@@ -441,11 +450,11 @@
 
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <section class="row">
-                        <b>Formol</b>
+                        <b>Formaldéhyde</b>
                     </section>
 
                     <section class="row">
-                        <p>0.11 ppm</p>
+                        <p th:text="${#numbers.formatDecimal(actual_sensors_info.getFormol(), 1, 3)} + ' ppb'">0.11 ppb</p>
                     </section>
                 </div>
 
@@ -471,7 +480,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="temperatureModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="temperatureModalTitle" th:text="'Temperature en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Temperature en fonction du temps: </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -631,7 +640,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="humidityModalTitle">Humidité en fonction du temps:</h5>
+                    <h5 class="modal-title" id="humidityModalTitle" th:text="'Humidité en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Humidité en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -791,7 +800,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="co2ModalTitle">Concentration de CO2 en fonction du temps:</h5>
+                    <h5 class="modal-title" id="co2ModalTitle" th:text="'Concentration de CO2 en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Concentration de CO2 en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -953,7 +962,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="luminosityModalTitle">Evolution de la Luminosité en fonction du temps:</h5>
+                    <h5 class="modal-title" id="luminosityModalTitle" th:text="'Evolution de la Luminosité en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Evolution de la Luminosité en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1115,7 +1124,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="pm2_5ModalTitle">Concentration de Particules PM2.5 en fonction du temps:</h5>
+                    <h5 class="modal-title" id="pm2_5ModalTitle" th:text="'Concentration de Particules PM2.5 en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Concentration de Particules PM2.5 en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1273,7 +1282,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="decibelModalTitle">Evolution du son en fonction du temps:</h5>
+                    <h5 class="modal-title" id="decibelModalTitle"  th:text="'Evolution du son en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Evolution du son en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1435,7 +1444,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="monoxydeModalTitle">Temperature en fonction du temps:</h5>
+                    <h5 class="modal-title" id="monoxydeModalTitle" th:text="'Evolution du Monoxyde de Carbone en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Monoxyde de Carbone en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1597,7 +1606,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="benzeneModalTitle">Benzène en fonction du temps:</h5>
+                    <h5 class="modal-title" id="benzeneModalTitle" th:text="'Benzène en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Benzène en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1754,12 +1763,12 @@
 
     </script>
 
-    <!-- LA MODALE TOLU -->
+    <!-- LA MODALE TOLUENE -->
     <div class="modal fade" id="toluModal" tabindex="-1" role="dialog" aria-labelledby="toluModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="toluModalTitle">Toluène en fonction du temps:</h5>
+                    <h5 class="modal-title" id="toluModalTitle" th:text="'Toluène en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Toluène en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1921,7 +1930,7 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="formolModalTitle">Formol en fonction du temps:</h5>
+                    <h5 class="modal-title" id="formolModalTitle" th:text="'Formaldéhyde en fonction du temps: ' + ${debut_graph_date} + ' ' + ${debut_graph_heure} + '  ->  ' + ${fin_graph_date} + ' ' + ${fin_graph_heure}">Formol en fonction du temps:</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -2174,25 +2183,20 @@
     <section class="row">
         <div class="col-xs-4 col-sm-4 col-md-4">
 
-            Formule de la tangente:   <button class="formule"><i class="fa fa-flask"></i></button>
+            Indice d'efficacité de dépollution :   <button class="formule"><i class="fa fa-flask"></i></button>
         </div>
 
         <div class="col-xs-4 col-sm-4 col-md-4">
-            Formule de pythagore:   <button class="formule"><i class="fa fa-flask"></i></button>
+            Indice de la qualité de l'air intérieur : <button class="formule"><i class="fa fa-flask"></i></button>
         </div>
 
         <div class="col-xs-4 col-sm-4 col-md-4">
-            Formule de thales:   <button class="formule"><i class="fa fa-flask"></i></button>
+            Efficacité d'extraction de la chaleur : <button class="formule"><i class="fa fa-flask"></i></button>
         </div>
     </section>
 
     <br/> <br>
-    <!-- PARTIE EXTRAIRE LES DONNES SOUS FORMAT CSV -->
-    <section class="row">
-        <br/>
-        <p style="margin-top: 15px;"> Si vous souhaitez extraire les données capteurs dans un Excel sur ce laps de temps:</p>
-        <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin-left: 15px;" class="btn btn-secondary">Extraire</button>
-    </section>
+
 </div>
 
 <br/>

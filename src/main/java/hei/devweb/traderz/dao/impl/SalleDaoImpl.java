@@ -227,7 +227,7 @@ public class SalleDaoImpl implements SalleDao {
         return null;
     }
 
-    public JSONArray GetTemperature(String date_debut, String heure_debut, String date_fin, String heure_fin){
+    public JSONArray GetTemperature(String date_debut, String heure_debut, String date_fin, String heure_fin, Integer id_salle){
 
         //Creating a JSONObject object
 //        JSONObject jsonObject = new JSONObject();
@@ -239,10 +239,22 @@ public class SalleDaoImpl implements SalleDao {
                 "    s.temperature,\n" +
                 "    s.humid\n" +
                 "FROM sensors as s\n" +
+                "INNER JOIN capteur c ON (s.id_rasberry = c.id)\n" +
+                "INNER JOIN capteur_salle cs ON (c.nom_capteur = cs.nom_capteur" +
+                "                               AND cs.date_debut < '" + date_fin + " " + heure_fin + "'" +
+                "                               AND (isnull(cs.date_fin) OR cs.date_fin > '" + date_debut + " " + heure_debut + "')\n " +
+                "                               )\n" +
                 "WHERE s.time_info_collected >= '" + date_debut + " " + heure_debut + "'" +
-                "\nAND s.time_info_collected <= '" + date_fin + " " + heure_fin + "'";
+                "\nAND s.time_info_collected <= '" + date_fin + " " + heure_fin + "'" +
+                "\n AND cs.salle_id = " + id_salle ;
         ;
-
+//        SELECT
+//                *
+//                FROM sensors s
+//        INNER JOIN capteur c ON (s.id_rasberry = c.id)
+//        INNER JOIN capteur_salle cs ON (c.nom_capteur = cs.nom_capteur AND cs.date_debut < dateheurFIN AND (isnull(cs.date_fin) OR cs.date_fin > dateheureDEBUT) )
+//
+//        WHERE cs.salle_id = id_de_notre_salle
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
             System.out.println(statement);

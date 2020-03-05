@@ -48,15 +48,21 @@ public class CapteurDaoImpl implements CapteurDao {
         return  capteur_actuel;
     }
 
-    public JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin){
+    public JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin, Integer id_salle){
 
 
         JSONArray array = new JSONArray();
         String query = "SELECT * \n" +
                 "FROM sensors s\n" +
-                "\n" +
+                "INNER JOIN capteur c ON (s.id_rasberry = c.id)\n" +
+                "INNER JOIN capteur_salle cs ON (c.nom_capteur = cs.nom_capteur" +
+                "                               AND cs.date_debut < '" + date_fin + " " + heure_fin + "'" +
+                "                               AND (isnull(cs.date_fin) OR cs.date_fin > '" + date_debut + " " + heure_debut + "')\n " +
+                "                               )\n" +
                 "WHERE s.time_info_collected >= '" + date_debut + " " + heure_debut + "'" +
-                "\nAND s.time_info_collected <= '" + date_fin + " " + heure_fin + "'";
+                "\nAND s.time_info_collected <= '" + date_fin + " " + heure_fin + "'" +
+                "\n AND cs.salle_id = " + id_salle ;
+
 
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {

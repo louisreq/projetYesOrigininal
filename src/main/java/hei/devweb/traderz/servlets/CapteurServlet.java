@@ -102,7 +102,7 @@ public class CapteurServlet extends PrivateServlet {
 
         }else{
             System.out.println("\n\nVoici le formulaire retourné \t ----> \t " + form_submitted);
-            if(form_submitted.equals("Ajouter une localisation du capteur")){
+            if(form_submitted.equals("Ajouter la localisation du capteur")){
                 // Modal Ajout Localisation à un Capteur
                 String id_salle_selected_add_localisation = (req.getParameter("salle_add_localisation") != null ? req.getParameter("salle_add_localisation") : "");
                 String name_rasberry_add_localisation = (req.getParameter("rasberry_add_localisation") != null ? req.getParameter("rasberry_add_localisation") : "");

@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 
 public interface CapteurDao {
     Capteur GetActualTempAndHumidity();
-    JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin);
+    JSONArray GetAllSensorsInfoWithDates(String date_debut, String heure_debut, String date_fin, String heure_fin, Integer id_salle);
     Capteur GetActualAllSensorsInfo();
+
 }
