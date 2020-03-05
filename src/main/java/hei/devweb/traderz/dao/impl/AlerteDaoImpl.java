@@ -149,6 +149,9 @@ public class AlerteDaoImpl implements AlerteDao {
             queryLikeStatement += " OR etage.nom_etage LIKE " + "'%" + word_input + "%'\n";
             queryLikeStatement += " OR salle.nom_salle LIKE " + "'%" + word_input + "%'\n";
             queryLikeStatement += " OR p.nom_personne LIKE " +  "'%" + word_input + "%'\n";
+            queryLikeStatement += " OR alerte.titre LIKE " +  "'%" + word_input + "%'\n";
+            queryLikeStatement += " OR alerte.message LIKE " +  "'%" + word_input + "%'\n";
+            queryLikeStatement += " OR alerte.date LIKE " +  "'%" + word_input + "%'\n";
             queryLikeStatement += " OR p.prenom_personne LIKE " +  "'%" + word_input + "%'\n)";
         }
 

@@ -8,6 +8,7 @@ import hei.devweb.traderz.managers.Formulaire_Partie1_Manager;
 import hei.devweb.traderz.managers.Formulaire_Partie2_Manager;
 import hei.devweb.traderz.managers.Formulaire_Partie3_Manager;
 import hei.devweb.traderz.managers.UserManager;
+import org.json.simple.JSONArray;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -17,7 +18,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(urlPatterns = {"/Admin/Stats_Formulaire"})
@@ -31,6 +34,23 @@ public class StatsFormulaireServlet extends PrivateServlet{
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
 
         List<Formulaire_Partie1> liste_form_partie_1 = Formulaire_Partie1_Manager.getInstance().GetAllFormPartie1();
+
+
+//   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE GESTION DU CSV    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        Date date = new Date();
+        String today= new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+        String debut_date = ((debut_date = req.getParameter("debut_date")) != null) ? debut_date : "2020-01-01";
+        String fin_date = ((fin_date = req.getParameter("fin_date")) != null) ? fin_date : today;
+
+        JSONArray array_of_all_questionnaire_info = Formulaire_Partie1_Manager.getInstance().GetAllQuestionnairesInfoWithDates(debut_date, fin_date);
+
+        context.setVariable("debut_date", debut_date);
+        context.setVariable("fin_date", fin_date);
+        context.setVariable("array_of_all_questionnaire_info", array_of_all_questionnaire_info);
+
+
+
 
 //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE 1 QUESTIONNAIRE     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //        Q1

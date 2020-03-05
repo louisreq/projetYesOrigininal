@@ -122,13 +122,13 @@
 
             <tbody>
             <tr th:each="alerte:${liste_unchecked_alerte}">
-                <td class="inbox-small-cells">
+                <td width="8%" class="inbox-small-cells">
                     <input type="checkbox" th:id_checkbox_alerte="${alerte.getId()}" class="mail-checkbox">
                 </td>
-                <td class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
-                <td class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
-                <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
-                <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
+                <td width="23%" class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
+                <td width="23%" class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
+                <td width="23%" class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
+                <td width="23%" class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
                 <script type="text/javascript" th:inline="javascript">
                     /*<![CDATA[*/
                     function post(params) {
@@ -191,13 +191,13 @@
 
             <tbody>
             <tr class="unread" th:each="alerte:${liste_checked_alerte}">
-                <td class="inbox-small-cells">
+                <td width="8%" class="inbox-small-cells">
                     <input type="checkbox" th:id_checkbox_alerte="${alerte.getId()}" class="mail-checkbox" checked>
                 </td>
-                <td class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
-                <td class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
-                <td class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
-                <td class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
+                <td width="23%" class="nom" th:text="${alerte.getNom_personne()}">Requillart louis</td>
+                <td width="23%" class="objet_alerte" th:text="${alerte.getTitre()}">Problème de ventilation en S102</td>
+                <td width="23%" class="salle" th:text="${mapping_id_salle_name.get(alerte.getSalle_id())}">S102</td>
+                <td width="23%" class="view-message  text-right" th:text="${alerte.getDatetime()}">20:10 AM</td>
 
                 <script type="text/javascript" th:inline="javascript">
                     /*<![CDATA[*/

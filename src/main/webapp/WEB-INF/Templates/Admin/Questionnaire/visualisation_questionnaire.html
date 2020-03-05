@@ -121,6 +121,62 @@
                 </section>
             </div>
         </div>
+
+<!--        Partie extraction des informations en CSV-->
+        <div>
+            <div class="row">
+                <form method="get" id="form_for_csv_dates" class="form-inline">
+                    <!--                Date début-->
+                    <div class="form-group">
+                        <label for="debut_date" style="font-size: 30px; padding-bottom: 12px;">Du</label>
+                        <input type="date" class="form-control" id="debut_date" name="debut_date" max="2221-01-01" min="2020-01-01"  th:value="${debut_date}" style="margin: 0 5px 15px 5px;">
+                    </div>
+                    <!--                Date fin-->
+                    <div class="form-group">
+                        <label for="fin_date" style="font-size: 30px; padding-bottom: 12px;">Au</label>
+                        <input type="date" class="form-control" id="fin_date" name="fin_date" max="2221-01-01" min="2020-01-01"  th:value="${fin_date}" style="margin: 0 5px 15px 5px;">
+                    </div>
+                    <button id="valider_dates" name="valider_dates" style="margin:0px 5px 15px 15px;"class="btn btn-secondary form-control" type="submit" form="form_for_csv_dates" >Valider</button>
+                </form>
+            </div>
+
+
+            <!-- PARTIE EXTRAIRE LES DONNES SOUS FORMAT CSV -->
+            <section class="row">
+                <br/>
+                <p style="margin-top: 15px;"> Si vous souhaitez extraire les données Qustionnaire dans un Excel sur ce laps de temps:</p>
+                <button onclick="download_csv()" id="extraire_data_csv" name="extraire_data_csv" style="margin-left: 15px;" class="btn btn-secondary">Extraire</button>
+            </section>
+            <!--SCRIPT POUR DOWNLOAD LE CSV -->
+            <script  th:inline="javascript">
+                function download_csv() {
+                    const date_debut = [[${debut_date}]];
+                    const date_fin = [[${fin_date}]];
+                    const titre_csv = "Questionnaire_" + date_debut + "_" + date_fin + ".csv";
+
+                    const data_json_all = '[(${array_of_all_questionnaire_info})]';
+
+                    const json_data_all = JSON.parse(data_json_all);
+
+                    const header = Object.keys(json_data_all[0]);
+
+                    console.log(header);
+                    const replacer = (key, value) => value === null ? '' : value;
+                    let csv = json_data_all.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+                    csv.unshift(header.join(','));
+                    csv = csv.join('\r\n');
+                    console.log(csv);
+
+                    console.log(csv);
+                    var hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = titre_csv;
+                    hiddenElement.click();
+                }
+
+            </script>
+        </div>
     </section>
     <br/>
     <section class="row">

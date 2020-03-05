@@ -209,3 +209,58 @@ INNER JOIN capteur c ON (s.id_rasberry = c.id)
 INNER JOIN capteur_salle cs ON (c.nom_capteur = cs.nom_capteur AND cs.date_debut < dateheurFIN AND (isnull(cs.date_fin) OR cs.date_fin > dateheureDEBUT) )
 
 WHERE cs.salle_id = id_de_notre_salle
+
+
+
+select
+	p.email,
+    e.age,
+    e.commune,
+    e.date_creation,
+    e.diplome,
+    e.domaine,
+    e.parent,
+    e.sexe,
+    e.situation,
+    e.mot1, e.mot2, e.mot3,
+    info.actions_publiques_ameliorer_qualite_air,
+    info.aeration_logement,
+    info.effet_pollution_air_sante,
+    info.eviter_trafic_velo,
+    info.frequence_aeration_logement,
+    info.impact_air_pollue_organe,
+    info.impact_sante,
+    info.moyens_air_sain_exter,
+    info.moyens_air_sain_inter,
+    info.pics_pollution,
+    info.pollution,
+    info.precautions_pic_pollution,
+    info.prev_quotidien_q_air_ext,
+    info.q_air_general,
+    info.q_air_quartier,
+    info.recommandation_proteger_pollution_quotidienne,
+    info.remarques,
+    info.saison_pollue,
+    info.sources_pollution_air_exter,
+    info.sources_pollution_air_inter,
+    info.sport,
+    info.sport_route_trafic,
+    ss.air_agreable,
+    ss.air_sensation,
+    ss.capteur_temp,
+    ss.climat_salle,
+    ss.dist_fenetre,
+    ss.dist_ventilo,
+    ss.odeur,
+    ss.poussiere,
+    ss.q_air_hei,
+    ss.q_air_salle,
+    ss.symptomes,
+    ss.temp_sensation
+
+from personne p
+inner join enquete e ON (p.id = e.id_user)
+inner join info_sensibilisation info ON (p.id = info.id_user AND e.date_creation = info.date_creation)
+inner join sensation_salles ss ON (p.id = ss.id_user AND info.date_creation = ss.date_creation)
+
+
