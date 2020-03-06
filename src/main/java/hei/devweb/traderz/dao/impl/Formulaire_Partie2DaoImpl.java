@@ -13,12 +13,14 @@ import java.util.List;
 
 public class Formulaire_Partie2DaoImpl implements Formulaire_Partie2Dao {
 
-    public List<Formulaire_Partie2> GetAllFormPartie2() {
+    public List<Formulaire_Partie2> GetAllFormPartie2(String date_debut, String date_fin) {
 
         List<Formulaire_Partie2> Liste_form_partie_2 = new ArrayList<>();
 
-        String query = "SELECT * FROM sensation_salles";
-
+        String query = "SELECT * FROM sensation_salles ss\n" +
+                "where date(ss.date_creation) >= '" + date_debut + "'\n" +
+                " and date(ss.date_creation) <= '" + date_fin + "'";
+        System.out.println(query);
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
 

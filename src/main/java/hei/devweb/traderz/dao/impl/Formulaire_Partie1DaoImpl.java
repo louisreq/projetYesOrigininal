@@ -15,12 +15,15 @@ import java.util.List;
 
 public class Formulaire_Partie1DaoImpl implements Formulaire_Partie1Dao {
 
-    public List<Formulaire_Partie1> GetAllFormPartie1() {
+    public List<Formulaire_Partie1> GetAllFormPartie1(String date_debut, String date_fin) {
 
         List<Formulaire_Partie1> Liste_form_partie_1 = new ArrayList<>();
 
-        String query = "SELECT * FROM enquete GROUP BY id_user";
-
+        String query = "SELECT * FROM enquete e \n" +
+                "where date(e.date_creation) >= '" + date_debut + "'\n" +
+                " and date(e.date_creation) <= '" + date_fin + "'" +
+                "  GROUP BY id_user\n";
+        System.out.println(query);
         try (Connection connection = DataSourceProvider.getDataSource().getConnection();
              PreparedStatement statement = (connection).prepareStatement(query)) {
 

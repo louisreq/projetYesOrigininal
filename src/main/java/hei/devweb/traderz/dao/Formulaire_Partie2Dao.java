@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface Formulaire_Partie2Dao {
 
-    public List<Formulaire_Partie2> GetAllFormPartie2();
+    List<Formulaire_Partie2> GetAllFormPartie2(String date_debut, String date_fin);
 
 }

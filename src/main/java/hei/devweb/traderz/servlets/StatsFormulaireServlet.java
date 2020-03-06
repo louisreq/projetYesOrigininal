@@ -33,7 +33,6 @@ public class StatsFormulaireServlet extends PrivateServlet{
 
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
 
-        List<Formulaire_Partie1> liste_form_partie_1 = Formulaire_Partie1_Manager.getInstance().GetAllFormPartie1();
 
 
 //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE GESTION DU CSV    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -53,6 +52,8 @@ public class StatsFormulaireServlet extends PrivateServlet{
 
 
 //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE 1 QUESTIONNAIRE     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        List<Formulaire_Partie1> liste_form_partie_1 = Formulaire_Partie1_Manager.getInstance().GetAllFormPartie1(debut_date, fin_date);
+
 //        Q1
         Integer nbr_homme = 0;
         Integer nbr_femme = 0;
@@ -242,7 +243,7 @@ public class StatsFormulaireServlet extends PrivateServlet{
 
 //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE 2 QUESTIONNAIRE     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-    List<Formulaire_Partie2> liste_form_partie2 = Formulaire_Partie2_Manager.getInstance().GetAllFormPartie2();
+    List<Formulaire_Partie2> liste_form_partie2 = Formulaire_Partie2_Manager.getInstance().GetAllFormPartie2(debut_date, fin_date);
 
 //    Q°9
     Integer nbr_q_air_hei_bonne = 0;
@@ -583,7 +584,7 @@ public class StatsFormulaireServlet extends PrivateServlet{
 
         //   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>     PARTIE 2 QUESTIONNAIRE     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-        List<Formulaire_Partie3> liste_form_partie3 = Formulaire_Partie3_Manager.getInstance().GetAllFormPartie3();
+        List<Formulaire_Partie3> liste_form_partie3 = Formulaire_Partie3_Manager.getInstance().GetAllFormPartie3(debut_date, fin_date);
 
         Integer reponse_totale = 0;
 //        Q°22

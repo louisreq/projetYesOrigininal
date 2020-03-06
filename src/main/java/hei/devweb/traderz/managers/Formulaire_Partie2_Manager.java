@@ -17,7 +17,7 @@ public class Formulaire_Partie2_Manager {
 
     private Formulaire_Partie2DaoImpl formulaire_partie2Dao = new Formulaire_Partie2DaoImpl();
 
-    public List<Formulaire_Partie2> GetAllFormPartie2(){return formulaire_partie2Dao.GetAllFormPartie2();}
+    public List<Formulaire_Partie2> GetAllFormPartie2(String date_debut, String date_fin){return formulaire_partie2Dao.GetAllFormPartie2(date_debut, date_fin);}
 
 
 
