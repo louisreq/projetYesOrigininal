@@ -25,6 +25,8 @@ public class HomeServlet extends PrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
+
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
         String user_searched_from_salle = (String) req.getSession().getAttribute("user_searched_from_salle");

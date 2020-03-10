@@ -15,6 +15,8 @@ import java.io.IOException;
 public class MdpOublieServlet extends PrivateServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
+
 //        String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
 //        System.out.println("\n\n This is a test in doget\n\n");
 //        System.out.println("User connected email value : " + user_connected_email);

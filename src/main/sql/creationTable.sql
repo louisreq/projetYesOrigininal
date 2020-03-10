@@ -234,6 +234,8 @@ CREATE TABLE `user_has_favoris` (
 
 INSERT INTO `user_has_favoris` VALUES (2,3,0,26),(3,3,1,24),(4,3,0,29),(7,4,1,22),(8,3,1,7),(10,16,1,7),(11,4,1,24),(13,4,1,29),(14,4,1,1),(16,3,1,5),(19,3,1,9),(20,3,1,3),(21,3,0,38),(22,4,1,11);
 
+
+
 #  EN DESSOUS SONT DES TABLES CREE PRECEDEMMENT PAR LA STAGIAIRE? PEUT-ETRE UTILE DANS LE FUTUR
 #     I   I   I   I   I   I   I   I   I   I   I   I   I   I   I   I   I   I   I   I
 --    V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V   V

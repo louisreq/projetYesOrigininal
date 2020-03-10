@@ -25,6 +25,7 @@ public class SalleServlet extends PrivateServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
 
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
         String id_selected_salle = req.getParameter("id_selected_salle");

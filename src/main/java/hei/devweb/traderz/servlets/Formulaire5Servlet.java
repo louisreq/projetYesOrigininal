@@ -15,6 +15,8 @@ import java.io.IOException;
 public class Formulaire5Servlet extends PrivateServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
+
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
         WebContext context = new WebContext(req, resp, req.getServletContext());
 

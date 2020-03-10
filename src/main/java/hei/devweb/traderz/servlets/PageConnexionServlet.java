@@ -21,6 +21,8 @@ public class PageConnexionServlet extends PrivateServlet {
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
         System.out.println("\n\n This is a test in doget\n\n");
         System.out.println("User connected email value : " + user_connected_email);
+        resp.setContentType("text/html;charset=utf-8");
+
 
         if (user_connected_email == null) { // l'utilisateur n'est pas connecté
             WebContext context = new WebContext(req, resp, req.getServletContext());

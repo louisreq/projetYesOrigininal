@@ -22,6 +22,7 @@ public class PageInscriptionServlet extends PrivateServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
 
 
         WebContext context = new WebContext (req, resp, req.getServletContext());

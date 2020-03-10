@@ -21,6 +21,8 @@ import java.util.List;
 public class AddFavoriServlet extends PrivateServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=utf-8");
+
 
         String user_connected_email = (String) req.getSession().getAttribute("user_connected_email");
         User user = UserManager.getInstance().CreateUserFromEmail(user_connected_email); // Nous permet d'acceder à toutes les informations de l'utilisateur connecté en session
